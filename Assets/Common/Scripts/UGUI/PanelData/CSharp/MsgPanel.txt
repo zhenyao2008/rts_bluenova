@@ -1,0 +1,6 @@
+/MsgPanel/Back
+/MsgPanel/TopBg
+/MsgPanel/#txt_title
+/MsgPanel/#btn_confirm/Text
+/MsgPanel/#btn_confirm
+/MsgPanel/#txt_msg

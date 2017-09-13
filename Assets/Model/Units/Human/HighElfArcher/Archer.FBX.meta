@@ -1,0 +1,369 @@
+fileFormatVersion: 2
+guid: f22e62973f8fdab4fa943c45aa2abf96
+timeCreated: 1441258405
+licenseType: Pro
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: _M3_Anim_Data
+    100002: //RootNode
+    100004: Archer1
+    100006: Archer2
+    100008: Archer3
+    100010: Archer4
+    100012: Arrow
+    100014: Bone_Arm1_L
+    100016: Bone_Arm1_R
+    100018: Bone_Arm2_L
+    100020: Bone_Arm2_R
+    100022: Bone_Chest
+    100024: Bone_Foot_L
+    100026: Bone_Foot_R
+    100028: Bone_Hand_L
+    100030: Bone_Head
+    100032: Bone_Leg1_L
+    100034: Bone_Leg1_R
+    100036: Bone_Leg2_L
+    100038: Bone_Leg2_R
+    100040: Bone_Pelvis
+    100042: Bone_Root
+    100044: Box01
+    100046: Box02
+    100048: Box08
+    100050: Box12
+    100052: Chest Ref
+    100054: Cylinder02
+    100056: 'Foot Left Ref '
+    100058: 'Foot Right Ref '
+    100060: gutz00
+    100062: Hair A
+    100064: Hair B
+    100066: Hair C
+    100068: 'Hand Left Ref '
+    100070: 'Hand Right Ref '
+    100072: Head mesh
+    100074: Head Ref
+    100076: m3bone_root
+    100078: Mesh01
+    100080: Mesh03
+    100082: Mesh04x
+    100084: Mesh05
+    100086: Mesh06
+    100088: Mesh08
+    100090: Mesh09x
+    100092: Mesh10x
+    100094: Mesh11
+    100096: Mesh12
+    100098: Mesh13
+    100100: Mesh17
+    100102: Mesh18
+    100104: Mesh23
+    100106: Object01
+    100108: Object02
+    100110: Object03
+    100112: Object04
+    100114: Object05
+    100116: Object06
+    100118: Object07
+    100120: Object08
+    100122: 'Origin Ref '
+    100124: 'OverHead Ref '
+    100126: Weapon Ref
+    400000: _M3_Anim_Data
+    400002: //RootNode
+    400004: Archer1
+    400006: Archer2
+    400008: Archer3
+    400010: Archer4
+    400012: Arrow
+    400014: Bone_Arm1_L
+    400016: Bone_Arm1_R
+    400018: Bone_Arm2_L
+    400020: Bone_Arm2_R
+    400022: Bone_Chest
+    400024: Bone_Foot_L
+    400026: Bone_Foot_R
+    400028: Bone_Hand_L
+    400030: Bone_Head
+    400032: Bone_Leg1_L
+    400034: Bone_Leg1_R
+    400036: Bone_Leg2_L
+    400038: Bone_Leg2_R
+    400040: Bone_Pelvis
+    400042: Bone_Root
+    400044: Box01
+    400046: Box02
+    400048: Box08
+    400050: Box12
+    400052: Chest Ref
+    400054: Cylinder02
+    400056: 'Foot Left Ref '
+    400058: 'Foot Right Ref '
+    400060: gutz00
+    400062: Hair A
+    400064: Hair B
+    400066: Hair C
+    400068: 'Hand Left Ref '
+    400070: 'Hand Right Ref '
+    400072: Head mesh
+    400074: Head Ref
+    400076: m3bone_root
+    400078: Mesh01
+    400080: Mesh03
+    400082: Mesh04x
+    400084: Mesh05
+    400086: Mesh06
+    400088: Mesh08
+    400090: Mesh09x
+    400092: Mesh10x
+    400094: Mesh11
+    400096: Mesh12
+    400098: Mesh13
+    400100: Mesh17
+    400102: Mesh18
+    400104: Mesh23
+    400106: Object01
+    400108: Object02
+    400110: Object03
+    400112: Object04
+    400114: Object05
+    400116: Object06
+    400118: Object07
+    400120: Object08
+    400122: 'Origin Ref '
+    400124: 'OverHead Ref '
+    400126: Weapon Ref
+    2300000: Archer3
+    2300002: Archer4
+    3300000: Archer3
+    3300002: Archer4
+    4300000: Archer1
+    4300002: Archer2
+    4300004: Archer3
+    4300006: Archer4
+    7400000: Take 001
+    9500000: //RootNode
+    13700000: Archer1
+    13700002: Archer2
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Take 001
+      takeName: Take 001
+      firstFrame: 0
+      lastFrame: 6229.00049
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: _M3_Anim_Data
+        weight: 1
+      - path: Archer1
+        weight: 1
+      - path: Archer2
+        weight: 1
+      - path: m3bone_root
+        weight: 1
+      - path: m3bone_root/Arrow
+        weight: 1
+      - path: m3bone_root/Arrow/Archer3
+        weight: 1
+      - path: m3bone_root/Bone_Root
+        weight: 1
+      - path: m3bone_root/Bone_Root/Bone_Chest
+        weight: 1
+      - path: m3bone_root/Bone_Root/Bone_Chest/Bone_Arm1_L
+        weight: 1
+      - path: m3bone_root/Bone_Root/Bone_Chest/Bone_Arm1_L/Bone_Arm2_L
+        weight: 1
+      - path: m3bone_root/Bone_Root/Bone_Chest/Bone_Arm1_L/Bone_Arm2_L/Bone_Hand_L
+        weight: 1
+      - path: 'm3bone_root/Bone_Root/Bone_Chest/Bone_Arm1_L/Bone_Arm2_L/Bone_Hand_L/Hand
+          Left Ref '
+        weight: 1
+      - path: m3bone_root/Bone_Root/Bone_Chest/Bone_Arm1_L/Bone_Arm2_L/Bone_Hand_L/Object04
+        weight: 1
+      - path: m3bone_root/Bone_Root/Bone_Chest/Bone_Arm1_L/Bone_Arm2_L/Bone_Hand_L/Object04/Cylinder02
+        weight: 1
+      - path: m3bone_root/Bone_Root/Bone_Chest/Bone_Arm1_L/Bone_Arm2_L/Bone_Hand_L/Object04/Cylinder02/Box01
+        weight: 1
+      - path: m3bone_root/Bone_Root/Bone_Chest/Bone_Arm1_L/Bone_Arm2_L/Bone_Hand_L/Object04/Cylinder02/Box02
+        weight: 1
+      - path: m3bone_root/Bone_Root/Bone_Chest/Bone_Arm1_L/Bone_Arm2_L/Bone_Hand_L/Object04/Cylinder02/Box12
+        weight: 1
+      - path: m3bone_root/Bone_Root/Bone_Chest/Bone_Arm1_L/Bone_Arm2_L/Bone_Hand_L/Object04/Cylinder02/Mesh03
+        weight: 1
+      - path: m3bone_root/Bone_Root/Bone_Chest/Bone_Arm1_L/Bone_Arm2_L/Bone_Hand_L/Object04/Cylinder02/Weapon
+          Ref
+        weight: 1
+      - path: m3bone_root/Bone_Root/Bone_Chest/Bone_Arm1_L/Bone_Arm2_L/Mesh09x
+        weight: 1
+      - path: m3bone_root/Bone_Root/Bone_Chest/Bone_Arm1_L/Mesh10x
+        weight: 1
+      - path: m3bone_root/Bone_Root/Bone_Chest/Bone_Arm1_R
+        weight: 1
+      - path: m3bone_root/Bone_Root/Bone_Chest/Bone_Arm1_R/Bone_Arm2_R
+        weight: 1
+      - path: 'm3bone_root/Bone_Root/Bone_Chest/Bone_Arm1_R/Bone_Arm2_R/Hand Right
+          Ref '
+        weight: 1
+      - path: m3bone_root/Bone_Root/Bone_Chest/Bone_Arm1_R/Bone_Arm2_R/Mesh11
+        weight: 1
+      - path: m3bone_root/Bone_Root/Bone_Chest/Bone_Arm1_R/Mesh12
+        weight: 1
+      - path: m3bone_root/Bone_Root/Bone_Chest/Bone_Arm1_R/Mesh12/Object08
+        weight: 1
+      - path: m3bone_root/Bone_Root/Bone_Chest/Bone_Arm1_R/Mesh12/Object08/Object07
+        weight: 1
+      - path: m3bone_root/Bone_Root/Bone_Chest/Bone_Arm1_R/Mesh12/Object08/Object07/Object06
+        weight: 1
+      - path: m3bone_root/Bone_Root/Bone_Chest/Bone_Arm1_R/Mesh12/Object08/Object07/Object06/Object01
+        weight: 1
+      - path: m3bone_root/Bone_Root/Bone_Chest/Bone_Head
+        weight: 1
+      - path: m3bone_root/Bone_Root/Bone_Chest/Bone_Head/Head mesh
+        weight: 1
+      - path: m3bone_root/Bone_Root/Bone_Chest/Bone_Head/Head mesh/Hair A
+        weight: 1
+      - path: m3bone_root/Bone_Root/Bone_Chest/Bone_Head/Head mesh/Hair A/Hair B
+        weight: 1
+      - path: m3bone_root/Bone_Root/Bone_Chest/Bone_Head/Head mesh/Hair A/Hair B/Hair
+          C
+        weight: 1
+      - path: m3bone_root/Bone_Root/Bone_Chest/Bone_Head/Head mesh/Head Ref
+        weight: 1
+      - path: m3bone_root/Bone_Root/Bone_Chest/Box08
+        weight: 1
+      - path: m3bone_root/Bone_Root/Bone_Chest/Box08/Mesh18
+        weight: 1
+      - path: m3bone_root/Bone_Root/Bone_Chest/Box08/Mesh18/Mesh17
+        weight: 1
+      - path: m3bone_root/Bone_Root/Bone_Chest/Box08/Mesh18/Mesh17/Mesh01
+        weight: 1
+      - path: m3bone_root/Bone_Root/Bone_Chest/Box08/Mesh18/Mesh17/Mesh01/Object05
+        weight: 1
+      - path: m3bone_root/Bone_Root/Bone_Chest/Chest Ref
+        weight: 1
+      - path: m3bone_root/Bone_Root/Bone_Chest/Mesh23
+        weight: 1
+      - path: m3bone_root/Bone_Root/Bone_Pelvis
+        weight: 1
+      - path: m3bone_root/Bone_Root/Bone_Pelvis/Bone_Leg1_L
+        weight: 1
+      - path: m3bone_root/Bone_Root/Bone_Pelvis/Bone_Leg1_L/Bone_Leg2_L
+        weight: 1
+      - path: m3bone_root/Bone_Root/Bone_Pelvis/Bone_Leg1_L/Bone_Leg2_L/Bone_Foot_L
+        weight: 1
+      - path: 'm3bone_root/Bone_Root/Bone_Pelvis/Bone_Leg1_L/Bone_Leg2_L/Bone_Foot_L/Foot
+          Left Ref '
+        weight: 1
+      - path: m3bone_root/Bone_Root/Bone_Pelvis/Bone_Leg1_L/Bone_Leg2_L/Bone_Foot_L/Object03
+        weight: 1
+      - path: m3bone_root/Bone_Root/Bone_Pelvis/Bone_Leg1_L/Bone_Leg2_L/Mesh04x
+        weight: 1
+      - path: m3bone_root/Bone_Root/Bone_Pelvis/Bone_Leg1_L/Mesh08
+        weight: 1
+      - path: m3bone_root/Bone_Root/Bone_Pelvis/Bone_Leg1_R
+        weight: 1
+      - path: m3bone_root/Bone_Root/Bone_Pelvis/Bone_Leg1_R/Bone_Leg2_R
+        weight: 1
+      - path: m3bone_root/Bone_Root/Bone_Pelvis/Bone_Leg1_R/Bone_Leg2_R/Bone_Foot_R
+        weight: 1
+      - path: 'm3bone_root/Bone_Root/Bone_Pelvis/Bone_Leg1_R/Bone_Leg2_R/Bone_Foot_R/Foot
+          Right Ref '
+        weight: 1
+      - path: m3bone_root/Bone_Root/Bone_Pelvis/Bone_Leg1_R/Bone_Leg2_R/Bone_Foot_R/Object02
+        weight: 1
+      - path: m3bone_root/Bone_Root/Bone_Pelvis/Bone_Leg1_R/Bone_Leg2_R/Mesh05
+        weight: 1
+      - path: m3bone_root/Bone_Root/Bone_Pelvis/Bone_Leg1_R/Mesh06
+        weight: 1
+      - path: m3bone_root/Bone_Root/Bone_Pelvis/Mesh13
+        weight: 1
+      - path: m3bone_root/gutz00
+        weight: 1
+      - path: m3bone_root/gutz00/Archer4
+        weight: 1
+      - path: 'm3bone_root/Origin Ref '
+        weight: 1
+      - path: 'm3bone_root/OverHead Ref '
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

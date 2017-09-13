@@ -1,0 +1,144 @@
+fileFormatVersion: 2
+guid: 88e5a7754b19f75438523899b1bcc8af
+timeCreated: 1443503302
+licenseType: Pro
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: _M3_Anim_Data
+    100002: //RootNode
+    100004: HumanLumberMill1
+    100006: HumanLumberMill10
+    100008: HumanLumberMill11
+    100010: HumanLumberMill12
+    100012: HumanLumberMill13
+    100014: HumanLumberMill14
+    100016: HumanLumberMill2
+    100018: HumanLumberMill3
+    100020: HumanLumberMill4
+    100022: HumanLumberMill5
+    100024: HumanLumberMill6
+    100026: HumanLumberMill7
+    100028: HumanLumberMill8
+    100030: HumanLumberMill9
+    400000: _M3_Anim_Data
+    400002: //RootNode
+    400004: HumanLumberMill1
+    400006: HumanLumberMill10
+    400008: HumanLumberMill11
+    400010: HumanLumberMill12
+    400012: HumanLumberMill13
+    400014: HumanLumberMill14
+    400016: HumanLumberMill2
+    400018: HumanLumberMill3
+    400020: HumanLumberMill4
+    400022: HumanLumberMill5
+    400024: HumanLumberMill6
+    400026: HumanLumberMill7
+    400028: HumanLumberMill8
+    400030: HumanLumberMill9
+    2300000: HumanLumberMill1
+    2300002: HumanLumberMill10
+    2300004: HumanLumberMill11
+    2300006: HumanLumberMill12
+    2300008: HumanLumberMill13
+    2300010: HumanLumberMill14
+    2300012: HumanLumberMill2
+    2300014: HumanLumberMill3
+    2300016: HumanLumberMill4
+    2300018: HumanLumberMill5
+    2300020: HumanLumberMill6
+    2300022: HumanLumberMill7
+    2300024: HumanLumberMill8
+    2300026: HumanLumberMill9
+    3300000: HumanLumberMill1
+    3300002: HumanLumberMill10
+    3300004: HumanLumberMill11
+    3300006: HumanLumberMill12
+    3300008: HumanLumberMill13
+    3300010: HumanLumberMill14
+    3300012: HumanLumberMill2
+    3300014: HumanLumberMill3
+    3300016: HumanLumberMill4
+    3300018: HumanLumberMill5
+    3300020: HumanLumberMill6
+    3300022: HumanLumberMill7
+    3300024: HumanLumberMill8
+    3300026: HumanLumberMill9
+    4300000: HumanLumberMill1
+    4300002: HumanLumberMill2
+    4300004: HumanLumberMill3
+    4300006: HumanLumberMill4
+    4300008: HumanLumberMill5
+    4300010: HumanLumberMill6
+    4300012: HumanLumberMill7
+    4300014: HumanLumberMill8
+    4300016: HumanLumberMill9
+    4300018: HumanLumberMill10
+    4300020: HumanLumberMill11
+    4300022: HumanLumberMill12
+    4300024: HumanLumberMill13
+    4300026: HumanLumberMill14
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

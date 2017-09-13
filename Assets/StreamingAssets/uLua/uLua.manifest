@@ -1,0 +1,12 @@
+ManifestFileVersion: 0
+AssetBundleManifest:
+  AssetBundleInfos:
+    Info_0:
+      Name: uluavariables.lua
+      Dependencies: {}
+    Info_1:
+      Name: uluaentrance.lua
+      Dependencies: {}
+    Info_2:
+      Name: uluacitypanel.lua
+      Dependencies: {}

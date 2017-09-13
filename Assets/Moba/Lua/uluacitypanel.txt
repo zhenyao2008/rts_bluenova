@@ -1,0 +1,61 @@
+function OnSettingButtonClick()
+	CityPanelGameObject.name = "abcd"
+end
+
+function OnShopButtonClick()
+	CityShopPanelRoot.gameObject:SetActive(true)
+	root:SetActive (false)
+end
+
+function OnBattleButtonClick()
+
+end
+
+
+function Init()
+    CityShopPanelRoot = CityShopPanelGameObject.transform:Find("root")
+    root=CityPanelGameObject.transform:Find("root")
+    
+    shopButton = CityPanelGameObject.transform:Find("root/Shop"):GetComponent("Button")
+    shopButton.onClick:AddListener(OnShopButtonClick)
+    
+    battleButton = CityPanelGameObject.transform:Find("root/Shop"):GetComponent("Button")
+    battleButton.onClick:AddListener(OnBattleButtonClick);
+    
+	userName = CityPanelGameObject.transform:Find("root/UserInfo/Slider/UserName"):GetComponent("Text")
+	userName.text = userInfo.userName
+	userLevel = CityPanelGameObject.transform:Find("root/UserInfo/Slider/UserLevel"):GetComponent("Text")
+	userLevel.text = userInfo.userLevel
+	userExp = CityPanelGameObject.transform:Find("root/UserInfo/Slider/UserExp"):GetComponent("Text")
+	userExp.text = userInfo.userExp
+	workNum = CityPanelGameObject.transform:Find("root/UserInfo/Slider1/WorkNum"):GetComponent("Text")
+	workNum.text = userInfo.workNum.."/5";
+	protectTime = CityPanelGameObject.transform:Find("root/UserInfo/Slider2/ProtectTime"):GetComponent("Text")
+	protectTime.text = userInfo.protectTime / 3600 .. "小时" .. userInfo.protectTime % 3600 / 60 .. "分钟";
+	
+	cornSlider = CityPanelGameObject.transform:Find("root/UserInfo/Slider3"):GetComponent("Slider")
+	cornSlider.value = userInfo.currentCorn / userInfo.maxCorn
+	currentCorn = CityPanelGameObject.transform:Find("root/UserInfo/Slider3/CurrentCorn"):GetComponent("Text")
+	currentCorn.text = userInfo.currentCorn;
+	maxCorn = CityPanelGameObject.transform:Find("root/UserInfo/Slider3/MaxCorn"):GetComponent("Text")
+	maxCorn.text=userInfo.maxCorn;
+	
+	woodSlider = CityPanelGameObject.transform:Find("root/UserInfo/Slider4"):GetComponent("Slider")
+	woodSlider.value = userInfo.currentWood / userInfo.maxWood
+	currentWood = CityPanelGameObject.transform:Find("root/UserInfo/Slider4/CurrentWood"):GetComponent("Text")
+	currentWood.text = userInfo.currentWood
+	maxWood = CityPanelGameObject.transform:Find("root/UserInfo/Slider4/MaxWood"):GetComponent("Text")
+	maxWood.text = userInfo.maxWood;
+	
+	currentStone = CityPanelGameObject.transform:Find("root/UserInfo/Slider5/CurrentStone"):GetComponent("Text")
+	maxStone = CityPanelGameObject.transform:Find("root/UserInfo/Slider5/MaxStone"):GetComponent("Text")
+	stoneSlider = CityPanelGameObject.transform:Find("root/UserInfo/Slider5"):GetComponent("Slider")
+	currentStone.text = userInfo.currentStone
+	maxStone.text = userInfo.maxStone
+	stoneSlider.value = userInfo.currentStone / userInfo.maxStone
+end
+
+
+function doClick()
+     print('Button Click:>>>')
+end
