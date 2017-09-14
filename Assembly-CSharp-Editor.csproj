@@ -1,0 +1,599 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.20506</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <RootNamespace></RootNamespace>
+    <ProjectGuid>{40C75740-D065-2E3F-93F5-7ED23CC77A5C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <AssemblyName>Assembly-CSharp-Editor</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <BaseDirectory>Assets</BaseDirectory>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Temp\bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_5_2;UNITY_5_5;UNITY_5;UNITY_64;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_DUCK_TYPING;ENABLE_GENERICS;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_SPRITERENDERER_FLIPPING;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_RAKNET;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;INCLUDE_DYNAMIC_GI;INCLUDE_GI;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;INCLUDE_PUBNUB;ENABLE_PLAYMODE_TESTS_RUNNER;ENABLE_SCRIPTING_NEW_CSHARP_COMPILER;UNITY_STANDALONE_OSX;UNITY_STANDALONE;ENABLE_SUBSTANCE;ENABLE_GAMECENTER;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITYWEBREQUEST;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_VIDEO;ENABLE_VR;ENABLE_CLUSTERINPUT;ENABLE_WEBSOCKET_HOST;ENABLE_MONO;ENABLE_PROFILER;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_OSX;UNITY_TEAM_LICENSE;UNITY_PRO_LICENSE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoWarn>0169</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Temp\bin\Release\</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoWarn>0169</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.XML" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="UnityEngine">
+      <HintPath>/Applications/Unity5.5.2f1-1/Unity.app/Contents/Managed/UnityEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor">
+      <HintPath>/Applications/Unity5.5.2f1-1/Unity.app/Contents/Managed/UnityEditor.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+     <Compile Include="Assets\Common\Scripts\CSV\Editor\CreateClassFromCSV.cs" />
+     <Compile Include="Assets\Common\Scripts\Config\Editor\CreateConfigConstFromFile.cs" />
+     <Compile Include="Assets\Common\Scripts\Config\Editor\CreateSysConstFromFile.cs" />
+     <Compile Include="Assets\Common\Scripts\Editor\ViewExport.cs" />
+     <Compile Include="Assets\Moba\Scripts\Editor\AssetBundleWindow.cs" />
+     <Compile Include="Assets\Moba\Scripts\Editor\CopyLightMapInfoWindow.cs" />
+     <Compile Include="Assets\Moba\Scripts\Editor\HTGUILayout.cs" />
+     <Compile Include="Assets\Moba\Scripts\Editor\LightParam.cs" />
+     <Compile Include="Assets\Moba\Scripts\Editor\SceneEditorWindow\AnimationClipImporter.cs" />
+     <Compile Include="Assets\Moba\Scripts\Editor\SceneEditorWindow\AnimationEventConvert.cs" />
+     <Compile Include="Assets\Moba\Scripts\Editor\SceneEditorWindow\ModelAnimationEventSerializeble.cs" />
+     <Compile Include="Assets\Moba\Scripts\Editor\SceneEditorWindow\ModelImporterProcesser.cs" />
+     <Compile Include="Assets\Moba\Scripts\Editor\SceneEditorWindow\SceneEditorWindow.cs" />
+     <Compile Include="Assets\Moba\builtin_shaders-5.2.2f1\Editor\StandardShaderGUI.cs" />
+     <Compile Include="Assets\ThirdPart\EasyTouchBundle\EasyTouch\Plugins\Editor\EasyTouchInspector.cs" />
+     <Compile Include="Assets\ThirdPart\EasyTouchBundle\EasyTouch\Plugins\Editor\EasyTouchMenu.cs" />
+     <Compile Include="Assets\ThirdPart\EasyTouchBundle\EasyTouch\Plugins\Editor\EasyTouchTriggerInspector.cs" />
+     <Compile Include="Assets\ThirdPart\EasyTouchBundle\EasyTouch\Plugins\Editor\EasytouchHierachyCallBack.cs" />
+     <Compile Include="Assets\ThirdPart\EasyTouchBundle\EasyTouch\Plugins\Editor\HTGuiTools.cs" />
+     <Compile Include="Assets\ThirdPart\EasyTouchBundle\EasyTouchControls\Plugins\Editor\ETCAreaInspector.cs" />
+     <Compile Include="Assets\ThirdPart\EasyTouchBundle\EasyTouchControls\Plugins\Editor\ETCAxisInspector.cs" />
+     <Compile Include="Assets\ThirdPart\EasyTouchBundle\EasyTouchControls\Plugins\Editor\ETCButtonInspector.cs" />
+     <Compile Include="Assets\ThirdPart\EasyTouchBundle\EasyTouchControls\Plugins\Editor\ETCDPadInspector.cs" />
+     <Compile Include="Assets\ThirdPart\EasyTouchBundle\EasyTouchControls\Plugins\Editor\ETCGuiTools.cs" />
+     <Compile Include="Assets\ThirdPart\EasyTouchBundle\EasyTouchControls\Plugins\Editor\ETCJoystickInspector.cs" />
+     <Compile Include="Assets\ThirdPart\EasyTouchBundle\EasyTouchControls\Plugins\Editor\ETCMenu.cs" />
+     <Compile Include="Assets\ThirdPart\EasyTouchBundle\EasyTouchControls\Plugins\Editor\ETCTouchPadInspector.cs" />
+     <Compile Include="Assets\ThirdPart\MagicProjectiles\KunaiEditor\Editor\KunaiEditor.cs" />
+     <Compile Include="Assets\ThirdPart\NGUI\Examples\Scripts\InventorySystem\Editor\InvDatabaseInspector.cs" />
+     <Compile Include="Assets\ThirdPart\NGUI\Examples\Scripts\InventorySystem\Editor\InvFindItem.cs" />
+     <Compile Include="Assets\ThirdPart\NGUI\Scripts\Editor\ActiveAnimationEditor.cs" />
+     <Compile Include="Assets\ThirdPart\NGUI\Scripts\Editor\BMFontReader.cs" />
+     <Compile Include="Assets\ThirdPart\NGUI\Scripts\Editor\ComponentSelector.cs" />
+     <Compile Include="Assets\ThirdPart\NGUI\Scripts\Editor\EventDelegateDrawer.cs" />
+     <Compile Include="Assets\ThirdPart\NGUI\Scripts\Editor\EventDelegateEditor.cs" />
+     <Compile Include="Assets\ThirdPart\NGUI\Scripts\Editor\FreeType.cs" />
+     <Compile Include="Assets\ThirdPart\NGUI\Scripts\Editor\NGUIContextMenu.cs" />
+     <Compile Include="Assets\ThirdPart\NGUI\Scripts\Editor\NGUIEditorExtensions.cs" />
+     <Compile Include="Assets\ThirdPart\NGUI\Scripts\Editor\NGUIEditorTools.cs" />
+     <Compile Include="Assets\ThirdPart\NGUI\Scripts\Editor\NGUIHandles.cs" />
+     <Compile Include="Assets\ThirdPart\NGUI\Scripts\Editor\NGUIHelp.cs" />
+     <Compile Include="Assets\ThirdPart\NGUI\Scripts\Editor\NGUIJson.cs" />
+     <Compile Include="Assets\ThirdPart\NGUI\Scripts\Editor\NGUIMenu.cs" />
+     <Compile Include="Assets\ThirdPart\NGUI\Scripts\Editor\NGUISelectionTools.cs" />
+     <Compile Include="Assets\ThirdPart\NGUI\Scripts\Editor\NGUISettings.cs" />
+     <Compile Include="Assets\ThirdPart\NGUI\Scripts\Editor\NGUISnap.cs" />
+     <Compile Include="Assets\ThirdPart\NGUI\Scripts\Editor\NGUITransformInspector.cs" />
+     <Compile Include="Assets\ThirdPart\NGUI\Scripts\Editor\PropertyBindingEditor.cs" />
+     <Compile Include="Assets\ThirdPart\NGUI\Scripts\Editor\PropertyReferenceDrawer.cs" />
+     <Compile Include="Assets\ThirdPart\NGUI\Scripts\Editor\SpriteSelector.cs" />
+     <Compile Include="Assets\ThirdPart\NGUI\Scripts\Editor\TweenAlphaEditor.cs" />
+     <Compile Include="Assets\ThirdPart\NGUI\Scripts\Editor\TweenColorEditor.cs" />
+     <Compile Include="Assets\ThirdPart\NGUI\Scripts\Editor\TweenFOVEditor.cs" />
+     <Compile Include="Assets\ThirdPart\NGUI\Scripts\Editor\TweenHeightEditor.cs" />
+     <Compile Include="Assets\ThirdPart\NGUI\Scripts\Editor\TweenOrthoSizeEditor.cs" />
+     <Compile Include="Assets\ThirdPart\NGUI\Scripts\Editor\TweenPositionEditor.cs" />
+     <Compile Include="Assets\ThirdPart\NGUI\Scripts\Editor\TweenRotationEditor.cs" />
+     <Compile Include="Assets\ThirdPart\NGUI\Scripts\Editor\TweenScaleEditor.cs" />
+     <Compile Include="Assets\ThirdPart\NGUI\Scripts\Editor\TweenTransformEditor.cs" />
+     <Compile Include="Assets\ThirdPart\NGUI\Scripts\Editor\TweenVolumeEditor.cs" />
+     <Compile Include="Assets\ThirdPart\NGUI\Scripts\Editor\TweenWidthEditor.cs" />
+     <Compile Include="Assets\ThirdPart\NGUI\Scripts\Editor\TypewriterEffectEditor.cs" />
+     <Compile Include="Assets\ThirdPart\NGUI\Scripts\Editor\UI2DSpriteEditor.cs" />
+     <Compile Include="Assets\ThirdPart\NGUI\Scripts\Editor\UIAnchorEditor.cs" />
+     <Compile Include="Assets\ThirdPart\NGUI\Scripts\Editor\UIAtlasInspector.cs" />
+     <Compile Include="Assets\ThirdPart\NGUI\Scripts\Editor\UIAtlasMaker.cs" />
+     <Compile Include="Assets\ThirdPart\NGUI\Scripts\Editor\UIBasicSpriteEditor.cs" />
+     <Compile Include="Assets\ThirdPart\NGUI\Scripts\Editor\UIButtonColorEditor.cs" />
+     <Compile Include="Assets\ThirdPart\NGUI\Scripts\Editor\UIButtonEditor.cs" />
+     <Compile Include="Assets\ThirdPart\NGUI\Scripts\Editor\UIButtonKeysEditor.cs" />
+     <Compile Include="Assets\ThirdPart\NGUI\Scripts\Editor\UIButtonMessageEditor.cs" />
+     <Compile Include="Assets\ThirdPart\NGUI\Scripts\Editor\UICameraEditor.cs" />
+     <Compile Include="Assets\ThirdPart\NGUI\Scripts\Editor\UICameraTool.cs" />
+     <Compile Include="Assets\ThirdPart\NGUI\Scripts\Editor\UIColorPickerEditor.cs" />
+     <Compile Include="Assets\ThirdPart\NGUI\Scripts\Editor\UICreateNewUIWizard.cs" />
+     <Compile Include="Assets\ThirdPart\NGUI\Scripts\Editor\UICreateWidgetWizard.cs" />
+     <Compile Include="Assets\ThirdPart\NGUI\Scripts\Editor\UIDragObjectEditor.cs" />
+     <Compile Include="Assets\ThirdPart\NGUI\Scripts\Editor\UIDrawCallInspector.cs" />
+     <Compile Include="Assets\ThirdPart\NGUI\Scripts\Editor\UIDrawCallViewer.cs" />
+     <Compile Include="Assets\ThirdPart\NGUI\Scripts\Editor\UIEventTriggerEditor.cs" />
+     <Compile Include="Assets\ThirdPart\NGUI\Scripts\Editor\UIFontInspector.cs" />
+     <Compile Include="Assets\ThirdPart\NGUI\Scripts\Editor\UIFontMaker.cs" />
+     <Compile Include="Assets\ThirdPart\NGUI\Scripts\Editor\UIForwardEventsEditor.cs" />
+     <Compile Include="Assets\ThirdPart\NGUI\Scripts\Editor\UIGridEditor.cs" />
+     <Compile Include="Assets\ThirdPart\NGUI\Scripts\Editor\UIImageButtonInspector.cs" />
+     <Compile Include="Assets\ThirdPart\NGUI\Scripts\Editor\UIInputEditor.cs" />
+     <Compile Include="Assets\ThirdPart\NGUI\Scripts\Editor\UIKeyNavigationEditor.cs" />
+     <Compile Include="Assets\ThirdPart\NGUI\Scripts\Editor\UILabelInspector.cs" />
+     <Compile Include="Assets\ThirdPart\NGUI\Scripts\Editor\UILocalizeEditor.cs" />
+     <Compile Include="Assets\ThirdPart\NGUI\Scripts\Editor\UIPanelInspector.cs" />
+     <Compile Include="Assets\ThirdPart\NGUI\Scripts\Editor\UIPanelTool.cs" />
+     <Compile Include="Assets\ThirdPart\NGUI\Scripts\Editor\UIPlayAnimationEditor.cs" />
+     <Compile Include="Assets\ThirdPart\NGUI\Scripts\Editor\UIPlayTweenEditor.cs" />
+     <Compile Include="Assets\ThirdPart\NGUI\Scripts\Editor\UIPopupListInspector.cs" />
+     <Compile Include="Assets\ThirdPart\NGUI\Scripts\Editor\UIPrefabTool.cs" />
+     <Compile Include="Assets\ThirdPart\NGUI\Scripts\Editor\UIProgressBarEditor.cs" />
+     <Compile Include="Assets\ThirdPart\NGUI\Scripts\Editor\UIRectEditor.cs" />
+     <Compile Include="Assets\ThirdPart\NGUI\Scripts\Editor\UIRootEditor.cs" />
+     <Compile Include="Assets\ThirdPart\NGUI\Scripts\Editor\UIScrollBarEditor.cs" />
+     <Compile Include="Assets\ThirdPart\NGUI\Scripts\Editor\UIScrollViewEditor.cs" />
+     <Compile Include="Assets\ThirdPart\NGUI\Scripts\Editor\UISliderEditor.cs" />
+     <Compile Include="Assets\ThirdPart\NGUI\Scripts\Editor\UISnapshotPointEditor.cs" />
+     <Compile Include="Assets\ThirdPart\NGUI\Scripts\Editor\UISpriteAnimationInspector.cs" />
+     <Compile Include="Assets\ThirdPart\NGUI\Scripts\Editor\UISpriteInspector.cs" />
+     <Compile Include="Assets\ThirdPart\NGUI\Scripts\Editor\UIStretchEditor.cs" />
+     <Compile Include="Assets\ThirdPart\NGUI\Scripts\Editor\UITableEditor.cs" />
+     <Compile Include="Assets\ThirdPart\NGUI\Scripts\Editor\UITextureInspector.cs" />
+     <Compile Include="Assets\ThirdPart\NGUI\Scripts\Editor\UITexturePacker.cs" />
+     <Compile Include="Assets\ThirdPart\NGUI\Scripts\Editor\UIToggleInspector.cs" />
+     <Compile Include="Assets\ThirdPart\NGUI\Scripts\Editor\UITweenerEditor.cs" />
+     <Compile Include="Assets\ThirdPart\NGUI\Scripts\Editor\UIWidgetContainerEditor.cs" />
+     <Compile Include="Assets\ThirdPart\NGUI\Scripts\Editor\UIWidgetInspector.cs" />
+     <Compile Include="Assets\ThirdPart\NGUI\Scripts\Editor\UIWrapContentEditor.cs" />
+     <Compile Include="Assets\ThirdPart\PlayMaker\Actions\Editor\LookAtActionEditor.cs" />
+     <Compile Include="Assets\ThirdPart\PlayMaker\Actions\Editor\MoveTowardsActionEditor.cs" />
+     <Compile Include="Assets\ThirdPart\PlayMaker\Actions\Editor\SetCameraFOVActionEditor.cs" />
+     <Compile Include="Assets\ThirdPart\PlayMaker\Editor\AboutWindow.cs" />
+     <Compile Include="Assets\ThirdPart\PlayMaker\Editor\ContextToolWindow.cs" />
+     <Compile Include="Assets\ThirdPart\PlayMaker\Editor\FsmActionWindow.cs" />
+     <Compile Include="Assets\ThirdPart\PlayMaker\Editor\FsmComponentInspector.cs" />
+     <Compile Include="Assets\ThirdPart\PlayMaker\Editor\FsmEditorHelpers.cs" />
+     <Compile Include="Assets\ThirdPart\PlayMaker\Editor\FsmEditorWindow.cs" />
+     <Compile Include="Assets\ThirdPart\PlayMaker\Editor\FsmErrorWindow.cs" />
+     <Compile Include="Assets\ThirdPart\PlayMaker\Editor\FsmEventsWindow.cs" />
+     <Compile Include="Assets\ThirdPart\PlayMaker\Editor\FsmGlobalsWindow.cs" />
+     <Compile Include="Assets\ThirdPart\PlayMaker\Editor\FsmLogWindow.cs" />
+     <Compile Include="Assets\ThirdPart\PlayMaker\Editor\FsmSelectorWindow.cs" />
+     <Compile Include="Assets\ThirdPart\PlayMaker\Editor\FsmStateWindow.cs" />
+     <Compile Include="Assets\ThirdPart\PlayMaker\Editor\FsmTemplate.cs" />
+     <Compile Include="Assets\ThirdPart\PlayMaker\Editor\FsmTemplateEditor.cs" />
+     <Compile Include="Assets\ThirdPart\PlayMaker\Editor\FsmTemplateWindow.cs" />
+     <Compile Include="Assets\ThirdPart\PlayMaker\Editor\PlayMakerAutoUpdater.cs" />
+     <Compile Include="Assets\ThirdPart\PlayMaker\Editor\PlayMakerBugReportWindow.cs" />
+     <Compile Include="Assets\ThirdPart\PlayMaker\Editor\PlayMakerCustomActionWizard.cs" />
+     <Compile Include="Assets\ThirdPart\PlayMaker\Editor\PlayMakerGUIInspector.cs" />
+     <Compile Include="Assets\ThirdPart\PlayMaker\Editor\PlayMakerGlobalsInspector.cs" />
+     <Compile Include="Assets\ThirdPart\PlayMaker\Editor\PlayMakerMainMenu.cs" />
+     <Compile Include="Assets\ThirdPart\PlayMaker\Editor\PlayMakerUpgradeGuide.cs" />
+     <Compile Include="Assets\ThirdPart\PlayMaker\Editor\PlayMakerWelcomeWindow.cs" />
+     <Compile Include="Assets\ThirdPart\PlayMaker\Editor\ReportWindow.cs" />
+     <Compile Include="Assets\ThirdPart\iTween\PlayMaker\Editor\iTweenMoveToActionEditor.cs" />
+     <Compile Include="Assets\uLua\Editor\BindLua.cs" />
+     <Compile Include="Assets\uLua\Editor\WelcomeScreen.cs" />
+     <Compile Include="Assets\uLua\Editor\Wrap\ToLua_System_Delegate.cs" />
+     <Compile Include="Assets\uLua\Editor\Wrap\ToLua_System_Enum.cs" />
+     <Compile Include="Assets\uLua\Editor\Wrap\ToLua_System_Object.cs" />
+     <Compile Include="Assets\uLua\Editor\Wrap\ToLua_System_String.cs" />
+     <Compile Include="Assets\uLua\Editor\Wrap\ToLua_System_Type.cs" />
+     <Compile Include="Assets\uLua\Editor\Wrap\ToLua_UnityEngine_Object.cs" />
+     <Compile Include="Assets\uLua\Editor\WrapFile.cs" />
+     <None Include="Assets\Common\Scripts\UGUI\PanelData\Lua\CardItemPanel.txt" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\CGIncludes\UnityBuiltin2xTreeLibrary.cginc" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\Unlit\Unlit-Alpha.shader" />
+     <None Include="Assets\Moba\ArtResources\Shader\OverlayBlendAlpha.shader" />
+     <None Include="Assets\ThirdPart\NGUI\Examples\Shaders\Unlit - Depth Cutout.shader" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\CGIncludes\HLSLSupport.cginc" />
+     <None Include="Assets\ThirdPart\NGUI\ReadMe - 3.9.0.txt" />
+     <None Include="Assets\Common\Scripts\UGUI\PanelData\Lua\BuildInfoPanel.txt" />
+     <None Include="Assets\ThirdPart\NGUI\Resources\Shaders\Unlit - Transparent Masked 1.shader" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\CGIncludes\UnityLightingCommon.cginc" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\Particle Multiply.shader" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\Illumin-Glossy.shader" />
+     <None Include="Assets\ThirdPart\Simple RPG Camera\Demo\Sources\Shaders\Toony-Basic.shader" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\CGIncludes\UnityShaderVariables.cginc" />
+     <None Include="Assets\ThirdPart\NGUI\Resources\Shaders\Unlit - Text 2.shader" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\Illumin-Bumped.shader" />
+     <None Include="Assets\uLua\README.txt" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\Nature\TreeCreator\TreeCreatorLeavesRendertex.shader" />
+     <None Include="Assets\ThirdPart\NGUI\Resources\Shaders\Unlit - Transparent Masked 2.shader" />
+     <None Include="Assets\ThirdPart\NGUI\Examples\Models\Orc\Orc Skin.shader" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\Cubemaps\CubeBlurOdd.shader" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\Standard.shader" />
+     <None Include="Assets\Moba\Prefabs\Effects\Explosion_Dead_New\Shader\OutlineAlphaCutout.shader" />
+     <None Include="Assets\ThirdPart\NGUI\Examples\Atlases\Wooden\Arimo20.txt" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\Normal-ParallaxSpec.shader" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\UI\UI-Lit-Bumped.shader" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\CGIncludes\UnityBuiltin3xTreeLibrary.cginc" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\Skybox-Procedural.shader" />
+     <None Include="Assets\ThirdPart\NGUI\Examples\Atlases\Wooden\Arimo14.txt" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\Nature\SoftOcclusion\TreeSoftOcclusionBarkRendertex.shader" />
+     <None Include="Assets\Moba\Lua\uluavariables.txt" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\CGIncludes\UnityCG.cginc" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\UI\UI-Unlit-TextDetail.shader" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\Sprites-Diffuse.shader" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\CGIncludes\UnityDeferredLibrary.cginc" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\TerrainShaders\Splats\Standard-Base.shader" />
+     <None Include="Assets\ThirdPart\PlayMaker\Readme.txt" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\TerrainShaders\Details\WavingGrassBillboard.shader" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\Decal.shader" />
+     <None Include="Assets\Moba\Shader\Mobile-Diffuse-Rim.shader" />
+     <None Include="Assets\ThirdPart\RtsCamera\README.txt" />
+     <None Include="Assets\ThirdPart\NGUI\Resources\Shaders\Unlit - Text 1.shader" />
+     <None Include="Assets\ThirdPart\NGUI\Resources\Shaders\Unlit - Premultiplied Colored (TextureClip).shader" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\Lightmap-Glossy.shader" />
+     <None Include="Assets\Moba\ArtResources\Models\Unlit-Normal.shader" />
+     <None Include="Assets\Common\Scripts\UGUI\Templates\LuaXmlData.txt" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResources\Font.shader" />
+     <None Include="Assets\ThirdPart\NGUI\Resources\Shaders\Unlit - Transparent Colored (Packed) (TextureClip).shader" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResources\Internal-Clear.shader" />
+     <None Include="Assets\ThirdPart\NGUI\Resources\Shaders\Unlit - Transparent Colored 2.shader" />
+     <None Include="Assets\Moba\Prefabs\muzzleFlash\Shaders\Fx\Additive.shader" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\AlphaTest-SoftEdgeUnlit.shader" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\Mobile\Mobile-BumpSpec-1DirectionalLight.shader" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResources\Internal-GUITexture.shader" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\Flare.shader" />
+     <None Include="Assets\Moba\Prefabs\Effects\Explosion_Dead_New\Sci-Fi Effects\Shaders\Heat.shader" />
+     <None Include="Assets\ThirdPart\NGUI\Examples\Shaders\Unlit - Masked Colored.shader" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResources\Camera-DepthNormalTexture.shader" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\Nature\TreeCreator\TreeCreatorLeaves.shader" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\Alpha-ParallaxSpec.shader" />
+     <None Include="Assets\Common\Scripts\UGUI\PanelData\Lua\CardPanel.txt" />
+     <None Include="Assets\ThirdPart\NGUI\Resources\Shaders\Unlit - Premultiplied Colored 3.shader" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\CGIncludes\UnityStandardConfig.cginc" />
+     <None Include="Assets\Common\Scripts\UGUI\PanelData\CSharp\TeamListPanel.txt" />
+     <None Include="Assets\Moba\Resources\Configs\SysConfig\UserConfig.txt" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\CGIncludes\UnityStandardMeta.cginc" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\CGIncludes\UnityStandardShadow.cginc" />
+     <None Include="Assets\ThirdPart\NGUI\Examples\Atlases\Wooden\Arimo18.txt" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\Mobile\Mobile-Particle-Add.shader" />
+     <None Include="Assets\Common\Scripts\UGUI\PanelData\CSharp\MsgPanel.txt" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\UI\UI-Lit-RefractionDetail.shader" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\Unlit\Unlit-Color.shader" />
+     <None Include="Assets\Common\Scripts\UGUI\Config.txt" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\Alpha-Parallax.shader" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\Nature\TreeCreator\TreeCreatorLeavesFast.shader" />
+     <None Include="Assets\Common\Scripts\UGUI\PanelData\Lua\BattleInterfacePanel.txt" />
+     <None Include="Assets\Moba\Resources\Configs\NewSysConfig\SystemConfig.txt" />
+     <None Include="Assets\ThirdPart\Simple RPG Camera\Documentation\readme.txt" />
+     <None Include="Assets\Model\Building\War3Building.shader" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\UI\UI-Unlit-Text.shader" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\Particle AddMultiply.shader" />
+     <None Include="Assets\Common\Scripts\UGUI\PanelData\CSharp\ShopPanel.txt" />
+     <None Include="Assets\Moba\Shader\Mobile-Transparent Rim Only.shader" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\Particle MultiplyDouble.shader" />
+     <None Include="Assets\ThirdPart\NGUI\Resources\Shaders\Unlit - Transparent Colored (TextureClip).shader" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\Mobile\Mobile-Particle-Alpha.shader" />
+     <None Include="Assets\Test\MagicProjectiles - ReadMe.txt" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\UI\UI-DefaultFont.shader" />
+     <None Include="Assets\ThirdPart\MOBA and Tower Defense\info.txt" />
+     <None Include="Assets\ThirdPart\NGUI\Examples\Atlases\SciFi\SciFi Font - Header.txt" />
+     <None Include="Assets\Common\Scripts\UGUI\PanelData\CSharp\LoginPanel.txt" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\Normal-Glossy.shader" />
+     <None Include="Assets\Common\Scripts\UGUI\PanelData\CSharp\AchivementPanel.txt" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\AlphaTest-Glossy.shader" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\Nature\SpeedTreeBillboard.shader" />
+     <None Include="Assets\ThirdPart\EasyTouchBundle\EasyTouchControls\ReleaseNotes.txt" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\Nature\SoftOcclusion\TreeSoftOcclusionBark.shader" />
+     <None Include="Assets\Common\Scripts\UGUI\Templates\C#PanelView.txt" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\Particle Alpha Blend.shader" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\TerrainShaders\Details\WavingGrass.shader" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\CGIncludes\Lighting.cginc" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\CGIncludes\Tessellation.cginc" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\UI\UI-Lit-Detail.shader" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\Illumin-ParallaxSpec.shader" />
+     <None Include="Assets\Moba\Shader\Mobile-Diffuse-Outline.shader" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\CGIncludes\UnityGlobalIllumination.cginc" />
+     <None Include="Assets\uLua\Examples\A4_ButtonClick\ReadMe.txt" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\TerrainShaders\Trees\BillboardTree.shader" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\Reflect-BumpSpec.shader" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\Mobile\Mobile-Particle-Multiply.shader" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\Illumin-Diffuse.shader" />
+     <None Include="Assets\ThirdPart\NGUI\Resources\Shaders\Unlit - Transparent Masked 3.shader" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\CGIncludes\TerrainSplatmapCommon.cginc" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\CGIncludes\SpeedTreeCommon.cginc" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\CGIncludes\TerrainEngine.cginc" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\Cubemaps\CubeCopy.shader" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\Illumin-BumpSpec.shader" />
+     <None Include="Assets\Moba\Prefabs\Effects\Explosion_Dead_New\Shader\VertexColor.shader" />
+     <None Include="Assets\Plugins\Xffect\Resources\Shaders\AdvanceShader\xft_mask_additive.shader" />
+     <None Include="Assets\ThirdPart\NGUI\Resources\Shaders\Unlit - Transparent Colored 1.shader" />
+     <None Include="Assets\Moba\Prefabs\Effects\Explosion_Dead_New\Shader\OverlayBlendAlpha.shader" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\Normal-Parallax.shader" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResources\Internal-BlitCopy.shader" />
+     <None Include="Assets\ThirdPart\NGUI\Examples\Atlases\Fantasy\Fantasy Font - Normal.txt" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\CGIncludes\UnityMetaPass.cginc" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResources\Internal-SplashShadowReceiverSimple.shader" />
+     <None Include="Assets\ThirdPart\NGUI\Resources\Shaders\Unlit - Transparent Colored 3.shader" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\TerrainShaders\Splats\Standard-FirstPass.shader" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\Nature\TreeCreator\TreeCreatorBark.shader" />
+     <None Include="Assets\ThirdPart\NGUI\Examples\Atlases\Refractive\Refractive Font - Normal.txt" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\Normal-BumpSpec.shader" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\Particle Blend.shader" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\Illumin-Parallax.shader" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\GIDebug\UV1sAsPositions.shader" />
+     <None Include="Assets\ThirdPart\NGUI\Resources\Shaders\Unlit - Premultiplied Colored 2.shader" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\Particle Add.shader" />
+     <None Include="Assets\Common\Scripts\UGUI\PanelData\Lua\ResearchPanel.txt" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\Reflect-ParallaxSpec.shader" />
+     <None Include="Assets\ThirdPart\Simple RPG Camera\Demo\Sources\Shaders\Toony-BasicOutline.shader" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\GIDebug\TextureUV.shader" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResources\Internal-Colored.shader" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\StandardSpecular.shader" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\CGIncludes\UnityStandardCore.cginc" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\Mobile\Mobile-Lightmap-Unlit.shader" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\TerrainShaders\Splats\AddPass.shader" />
+     <None Include="Assets\ThirdPart\NGUI\Resources\Shaders\Unlit - Text 3.shader" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\Mobile\Mobile-BumpSpec.shader" />
+     <None Include="Assets\Moba\Scripts\Core\Panel\readme.txt" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\UI\UI-Unlit-Detail.shader" />
+     <None Include="Assets\ThirdPart\NGUI\Resources\Shaders\Unlit - Transparent Packed 2.shader" />
+     <None Include="Assets\ThirdPart\EasyTouchBundle\Readme.txt" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\Internal-DeferredShading.shader" />
+     <None Include="Assets\Moba\Prefabs\Effects\Explosion_Dead_New\Shader\OutlineAlphaColored.shader" />
+     <None Include="Assets\Common\Scripts\UGUI\PanelData\CSharp\SettingPanel.txt" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\Normal-DiffuseFast.shader" />
+     <None Include="Assets\Moba\Shader\Mobile-Transparent.shader" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResources\Internal-GUITextureClip.shader" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\Nature\TreeCreator\TreeCreatorBarkOptimized.shader" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\CGIncludes\UnityStandardUtils.cginc" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResources\Internal-Flare.shader" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\Mobile\Mobile-Diffuse.shader" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\Nature\TreeCreator\TreeCreatorLeavesFastOptimized.shader" />
+     <None Include="Assets\ThirdPart\NGUI\Resources\Shaders\Unlit - Transparent Packed 1.shader" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\TerrainShaders\Splats\Specular-FirstPass.shader" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\Normal-DiffuseDetail.shader" />
+     <None Include="Assets\ThirdPart\NGUI\Resources\Shaders\Unlit - Premultiplied Colored 1.shader" />
+     <None Include="Assets\Moba\ArtResources\Models\ArmyPilot\ArmyPilot.skeleton.xml" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\Particle Premultiply Blend.shader" />
+     <None Include="Assets\Model\Building\War3Building1.shader" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResources\Internal-SplashShadowCaster.shader" />
+     <None Include="Assets\Moba\Resources\Configs\SysConfig\BaseConfig.txt" />
+     <None Include="Assets\ThirdPart\NGUI\Resources\Shaders\Unlit - Premultiplied Colored.shader" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\Alpha-Glossy.shader" />
+     <None Include="Assets\ThirdPart\Simple RPG Camera\Demo\Sources\Shaders\ToonTerrain.shader" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\Internal-PrePassLighting.shader" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\CGIncludes\UnityStandardBRDF.cginc" />
+     <None Include="Assets\ThirdPart\Simple RPG Camera\Demo\Sources\Shaders\Toony-LightedOutline.shader" />
+     <None Include="Assets\ThirdPart\Simple RPG Camera\Demo\Sources\Shaders\Toony-Lighted.shader" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\AlphaTest-VertexLit.shader" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\Nature\TreeCreator\TreeCreatorLeavesOptimized.shader" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\Illumin-VertexLit.shader" />
+     <None Include="Assets\ThirdPart\NGUI\Resources\Shaders\Unlit - Transparent Colored.shader" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\Mobile\Mobile-Bumped.shader" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\UI\UI-Lit-Transparent.shader" />
+     <None Include="Assets\Common\Scripts\UGUI\PanelData\Lua\MaskPanel.txt" />
+     <None Include="Assets\ThirdPart\Simple RPG Camera\Demo\Sources\Shaders\Toony-LightedOutline-Transparent.shader" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\CGIncludes\UnityStandardInput.cginc" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\CGIncludes\SpeedTreeVertex.cginc" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\Skybox.shader" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\CGIncludes\UnityUI.cginc" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\UI\UI-Default.shader" />
+     <None Include="Assets\Common\Scripts\UGUI\PanelData\CSharp\PlayerListPanel.txt" />
+     <None Include="Assets\ThirdPart\iTween\ReadMe!\ReadMe!.txt" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\Particle AddSmooth.shader" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResources\Sprites-Default.shader" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\CGIncludes\SpeedTreeWind.cginc" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\Cubemaps\CubeBlend.shader" />
+     <None Include="Assets\Moba\Prefabs\Outline3.shader" />
+     <None Include="Assets\Moba\Prefabs\Buildings\Human\Outline.shader" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\Reflect-BumpVertexLit.shader" />
+     <None Include="Assets\ThirdPart\NGUI\Resources\Shaders\Unlit - Text.shader" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\GIDebug\VertexColors.shader" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\CGIncludes\UnityPBSLighting.cginc" />
+     <None Include="Assets\Moba\Prefabs\Edges.shader" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\Mobile\Mobile-Particle-Alpha-VertexLit.shader" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\Skybox-Cubed.shader" />
+     <None Include="Assets\Common\Scripts\UGUI\PanelData\Lua\MainInterfacePanel.txt" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\TerrainShaders\Splats\Specular-Base.shader" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\Nature\SoftOcclusion\TreeSoftOcclusionLeaves.shader" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\Lightmap-Bumped.shader" />
+     <None Include="Assets\ThirdPart\NGUI\Resources\Shaders\Unlit - Transparent Packed.shader" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\CGIncludes\SpeedTreeBillboardCommon.cginc" />
+     <None Include="Assets\Common\Scripts\UGUI\PanelData\Lua\LoginPanel.txt" />
+     <None Include="Assets\ThirdPart\NGUI\Resources\Shaders\Unlit - Transparent Packed 3.shader" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\Reflect-Diffuse.shader" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\AlphaTest-Diffuse.shader" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\TerrainShaders\Details\VertexLit.shader" />
+     <None Include="Assets\Test\link.xml" />
+     <None Include="Assets\BoomBeach\Prefabs\UI\Shaders\GrayShader.shader" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResources\Internal-PrePassCollectShadows.shader" />
+     <None Include="Assets\ThirdPart\PlayMaker\Resources\PlayMakerAssemblies.txt" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\Alpha-BumpSpec.shader" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResources\Internal-GUITextureClipText.shader" />
+     <None Include="Assets\Moba\ArtResources\Models\ArmyPilot\ArmyPilot.mesh.xml" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\Cubemaps\CubeBlur.shader" />
+     <None Include="Assets\uLua\Lua\System\readme.txt" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\Alpha-VertexLit.shader" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\Mobile\Mobile-VertexLit.shader" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\Mobile\Mobile-Skybox.shader" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResources\Internal-ErrorShader.shader" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\Reflect-Glossy.shader" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\AlphaTest-BumpSpec.shader" />
+     <None Include="Assets\Moba\Prefabs\Effects\Explosion_Dead_New\Shader\AlphaVertexColored.shader" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\Nature\TreeCreator\TreeCreatorBarkRendertex.shader" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResources\Internal-CombineDepthNormals.shader" />
+     <None Include="Assets\Moba\ArtResources\Shader\SimpleTexture.shader" />
+     <None Include="Assets\Moba\Shader\Mobile-Diffuse-RimWithBump.shader" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\Reflect-VertexLit.shader" />
+     <None Include="Assets\ThirdPart\EasyTouchBundle\EasyTouchControls\Readme.txt" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\Reflect-Bumped.shader" />
+     <None Include="Assets\ThirdPart\NGUI\Examples\Shaders\Unlit - Additive Colored.shader" />
+     <None Include="Assets\Model\Building\LightShader1.shader" />
+     <None Include="Assets\Moba\Shader\Mobile-Diffuse-RimTexture.shader" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResources\Internal-SplashShadowReceiver.shader" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\Normal-VertexLit.shader" />
+     <None Include="Assets\Moba\Lua\uluaentrance.txt" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\Normal-Diffuse.shader" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\Nature\SpeedTree.shader" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\Mobile\Mobile-VertexLit-OnlyDirectionalLights.shader" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\UI\UI-Unlit-Transparent.shader" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\Nature\SoftOcclusion\TreeSoftOcclusionLeavesRendertex.shader" />
+     <None Include="Assets\ThirdPart\NGUI\Resources\Shaders\Unlit - Transparent Masked.shader" />
+     <None Include="Assets\ThirdPart\EasyTouchBundle\EasyTouch\RealseNotes.txt" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\Internal-DeferredReflections.shader" />
+     <None Include="Assets\ThirdPart\NGUI\Examples\Atlases\Refractive\Refractive Font - Header.txt" />
+     <None Include="Assets\ThirdPart\NGUI\Examples\Shaders\Refractive.shader" />
+     <None Include="Assets\uLua\Examples\04_ScriptsFromFile\ScriptsFromFile01.lua.txt" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\Particle VertexLit Blended.shader" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\Reflect-Parallax.shader" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\Reflect-BumpNolight.shader" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\Unlit\Unlit-AlphaTest.shader" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\Lightmap-Diffuse.shader" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\Alpha-Bumped.shader" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\Normal-Bumped.shader" />
+     <None Include="Assets\ThirdPart\NGUI\Resources\Shaders\Unlit - Text (TextureClip).shader" />
+     <None Include="Assets\Common\Scripts\UGUI\PanelData\CSharp\MaskPanel.txt" />
+     <None Include="Assets\ThirdPart\RtsCamera\DemoScene\Shaders\Additive.shader" />
+     <None Include="Assets\ThirdPart\NGUI\Examples\Shaders\Unlit - Depth.shader" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\TerrainShaders\Splats\Standard-AddPass.shader" />
+     <None Include="Assets\ThirdPart\MagicProjectiles\KunaiEditor\Editor\Readme.txt" />
+     <None Include="Assets\ThirdPart\NGUI\Examples\Atlases\SciFi\SciFi Font - Normal.txt" />
+     <None Include="Assets\Moba\Lua\uluacitypanel.txt" />
+     <None Include="Assets\ThirdPart\Simple RPG Camera\Demo\Sources\Shaders\Toony-BasicOutline-Transparent.shader" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\UI\UI-Lit-Refraction.shader" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\Unlit\Unlit-Normal.shader" />
+     <None Include="Assets\ThirdPart\Simple RPG Camera\Demo\Sources\Shaders\Toony-Lighted-Transparent.shader" />
+     <None Include="Assets\ThirdPart\Simple RPG Camera\Documentation\changelog.txt" />
+     <None Include="Assets\Moba\Lua\CityPanels.txt" />
+     <None Include="Assets\Common\Scripts\UGUI\PanelData\CSharp\MainInterfacePanel.txt" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\Lightmap-BumpSpec.shader" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\AlphaTest-Bumped.shader" />
+     <None Include="Assets\Moba\Prefabs\Effects\Explosion_Dead_New\Sci-Fi Effects\Shaders\Additive.shader" />
+     <None Include="Assets\Moba\Prefabs\Effects\Explosion_Dead_New\Shader\Outline3.shader" />
+     <None Include="Assets\ThirdPart\NGUI\Examples\Models\Orc Armor\Orc Armor.shader" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResources\Internal-GUITextureBlit.shader" />
+     <None Include="Assets\ThirdPart\NGUI\Examples\Resources\Localization.txt" />
+     <None Include="Assets\Common\Scripts\UGUI\Templates\LuaBinder.txt" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResources\Internal-SplashShadowBlur.shader" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\TerrainShaders\Splats\Specular-AddPass.shader" />
+     <None Include="Assets\Common\Scripts\UGUI\PanelData\Lua\TroopInfoPanel.txt" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResources\Internal-Halo.shader" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\CGIncludes\UnityShadowLibrary.cginc" />
+     <None Include="Assets\Common\Scripts\UGUI\Templates\LuaPanelView.txt" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\CGIncludes\AutoLight.cginc" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\TerrainShaders\Splats\FirstPass.shader" />
+     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\Lightmap-VertexLit.shader" />
+ <Reference Include="Assembly-UnityScript">
+ <HintPath>/Users/yingyugang/MobaSub/Library/ScriptAssemblies/Assembly-UnityScript.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.Advertisements">
+ <HintPath>/Applications/Unity5.5.2f1-1/Unity.app/Contents/UnityExtensions/Unity/Advertisements/Editor/UnityEditor.Advertisements.dll</HintPath>
+ </Reference>
+ <Reference Include="nunit.framework">
+ <HintPath>/Applications/Unity5.5.2f1-1/Unity.app/Contents/UnityExtensions/Unity/EditorTestsRunner/Editor/nunit.framework.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.EditorTestsRunner">
+ <HintPath>/Applications/Unity5.5.2f1-1/Unity.app/Contents/UnityExtensions/Unity/EditorTestsRunner/Editor/UnityEditor.EditorTestsRunner.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.UI">
+ <HintPath>/Applications/Unity5.5.2f1-1/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.UI">
+ <HintPath>/Applications/Unity5.5.2f1-1/Unity.app/Contents/UnityExtensions/Unity/GUISystem/Editor/UnityEditor.UI.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.Networking">
+ <HintPath>/Applications/Unity5.5.2f1-1/Unity.app/Contents/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.Networking">
+ <HintPath>/Applications/Unity5.5.2f1-1/Unity.app/Contents/UnityExtensions/Unity/Networking/Editor/UnityEditor.Networking.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.PlaymodeTestsRunner">
+ <HintPath>/Applications/Unity5.5.2f1-1/Unity.app/Contents/UnityExtensions/Unity/PlaymodeTestsRunner/Editor/UnityEditor.PlaymodeTestsRunner.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.PlaymodeTestsRunner">
+ <HintPath>/Applications/Unity5.5.2f1-1/Unity.app/Contents/UnityExtensions/Unity/PlaymodeTestsRunner/UnityEngine.PlaymodeTestsRunner.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.TreeEditor">
+ <HintPath>/Applications/Unity5.5.2f1-1/Unity.app/Contents/UnityExtensions/Unity/TreeEditor/Editor/UnityEditor.TreeEditor.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.Analytics">
+ <HintPath>/Applications/Unity5.5.2f1-1/Unity.app/Contents/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.Analytics">
+ <HintPath>/Applications/Unity5.5.2f1-1/Unity.app/Contents/UnityExtensions/Unity/UnityAnalytics/Editor/UnityEditor.Analytics.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.HoloLens">
+ <HintPath>/Applications/Unity5.5.2f1-1/Unity.app/Contents/UnityExtensions/Unity/UnityHoloLens/Editor/UnityEditor.HoloLens.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.HoloLens">
+ <HintPath>/Applications/Unity5.5.2f1-1/Unity.app/Contents/UnityExtensions/Unity/UnityHoloLens/RuntimeEditor/UnityEngine.HoloLens.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.VR">
+ <HintPath>/Applications/Unity5.5.2f1-1/Unity.app/Contents/UnityExtensions/Unity/UnityVR/Editor/UnityEditor.VR.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.VR">
+ <HintPath>/Applications/Unity5.5.2f1-1/Unity.app/Contents/UnityExtensions/Unity/UnityVR/RuntimeEditor/UnityEngine.VR.dll</HintPath>
+ </Reference>
+ <Reference Include="Debuger">
+ <HintPath>/Users/yingyugang/MobaSub/Assets/Plugins/Debuger.dll</HintPath>
+ </Reference>
+ <Reference Include="Newtonsoft.Json">
+ <HintPath>/Users/yingyugang/MobaSub/Assets/Plugins/Json/Newtonsoft.Json.dll</HintPath>
+ </Reference>
+ <Reference Include="PlayMaker">
+ <HintPath>/Users/yingyugang/MobaSub/Assets/Plugins/PlayMaker/PlayMaker.dll</HintPath>
+ </Reference>
+ <Reference Include="PlayMakerEditor">
+ <HintPath>/Users/yingyugang/MobaSub/Assets/ThirdPart/PlayMaker/Editor/PlayMakerEditor.dll</HintPath>
+ </Reference>
+ <Reference Include="PlayMakerEditorResources">
+ <HintPath>/Users/yingyugang/MobaSub/Assets/ThirdPart/PlayMaker/Editor/PlayMakerEditorResources.dll</HintPath>
+ </Reference>
+ <Reference Include="PlayMakerEditor.es-ES.resources">
+ <HintPath>/Users/yingyugang/MobaSub/Assets/ThirdPart/PlayMaker/Editor/es-ES/PlayMakerEditor.es-ES.resources.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.Graphs">
+ <HintPath>/Applications/Unity5.5.2f1-1/Unity.app/Contents/Managed/UnityEditor.Graphs.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.Android.Extensions">
+ <HintPath>/Applications/Unity5.5.2f1-1/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.iOS.Extensions">
+ <HintPath>/Applications/Unity5.5.2f1-1/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.WebGL.Extensions">
+ <HintPath>/Applications/Unity5.5.2f1-1/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.OSXStandalone.Extensions">
+ <HintPath>/Applications/Unity5.5.2f1-1/Unity.app/Contents/PlaybackEngines/macstandalonesupport/UnityEditor.OSXStandalone.Extensions.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.iOS.Extensions.Xcode">
+ <HintPath>/Applications/Unity5.5.2f1-1/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.iOS.Extensions.Common">
+ <HintPath>/Applications/Unity5.5.2f1-1/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Common.dll</HintPath>
+ </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp.csproj">
+      <Project>{D750E4AD-9238-E262-E8A6-7588BB7CBCE3}</Project>      <Name>Assembly-CSharp</Name>    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  
+</Project>
