@@ -35,6 +35,8 @@ public class Enemy : UnitBase {
 		nav = GetComponent<UnityEngine.AI.NavMeshAgent> ();
 		mTrans = transform;
 		unitAttribute = GetComponent<UnitAttribute>();
+		mTrans.position = pos;
+		mTrans.rotation = qua;
 		if(!NetworkServer.active)
 		{
 			anim.gameObject.SetActive(false);

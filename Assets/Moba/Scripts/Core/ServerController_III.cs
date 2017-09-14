@@ -285,15 +285,19 @@ public class ServerController_III : NetworkManager {
 			GameObject prefab = spawners[i].GetCurrentPrefab();
 			if(prefab!=null)
 			{
+				prefab.SetActive (false);
 				GameObject go = Instantiate(prefab,  spawners[i].spawnPoint.position, spawners[i].spawnPoint.rotation) as GameObject;
 				Enemy soilder = go.GetComponent<Enemy>();
 				soilder.defaultTarget = target;
-				soilder.pos = spTrans[i].position;
-				soilder.qua = spTrans[i].rotation;
+//				soilder.pos = spTrans[i].position;
+//				soilder.qua = spTrans[i].rotation;
+				soilder.pos = spawners[i].spawnPoint.position;
+				soilder.qua = spawners[i].spawnPoint.rotation;
 				go.layer = layer;
 				soilder.targetLayers.Add(targetLayer);
 				soilder.playerAttribute = playerAttribute;
 				soilder.playerIndex = playerIndex;
+				go.SetActive (true);
 //				soilder.Move(target.position);
 //				soilder.enabled = false;
 //				soilder.GetComponent<NavMeshAgent> ().enabled = false;
