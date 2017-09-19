@@ -63,13 +63,12 @@ public class BuildInfoPanel : MonoBehaviour {
 			go.transform.localPosition = Vector3.zero;
 			go.transform.localEulerAngles = Vector3.zero;
 			go.transform.localScale = levelPrefabScale;
-			go.GetComponent<UnitBase>().anim.wrapMode = WrapMode.Loop;
+			if(go.GetComponent<UnitBase>()!=null && go.GetComponent<UnitBase>().anim!=null)
+				go.GetComponent<UnitBase>().anim.wrapMode = WrapMode.Loop;
 			if(go.GetComponent<UnitBase>().isFlying)
 			{
 				go.transform.localPosition = new Vector3(0,-200,200);
 			}
-
-
 			Destroy(go.GetComponent<UnitBase>());
 			Destroy(go.GetComponent<UnityEngine.AI.NavMeshAgent>());
 			preLevelPrefabs.Add(go);

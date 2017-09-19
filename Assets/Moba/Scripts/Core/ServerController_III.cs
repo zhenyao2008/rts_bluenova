@@ -374,18 +374,13 @@ public class ServerController_III : NetworkManager {
 						playerAttributes[group].corn -= price;
 						if(players[group]!=null)
 							players[group].RefreshCorn();
-
-
 						building.Upgrade();
-
-
-//						players[group].UpgradeBuildingClient(index,building.level);
 					}
 				}
 			}
 		}
 	}
-//
+
 //	bool UpgradeBuildPrice(int playerIndex, SpawnPoint sp){
 //		GameObject go = sp.soilderPrefabs [sp.level + 1];
 //		int price = go.GetComponent<UnitAttribute> ().buildCorn;
@@ -406,7 +401,6 @@ public class ServerController_III : NetworkManager {
 
 	void SpawnBuilding(List<Transform> planes,List<Transform> availablePlanes,int planeIndex,int buildIndex,List<SpawnPoint> spawner,int buildingLayer,int group,List<GameObject> cBuildPrefabs)
 	{
-//		Debug.Log (planeIndex);
 		Transform plane = planes[planeIndex];
 		if(!availablePlanes.Contains(plane))
 		{
@@ -414,8 +408,6 @@ public class ServerController_III : NetworkManager {
 		}
 		availablePlanes.Remove (plane);
 		Transform sp = plane.transform.FindChild("SpawnPoint");
-
-//		SpawnPoint spawnPoint = buildPrefabs[buildIndex].GetComponent<SpawnPoint>();
 		GameObject go = Instantiate(cBuildPrefabs[buildIndex],plane.position,plane.rotation) as GameObject;
 		SpawnPoint spawnPoint = go.GetComponent<SpawnPoint> ();
 		spawnPoint.spawnPoint = sp;

@@ -2,7 +2,7 @@
 using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
-using LuaInterface;
+//using LuaInterface;
 public class CityPanel_I : CityBasePanel_I {
 
 	public Button shopButton;
@@ -105,7 +105,7 @@ public class CityPanel_I : CityBasePanel_I {
 		}
 	}
 
-	LuaState settingButtonClick;
+//	LuaState settingButtonClick;
 	public void OnSettingButtonClick(){
 //		LuaFunction f = settingButtonClick.GetFunction("OnSettingButtonClick");
 //		object[] r = f.Call(gameObject);
