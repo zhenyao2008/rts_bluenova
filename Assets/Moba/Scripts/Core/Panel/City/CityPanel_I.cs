@@ -81,8 +81,6 @@ public class CityPanel_I : CityBasePanel_I {
 //		userExp.text=userInfo.userExp.ToString();
 //		workNum.text=userInfo.workNum.ToString();
 //		System.DateTime dt = new System.DateTime (userInfo.protectTime);
-//
-//
 //		protectTime.text = userInfo.protectTime / 3600 + "小时" + userInfo.protectTime % 3600 / 60 + "分钟";
 //		maxCorn.text=userInfo.maxCorn.ToString();
 //		currentCorn.text=userInfo.currentCorn.ToString();
