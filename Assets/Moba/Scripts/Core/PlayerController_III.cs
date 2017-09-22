@@ -61,14 +61,10 @@ public class PlayerController_III :  NetworkBehaviour,IPlayerController {
 	}
 
 	public void CloseChat(){
-//		rtsCamera.enabled = true;
-//		isChating = false;
 		mChatPanel.Hide ();
 	}
 
 	public void ShowChat(){
-//		rtsCamera.enabled = false;
-//		isChating = true;
 		mChatPanel.Show ();
 	}
 
@@ -506,12 +502,13 @@ public class PlayerController_III :  NetworkBehaviour,IPlayerController {
 		if (rtsCamera != null) {
 			if (index == 0) {
 				this.buildingLayer = 18;
-				rtsCamera.LookAt = new Vector3(11,1.5f,-80);
+				rtsCamera.LookAt = new Vector3(11,1.5f,-80);//TODO set to spawn position.
+
 			}
 			else if(index == 1)
 			{
 				this.buildingLayer = 19;
-				rtsCamera.LookAt = new Vector3(11,1.5f,82.5f);
+				rtsCamera.LookAt = new Vector3(11,1.5f,82.5f);//TODO set to spawn position.
 			}
 		}
 		CmdRequestPlayerInfo ();

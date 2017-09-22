@@ -71,7 +71,18 @@
      <Compile Include="Assets\Common\Scripts\UGUI\Recursive.cs" />
      <Compile Include="Assets\Common\Scripts\UIManager.cs" />
      <Compile Include="Assets\Moba\Prefabs\muzzleFlash\Explosions\Scripts\MuzzleFlashAnimate.cs" />
+     <Compile Include="Assets\Moba\Scripts\Assetbundle\AssetbundleManager.cs" />
      <Compile Include="Assets\Moba\Scripts\BattleFramework\Data\Entity\Unit_Info.cs" />
+     <Compile Include="Assets\Moba\Scripts\CSV\CSVManager.cs" />
+     <Compile Include="Assets\Moba\Scripts\CSV\CSVParser.cs" />
+     <Compile Include="Assets\Moba\Scripts\CSV\structure\BaseCSVStructure.cs" />
+     <Compile Include="Assets\Moba\Scripts\CSV\structure\GeneralCSVStructure.cs" />
+     <Compile Include="Assets\Moba\Scripts\CSV\structure\VersionCSV.cs" />
+     <Compile Include="Assets\Moba\Scripts\Constant\ABConstant.cs" />
+     <Compile Include="Assets\Moba\Scripts\Constant\PathConstant.cs" />
+     <Compile Include="Assets\Moba\Scripts\Constant\SceneConstant.cs" />
+     <Compile Include="Assets\Moba\Scripts\Constant\SoundConstant.cs" />
+     <Compile Include="Assets\Moba\Scripts\Constant\SystemConstant.cs" />
      <Compile Include="Assets\Moba\Scripts\Core\AIController_III.cs" />
      <Compile Include="Assets\Moba\Scripts\Core\BattleServer.cs" />
      <Compile Include="Assets\Moba\Scripts\Core\Building.cs" />
@@ -183,6 +194,8 @@
      <Compile Include="Assets\Moba\Scripts\Data\NetBeans\UnitInfo.cs" />
      <Compile Include="Assets\Moba\Scripts\Data\NetBeans\UserBuilding.cs" />
      <Compile Include="Assets\Moba\Scripts\Data\NetBeans\UserInfo.cs" />
+     <Compile Include="Assets\Moba\Scripts\Download\DownloadManager.cs" />
+     <Compile Include="Assets\Moba\Scripts\Download\Downloader.cs" />
      <Compile Include="Assets\Moba\Scripts\MasterServer\Master.cs" />
      <Compile Include="Assets\Moba\Scripts\MasterServer\NetworkBattleServer.cs" />
      <Compile Include="Assets\Moba\Scripts\MasterServer\NetworkMasterClient.cs" />
@@ -196,14 +209,26 @@
      <Compile Include="Assets\Moba\Scripts\Network\TestAsyncSocketClient2.cs" />
      <Compile Include="Assets\Moba\Scripts\Pool\Pool.cs" />
      <Compile Include="Assets\Moba\Scripts\Pool\PoolManager.cs" />
+     <Compile Include="Assets\Moba\Scripts\ResourcesManager\ResourcesManager.cs" />
      <Compile Include="Assets\Moba\Scripts\Skill\Skill01.cs" />
      <Compile Include="Assets\Moba\Scripts\State\Actions\AttackAction.cs" />
      <Compile Include="Assets\Moba\Scripts\State\Actions\BaseAction.cs" />
+     <Compile Include="Assets\Moba\Scripts\Test\SetLabelFont.cs" />
      <Compile Include="Assets\Moba\Scripts\Test\TestBuildingMenu.cs" />
      <Compile Include="Assets\Moba\Scripts\Test\TestPro.cs" />
      <Compile Include="Assets\Moba\Scripts\Test\TestResourceBuilding.cs" />
+     <Compile Include="Assets\Moba\Scripts\UI\BaseCtrl.cs" />
+     <Compile Include="Assets\Moba\Scripts\UI\PanelBase.cs" />
+     <Compile Include="Assets\Moba\Scripts\UI\Panels\Sample\sample1\Sample1Ctrl.cs" />
+     <Compile Include="Assets\Moba\Scripts\UI\Panels\Sample\sample1\Sample1Panel.cs" />
+     <Compile Include="Assets\Moba\Scripts\UI\Panels\Sample\sample2\Sample2Ctrl.cs" />
+     <Compile Include="Assets\Moba\Scripts\UI\Panels\Sample\sample2\Sample2Panel.cs" />
+     <Compile Include="Assets\Moba\Scripts\UI\UIManager.cs" />
+     <Compile Include="Assets\Moba\Scripts\Utility\Common.cs" />
+     <Compile Include="Assets\Moba\Scripts\Utility\ComponentExtension.cs" />
      <Compile Include="Assets\Moba\Scripts\Utility\CreateCityRecruitItem.cs" />
      <Compile Include="Assets\Moba\Scripts\Utility\Curve.cs" />
+     <Compile Include="Assets\Moba\Scripts\Utility\FileManager.cs" />
      <Compile Include="Assets\Moba\Scripts\Utility\GizmosCube.cs" />
      <Compile Include="Assets\Moba\Scripts\Utility\GreateBuildingSprite.cs" />
      <Compile Include="Assets\Moba\Scripts\Utility\LoadSpawnPoints.cs" />
@@ -212,7 +237,9 @@
      <Compile Include="Assets\Moba\Scripts\Utility\NGUIScreen.cs" />
      <Compile Include="Assets\Moba\Scripts\Utility\ReLoadClient.cs" />
      <Compile Include="Assets\Moba\Scripts\Utility\RotateObj.cs" />
+     <Compile Include="Assets\Moba\Scripts\Utility\SingleMonoBehaviour.cs" />
      <Compile Include="Assets\Moba\Scripts\Utility\StaticBatchObject.cs" />
+     <Compile Include="Assets\Moba\Scripts\Utility\StringExtension.cs" />
      <Compile Include="Assets\Moba\Scripts\Utility\UTweenColor.cs" />
      <Compile Include="Assets\Moba\Scripts\Utility\UTweenPosition.cs" />
      <Compile Include="Assets\Moba\Scripts\Utility\UTweenRotation.cs" />
@@ -1131,6 +1158,7 @@
      <None Include="Assets\ThirdPart\NGUI\Resources\Shaders\Unlit - Premultiplied Colored 2.shader" />
      <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\Particle Add.shader" />
      <None Include="Assets\Common\Scripts\UGUI\PanelData\Lua\ResearchPanel.txt" />
+     <None Include="Assets\Plugins\DOTween\DOTween43.xml" />
      <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\Reflect-ParallaxSpec.shader" />
      <None Include="Assets\ThirdPart\Simple RPG Camera\Demo\Sources\Shaders\Toony-BasicOutline.shader" />
      <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\GIDebug\TextureUV.shader" />
@@ -1141,6 +1169,7 @@
      <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\TerrainShaders\Splats\AddPass.shader" />
      <None Include="Assets\ThirdPart\NGUI\Resources\Shaders\Unlit - Text 3.shader" />
      <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\Mobile\Mobile-BumpSpec.shader" />
+     <None Include="Assets\Plugins\DOTween\DOTween50.xml" />
      <None Include="Assets\Moba\Scripts\Core\Panel\readme.txt" />
      <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\UI\UI-Unlit-Detail.shader" />
      <None Include="Assets\ThirdPart\NGUI\Resources\Shaders\Unlit - Transparent Packed 2.shader" />
@@ -1184,6 +1213,7 @@
      <None Include="Assets\Moba\builtin_shaders-5.2.2f1\CGIncludes\SpeedTreeVertex.cginc" />
      <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\Skybox.shader" />
      <None Include="Assets\Moba\builtin_shaders-5.2.2f1\CGIncludes\UnityUI.cginc" />
+     <None Include="Assets\Plugins\DOTween\readme.txt" />
      <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\UI\UI-Default.shader" />
      <None Include="Assets\Common\Scripts\UGUI\PanelData\CSharp\PlayerListPanel.txt" />
      <None Include="Assets\ThirdPart\iTween\ReadMe!\ReadMe!.txt" />
@@ -1205,6 +1235,7 @@
      <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\Nature\SoftOcclusion\TreeSoftOcclusionLeaves.shader" />
      <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\Lightmap-Bumped.shader" />
      <None Include="Assets\ThirdPart\NGUI\Resources\Shaders\Unlit - Transparent Packed.shader" />
+     <None Include="Assets\Plugins\DOTween\DOTween46.xml" />
      <None Include="Assets\Moba\builtin_shaders-5.2.2f1\CGIncludes\SpeedTreeBillboardCommon.cginc" />
      <None Include="Assets\Common\Scripts\UGUI\PanelData\Lua\LoginPanel.txt" />
      <None Include="Assets\ThirdPart\NGUI\Resources\Shaders\Unlit - Transparent Packed 3.shader" />
@@ -1309,8 +1340,23 @@
  <Reference Include="UnityEngine.VR">
  <HintPath>/Applications/Unity5.5.2f1-1/Unity.app/Contents/UnityExtensions/Unity/UnityVR/RuntimeEditor/UnityEngine.VR.dll</HintPath>
  </Reference>
+ <Reference Include="CSV">
+ <HintPath>/Users/yingyugang/MobaSub/Assets/Plugins/CSV.dll</HintPath>
+ </Reference>
  <Reference Include="Debuger">
  <HintPath>/Users/yingyugang/MobaSub/Assets/Plugins/Debuger.dll</HintPath>
+ </Reference>
+ <Reference Include="DOTween">
+ <HintPath>/Users/yingyugang/MobaSub/Assets/Plugins/DOTween/DOTween.dll</HintPath>
+ </Reference>
+ <Reference Include="DOTween43">
+ <HintPath>/Users/yingyugang/MobaSub/Assets/Plugins/DOTween/DOTween43.dll</HintPath>
+ </Reference>
+ <Reference Include="DOTween46">
+ <HintPath>/Users/yingyugang/MobaSub/Assets/Plugins/DOTween/DOTween46.dll</HintPath>
+ </Reference>
+ <Reference Include="DOTween50">
+ <HintPath>/Users/yingyugang/MobaSub/Assets/Plugins/DOTween/DOTween50.dll</HintPath>
  </Reference>
  <Reference Include="Newtonsoft.Json">
  <HintPath>/Users/yingyugang/MobaSub/Assets/Plugins/Json/Newtonsoft.Json.dll</HintPath>

@@ -56,6 +56,9 @@ public class ZhengBing : SkillBase {
 			{
 				Vector3 realPos = pos + new Vector3(Random.Range(-2.0f,2.0f),0,Random.Range(-2.0f,2.0f));
 				GameObject go = Instantiate(soilderPrefab,realPos,unitBase.transform.rotation) as GameObject;
+				go.GetComponent<Enemy> ().pos = realPos;
+				go.GetComponent<Enemy> ().qua = unitBase.transform.rotation;
+				go.SetActive (true);
 				Enemy soilder = go.GetComponent<Enemy>();
 				go.layer = unitBase.gameObject.layer;
 				soilder.targetLayers = unitBase.targetLayers;

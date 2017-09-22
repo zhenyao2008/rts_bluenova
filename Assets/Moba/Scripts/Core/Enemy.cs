@@ -31,7 +31,7 @@ public class Enemy : UnitBase {
 
 	public override void Awake(){
 		base.Awake ();
-		anim = GetComponentInChildren<Animation> ();
+		anim = GetComponentInChildren<Animation> (true);
 		nav = GetComponent<UnityEngine.AI.NavMeshAgent> ();
 		mTrans = transform;
 		unitAttribute = GetComponent<UnitAttribute>();
