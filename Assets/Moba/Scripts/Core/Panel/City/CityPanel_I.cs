@@ -2,7 +2,7 @@
 using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
-using LuaInterface;
+//using LuaInterface;
 public class CityPanel_I : CityBasePanel_I {
 
 	public Button shopButton;
@@ -81,8 +81,6 @@ public class CityPanel_I : CityBasePanel_I {
 //		userExp.text=userInfo.userExp.ToString();
 //		workNum.text=userInfo.workNum.ToString();
 //		System.DateTime dt = new System.DateTime (userInfo.protectTime);
-//
-//
 //		protectTime.text = userInfo.protectTime / 3600 + "小时" + userInfo.protectTime % 3600 / 60 + "分钟";
 //		maxCorn.text=userInfo.maxCorn.ToString();
 //		currentCorn.text=userInfo.currentCorn.ToString();
@@ -105,7 +103,7 @@ public class CityPanel_I : CityBasePanel_I {
 		}
 	}
 
-	LuaState settingButtonClick;
+//	LuaState settingButtonClick;
 	public void OnSettingButtonClick(){
 //		LuaFunction f = settingButtonClick.GetFunction("OnSettingButtonClick");
 //		object[] r = f.Call(gameObject);
@@ -132,7 +130,6 @@ public class CityPanel_I : CityBasePanel_I {
 	public void ShowBuildingButtons(){
 		RepositionMsgButtons ();
 	}
-
 
 	List<Button> availMsgButtons;
 	public void RepositionMsgButtons()

@@ -59,17 +59,17 @@ public class BuildInfoPanel : MonoBehaviour {
 		{
 			List<GameObject> prefabs = levelPrefabs[0].soilderPrefabs;
 			GameObject go = Instantiate(prefabs[0]) as GameObject;
+			go.SetActive (true);
 			go.transform.parent = levelPrefabPoints[0];
 			go.transform.localPosition = Vector3.zero;
 			go.transform.localEulerAngles = Vector3.zero;
 			go.transform.localScale = levelPrefabScale;
-			go.GetComponent<UnitBase>().anim.wrapMode = WrapMode.Loop;
+			if(go.GetComponent<UnitBase>()!=null && go.GetComponent<UnitBase>().anim!=null)
+				go.GetComponent<UnitBase>().anim.wrapMode = WrapMode.Loop;
 			if(go.GetComponent<UnitBase>().isFlying)
 			{
 				go.transform.localPosition = new Vector3(0,-200,200);
 			}
-
-
 			Destroy(go.GetComponent<UnitBase>());
 			Destroy(go.GetComponent<UnityEngine.AI.NavMeshAgent>());
 			preLevelPrefabs.Add(go);
@@ -78,6 +78,7 @@ public class BuildInfoPanel : MonoBehaviour {
 		{
 			List<GameObject> prefabs = levelPrefabs[1].soilderPrefabs;
 			GameObject go = Instantiate(prefabs[0]) as GameObject;
+			go.SetActive (true);
 			go.transform.parent = levelPrefabPoints[2];
 			go.transform.localPosition = Vector3.zero;
 			if(go.GetComponent<UnitBase>().isFlying)
@@ -114,6 +115,7 @@ public class BuildInfoPanel : MonoBehaviour {
 		if (levelPrefabs.Count > 2) {
 			List<GameObject> prefabs = levelPrefabs[2].soilderPrefabs;
 			GameObject go = Instantiate(prefabs[0]) as GameObject;
+			go.SetActive (true);
 			go.transform.parent = levelPrefabPoints[4];
 			go.transform.localPosition = Vector3.zero;
 			if(go.GetComponent<UnitBase>().isFlying)
@@ -124,6 +126,7 @@ public class BuildInfoPanel : MonoBehaviour {
 			go.transform.localEulerAngles =Vector3.zero;
 			go.transform.localScale = levelPrefabScale;
 			arrows[3].gameObject.SetActive(true);
+			if(go.GetComponent<UnitBase>().anim!=null)
 			go.GetComponent<UnitBase>().anim.wrapMode = WrapMode.Loop;
 			Destroy(go.GetComponent<UnitBase>());
 			Destroy(go.GetComponent<UnityEngine.AI.NavMeshAgent>());

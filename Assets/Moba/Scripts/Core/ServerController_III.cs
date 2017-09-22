@@ -49,6 +49,8 @@ public class ServerController_III : NetworkManager {
 	public bool isBattleBegin = false;
 	public int battleBeginDelay = 5;
 	public float cameraHandleSpeed = 20;
+	public float cameraHandleSpeedForMobile = 1;
+
 	void Awake()
 	{
 		instance = this;
@@ -182,12 +184,11 @@ public class ServerController_III : NetworkManager {
 	public override void OnStopClient ()
 	{
 		base.OnStopClient ();
-		Application.LoadLevel("BattleDefence");
+		Application.LoadLevel("Battle");
 	}
 
 	public override void OnServerAddPlayer (NetworkConnection conn, short playerControllerId)
 	{
-//		base.OnServerAddPlayer (conn, playerControllerId);
 		GameObject player = GameObject.Instantiate(playerPrefab, Vector3.zero, Quaternion.identity) as GameObject;
 		NetworkServer.AddPlayerForConnection(conn, player, playerControllerId);
 		PlayerController_III playerControll = player.GetComponent<PlayerController_III>();
@@ -244,7 +245,7 @@ public class ServerController_III : NetworkManager {
 	{
 		base.OnStopServer ();
 		NetworkServer.Reset ();
-		Application.LoadLevel("BattleDefence");
+		Application.LoadLevel("Battle");
 	}
 
 	public void PlayerWin(UnitBase ub){
@@ -267,14 +268,12 @@ public class ServerController_III : NetworkManager {
 			}
 		}
 		Time.timeScale = 0;
-//		StartCoroutine (_RestartServer());
 	}
 
 	IEnumerator _RestartServer(){
 		yield return new WaitForSeconds (4);
 		StopServer ();
 	}
-
 
 	public float spawnInterval = 10;
 	float nextSpawnTime = 0;
@@ -285,18 +284,17 @@ public class ServerController_III : NetworkManager {
 			GameObject prefab = spawners[i].GetCurrentPrefab();
 			if(prefab!=null)
 			{
+				prefab.SetActive (false);
 				GameObject go = Instantiate(prefab,  spawners[i].spawnPoint.position, spawners[i].spawnPoint.rotation) as GameObject;
 				Enemy soilder = go.GetComponent<Enemy>();
 				soilder.defaultTarget = target;
-				soilder.pos = spTrans[i].position;
-				soilder.qua = spTrans[i].rotation;
+				soilder.pos = spawners[i].spawnPoint.position;
+				soilder.qua = spawners[i].spawnPoint.rotation;
 				go.layer = layer;
 				soilder.targetLayers.Add(targetLayer);
 				soilder.playerAttribute = playerAttribute;
 				soilder.playerIndex = playerIndex;
-//				soilder.Move(target.position);
-//				soilder.enabled = false;
-//				soilder.GetComponent<NavMeshAgent> ().enabled = false;
+				go.SetActive (true);
 				StartCoroutine(_DelayMove(soilder,target));
 				NetworkServer.Spawn(go);
 			}
@@ -306,10 +304,8 @@ public class ServerController_III : NetworkManager {
 	IEnumerator _DelayMove(Enemy enemy,Transform target)
 	{
 		UnityEngine.AI.NavMeshAgent nav = enemy.GetComponent<UnityEngine.AI.NavMeshAgent> ();
-//		enemy.enabled = false;
 		nav.enabled = false;
 		yield return new WaitForSeconds(1);
-//		enemy.enabled = true;
 		nav.enabled = true;
 	}
 
@@ -370,39 +366,15 @@ public class ServerController_III : NetworkManager {
 						playerAttributes[group].corn -= price;
 						if(players[group]!=null)
 							players[group].RefreshCorn();
-
-
 						building.Upgrade();
-
-
-//						players[group].UpgradeBuildingClient(index,building.level);
 					}
 				}
 			}
 		}
 	}
-//
-//	bool UpgradeBuildPrice(int playerIndex, SpawnPoint sp){
-//		GameObject go = sp.soilderPrefabs [sp.level + 1];
-//		int price = go.GetComponent<UnitAttribute> ().buildCorn;
-//		if(playerAttributes[playerIndex].corn < price)
-//		{
-//			if(players[playerIndex]!=null)
-//				players[playerIndex].BuildFail();
-//			return false;
-//		}
-//		else
-//		{
-//			playerAttributes[playerIndex].corn -= price;
-//			if(players[playerIndex]!=null)
-//				players[playerIndex].RefreshCorn();
-//			return true;
-//		}
-//	}
 
 	void SpawnBuilding(List<Transform> planes,List<Transform> availablePlanes,int planeIndex,int buildIndex,List<SpawnPoint> spawner,int buildingLayer,int group,List<GameObject> cBuildPrefabs)
 	{
-//		Debug.Log (planeIndex);
 		Transform plane = planes[planeIndex];
 		if(!availablePlanes.Contains(plane))
 		{
@@ -410,8 +382,6 @@ public class ServerController_III : NetworkManager {
 		}
 		availablePlanes.Remove (plane);
 		Transform sp = plane.transform.FindChild("SpawnPoint");
-
-//		SpawnPoint spawnPoint = buildPrefabs[buildIndex].GetComponent<SpawnPoint>();
 		GameObject go = Instantiate(cBuildPrefabs[buildIndex],plane.position,plane.rotation) as GameObject;
 		SpawnPoint spawnPoint = go.GetComponent<SpawnPoint> ();
 		spawnPoint.spawnPoint = sp;
@@ -444,14 +414,6 @@ public class ServerController_III : NetworkManager {
 		{
 			return;
 		}
-//
-//		if(GUI.Button(new Rect(10,10,200,20),"StopServer"))
-//		{
-//			NetworkServer.Shutdown();
-//			NetworkServer.Reset();
-//			Application.LoadLevel("BattleDefence");
-//		}
-
 	}
 
 }

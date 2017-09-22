@@ -6,15 +6,13 @@ public class RTSCamera : MonoBehaviour {
 	private Vector3 delta;
 
 	void OnEnable(){
-		EasyTouch.On_Swipe += On_Swipe;
-		EasyTouch.On_Drag += On_Drag;
-		EasyTouch.On_Twist += On_Twist;
-		EasyTouch.On_Pinch += On_Pinch;
+//		EasyTouch.On_Swipe += On_Swipe;
+//		EasyTouch.On_Drag += On_Drag;
+//		EasyTouch.On_Twist += On_Twist;
+//		EasyTouch.On_Pinch += On_Pinch;
 	}
-
 	
 	void On_Twist (Gesture gesture){
-
 		transform.Rotate( Vector3.up * gesture.twistAngle);
 	}
 
@@ -23,7 +21,6 @@ public class RTSCamera : MonoBehaviour {
 		EasyTouch.On_Drag -= On_Drag;
 		EasyTouch.On_Twist -= On_Twist;
 	}
-
 
 	void On_Drag (Gesture gesture){
 		On_Swipe( gesture);
