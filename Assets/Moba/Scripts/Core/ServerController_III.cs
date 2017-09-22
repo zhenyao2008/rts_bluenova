@@ -49,6 +49,8 @@ public class ServerController_III : NetworkManager {
 	public bool isBattleBegin = false;
 	public int battleBeginDelay = 5;
 	public float cameraHandleSpeed = 20;
+	public float cameraHandleSpeedForMobile = 1;
+
 	void Awake()
 	{
 		instance = this;

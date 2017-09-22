@@ -3,7 +3,6 @@ using System.Collections;
 
 public class BuildingItemUI : MonoBehaviour {
 
-//	public bool isEnable;
 	public Transform buildingPrefabPoint;
 	public UISprite backSprite;
 	public UISprite frantSprite;
@@ -18,12 +17,9 @@ public class BuildingItemUI : MonoBehaviour {
 	void Awake(){
 		trigger = GetComponent<UIEventTrigger> ();
 		sprite = GetComponent<UISprite> ();
+		trigger.onPress.Add (new EventDelegate(OnItemClick));
 		trigger.onClick.Add (new EventDelegate(OnItemClick));
 		detailTrigger.onClick.Add (new EventDelegate (OnDetailClick));
-//		if(!isEnable)
-//		{
-//			sprite.color = Color.gray;
-//		}
 	}
 
 	void OnItemClick(){

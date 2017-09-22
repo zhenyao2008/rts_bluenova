@@ -180,11 +180,9 @@ public class SystemConstant
             systemInformation.Add("graphicsDeviceVendor", SystemInfo.graphicsDeviceVendor);
             systemInformation.Add("graphicsMemorySize", SystemInfo.graphicsMemorySize.ToString());
             systemInformation.Add("systemMemorySize", SystemInfo.systemMemorySize.ToString());
-
 #if UNITY_IOS
-            systemInformation.Add("iPhone.generation", Device.generation.ToString());
+			systemInformation.Add("iPhone.generation", UnityEngine.iOS.Device.generation.ToString());
 #endif
-
             return systemInformation;
         }
     }

@@ -131,7 +131,6 @@ public class CityPanel_I : CityBasePanel_I {
 		RepositionMsgButtons ();
 	}
 
-
 	List<Button> availMsgButtons;
 	public void RepositionMsgButtons()
 	{

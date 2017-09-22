@@ -103,8 +103,9 @@ public class BuildingController : MonoBehaviour {
 		{
 			return;
 		}
+		return;
 
-
+		//以下のコード使わない。（調べたい）
 		if(Input.GetMouseButtonDown(0))
 		{
 //			Debug.Log("GetMouseButtonDown");
@@ -196,7 +197,6 @@ public class BuildingController : MonoBehaviour {
 					upBuilding = hit.transform.gameObject;
 					if(!isNewBuilding && upBuilding.layer == 18 && upBuilding == downBuilding && Time.time - downTime < 0.3f)
 					{
-//						Debug.Log("1");
 						if(currentBuilding!=null)
 						{
 							currentBuilding.GetComponent<CityBuilding>().DeSelect();
@@ -213,7 +213,6 @@ public class BuildingController : MonoBehaviour {
 					{
 						if(currentBuilding!=null && !isNewBuildingFirstClick && !isNewBuilding)
 						{
-//							Debug.Log("2");
 							//已有的建筑才会返回到初始位置
 							DeSelect();
 						}
@@ -224,26 +223,6 @@ public class BuildingController : MonoBehaviour {
 			CameraController.SingleTon().enabled = true;
 			EasyTouch.instance.enable =true;
 		}
-
-//		if(currentBuilding)
-//		{
-//			if(isNewBuilding)
-//			{
-//				if(Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition),out hit,Mathf.Infinity,1<<15))
-//				{
-//					currentBuilding.transform.position = hit.point - new Vector3(hit.point.x % gridSize,hit.point.y % gridSize,hit.point.z % gridSize) + new Vector3(0,0.15f,0);
-//					
-//					if(CheckPlaceAble())
-//					{
-//						currentBuilding.GetComponent<CityBuilding>().ShowDefault();
-//					}
-//					else
-//					{
-//						currentBuilding.GetComponent<CityBuilding>().ShowDisable();
-//					}
-//				}
-//			}
-//		}
 	}
 
 	public void ShowPlane(){
@@ -259,8 +238,6 @@ public class BuildingController : MonoBehaviour {
 //			pGo.GetComponent<Renderer>().enabled = false;
 //		}
 	}
-
-
 
 	public void Select(){
 	
@@ -299,7 +276,6 @@ public class BuildingController : MonoBehaviour {
 			EasyTouch.instance.enable =true;
 			currentBuilding.GetComponent<CityBuilding> ().Place ();
 			if(!isNewBuilding){
-				
 //				CityPanel.SingleTon ().HideBuildingTips ();
 				CityPanel_I.SingleTon().MoveOutMsgButtons();
 			}
