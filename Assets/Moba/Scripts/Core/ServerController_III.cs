@@ -184,7 +184,8 @@ public class ServerController_III : NetworkManager {
 	public override void OnStopClient ()
 	{
 		base.OnStopClient ();
-		Application.LoadLevel("Battle");
+		UnityEngine.SceneManagement.SceneManager.LoadScene ("Battle");
+//		Application.LoadLevel("Battle");
 	}
 
 	public override void OnServerAddPlayer (NetworkConnection conn, short playerControllerId)
@@ -245,7 +246,8 @@ public class ServerController_III : NetworkManager {
 	{
 		base.OnStopServer ();
 		NetworkServer.Reset ();
-		Application.LoadLevel("Battle");
+//		Application.LoadLevel("Battle");
+		UnityEngine.SceneManagement.SceneManager.LoadScene ("Battle");
 	}
 
 	public void PlayerWin(UnitBase ub){

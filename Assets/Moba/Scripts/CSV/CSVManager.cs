@@ -18,7 +18,7 @@ public class CSVManager :SingleMonoBehaviour<CSVManager>
 	public List<GeneralCSVStructure> NgList { get; private set; }
 	public Dictionary<int, GeneralCSVStructure> NgDic { get; private set; }
 
-	void Awake ()
+	protected override void Awake ()
 	{
 		StartLoading ();
 	}

@@ -51,7 +51,8 @@ namespace HutongGames.PlayMaker.Actions
 			{
 				if (async)
 				{
-					asyncOperation = Application.LoadLevelAdditiveAsync(levelName.Value);
+					
+					asyncOperation = UnityEngine.SceneManagement.SceneManager.LoadSceneAsync(levelName.Value);
 
 					Debug.Log("LoadLevelAdditiveAsyc: " + levelName.Value);
 					
@@ -65,7 +66,7 @@ namespace HutongGames.PlayMaker.Actions
 			else
 				if (async)
 				{
-					asyncOperation = Application.LoadLevelAsync(levelName.Value);
+					asyncOperation = UnityEngine.SceneManagement.SceneManager.LoadSceneAsync(levelName.Value);
 
 					Debug.Log("LoadLevelAsync: " + levelName.Value);
 

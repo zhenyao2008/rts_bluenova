@@ -14,7 +14,8 @@ public class ReLoadClient : MonoBehaviour {
 		Debug.Log ("_ReStart");
 		yield return new WaitForSeconds(10);
 		Destroy (ServerController_II.GetInstance().gameObject);
-		Application.LoadLevel ("BattlePVE");
+//		Application.LoadLevel ("BattlePVE");
+		UnityEngine.SceneManagement.SceneManager.LoadScene ("BattlePVE");
 	}
 
 }

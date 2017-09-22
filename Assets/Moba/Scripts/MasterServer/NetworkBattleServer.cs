@@ -61,7 +61,8 @@ public class NetworkBattleServer : MonoBehaviour {
 	void OnClientConnect(NetworkMessage netMsg)
 	{
 		Debug.Log("Client Connected to Master");
-		Application.LoadLevel ("BattlePVE");
+//		Application.LoadLevel ("BattlePVE");
+		UnityEngine.SceneManagement.SceneManager.LoadScene ("BattlePVE");
 	}
 
 	void OnClientDisconnect(NetworkMessage netMsg)
@@ -80,7 +81,8 @@ public class NetworkBattleServer : MonoBehaviour {
 
 	void OnRegisteredHost(NetworkMessage netMsg)
 	{
-		Application.LoadLevel ("BattlePVE");
+//		Application.LoadLevel ("BattlePVE");
+		UnityEngine.SceneManagement.SceneManager.LoadScene ("BattlePVE");
 	}
 
 	public void BattleServerReady(){
