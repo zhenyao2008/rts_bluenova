@@ -293,7 +293,7 @@ public class ServerController_III : NetworkManager {
 			if(prefab!=null)
 			{
 				prefab.SetActive (false);
-				GameObject go = Instantiate(prefab,  spawners[i].spawnPoint.position, spawners[i].spawnPoint.rotation) as GameObject;
+				GameObject go = Instantiate(prefab,spawners[i].spawnPoint.position, spawners[i].spawnPoint.rotation) as GameObject;
 				Enemy soilder = go.GetComponent<Enemy>();
 				soilder.defaultTarget = target;
 				soilder.pos = spawners[i].spawnPoint.position;

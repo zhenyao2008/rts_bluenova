@@ -12,6 +12,8 @@ public class CSVManager :SingleMonoBehaviour<CSVManager>
 	private const string CSV_NG = "m_ng";
 	private const string CSV_QA = "m_qa";
 	private const string CSV_HELP = "m_help";
+
+	private const string CSV_SKILL = "m_skill";
 	private CsvContext mCsvContext;
 	public List<GeneralCSVStructure> ConventionList { get; private set; }
 	public Dictionary<int, GeneralCSVStructure> ConventionDic { get; private set; }
