@@ -51,6 +51,8 @@ public class ServerController_III : NetworkManager {
 	public float cameraHandleSpeed = 20;
 	public float cameraHandleSpeedForMobile = 1;
 
+	const string  KEY_IP_ADRESS = "address";
+
 	void Awake()
 	{
 		instance = this;
@@ -68,7 +70,9 @@ public class ServerController_III : NetworkManager {
 
 		builds.Add (0, buildPrefabs);
 		builds.Add (1, buildPrefabs1);
-
+		if(PlayerPrefs.HasKey(KEY_IP_ADRESS)){
+			this.networkAddress = PlayerPrefs.GetString(KEY_IP_ADRESS);
+		}
 	}
 
 	void Start(){
@@ -179,6 +183,8 @@ public class ServerController_III : NetworkManager {
 	{
 		base.OnStartClient (client);
 		GetComponent<AudioSource> ().enabled = true;
+		PlayerPrefs.SetString (KEY_IP_ADRESS,this.networkAddress);
+		PlayerPrefs.Save ();
 	}
 
 	public override void OnStopClient ()

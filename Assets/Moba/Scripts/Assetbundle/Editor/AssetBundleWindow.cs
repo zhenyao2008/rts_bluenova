@@ -26,7 +26,7 @@ public class AssetBundleWindow : EditorWindow
 	static string fullTmpOutputPath;
 	static string fullTmpVersionOutputPath;
 	static string fullServerCSVPath;
-	static string serverCSV;
+//	static string serverCSV;
 
 	static void InitPath ()
 	{
@@ -43,7 +43,7 @@ public class AssetBundleWindow : EditorWindow
 		fullTmpVersionOutputPath = Application.dataPath + "/Assetbundles/android/version/";
 		fullServerCSVPath = Application.dataPath + "/Assetbundles/android/server.csv";
 		#endif
-		serverCSV = "server_resource.csv";
+//		serverCSV = "server_resource.csv";
 	}
 
 	void OnEnable ()
