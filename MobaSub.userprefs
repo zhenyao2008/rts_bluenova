@@ -1,13 +1,22 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Resources/CSV/m_relationship.csv">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Moba/Scripts/UI/Panels/BuildingDetail/BuildingDetailCtrl.cs">
     <Files>
+      <File FileName="Assets/Moba/Scripts/UI/UIManager.cs" Line="35" Column="32" />
       <File FileName="Assets/Moba/Scripts/Core/ServerController_III.cs" Line="296" Column="40" />
-      <File FileName="Assets/Moba/Scripts/Core/BuildingController.cs" Line="14" Column="26" />
-      <File FileName="Assets/Moba/Scripts/Core/Panel/BuildingPanel.cs" Line="9" Column="26" />
-      <File FileName="Assets/Moba/Scripts/Core/CityBuilding.cs" Line="38" Column="36" />
-      <File FileName="Assets/Moba/Scripts/Core/UnitProperties.cs" Line="21" Column="30" />
-      <File FileName="Assets/Resources/CSV/m_relationship.csv" Line="6" Column="41" />
+      <File FileName="Assets/Moba/Scripts/Core/BuildingController.cs" Line="258" Column="47" />
+      <File FileName="Assets/Moba/Scripts/Core/Panel/BuildingPanel.cs" Line="9" Column="42" />
+      <File FileName="Assets/Moba/Scripts/Core/CityBuilding.cs" Line="70" Column="44" />
+      <File FileName="Assets/Moba/Scripts/UI/Panels/BuildingList/BuildingListPanelView.cs" Line="11" Column="3" />
+      <File FileName="Assets/Moba/Scripts/UI/BaseCtrl.cs" Line="7" Column="2" />
+      <File FileName="Assets/Moba/Scripts/ResourcesManager/ResourcesManager.cs" Line="105" Column="39" />
+      <File FileName="Assets/Moba/Scripts/UI/Panels/BuildingDetail/BuildingDetailCtrl.cs" Line="5" Column="1" />
+      <File FileName="Assets/Moba/Scripts/UI/Panels/BuildingList/BuildingListCtrl.cs" Line="38" Column="74" />
+      <File FileName="Assets/Moba/Scripts/UI/Panels/BuildingDetail/BuildingDetailPanelView.cs" Line="34" Column="46" />
+      <File FileName="Assets/Moba/Scripts/UI/PanelBase.cs" Line="27" Column="4" />
+      <File FileName="Assets/Moba/Scripts/CSV/CSVManager.cs" Line="71" Column="45" />
+      <File FileName="Assets/Moba/Scripts/CSV/structure/BuildingCSVStructure.cs" Line="4" Column="34" />
+      <File FileName="Assets/Moba/Scripts/CSV/structure/BaseCSVStructure.cs" Line="8" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

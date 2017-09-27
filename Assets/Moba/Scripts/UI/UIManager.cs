@@ -30,11 +30,12 @@ namespace UIFrame
 
 		public void InitCtrollers ()
 		{
-			AddCtroller<Sample1Ctrl> ();
-			AddCtroller<Sample2Ctrl> ();
+//			AddCtroller<Sample1Ctrl> ();
+//			AddCtroller<Sample2Ctrl> ();
+			AddCtroller<BuildingListCtrl> ();
 			Hashtable parameters = new Hashtable ();
 			parameters.Add ("name", "Mike");
-			UIManager.GetInstance.GetController<Sample1Ctrl> ().ShowPanel (parameters);
+			UIManager.GetInstance.GetController<BuildingListCtrl> ().ShowPanel (parameters);
 		}
 
 		public T AddCtroller<T> () where T : BaseCtrl
@@ -290,7 +291,7 @@ namespace UIFrame
 			string panelStr = typeof(T).ToString ();
 			if (panelStr.IndexOf (".") != -1)
 				panelStr = panelStr.Remove (0, panelStr.LastIndexOf (".") + 1);
-			panelStr = panelStr.Replace ("View", "");
+//			panelStr = panelStr.Replace ("View", "");
 			return panelStr;
 		}
 	}

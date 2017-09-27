@@ -102,6 +102,11 @@ public class ResourcesManager : SingleMonoBehaviour<ResourcesManager>
 		return null;
 	}
 
+	public Sprite GetBuildingFullIconById(int buildingId){
+		
+		return null;
+	}
+
 	public GameObject GetCharacterPrefab (int charaId, int sortLayer = 1)
 	{
 		return null;

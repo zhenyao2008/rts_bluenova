@@ -76,6 +76,7 @@
      <Compile Include="Assets\Moba\Scripts\CSV\CSVManager.cs" />
      <Compile Include="Assets\Moba\Scripts\CSV\CSVParser.cs" />
      <Compile Include="Assets\Moba\Scripts\CSV\structure\BaseCSVStructure.cs" />
+     <Compile Include="Assets\Moba\Scripts\CSV\structure\BuildingCSVStructure.cs" />
      <Compile Include="Assets\Moba\Scripts\CSV\structure\GeneralCSVStructure.cs" />
      <Compile Include="Assets\Moba\Scripts\CSV\structure\VersionCSV.cs" />
      <Compile Include="Assets\Moba\Scripts\Constant\ABConstant.cs" />
@@ -220,6 +221,10 @@
      <Compile Include="Assets\Moba\Scripts\Test\TestResourceBuilding.cs" />
      <Compile Include="Assets\Moba\Scripts\UI\BaseCtrl.cs" />
      <Compile Include="Assets\Moba\Scripts\UI\PanelBase.cs" />
+     <Compile Include="Assets\Moba\Scripts\UI\Panels\BuildingDetail\BuildingDetailCtrl.cs" />
+     <Compile Include="Assets\Moba\Scripts\UI\Panels\BuildingDetail\BuildingDetailPanelView.cs" />
+     <Compile Include="Assets\Moba\Scripts\UI\Panels\BuildingList\BuildingListCtrl.cs" />
+     <Compile Include="Assets\Moba\Scripts\UI\Panels\BuildingList\BuildingListPanelView.cs" />
      <Compile Include="Assets\Moba\Scripts\UI\Panels\Sample\sample1\Sample1Ctrl.cs" />
      <Compile Include="Assets\Moba\Scripts\UI\Panels\Sample\sample1\Sample1Panel.cs" />
      <Compile Include="Assets\Moba\Scripts\UI\Panels\Sample\sample2\Sample2Ctrl.cs" />

@@ -66,4 +66,17 @@ public class CSVManager :SingleMonoBehaviour<CSVManager>
 		}
 		return dic;
 	}
+
+
+	public BuildingCSVStructure GetBuildingById(int id){
+
+		BuildingCSVStructure building = new BuildingCSVStructure ();
+		building.id = id;
+		building.building_name = "building_name:" + id;
+		building.building_cost = id * 100;
+		return building;
+
+	}
+
 }
+

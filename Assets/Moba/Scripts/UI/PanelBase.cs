@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 namespace UIFrame
 {
@@ -8,6 +9,8 @@ namespace UIFrame
 
 		public static PanelBase current;
 		public GameObject root;
+		public Button btn_back;
+		public Button btn_close;
 		public PanelBase preBuildingPanel;
 
 		public virtual void Awake ()
