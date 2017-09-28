@@ -389,7 +389,7 @@ public class ServerController_III : NetworkManager {
 			return;
 		}
 		availablePlanes.Remove (plane);
-		Transform sp = plane.transform.FindChild("SpawnPoint");
+		Transform sp = plane.transform.Find("SpawnPoint");
 		GameObject go = Instantiate(cBuildPrefabs[buildIndex],plane.position,plane.rotation) as GameObject;
 		SpawnPoint spawnPoint = go.GetComponent<SpawnPoint> ();
 		spawnPoint.spawnPoint = sp;

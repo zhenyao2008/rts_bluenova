@@ -29,12 +29,12 @@ namespace UI.ShopPanel
         public override void Awake()
         {
             m_Trans = transform;
-            m_btnDefence = m_Trans.FindChild("#tab_cardtypes/#btn_defence").GetComponent<Button>();
-            m_btnSurport = m_Trans.FindChild("#tab_cardtypes/#btn_surport").GetComponent<Button>();
-            m_btnResource = m_Trans.FindChild("#tab_cardtypes/#btn_resource").GetComponent<Button>();
-            m_tabCardtypes = m_Trans.FindChild("#tab_cardtypes").gameObject;
-            m_gridCarditems = m_Trans.FindChild("#scroll_carditems/#grid_carditems");
-            m_scrollCarditems = m_Trans.FindChild("#scroll_carditems").gameObject;
+            m_btnDefence = m_Trans.Find("#tab_cardtypes/#btn_defence").GetComponent<Button>();
+            m_btnSurport = m_Trans.Find("#tab_cardtypes/#btn_surport").GetComponent<Button>();
+            m_btnResource = m_Trans.Find("#tab_cardtypes/#btn_resource").GetComponent<Button>();
+            m_tabCardtypes = m_Trans.Find("#tab_cardtypes").gameObject;
+            m_gridCarditems = m_Trans.Find("#scroll_carditems/#grid_carditems");
+            m_scrollCarditems = m_Trans.Find("#scroll_carditems").gameObject;
 
         }
 

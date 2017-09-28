@@ -26,9 +26,9 @@ namespace UI.MsgPanel
         public override void Awake()
         {
             m_Trans = transform;
-            m_txtTitle = m_Trans.FindChild("#txt_title").GetComponent<Text>();
-            m_btnConfirm = m_Trans.FindChild("#btn_confirm").GetComponent<Button>();
-            m_txtMsg = m_Trans.FindChild("#txt_msg").GetComponent<Text>();
+            m_txtTitle = m_Trans.Find("#txt_title").GetComponent<Text>();
+            m_btnConfirm = m_Trans.Find("#btn_confirm").GetComponent<Button>();
+            m_txtMsg = m_Trans.Find("#txt_msg").GetComponent<Text>();
 
         }
 

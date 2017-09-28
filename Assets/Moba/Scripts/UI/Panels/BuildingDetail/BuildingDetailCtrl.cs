@@ -6,6 +6,10 @@ namespace UIFrame
 {
 	public class BuildingDetailCtrl : BaseCtrl {
 
+		public override void ShowPanel (Hashtable parameters)
+		{
+			base.ShowPanel (parameters);
+		}
 
 	}
 }

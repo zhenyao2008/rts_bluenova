@@ -88,7 +88,8 @@ public class ResourcesManager : SingleMonoBehaviour<ResourcesManager>
 
 	//TODO
 	public GameObject LoadUIPrefab(string uiName){
-		return null;
+		GameObject prefab = Resources.Load<GameObject> ("UI/" + uiName);
+		return prefab;
 	}
 
 

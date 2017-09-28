@@ -15,7 +15,8 @@ namespace UIFrame
 
 		public virtual void Awake ()
 		{
-
+			if (btn_close != null)
+				btn_close.onClick.AddListener (Close);
 		}
 
 		protected virtual void Start ()
@@ -31,6 +32,7 @@ namespace UIFrame
 
 		public void Close ()
 		{
+			Debug.Log ("Close");
 			root.SetActive (false);
 		}
 

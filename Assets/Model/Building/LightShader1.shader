@@ -1,4 +1,6 @@
-﻿// 原文链接：http://www.cgjoy.com/forum.php?mod=viewthread&tid=97305
+﻿// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
+
+// 原文链接：http://www.cgjoy.com/forum.php?mod=viewthread&tid=97305
 Shader "Custom/LightShader1" 
 {
     Properties {
@@ -35,7 +37,7 @@ Shader "Custom/LightShader1"
 
                 v2f vert (appdata_base v) {
                     v2f o;
-                    o.pos = mul (UNITY_MATRIX_MVP, v.vertex);
+                    o.pos = UnityObjectToClipPos (v.vertex);
 
                     float3 viewDir = normalize(ObjSpaceViewDir(v.vertex));
                     float dotProduct = 1 - dot(v.normal, viewDir);

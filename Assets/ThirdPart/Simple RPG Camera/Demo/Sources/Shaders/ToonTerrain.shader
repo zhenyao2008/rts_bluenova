@@ -1,3 +1,5 @@
+// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
+
 Shader "Hidden/TerrainEngine/Splatmap/Lightmap-FirstPass"
 {
 	Properties
@@ -36,7 +38,7 @@ Shader "Hidden/TerrainEngine/Splatmap/Lightmap-FirstPass"
 	v2f vert(appdata v)
 	{
 		v2f o;
-		o.pos = mul(UNITY_MATRIX_MVP, v.vertex);
+		o.pos = UnityObjectToClipPos(v.vertex);
      
 		float3 norm = mul ((float3x3)UNITY_MATRIX_IT_MV, v.normal);
 		float2 offset = TransformViewToProjection(norm.xy);

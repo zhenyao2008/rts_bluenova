@@ -13,8 +13,7 @@ namespace UIFrame
 
 		public override void Awake()
 		{
-			grid_building_list = transform.Find ("grid_building_list").GetComponent<GridLayoutGroup>();
-			building_item = grid_building_list.transform.Find ("building_item").gameObject;
+			base.Awake ();
 		}
 
 		void OnDestroy()

@@ -10,7 +10,7 @@ public class Walker : MonoBehaviour
     void Start()
     {
         _agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
-        _constructor = transform.FindChild("Constructor");
+        _constructor = transform.Find("Constructor");
         _anim = _constructor.GetComponent<Animation>();
 
         SetRandomDestination();

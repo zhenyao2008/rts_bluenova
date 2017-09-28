@@ -8,7 +8,7 @@ namespace UIFrame
 	{
 
 		public Camera cameraUI;
-		Canvas canvas = null;
+		public Canvas canvas = null;
 		private Dictionary<UILayerType, GameObject> m_uiLayers = new Dictionary<UILayerType, GameObject> ();
 		private Dictionary<string, GameObject> m_panels = new Dictionary<string, GameObject> ();
 		private Dictionary<string,BaseCtrl> ctrls = new Dictionary<string, BaseCtrl> ();
@@ -21,6 +21,7 @@ namespace UIFrame
 			if (canvas == null)
 				canvas = GetComponent<Canvas> ();
 			InitLayers ();
+			InitCtrollers ();
 		}
 
 		void Start ()
@@ -190,6 +191,7 @@ namespace UIFrame
 				panelGo = m_panels [panelStr];
 				isCreate = false;
 			} else {
+				Debug.Log ("panelStr:"+panelStr);
 				GameObject prefab = ResourcesManager.GetInstance.LoadUIPrefab (panelStr);
 				panelGo = Instantiate<GameObject> (prefab);
 				m_panels.Add (panelStr, panelGo);

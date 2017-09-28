@@ -37,7 +37,7 @@ public class CSVManager :SingleMonoBehaviour<CSVManager>
 	void StartLoading ()
 	{
 		mCsvContext = new CsvContext ();
-		LoadNG ();
+//		LoadNG ();
 		loaded = true;
 	}
 
