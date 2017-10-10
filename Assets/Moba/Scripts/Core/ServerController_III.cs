@@ -114,7 +114,7 @@ public class ServerController_III : NetworkManager {
 
 	float mNextMoneyTime = 0;//下一次加钱时间
 	float mMoneyInterval = 1;//加钱时间间隔
-	int mMoneyPerTips = 1;//每一跳加钱数
+	public int moneyPerTips = 36;//每一跳加钱数
 	void Update(){
 		if(NetworkServer.active)
 		{
@@ -143,7 +143,7 @@ public class ServerController_III : NetworkManager {
 				{
 					foreach(PlayerAttribute pa in playerAttributes)
 					{
-						pa.corn += mMoneyPerTips;
+						pa.corn += moneyPerTips;
 					}
 					foreach(PlayerController_III pc in players)
 					{
