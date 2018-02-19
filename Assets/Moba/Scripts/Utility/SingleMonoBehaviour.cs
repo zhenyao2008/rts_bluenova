@@ -5,7 +5,7 @@ public class SingleMonoBehaviour<T> : MonoBehaviour where T : MonoBehaviour{
 
 	private static T t;
 
-	public static T GetInstance{
+	public static T Instance{
 		get{
 			if (t == null) {
 				t = GameObject.FindObjectOfType (typeof(T)) as T;
@@ -17,6 +17,7 @@ public class SingleMonoBehaviour<T> : MonoBehaviour where T : MonoBehaviour{
 			return t;
 		}
 	}
+
 
 	protected virtual void Awake(){
 		if(t==null){

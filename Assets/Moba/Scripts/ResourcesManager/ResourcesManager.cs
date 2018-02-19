@@ -32,7 +32,7 @@ public class ResourcesManager : SingleMonoBehaviour<ResourcesManager>
 
 	public GameObject GetUnitPrefab (string soliderName)
 	{
-		return AssetbundleManager.GetInstance.GetAssetFromLocal<GameObject> (soliderName, soliderName);
+		return AssetbundleManager.Instance.GetAssetFromLocal<GameObject> (soliderName, soliderName);
 	}
 
 	#endregion
@@ -41,7 +41,7 @@ public class ResourcesManager : SingleMonoBehaviour<ResourcesManager>
 
 	public GameObject GetBuildingObejct (string buildingName)
 	{
-		GameObject prefab = AssetbundleManager.GetInstance.GetAssetFromLocal<GameObject> (buildingName, buildingName);
+		GameObject prefab = AssetbundleManager.Instance.GetAssetFromLocal<GameObject> (buildingName, buildingName);
 		GameObject go = Instantiate (prefab) as GameObject;
 		Common.SetShaderForEditor (go);
 		return go;
@@ -53,13 +53,13 @@ public class ResourcesManager : SingleMonoBehaviour<ResourcesManager>
 
 	public AudioClip GetAudioClipBGM (string bgm)
 	{
-		AudioClip clip = AssetbundleManager.GetInstance.GetAssetFromLocal<AudioClip> (ABConstant.SOUND_BGM, bgm);
+		AudioClip clip = AssetbundleManager.Instance.GetAssetFromLocal<AudioClip> (ABConstant.SOUND_BGM, bgm);
 		return clip;
 	}
 
 	public AudioClip GetAudioClipSE (string se)
 	{
-		AudioClip clip = AssetbundleManager.GetInstance.GetAssetFromLocal<AudioClip> (ABConstant.SOUND_SE, se);
+		AudioClip clip = AssetbundleManager.Instance.GetAssetFromLocal<AudioClip> (ABConstant.SOUND_SE, se);
 		return clip;
 	}
 
@@ -69,7 +69,7 @@ public class ResourcesManager : SingleMonoBehaviour<ResourcesManager>
 
 	public GameObject GetUIInterface (string prefabName)
 	{
-		GameObject go = AssetbundleManager.GetInstance.GetAssetFromLocal<GameObject> (ABConstant.PREFAB_INTERFACE, prefabName);
+		GameObject go = AssetbundleManager.Instance.GetAssetFromLocal<GameObject> (ABConstant.PREFAB_INTERFACE, prefabName);
 		return go;
 	}
 
@@ -79,7 +79,7 @@ public class ResourcesManager : SingleMonoBehaviour<ResourcesManager>
 
 	public GameObject GetBattleRoot ()
 	{
-		GameObject prefab = AssetbundleManager.GetInstance.GetAssetFromLocal<GameObject> (ABConstant.BATTLE, "BattleRoot");
+		GameObject prefab = AssetbundleManager.Instance.GetAssetFromLocal<GameObject> (ABConstant.BATTLE, "BattleRoot");
 		GameObject go = Instantiate (prefab) as GameObject;
 		return go;
 	}

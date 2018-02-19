@@ -18,7 +18,7 @@ public class Downloader : MonoBehaviour {
 		while(!www.isDone){
 			int deltaSize = www.bytesDownloaded - size;
 			size = www.bytesDownloaded;
-			DownloadManager.GetInstance.totalDownloadedSize += deltaSize;
+			DownloadManager.Instance.totalDownloadedSize += deltaSize;
 			yield return null;
 		}
 		yield return null;

@@ -38,8 +38,8 @@ namespace UIFrame
 			Text txt_cost = item.Find ("Button/txt_cost").GetComponent<Text> ();
 			Text txt_name = item.Find ("Button/txt_name").GetComponent<Text> ();
 			Text txt_warning = item.Find ("Button/txt_warning").GetComponent<Text> ();
-			BuildingCSVStructure buildingCSVStructure = CSVManager.GetInstance.GetBuildingById (id);
-			img_icon.sprite = ResourcesManager.GetInstance.GetBuildingFullIconById (id);
+			BuildingCSVStructure buildingCSVStructure = CSVManager.Instance.GetBuildingById (id);
+			img_icon.sprite = ResourcesManager.Instance.GetBuildingFullIconById (id);
 			txt_cost.text = buildingCSVStructure.building_cost.ToString ();
 			txt_name.text = buildingCSVStructure.building_name;
 			txt_warning.text = "お金が足りない。";

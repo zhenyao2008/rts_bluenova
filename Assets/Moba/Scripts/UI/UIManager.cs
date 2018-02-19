@@ -34,13 +34,13 @@ namespace UIFrame
 			AddCtroller<BuildingListCtrl> ();
 			Hashtable parameters = new Hashtable ();
 			parameters.Add ("name", "Mike");
-			UIManager.GetInstance.GetController<BuildingListCtrl> ().ShowPanel (parameters);
+			UIManager.Instance.GetController<BuildingListCtrl> ().ShowPanel (parameters);
 			StartCoroutine (_DelayHide());
 		}
 
 		IEnumerator _DelayHide(){
 			yield return new WaitForSeconds(1);
-			UIManager.GetInstance.GetController<BuildingListCtrl> ().Close ();
+			UIManager.Instance.GetController<BuildingListCtrl> ().Close ();
 			GameObject go = ShowDialog (UILayerType.Mask, "Dialog/TextMsgDialog");
 			Destroy (go,3);
 		}
@@ -120,7 +120,6 @@ namespace UIFrame
 			m_uiLayers.Add (UILayerType.Top, tempLayer);
 		}
 
-
 		private GameObject AddALayer (string name, bool mouseEventable = true)
 		{
 			GameObject retLayer;
@@ -190,7 +189,7 @@ namespace UIFrame
 		}
 
 		public GameObject ShowDialog(UILayerType type,string dialogStr){
-			GameObject prefab = ResourcesManager.GetInstance.LoadUIPrefab (dialogStr);
+			GameObject prefab = ResourcesManager.Instance.LoadUIPrefab (dialogStr);
 			GameObject panelGo = Instantiate<GameObject> (prefab);
 			panelGo.transform.SetParent (m_uiLayers [type].transform);
 			panelGo.transform.localPosition = Vector3.zero;
@@ -213,7 +212,7 @@ namespace UIFrame
 				isCreate = false;
 			} else {
 				Debug.Log ("panelStr:"+panelStr);
-				GameObject prefab = ResourcesManager.GetInstance.LoadUIPrefab (panelStr);
+				GameObject prefab = ResourcesManager.Instance.LoadUIPrefab (panelStr);
 				panelGo = Instantiate<GameObject> (prefab);
 				m_panels.Add (panelStr, panelGo);
 				panelGo.transform.SetParent (m_uiLayers [type].transform);

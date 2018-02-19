@@ -30,7 +30,7 @@ public class CSVManager :SingleMonoBehaviour<CSVManager>
 		#if UNITY_EDITOR
 		return Resources.Load<TextAsset> ("CSV/" + fileName).bytes;
 		#else
-		return ResourcesManager.GetInstance.GetCSV (fileName);
+		return ResourcesManager.Instance.GetCSV (fileName);
 		#endif
 	}
 
