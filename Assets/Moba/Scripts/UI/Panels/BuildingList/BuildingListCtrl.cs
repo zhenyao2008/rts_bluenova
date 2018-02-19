@@ -45,5 +45,11 @@ namespace UIFrame
 			txt_warning.text = "お金が足りない。";
 		}
 
+		public override void Close ()
+		{
+			base.Close ();
+			mBuildingListPanelView.Close ();
+		}
+
 	}
 }

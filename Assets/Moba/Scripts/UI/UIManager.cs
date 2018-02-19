@@ -31,12 +31,18 @@ namespace UIFrame
 
 		public void InitCtrollers ()
 		{
-//			AddCtroller<Sample1Ctrl> ();
-//			AddCtroller<Sample2Ctrl> ();
 			AddCtroller<BuildingListCtrl> ();
 			Hashtable parameters = new Hashtable ();
 			parameters.Add ("name", "Mike");
 			UIManager.GetInstance.GetController<BuildingListCtrl> ().ShowPanel (parameters);
+			StartCoroutine (_DelayHide());
+		}
+
+		IEnumerator _DelayHide(){
+			yield return new WaitForSeconds(1);
+			UIManager.GetInstance.GetController<BuildingListCtrl> ().Close ();
+			GameObject go = ShowDialog (UILayerType.Mask, "Dialog/TextMsgDialog");
+			Destroy (go,3);
 		}
 
 		public T AddCtroller<T> () where T : BaseCtrl
@@ -90,12 +96,12 @@ namespace UIFrame
 			m_uiLayers.Add (UILayerType.Fixed, tempLayer);
 
 			//普通面板层
-			tempLayer = AddALayer ("UILayer_Mask");
-			m_uiLayers.Add (UILayerType.Mask, tempLayer);
-
-			//普通面板层
 			tempLayer = AddALayer ("UILayer_Common");
 			m_uiLayers.Add (UILayerType.Common, tempLayer);
+
+			//普通面板层
+			tempLayer = AddALayer ("UILayer_Mask");
+			m_uiLayers.Add (UILayerType.Mask, tempLayer);
 
 			//普通面板层
 			tempLayer = AddALayer ("UILayer_Movie");
@@ -181,6 +187,21 @@ namespace UIFrame
 			foreach (string key in m_panels.Keys) {
 				m_panels [key].SetActive (false);
 			}
+		}
+
+		public GameObject ShowDialog(UILayerType type,string dialogStr){
+			GameObject prefab = ResourcesManager.GetInstance.LoadUIPrefab (dialogStr);
+			GameObject panelGo = Instantiate<GameObject> (prefab);
+			panelGo.transform.SetParent (m_uiLayers [type].transform);
+			panelGo.transform.localPosition = Vector3.zero;
+			panelGo.transform.localRotation = Quaternion.identity;
+			panelGo.transform.localScale = Vector3.one;
+			RectTransform rectTrans = panelGo.GetComponent<RectTransform> ();
+			if (rectTrans != null) {
+				rectTrans.sizeDelta = Vector2.zero;
+				rectTrans.anchoredPosition = Vector2.zero;
+			}
+			return panelGo;
 		}
 
 		//单独显示panel

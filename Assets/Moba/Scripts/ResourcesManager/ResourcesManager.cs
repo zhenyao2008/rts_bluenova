@@ -92,7 +92,6 @@ public class ResourcesManager : SingleMonoBehaviour<ResourcesManager>
 		return prefab;
 	}
 
-
 	public Sprite GetSprite (string path)
 	{
 		return null;
