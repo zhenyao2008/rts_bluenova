@@ -34,18 +34,14 @@ public class CityBuilding : MonoBehaviour {
 	public bool isResouceBuilding;
 	public int resouceType;//0 or 1
 
-
 	public GameObject buildingUIPrefab;
 	public BuildingUI buildingUI;
-
-//	CityBuildingAttribute mCityBuildingAttribute;
 
 	AudioSource mAudioSource;
 	BuildingRes mBuildingRes;
 
 	void Awake(){
 		mBuildingRes = GetComponent<BuildingRes> ();
-//		mCityBuildingAttribute = GetComponent<CityBuildingAttribute> ();
 		mAudioSource = GetComponent<AudioSource> ();
 		defaultMat = buildingRenderer.material;
 		Shader shader = Shader.Find("Standard");
@@ -67,13 +63,11 @@ public class CityBuilding : MonoBehaviour {
 
 	public void ShowDefault()
 	{
-//		buildingRenderer.material = defaultMat;
 		buildingRenderer.enabled = false;
 	}
 
 	public void Select()
 	{
-//		Debug.Log ("Select");
 		arrawTips.SetActive (true);
 		if(mBuildingRes.selectAudioClip && mAudioSource)
 		{
@@ -94,7 +88,6 @@ public class CityBuilding : MonoBehaviour {
 
 	public void Place()
 	{
-		Debug.Log ("Place");
 		if(mBuildingRes.placeAudioClip && mAudioSource)
 		{
 			mAudioSource.clip = mBuildingRes.placeAudioClip;

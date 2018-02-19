@@ -9,19 +9,19 @@ var MPselStrings : String[] = ["Projectiles", "Auras", "Sprays", "Modular"];
 		MPselGridInt = GUI.SelectionGrid (Rect (Screen.width /2 - 175, Screen.height - 50, 800, 25), MPselGridInt, MPselStrings, 10);
 			
 		 if (MPselGridInt == 0){
-             Application.LoadLevel("magic_projectiles");
+             UnityEngine.SceneManagement.SceneManager.LoadScene ("magic_projectiles");
          }
          
          if (MPselGridInt == 1){
-             Application.LoadLevel("magic_aura");
+             UnityEngine.SceneManagement.SceneManager.LoadScene("magic_aura");
          }
          
          if (MPselGridInt == 2){
-             Application.LoadLevel("magic_sprays");
+             UnityEngine.SceneManagement.SceneManager.LoadScene("magic_sprays");
          }
          
          if (MPselGridInt == 3){
-             Application.LoadLevel("magic_modular");
+             UnityEngine.SceneManagement.SceneManager.LoadScene("magic_modular");
          }
          
 //         if (MPselGridInt == 4){

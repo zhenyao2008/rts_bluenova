@@ -8,7 +8,7 @@ namespace UIFrame
 	{
 
 		public Camera cameraUI;
-		Canvas canvas = null;
+		public Canvas canvas = null;
 		private Dictionary<UILayerType, GameObject> m_uiLayers = new Dictionary<UILayerType, GameObject> ();
 		private Dictionary<string, GameObject> m_panels = new Dictionary<string, GameObject> ();
 		private Dictionary<string,BaseCtrl> ctrls = new Dictionary<string, BaseCtrl> ();
@@ -21,6 +21,7 @@ namespace UIFrame
 			if (canvas == null)
 				canvas = GetComponent<Canvas> ();
 			InitLayers ();
+			InitCtrollers ();
 		}
 
 		void Start ()
@@ -30,11 +31,18 @@ namespace UIFrame
 
 		public void InitCtrollers ()
 		{
-			AddCtroller<Sample1Ctrl> ();
-			AddCtroller<Sample2Ctrl> ();
+			AddCtroller<BuildingListCtrl> ();
 			Hashtable parameters = new Hashtable ();
 			parameters.Add ("name", "Mike");
-			UIManager.GetInstance.GetController<Sample1Ctrl> ().ShowPanel (parameters);
+			UIManager.GetInstance.GetController<BuildingListCtrl> ().ShowPanel (parameters);
+			StartCoroutine (_DelayHide());
+		}
+
+		IEnumerator _DelayHide(){
+			yield return new WaitForSeconds(1);
+			UIManager.GetInstance.GetController<BuildingListCtrl> ().Close ();
+			GameObject go = ShowDialog (UILayerType.Mask, "Dialog/TextMsgDialog");
+			Destroy (go,3);
 		}
 
 		public T AddCtroller<T> () where T : BaseCtrl
@@ -88,12 +96,12 @@ namespace UIFrame
 			m_uiLayers.Add (UILayerType.Fixed, tempLayer);
 
 			//普通面板层
-			tempLayer = AddALayer ("UILayer_Mask");
-			m_uiLayers.Add (UILayerType.Mask, tempLayer);
-
-			//普通面板层
 			tempLayer = AddALayer ("UILayer_Common");
 			m_uiLayers.Add (UILayerType.Common, tempLayer);
+
+			//普通面板层
+			tempLayer = AddALayer ("UILayer_Mask");
+			m_uiLayers.Add (UILayerType.Mask, tempLayer);
 
 			//普通面板层
 			tempLayer = AddALayer ("UILayer_Movie");
@@ -181,6 +189,21 @@ namespace UIFrame
 			}
 		}
 
+		public GameObject ShowDialog(UILayerType type,string dialogStr){
+			GameObject prefab = ResourcesManager.GetInstance.LoadUIPrefab (dialogStr);
+			GameObject panelGo = Instantiate<GameObject> (prefab);
+			panelGo.transform.SetParent (m_uiLayers [type].transform);
+			panelGo.transform.localPosition = Vector3.zero;
+			panelGo.transform.localRotation = Quaternion.identity;
+			panelGo.transform.localScale = Vector3.one;
+			RectTransform rectTrans = panelGo.GetComponent<RectTransform> ();
+			if (rectTrans != null) {
+				rectTrans.sizeDelta = Vector2.zero;
+				rectTrans.anchoredPosition = Vector2.zero;
+			}
+			return panelGo;
+		}
+
 		//单独显示panel
 		public GameObject ShowPanel (UILayerType type, string panelStr, out bool isCreate)
 		{
@@ -189,6 +212,7 @@ namespace UIFrame
 				panelGo = m_panels [panelStr];
 				isCreate = false;
 			} else {
+				Debug.Log ("panelStr:"+panelStr);
 				GameObject prefab = ResourcesManager.GetInstance.LoadUIPrefab (panelStr);
 				panelGo = Instantiate<GameObject> (prefab);
 				m_panels.Add (panelStr, panelGo);
@@ -290,7 +314,7 @@ namespace UIFrame
 			string panelStr = typeof(T).ToString ();
 			if (panelStr.IndexOf (".") != -1)
 				panelStr = panelStr.Remove (0, panelStr.LastIndexOf (".") + 1);
-			panelStr = panelStr.Replace ("View", "");
+//			panelStr = panelStr.Replace ("View", "");
 			return panelStr;
 		}
 	}

@@ -269,7 +269,8 @@ public class NetworkMasterClient : MonoBehaviour
 		var msg = netMsg.ReadMessage<MasterMsgTypes.LaunchedBattleMessage> ();
 		battleServerPort = msg.port;
 //		ServerController_II.isClient = true;
-		Application.LoadLevel ("BattlePVE");
+//		Application.LoadLevel ("BattlePVE");
+		UnityEngine.SceneManagement.SceneManager.LoadScene ("BattlePVE");
 	}
 
 	public static int battleServerPort;

@@ -33,16 +33,16 @@ namespace UI.SettingPanel
         public override void Awake()
         {
             m_Trans = transform;
-            m_btnClose = m_Trans.FindChild("#btn_close").GetComponent<Button>();
-            m_txtMusic = m_Trans.FindChild("#btn_music/#txt_music").GetComponent<Text>();
-            m_btnMusic = m_Trans.FindChild("#btn_music").GetComponent<Button>();
-            m_txtSound = m_Trans.FindChild("#btn_sound/#txt_sound").GetComponent<Text>();
-            m_btnSound = m_Trans.FindChild("#btn_sound").GetComponent<Button>();
-            m_btnLanguage = m_Trans.FindChild("#btn_language").GetComponent<Button>();
-            m_btnService = m_Trans.FindChild("#btn_service").GetComponent<Button>();
-            m_btnAccount = m_Trans.FindChild("#btn_account").GetComponent<Button>();
-            m_btnProductor = m_Trans.FindChild("#btn_productor").GetComponent<Button>();
-            m_btnHelp = m_Trans.FindChild("#btn_help").GetComponent<Button>();
+            m_btnClose = m_Trans.Find("#btn_close").GetComponent<Button>();
+            m_txtMusic = m_Trans.Find("#btn_music/#txt_music").GetComponent<Text>();
+            m_btnMusic = m_Trans.Find("#btn_music").GetComponent<Button>();
+            m_txtSound = m_Trans.Find("#btn_sound/#txt_sound").GetComponent<Text>();
+            m_btnSound = m_Trans.Find("#btn_sound").GetComponent<Button>();
+            m_btnLanguage = m_Trans.Find("#btn_language").GetComponent<Button>();
+            m_btnService = m_Trans.Find("#btn_service").GetComponent<Button>();
+            m_btnAccount = m_Trans.Find("#btn_account").GetComponent<Button>();
+            m_btnProductor = m_Trans.Find("#btn_productor").GetComponent<Button>();
+            m_btnHelp = m_Trans.Find("#btn_help").GetComponent<Button>();
 
         }
 

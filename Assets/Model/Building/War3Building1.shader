@@ -1,4 +1,6 @@
-﻿Shader "Custom/War3Building1" {
+﻿// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
+
+Shader "Custom/War3Building1" {
 Properties {
 		_MainTex ("Base Texture ", 2D) = "white" {} 
         _Color ("Color", Color) = (1, 1, 1 ,1)
@@ -28,7 +30,7 @@ Properties {
             v2f vert (appdata_t v)
             {
                 v2f o1;
-                o1.vertex = mul(UNITY_MATRIX_MVP, v.vertex);
+                o1.vertex = UnityObjectToClipPos(v.vertex);
                 o1.color = half4(0,0,0,1);
                 o1.texcoord = v.texcoord;
                 return o1;

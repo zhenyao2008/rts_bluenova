@@ -61,26 +61,22 @@ public class NetworkBattleServer : MonoBehaviour {
 	void OnClientConnect(NetworkMessage netMsg)
 	{
 		Debug.Log("Client Connected to Master");
-		Application.LoadLevel ("BattlePVE");
+		UnityEngine.SceneManagement.SceneManager.LoadScene ("BattlePVE");
 	}
 
 	void OnClientDisconnect(NetworkMessage netMsg)
 	{
 		Debug.Log("Client Disconnected from Master");
-//		ResetClient();
-//		OnFailedToConnectToMasterServer();
-
 	}
 	
 	void OnClientError(NetworkMessage netMsg)
 	{
 		Debug.Log("ClientError from Master");
-//		OnFailedToConnectToMasterServer();
 	}
 
 	void OnRegisteredHost(NetworkMessage netMsg)
 	{
-		Application.LoadLevel ("BattlePVE");
+		UnityEngine.SceneManagement.SceneManager.LoadScene ("BattlePVE");
 	}
 
 	public void BattleServerReady(){

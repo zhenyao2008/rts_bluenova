@@ -12,7 +12,7 @@ public class PanelBase : MonoBehaviour
 
 	public virtual void Awake ()
 	{
-
+		
 	}
 
 

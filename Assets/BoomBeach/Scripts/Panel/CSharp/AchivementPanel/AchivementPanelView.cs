@@ -30,13 +30,13 @@ namespace UI.AchivementPanel
         public override void Awake()
         {
             m_Trans = transform;
-            m_btnClose = m_Trans.FindChild("#btn_close").GetComponent<Button>();
-            m_gridCarditems = m_Trans.FindChild("#scroll_carditems/#grid_carditems");
-            m_scrollCarditems = m_Trans.FindChild("#scroll_carditems").gameObject;
-            m_btnPlayers = m_Trans.FindChild("#btn_players").GetComponent<Button>();
-            m_gridPlayers = m_Trans.FindChild("#container_players/#grid_players");
-            m_containerPlayers = m_Trans.FindChild("#container_players").gameObject;
-            m_btnFriends = m_Trans.FindChild("#btn_friends").GetComponent<Button>();
+            m_btnClose = m_Trans.Find("#btn_close").GetComponent<Button>();
+            m_gridCarditems = m_Trans.Find("#scroll_carditems/#grid_carditems");
+            m_scrollCarditems = m_Trans.Find("#scroll_carditems").gameObject;
+            m_btnPlayers = m_Trans.Find("#btn_players").GetComponent<Button>();
+            m_gridPlayers = m_Trans.Find("#container_players/#grid_players");
+            m_containerPlayers = m_Trans.Find("#container_players").gameObject;
+            m_btnFriends = m_Trans.Find("#btn_friends").GetComponent<Button>();
 
         }
 

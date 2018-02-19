@@ -12,13 +12,15 @@ public class CSVManager :SingleMonoBehaviour<CSVManager>
 	private const string CSV_NG = "m_ng";
 	private const string CSV_QA = "m_qa";
 	private const string CSV_HELP = "m_help";
+
+	private const string CSV_SKILL = "m_skill";
 	private CsvContext mCsvContext;
 	public List<GeneralCSVStructure> ConventionList { get; private set; }
 	public Dictionary<int, GeneralCSVStructure> ConventionDic { get; private set; }
 	public List<GeneralCSVStructure> NgList { get; private set; }
 	public Dictionary<int, GeneralCSVStructure> NgDic { get; private set; }
 
-	void Awake ()
+	protected override void Awake ()
 	{
 		StartLoading ();
 	}
@@ -35,7 +37,7 @@ public class CSVManager :SingleMonoBehaviour<CSVManager>
 	void StartLoading ()
 	{
 		mCsvContext = new CsvContext ();
-		LoadNG ();
+//		LoadNG ();
 		loaded = true;
 	}
 
@@ -64,4 +66,17 @@ public class CSVManager :SingleMonoBehaviour<CSVManager>
 		}
 		return dic;
 	}
+
+
+	public BuildingCSVStructure GetBuildingById(int id){
+
+		BuildingCSVStructure building = new BuildingCSVStructure ();
+		building.id = id;
+		building.building_name = "building_name:" + id;
+		building.building_cost = id * 100;
+		return building;
+
+	}
+
 }
+

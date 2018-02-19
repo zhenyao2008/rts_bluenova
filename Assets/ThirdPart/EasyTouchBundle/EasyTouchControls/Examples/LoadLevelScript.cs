@@ -4,34 +4,34 @@ using System.Collections;
 public class LoadLevelScript : MonoBehaviour {
 
 	public void LoadMainMenu(){
-		Application.LoadLevel( "MainMenu");
+		UnityEngine.SceneManagement.SceneManager.LoadScene( "MainMenu");
 	}
 
 	public void LoadJoystickEvent(){
-		Application.LoadLevel( "Joystick-Event-Input");
+		UnityEngine.SceneManagement.SceneManager.LoadScene( "Joystick-Event-Input");
 	}
 
 	public void LoadJoysticParameter(){
-		Application.LoadLevel("Joystick-Parameter");
+		UnityEngine.SceneManagement.SceneManager.LoadScene("Joystick-Parameter");
 	}
 
 	public void LoadDPadEvent(){
-		Application.LoadLevel("DPad-Event-Input");
+		UnityEngine.SceneManagement.SceneManager.LoadScene("DPad-Event-Input");
 	}
 
 	public void LoadDPadClassicalTime(){
-		Application.LoadLevel("DPad-Classical-Time");
+		UnityEngine.SceneManagement.SceneManager.LoadScene("DPad-Classical-Time");
 	}
 
 	public void LoadTouchPad(){
-		Application.LoadLevel ("TouchPad-Event-Input");
+		UnityEngine.SceneManagement.SceneManager.LoadScene("TouchPad-Event-Input");
 	}
 
 	public void LoadButton(){
-		Application.LoadLevel("Button-Event-Input");
+		UnityEngine.SceneManagement.SceneManager.LoadScene("Button-Event-Input");
 	}
 
 	public void LoadFPS(){
-		Application.LoadLevel("FPS_Example");
+		UnityEngine.SceneManagement.SceneManager.LoadScene("FPS_Example");
 	}
 }

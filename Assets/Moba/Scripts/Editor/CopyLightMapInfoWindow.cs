@@ -68,7 +68,7 @@ public class CopyLightMapInfoWindow : EditorWindow {
 		Debug.Log (tex);
 		LightmapData[] ld = new LightmapData[1];
 		ld [0] = new LightmapData ();
-		ld [0].lightmapLight = tex;
+		ld [0].lightmapColor = tex;
 		LightmapSettings.lightmaps = ld;
 
 		List<LightParamBean> lps = JsonConvert.DeserializeObject<List<LightParamBean>> (ta.text);

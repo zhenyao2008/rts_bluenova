@@ -1,3 +1,5 @@
+// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
+
 // Simplified Diffuse shader. Differences from regular Diffuse one:
 // - no Main Color
 // - fully supports only 1 directional light. Other lights can affect it, but it will be per-vertex/SH.
@@ -38,7 +40,7 @@ SubShader {
             };
             VertexOutput vert (VertexInput v) {
                 VertexOutput o = (VertexOutput)0;
-                o.pos = mul(UNITY_MATRIX_MVP, float4(v.vertex.xyz + v.normal*_Outline,1) );
+                o.pos = UnityObjectToClipPos(float4(v.vertex.xyz + v.normal*_Outline,1) );
                 return o;
             }
             float4 frag(VertexOutput i) : COLOR {

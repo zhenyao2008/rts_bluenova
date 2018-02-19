@@ -222,7 +222,7 @@ public class ServerController_II : NetworkManager {
 		yield return new WaitForSeconds (5);
 		NetworkServer.Shutdown ();
 		NetworkServer.Reset ();
-		Application.LoadLevel ("BattlePVE");
+		UnityEngine.SceneManagement.SceneManager.LoadScene ("BattlePVE");
 		Destroy (gameObject);
 	}
 

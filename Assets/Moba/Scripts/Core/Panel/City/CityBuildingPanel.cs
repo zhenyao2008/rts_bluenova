@@ -59,8 +59,9 @@ public class CityBuildingPanel : PanelBase {
 
 	public static CityBuildingPanel instance;
 
-	void Awake()
+	public override void Awake()
 	{
+		base.Awake ();
 		instance = this;
 		for(int i=0;i<unitPrefabTriggers.Count;i++)
 		{

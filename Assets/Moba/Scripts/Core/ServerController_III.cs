@@ -51,6 +51,8 @@ public class ServerController_III : NetworkManager {
 	public float cameraHandleSpeed = 20;
 	public float cameraHandleSpeedForMobile = 1;
 
+	const string  KEY_IP_ADRESS = "address";
+
 	void Awake()
 	{
 		instance = this;
@@ -68,7 +70,9 @@ public class ServerController_III : NetworkManager {
 
 		builds.Add (0, buildPrefabs);
 		builds.Add (1, buildPrefabs1);
-
+		if(PlayerPrefs.HasKey(KEY_IP_ADRESS)){
+			this.networkAddress = PlayerPrefs.GetString(KEY_IP_ADRESS);
+		}
 	}
 
 	void Start(){
@@ -110,7 +114,7 @@ public class ServerController_III : NetworkManager {
 
 	float mNextMoneyTime = 0;//下一次加钱时间
 	float mMoneyInterval = 1;//加钱时间间隔
-	int mMoneyPerTips = 1;//每一跳加钱数
+	public int moneyPerTips = 36;//每一跳加钱数
 	void Update(){
 		if(NetworkServer.active)
 		{
@@ -139,7 +143,7 @@ public class ServerController_III : NetworkManager {
 				{
 					foreach(PlayerAttribute pa in playerAttributes)
 					{
-						pa.corn += mMoneyPerTips;
+						pa.corn += moneyPerTips;
 					}
 					foreach(PlayerController_III pc in players)
 					{
@@ -179,12 +183,15 @@ public class ServerController_III : NetworkManager {
 	{
 		base.OnStartClient (client);
 		GetComponent<AudioSource> ().enabled = true;
+		PlayerPrefs.SetString (KEY_IP_ADRESS,this.networkAddress);
+		PlayerPrefs.Save ();
 	}
 
 	public override void OnStopClient ()
 	{
 		base.OnStopClient ();
-		Application.LoadLevel("Battle");
+		UnityEngine.SceneManagement.SceneManager.LoadScene ("Battle");
+//		Application.LoadLevel("Battle");
 	}
 
 	public override void OnServerAddPlayer (NetworkConnection conn, short playerControllerId)
@@ -245,7 +252,8 @@ public class ServerController_III : NetworkManager {
 	{
 		base.OnStopServer ();
 		NetworkServer.Reset ();
-		Application.LoadLevel("Battle");
+//		Application.LoadLevel("Battle");
+		UnityEngine.SceneManagement.SceneManager.LoadScene ("Battle");
 	}
 
 	public void PlayerWin(UnitBase ub){
@@ -285,7 +293,7 @@ public class ServerController_III : NetworkManager {
 			if(prefab!=null)
 			{
 				prefab.SetActive (false);
-				GameObject go = Instantiate(prefab,  spawners[i].spawnPoint.position, spawners[i].spawnPoint.rotation) as GameObject;
+				GameObject go = Instantiate(prefab,spawners[i].spawnPoint.position, spawners[i].spawnPoint.rotation) as GameObject;
 				Enemy soilder = go.GetComponent<Enemy>();
 				soilder.defaultTarget = target;
 				soilder.pos = spawners[i].spawnPoint.position;
@@ -381,7 +389,7 @@ public class ServerController_III : NetworkManager {
 			return;
 		}
 		availablePlanes.Remove (plane);
-		Transform sp = plane.transform.FindChild("SpawnPoint");
+		Transform sp = plane.transform.Find("SpawnPoint");
 		GameObject go = Instantiate(cBuildPrefabs[buildIndex],plane.position,plane.rotation) as GameObject;
 		SpawnPoint spawnPoint = go.GetComponent<SpawnPoint> ();
 		spawnPoint.spawnPoint = sp;

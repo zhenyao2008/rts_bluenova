@@ -88,9 +88,9 @@ public class ResourcesManager : SingleMonoBehaviour<ResourcesManager>
 
 	//TODO
 	public GameObject LoadUIPrefab(string uiName){
-		return null;
+		GameObject prefab = Resources.Load<GameObject> ("UI/" + uiName);
+		return prefab;
 	}
-
 
 	public Sprite GetSprite (string path)
 	{
@@ -99,6 +99,11 @@ public class ResourcesManager : SingleMonoBehaviour<ResourcesManager>
 
 	public Sprite GetCharacterIconById (int charaId)
 	{
+		return null;
+	}
+
+	public Sprite GetBuildingFullIconById(int buildingId){
+		
 		return null;
 	}
 
