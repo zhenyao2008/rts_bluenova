@@ -344,6 +344,7 @@ public class ServerController_III : NetworkManager {
 	}
 
 	public void UpgradeBuilding(int index,int order,int group){
+		Debug.Log (order);
 		if (!isBattleBegin)
 			return;
 		SpawnPoint building = null;
@@ -354,8 +355,8 @@ public class ServerController_III : NetworkManager {
 		}
 		if (building != null && building.level < 3) {
 
-			if(players[group]!=null)
-			{
+//			if(players[group]!=null)
+//			{
 				//验证一下是否有下一级的建筑
 				if(building.leveledSoilderPrefabs.Count <= building.level + 1)
 				{
@@ -377,7 +378,7 @@ public class ServerController_III : NetworkManager {
 						building.Upgrade();
 					}
 				}
-			}
+//			}
 		}
 	}
 

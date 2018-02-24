@@ -38,20 +38,28 @@ public class AIController_III : MonoBehaviour ,IPlayerController{
 
 
 		if (playerIndex == 0) {
-			if( mServerController_III.availablePlanes0.Count == 0)
-				return;
-			trans = mServerController_III.availablePlanes0 [Random.Range (0, mServerController_III.availablePlanes0.Count)];
-			int index = mServerController_III.planes0.IndexOf(trans);
-			mServerController_III.SpawnBuilding(playerIndex,Random.Range(0,buildPrefabs.Count),index,race);
+			if (mServerController_III.availablePlanes0.Count == 0) {
+				UpgradeBuilding (Random.Range(0, mServerController_III.planes0.Count),0);
+			} else {
+				trans = mServerController_III.availablePlanes0 [Random.Range (0, mServerController_III.availablePlanes0.Count)];
+				int index = mServerController_III.planes0.IndexOf (trans);
+				mServerController_III.SpawnBuilding (playerIndex, Random.Range (0, buildPrefabs.Count), index, race);
+			}
 		
 		} else {
-			if( mServerController_III.availablePlanes1.Count == 0)
-				return;
-			trans = mServerController_III.availablePlanes1[Random.Range(0,mServerController_III.availablePlanes1.Count)];
-			int index = mServerController_III.planes1.IndexOf(trans);
-			mServerController_III.SpawnBuilding(playerIndex,Random.Range(0,buildPrefabs.Count),index,race);
-
+			if (mServerController_III.availablePlanes1.Count == 0) {
+				UpgradeBuilding (Random.Range (0, mServerController_III.planes1.Count), 0);
+			} else {
+				trans = mServerController_III.availablePlanes1 [Random.Range (0, mServerController_III.availablePlanes1.Count)];
+				int index = mServerController_III.planes1.IndexOf (trans);
+				mServerController_III.SpawnBuilding (playerIndex, Random.Range (0, buildPrefabs.Count), index, race);
+			}
 		}
+	}
+
+	public void UpgradeBuilding (int buildingIndex, int order)
+	{
+		mServerController_III.UpgradeBuilding (buildingIndex, order, playerIndex);
 	}
 
 	public int GetPlayerIndex()
