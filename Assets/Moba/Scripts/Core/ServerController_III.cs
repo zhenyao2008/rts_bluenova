@@ -190,7 +190,7 @@ public class ServerController_III : NetworkManager {
 	public override void OnStopClient ()
 	{
 		base.OnStopClient ();
-		UnityEngine.SceneManagement.SceneManager.LoadScene ("Battle");
+//		UnityEngine.SceneManagement.SceneManager.LoadScene ("Battle");
 //		Application.LoadLevel("Battle");
 	}
 
@@ -253,6 +253,9 @@ public class ServerController_III : NetworkManager {
 		base.OnStopServer ();
 		NetworkServer.Reset ();
 //		Application.LoadLevel("Battle");
+//		UnityEngine.SceneManagement.SceneManager.LoadScene ("Battle");
+		if(ServerController_III.instance!=null)
+			Destroy (ServerController_III.instance.gameObject);
 		UnityEngine.SceneManagement.SceneManager.LoadScene ("Battle");
 	}
 

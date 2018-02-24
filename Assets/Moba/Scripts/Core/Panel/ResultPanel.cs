@@ -11,6 +11,11 @@ public class ResultPanel : MonoBehaviour {
 	public GameObject failNode;
 	public UIButton failButton;
 
+	void Awake(){
+		winButton.onClick.Add (new EventDelegate (ServerController_III.instance.StopHost));
+		failButton.onClick.Add (new EventDelegate (ServerController_III.instance.StopHost));
+	}
+
 	public void Win()
 	{
 		winNode.SetActive (true);
