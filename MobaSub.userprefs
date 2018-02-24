@@ -1,6 +1,18 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Moba/Scripts/Assetbundle/Editor/AssetBundleWindow.cs">
+    <Files>
+      <File FileName="Assets/Moba/Scripts/Core/Enemy.cs" Line="499" Column="44" />
+      <File FileName="Assets/Moba/Scripts/UI/UIManager.cs" Line="310" Column="22" />
+      <File FileName="Assets/Scripts/status_network/ui/ServerListPanel.cs" Line="55" Column="28" />
+      <File FileName="Assets/Moba/Scripts/Core/Panel/City/CityPanel.cs" Line="26" Column="8" />
+      <File FileName="Assets/ThirdPart/MagicProjectiles/InteractiveDemo/Scripts/sceneController.js" Line="18" Column="4" />
+      <File FileName="Assets/Moba/Scripts/CSV/CSVParser.cs" Line="14" Column="30" />
+      <File FileName="Assets/Moba/Scripts/Core/BuildingController.cs" Line="110" Column="20" />
+      <File FileName="Assets/ThirdPart/MagicProjectiles/KunaiEditor/Editor/KunaiEditor.cs" Line="306" Column="35" />
+      <File FileName="Assets/Moba/Scripts/Assetbundle/Editor/AssetBundleWindow.cs" Line="25" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

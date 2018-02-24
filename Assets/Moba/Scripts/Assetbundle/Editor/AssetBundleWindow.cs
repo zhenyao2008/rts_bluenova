@@ -22,11 +22,9 @@ public class AssetBundleWindow : EditorWindow
 	static string[] allStreamAssetPath;
 	static string fullResourceAssetPath;
 	static string tempResourceAssetPath;
-//	static string fullStreamPath;
 	static string fullTmpOutputPath;
 	static string fullTmpVersionOutputPath;
 	static string fullServerCSVPath;
-//	static string serverCSV;
 
 	static void InitPath ()
 	{
@@ -42,6 +40,10 @@ public class AssetBundleWindow : EditorWindow
 		fullTmpOutputPath = Application.dataPath + "/Assetbundles/android/";
 		fullTmpVersionOutputPath = Application.dataPath + "/Assetbundles/android/version/";
 		fullServerCSVPath = Application.dataPath + "/Assetbundles/android/server.csv";
+		#else
+		fullTmpOutputPath = Application.dataPath + "/Assetbundles/standard/";
+		fullTmpVersionOutputPath = Application.dataPath + "/Assetbundles/standard/version/";
+		fullServerCSVPath = Application.dataPath + "/Assetbundles/standard/server.csv";
 		#endif
 //		serverCSV = "server_resource.csv";
 	}

@@ -69,7 +69,6 @@ public class CSVManager :SingleMonoBehaviour<CSVManager>
 
 
 	public BuildingCSVStructure GetBuildingById(int id){
-
 		BuildingCSVStructure building = new BuildingCSVStructure ();
 		building.id = id;
 		building.building_name = "building_name:" + id;

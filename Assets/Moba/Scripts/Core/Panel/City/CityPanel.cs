@@ -23,7 +23,8 @@ public class CityPanel : PanelBase {
 		return instance;
 	}
 
-	void Awake(){
+	public override void Awake(){
+		base.Awake ();
 		current = this;
 		instance = this;
 		List<Transform> items = btnGrid.GetChildList ();

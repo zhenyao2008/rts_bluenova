@@ -11,7 +11,7 @@ public class CSVParser : MonoBehaviour
 	private void Awake ()
 	{
 		csvContext = new CsvContext ();
-		CsvColumnAttribute attri;
+//		CsvColumnAttribute attri;
 	}
 
 	virtual public void Parse ()

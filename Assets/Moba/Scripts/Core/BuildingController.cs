@@ -46,7 +46,6 @@ public class BuildingController : MonoBehaviour {
 	{
 		mDataCenter = DataCenter.Instance ();
 		mDataCenter.LoadCityBuilding ();
-	
 		List<string> buildingRes = mDataCenter.buildingRes;
 		if(buildingRes!=null)
 		{
@@ -60,8 +59,6 @@ public class BuildingController : MonoBehaviour {
 				this.allBuildings.Add(go);
 			}
 		}
-
-		
 	}
 
 	GameObject GetPrefab(string bName){
@@ -83,6 +80,8 @@ public class BuildingController : MonoBehaviour {
 		mDataCenter.SaveUserInfo (CityPanel_I.SingleTon().userInfo);
 	}
 
+
+	bool mEnableBilding = false;
 	void Update()
 	{
 		if(UICamera.isOverUI)
@@ -103,12 +102,16 @@ public class BuildingController : MonoBehaviour {
 		{
 			return;
 		}
-		return;
 
+		//TODO new mEnableBilding always false.
+		if(mEnableBilding)
+			HandleBuilding ();
+	}
+
+	void HandleBuilding(){
 		//以下のコード使わない。（調べたい）
 		if(Input.GetMouseButtonDown(0))
 		{
-//			Debug.Log("GetMouseButtonDown");
 			isNewBuildingFirstClick = false;
 			if(Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition),out hit,Mathf.Infinity,1<<15 | 1<<18))
 			{
@@ -134,7 +137,7 @@ public class BuildingController : MonoBehaviour {
 		}
 		if(Input.GetMouseButton(0) )
 		{
-//			Debug.Log("GetMouseButton");
+			//			Debug.Log("GetMouseButton");
 			if(Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition),out hit,Mathf.Infinity,1<<15 | 1 << 18))
 			{
 				if(hit.transform.gameObject.layer == 18 && downBuilding == hit.transform.gameObject)
@@ -149,7 +152,7 @@ public class BuildingController : MonoBehaviour {
 							selectOffset.y = 0;
 
 						}
-//						CityPanel.SingleTon().ShowBuildingTips(currentBuilding.GetComponent<CityBuilding>());
+						//						CityPanel.SingleTon().ShowBuildingTips(currentBuilding.GetComponent<CityBuilding>());
 						CityPanel_I.SingleTon().ShowBuildingButtons();
 						currentBuilding.GetComponent<CityBuilding>().Select();
 						isDraging = true;
@@ -167,21 +170,20 @@ public class BuildingController : MonoBehaviour {
 						if(CheckPlaceAble())
 						{
 							currentBuilding.GetComponent<CityBuilding>().ShowDefault();
-//							CityPanel.SingleTon().buildConfirmYesBtn.isEnabled = true;
+							//							CityPanel.SingleTon().buildConfirmYesBtn.isEnabled = true;
 						}
 						else
 						{
 							currentBuilding.GetComponent<CityBuilding>().ShowDisable();
-//							CityPanel.SingleTon().buildConfirmYesBtn.isEnabled = false;
+							//							CityPanel.SingleTon().buildConfirmYesBtn.isEnabled = false;
 						}
 					}
 				}
 			}
 		}
-
 		if(Input.GetMouseButtonUp(0))
 		{
-//			Debug.Log("GetMouseButtonUp");
+			//			Debug.Log("GetMouseButtonUp");
 			if(Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition),out hit,Mathf.Infinity,1<<15 | 1<<18))
 			{
 				if(isDraging)
@@ -204,7 +206,7 @@ public class BuildingController : MonoBehaviour {
 						currentBuilding = hit.transform.gameObject;
 						CityBuilding cb = currentBuilding.GetComponent<CityBuilding>();
 						cb.Select();
-//						CityPanel.SingleTon().ShowBuildingTips(cb);
+						//						CityPanel.SingleTon().ShowBuildingTips(cb);
 						CityPanel_I.SingleTon().ShowBuildingButtons();
 						ShowPlane();
 						selectBuildingDefaultPos = currentBuilding.transform.position;
@@ -223,6 +225,11 @@ public class BuildingController : MonoBehaviour {
 			CameraController.SingleTon().enabled = true;
 			EasyTouch.instance.enable =true;
 		}
+	}
+
+	public void SelectBuilding(GameObject selectBuilding){
+		SpawnPoint sp = selectBuilding.GetComponent<SpawnPoint> ();
+		sp.OnSelected ();
 	}
 
 	public void ShowPlane(){
@@ -311,7 +318,6 @@ public class BuildingController : MonoBehaviour {
 			}
 		}
 		HidePlane ();
-//		CityPanel.SingleTon ().buildConfirm.SetActive (false);
 		CityPanel_I.SingleTon ().confirmBtns.gameObject.SetActive (false);
 	}
 

@@ -2,6 +2,7 @@
 using UnityEngine.Networking;
 using System.Collections;
 using System.Collections.Generic;
+using UIFrame;
 
 public class PlayerController_III :  NetworkBehaviour,IPlayerController
 {
@@ -13,6 +14,8 @@ public class PlayerController_III :  NetworkBehaviour,IPlayerController
 	public bool isBattleBegin;
 	public bool isChating;
 
+
+	public List<GameObject> buildings;
 	ServerController_III mServerController_III;
 
 	GameObject selectPreBuilding;
@@ -35,9 +38,11 @@ public class PlayerController_III :  NetworkBehaviour,IPlayerController
 	public int playerIndex = -1;
 
 	public PlayerAttribute playerAttribute;
+	public static PlayerController_III instance;
 
 	void Start ()
 	{
+		instance = this;
 		mServerController_III = ServerController_III.instance;
 		if (isClient && isLocalPlayer) {
 			rtsCamera = FindObjectOfType<RtsCamera> ();
@@ -123,18 +128,28 @@ public class PlayerController_III :  NetworkBehaviour,IPlayerController
 	}
 
 	[Client]
+	public void SelectPreBuilding(int index){
+		Debug.Log ("SelectBuilding");
+		if (selectPreBuilding != null)
+			Destroy (selectPreBuilding);
+		selectBuildingIndex = index;
+		selectPreBuilding = this.buildings[selectBuildingIndex];
+		selectPreBuilding = Instantiate (selectPreBuilding);
+		Destroy (selectPreBuilding.GetComponent<SpawnPoint> ());
+		Destroy (selectPreBuilding.GetComponent<Collider> ());
+		UIManager.Instance.GetController<BuildingListCtrl> ().Close ();
+	}
+
+	[Client]
 	public void SelectBuilding ()
 	{
 		int index = mBuildingPanel.buildings.IndexOf (UIEventTrigger.current);
 		if (selectPreBuilding != null)
 			Destroy (selectPreBuilding);
 		selectBuildingIndex = index;
-		if (race == 0) {
-			selectPreBuilding = Instantiate<GameObject> (ServerController_III.instance.buildPrefabs [selectBuildingIndex]);
-		} else {
-			selectPreBuilding = Instantiate<GameObject> (ServerController_III.instance.buildPrefabs1 [selectBuildingIndex]);
-		}
+		selectPreBuilding = this.buildings[selectBuildingIndex];
 		Debug.Log ("SelectBuilding");
+		selectPreBuilding = Instantiate (selectPreBuilding);
 		Destroy (selectPreBuilding.GetComponent<SpawnPoint> ());
 		Destroy (selectPreBuilding.GetComponent<Collider> ());
 //		SpawnPoint sp = selectPreBuilding.GetComponent<SpawnPoint> ();
@@ -162,14 +177,12 @@ public class PlayerController_III :  NetworkBehaviour,IPlayerController
 		}
 
 		SpawnPoint sp = building.GetComponent<SpawnPoint> ();
-
 		GameObject go = sp.GetCurrentPrefab ();
 		UnitAttribute ua = go.GetComponent<UnitAttribute> ();
 		mBuildInfoPanel.SetBuildInfo (ua);
 		mBuildInfoPanel.ShowUpgrade (sp);
 
-		mBuildInfoPanel.root.SetActive (true);
-		mBuildingPanel.root.SetActive (false);
+		ShowBuildDetailPanel ();
 
 		mBuildInfoPanel.returnBtn.onClick.Clear ();
 		mBuildInfoPanel.returnBtn.onClick.Add (new global::EventDelegate (ShowBuildPanel));
@@ -179,9 +192,16 @@ public class PlayerController_III :  NetworkBehaviour,IPlayerController
 	void ShowBuildPanel ()
 	{
 		mBuildInfoPanel.root.SetActive (false);
-		mBuildingPanel.root.SetActive (true);
+//		mBuildingPanel.root.SetActive (true);
+		Hashtable parameters = new Hashtable ();
+		parameters.Add ("name", "Mike");
+		UIManager.Instance.GetController<BuildingListCtrl> ().ShowPanel (parameters);
 	}
 
+	void ShowBuildDetailPanel(){
+		mBuildInfoPanel.root.SetActive (true);
+		mBuildingPanel.root.SetActive (false);
+	}
 
 	public void ChangeTimeLimit (float timeLimit)
 	{
@@ -272,11 +292,12 @@ public class PlayerController_III :  NetworkBehaviour,IPlayerController
 			}
 			RaycastHit hit;
 			if (Physics.Raycast (Camera.main.ScreenPointToRay (Input.mousePosition), out hit, Mathf.Infinity, 1 << buildingLayer)) {
+				//TODO Select Building.
 				selectBuilding = hit.transform.gameObject;
-				mBuildInfoPanel.root.SetActive (true);
-				mBuildingPanel.root.SetActive (false);
+//				BuildingController.SingleTon ().SelectBuilding (selectBuilding);
 				SpawnPoint sp = selectBuilding.GetComponent<SpawnPoint> ();
 				sp.OnSelected ();
+				ShowBuildDetailPanel ();
 				LevelPrefabs nextPrefabs;
 				UnitAttribute ua = sp.GetCurrentPrefab ().GetComponent<UnitAttribute> ();
 				mBuildInfoPanel.SetBuildInfo (ua);
@@ -292,8 +313,7 @@ public class PlayerController_III :  NetworkBehaviour,IPlayerController
 					}
 				}
 			} else if (selectPreBuilding == null && Physics.Raycast (Camera.main.ScreenPointToRay (Input.mousePosition), out hit, Mathf.Infinity, 1 << LayerConstant.planeLayer)) {
-				mBuildingPanel.root.SetActive (true);
-				mBuildInfoPanel.root.SetActive (false);
+				ShowBuildPanel ();
 			} else {
 				mBuildingPanel.root.SetActive (false);
 				mBuildInfoPanel.root.SetActive (false);
@@ -674,17 +694,13 @@ public class PlayerController_III :  NetworkBehaviour,IPlayerController
 		mServerMsgPanel.msgTime.text = "Begin";
 		yield return new WaitForSeconds (1);
 		isBattleBegin = true;
-		mBuildingPanel.root.SetActive (true);
 		mPlayerPanel.root.SetActive (true);
 		mBuildingPanel.closeButton.onClick.Add (new global::EventDelegate (CloseBuildingPanel));
-
-		List<GameObject> buildings;
 		if (race == 0) {
 			buildings = ServerController_III.instance.buildPrefabs;
 		} else {
 			buildings = ServerController_III.instance.buildPrefabs1;
 		}
-		
 		for (int i = 0; i < mBuildingPanel.buildings.Count; i++) {
 			if (buildings.Count > i) {
 				mBuildingPanel.buildings [i].onPress.Clear ();
@@ -693,7 +709,6 @@ public class PlayerController_III :  NetworkBehaviour,IPlayerController
 				go.transform.parent = mBuildingPanel.buildings [i].GetComponent<BuildingItemUI> ().buildingPrefabPoint;
 				go.transform.localScale = new Vector3 (15, 15, 15);
 				go.transform.localPosition = Vector3.zero;
-
 				Destroy (go.GetComponent<SpawnPoint> ());
 				Destroy (go.GetComponent<Collider> ());
 				mBuildingPanel.buildings [i].GetComponent<BuildingItemUI> ().detailTrigger.onClick.Clear ();
@@ -701,13 +716,13 @@ public class PlayerController_III :  NetworkBehaviour,IPlayerController
 			} else {
 				mBuildingPanel.buildings [i].gameObject.SetActive (false);
 			}
-//			mBuildingPanel.buildings[i]
-
 		}
+		//TODO
 		for (int i = 0; i < mServerController_III.buildPrefabs.Count; i++) {
 			mBuildingPanel.buildings [i].GetComponentInChildren<UILabel> ().text = mServerController_III.buildPrefabs [i].GetComponent<SpawnPoint> ().buildingName;
 		}
 		mServerMsgPanel.msgTime.gameObject.SetActive (false);
+		ShowBuildPanel ();
 	}
 
 

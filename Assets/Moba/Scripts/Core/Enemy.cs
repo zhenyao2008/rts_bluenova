@@ -116,7 +116,7 @@ public class Enemy : UnitBase
 			}
 			RpcShowMsgTips (2, "+" + unitAttribute.killPrice, Color.yellow, 3, new Vector3 (0, 20, 0));
 			if (nav.enabled)
-				nav.Stop ();
+				nav.isStopped = true;
 			StartCoroutine (NetDestroy (2));
 		}
 		RpcUpdateHealth (unitAttribute.currentHealth);
@@ -239,7 +239,7 @@ public class Enemy : UnitBase
 			preState = UnitState.Idle;
 			mNextScanTime = mScanInterval + Time.time;
 			if (nav.enabled)
-				nav.Stop ();
+				nav.isStopped=true;
 		}
 		if (mNextScanTime < Time.time) {
 			mNextScanTime = mScanInterval + Time.time;
@@ -281,7 +281,7 @@ public class Enemy : UnitBase
 			preState = UnitState.Attack;
 			mNextAttackTime = commonAttackDelay + Time.time + realDamageTime * unitAttribute.attackInterval / anim [this.attackAnimStateName].length;
 			if (nav.enabled)
-				nav.Stop ();
+				nav.isStopped=true;
 		}
 
 		if (CheckSkillAble ()) {
@@ -310,7 +310,7 @@ public class Enemy : UnitBase
 		}
 
 		if (nav.enabled)
-			nav.Stop ();
+			nav.isStopped=true;
 		Vector3 forward = mTarget.transform.position - mTrans.position;
 		forward.y = 0;
 		if (forward != Vector3.zero)
@@ -338,7 +338,7 @@ public class Enemy : UnitBase
 		if (preState != UnitState.Skill) {
 			preState = UnitState.Skill;
 			if (nav.enabled)
-				nav.Stop ();
+				nav.isStopped=true;
 			mCurrentSkill.OnEnter ();
 		}
 		mCurrentSkill.OnUpdate ();
@@ -423,7 +423,7 @@ public class Enemy : UnitBase
 		}
 
 		if (nav.enabled)
-			nav.Resume ();
+			nav.isStopped = false;
 
 		if (CheckSkillAble ()) {
 			state = UnitState.Skill;
@@ -437,7 +437,7 @@ public class Enemy : UnitBase
 			}
 			if (Vector3.Distance (mTarget.transform.position, mTrans.position) <= unitAttribute.attackRange / 25 + mTarget.bodyRadius) {
 				if (nav.enabled)
-					nav.Stop ();
+					nav.isStopped=true;
 				state = UnitState.Attack;
 			}
 		}
@@ -499,7 +499,7 @@ public class Enemy : UnitBase
 	public void RpcShowHitEffect (Vector3 pos)
 	{
 		GameObject go = BattleFramework.PoolManager.SingleTon ().Spawn (hitPrefab, pos, Quaternion.identity);
-		go.GetComponent<ParticleEmitter> ().Emit ();
+		go.GetComponent<ParticleEmitter> ().emit = true;
 		BattleFramework.PoolManager.SingleTon ().UnSpawn (0.2f, go);
 	}
 

@@ -39,30 +39,13 @@
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="UnityEngine">
-      <HintPath>/Applications/Unity5.6.2f1/Unity.app/Contents/Managed/UnityEngine.dll</HintPath>
+      <HintPath>/Applications/Unity5.6.2f1-1/Unity.app/Contents/Managed/UnityEngine.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor">
-      <HintPath>/Applications/Unity5.6.2f1/Unity.app/Contents/Managed/UnityEditor.dll</HintPath>
+      <HintPath>/Applications/Unity5.6.2f1-1/Unity.app/Contents/Managed/UnityEditor.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\BoomBeach\Scripts\Panel\CSharp\AchivementPanel\AchivementCtrl.cs" />
-     <Compile Include="Assets\BoomBeach\Scripts\Panel\CSharp\AchivementPanel\AchivementPanelView.cs" />
-     <Compile Include="Assets\BoomBeach\Scripts\Panel\CSharp\BaseCtrl.cs" />
-     <Compile Include="Assets\BoomBeach\Scripts\Panel\CSharp\MainInterfacePanel\MainInterfaceCtrl.cs" />
-     <Compile Include="Assets\BoomBeach\Scripts\Panel\CSharp\MainInterfacePanel\MainInterfacePanelView.cs" />
-     <Compile Include="Assets\BoomBeach\Scripts\Panel\CSharp\MaskPanel\MaskCtrl.cs" />
-     <Compile Include="Assets\BoomBeach\Scripts\Panel\CSharp\MaskPanel\MaskPanelView.cs" />
-     <Compile Include="Assets\BoomBeach\Scripts\Panel\CSharp\MsgPanel\MsgCtrl.cs" />
-     <Compile Include="Assets\BoomBeach\Scripts\Panel\CSharp\MsgPanel\MsgPanelView.cs" />
-     <Compile Include="Assets\BoomBeach\Scripts\Panel\CSharp\PlayerListPanel\PlayerListCtrl.cs" />
-     <Compile Include="Assets\BoomBeach\Scripts\Panel\CSharp\PlayerListPanel\PlayerListPanelView.cs" />
-     <Compile Include="Assets\BoomBeach\Scripts\Panel\CSharp\SettingPanel\SettingCtrl.cs" />
-     <Compile Include="Assets\BoomBeach\Scripts\Panel\CSharp\SettingPanel\SettingPanelView.cs" />
-     <Compile Include="Assets\BoomBeach\Scripts\Panel\CSharp\ShopPanel\ShopCtrl.cs" />
-     <Compile Include="Assets\BoomBeach\Scripts\Panel\CSharp\ShopPanel\ShopPanelView.cs" />
-     <Compile Include="Assets\BoomBeach\Scripts\Panel\CSharp\TeamListPanel\TeamListCtrl.cs" />
-     <Compile Include="Assets\BoomBeach\Scripts\Panel\CSharp\TeamListPanel\TeamListPanelView.cs" />
      <Compile Include="Assets\Common\Scripts\CSV\CSVFileReader.cs" />
      <Compile Include="Assets\Common\Scripts\Config\SysConfig.cs" />
      <Compile Include="Assets\Common\Scripts\Config\SysConfigConst.cs" />
@@ -252,6 +235,23 @@
      <Compile Include="Assets\Moba\Scripts\Utility\UTweenPosition.cs" />
      <Compile Include="Assets\Moba\Scripts\Utility\UTweenRotation.cs" />
      <Compile Include="Assets\Moba\Scripts\Utility\UnSpawnDelay.cs" />
+     <Compile Include="Assets\Scripts\Panel\CSharp\AchivementPanel\AchivementCtrl.cs" />
+     <Compile Include="Assets\Scripts\Panel\CSharp\AchivementPanel\AchivementPanelView.cs" />
+     <Compile Include="Assets\Scripts\Panel\CSharp\BaseCtrl.cs" />
+     <Compile Include="Assets\Scripts\Panel\CSharp\MainInterfacePanel\MainInterfaceCtrl.cs" />
+     <Compile Include="Assets\Scripts\Panel\CSharp\MainInterfacePanel\MainInterfacePanelView.cs" />
+     <Compile Include="Assets\Scripts\Panel\CSharp\MaskPanel\MaskCtrl.cs" />
+     <Compile Include="Assets\Scripts\Panel\CSharp\MaskPanel\MaskPanelView.cs" />
+     <Compile Include="Assets\Scripts\Panel\CSharp\MsgPanel\MsgCtrl.cs" />
+     <Compile Include="Assets\Scripts\Panel\CSharp\MsgPanel\MsgPanelView.cs" />
+     <Compile Include="Assets\Scripts\Panel\CSharp\PlayerListPanel\PlayerListCtrl.cs" />
+     <Compile Include="Assets\Scripts\Panel\CSharp\PlayerListPanel\PlayerListPanelView.cs" />
+     <Compile Include="Assets\Scripts\Panel\CSharp\SettingPanel\SettingCtrl.cs" />
+     <Compile Include="Assets\Scripts\Panel\CSharp\SettingPanel\SettingPanelView.cs" />
+     <Compile Include="Assets\Scripts\Panel\CSharp\ShopPanel\ShopCtrl.cs" />
+     <Compile Include="Assets\Scripts\Panel\CSharp\ShopPanel\ShopPanelView.cs" />
+     <Compile Include="Assets\Scripts\Panel\CSharp\TeamListPanel\TeamListCtrl.cs" />
+     <Compile Include="Assets\Scripts\Panel\CSharp\TeamListPanel\TeamListPanelView.cs" />
      <Compile Include="Assets\Scripts\status_network\client\MessageReciever.cs" />
      <Compile Include="Assets\Scripts\status_network\ui\ServerListPanel.cs" />
      <Compile Include="Assets\Test\Test.cs" />
@@ -703,7 +703,7 @@
      <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\AlphaTest-Diffuse.shader" />
      <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\TerrainShaders\Details\VertexLit.shader" />
      <None Include="Assets\Test\link.xml" />
-     <None Include="Assets\BoomBeach\Prefabs\UI\Shaders\GrayShader.shader" />
+     <None Include="Assets\Prefabs\UI\Shaders\GrayShader.shader" />
      <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResources\Internal-PrePassCollectShadows.shader" />
      <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\Alpha-BumpSpec.shader" />
      <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResources\Internal-GUITextureClipText.shader" />
@@ -779,28 +779,28 @@
      <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\TerrainShaders\Splats\FirstPass.shader" />
      <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\Lightmap-VertexLit.shader" />
  <Reference Include="UnityEngine.UI">
- <HintPath>/Applications/Unity5.6.2f1/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
+ <HintPath>/Applications/Unity5.6.2f1-1/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Networking">
- <HintPath>/Applications/Unity5.6.2f1/Unity.app/Contents/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
+ <HintPath>/Applications/Unity5.6.2f1-1/Unity.app/Contents/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.TestRunner">
- <HintPath>/Applications/Unity5.6.2f1/Unity.app/Contents/UnityExtensions/Unity/TestRunner/UnityEngine.TestRunner.dll</HintPath>
+ <HintPath>/Applications/Unity5.6.2f1-1/Unity.app/Contents/UnityExtensions/Unity/TestRunner/UnityEngine.TestRunner.dll</HintPath>
  </Reference>
  <Reference Include="nunit.framework">
- <HintPath>/Applications/Unity5.6.2f1/Unity.app/Contents/UnityExtensions/Unity/TestRunner/net35/unity-custom/nunit.framework.dll</HintPath>
+ <HintPath>/Applications/Unity5.6.2f1-1/Unity.app/Contents/UnityExtensions/Unity/TestRunner/net35/unity-custom/nunit.framework.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Analytics">
- <HintPath>/Applications/Unity5.6.2f1/Unity.app/Contents/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
+ <HintPath>/Applications/Unity5.6.2f1-1/Unity.app/Contents/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.HoloLens">
- <HintPath>/Applications/Unity5.6.2f1/Unity.app/Contents/UnityExtensions/Unity/UnityHoloLens/RuntimeEditor/UnityEngine.HoloLens.dll</HintPath>
+ <HintPath>/Applications/Unity5.6.2f1-1/Unity.app/Contents/UnityExtensions/Unity/UnityHoloLens/RuntimeEditor/UnityEngine.HoloLens.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Purchasing">
- <HintPath>/Applications/Unity5.6.2f1/Unity.app/Contents/UnityExtensions/Unity/UnityPurchasing/UnityEngine.Purchasing.dll</HintPath>
+ <HintPath>/Applications/Unity5.6.2f1-1/Unity.app/Contents/UnityExtensions/Unity/UnityPurchasing/UnityEngine.Purchasing.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.VR">
- <HintPath>/Applications/Unity5.6.2f1/Unity.app/Contents/UnityExtensions/Unity/UnityVR/RuntimeEditor/UnityEngine.VR.dll</HintPath>
+ <HintPath>/Applications/Unity5.6.2f1-1/Unity.app/Contents/UnityExtensions/Unity/UnityVR/RuntimeEditor/UnityEngine.VR.dll</HintPath>
  </Reference>
  <Reference Include="CSV">
  <HintPath>/Users/yingyugang/MobaSub/Assets/Plugins/CSV.dll</HintPath>

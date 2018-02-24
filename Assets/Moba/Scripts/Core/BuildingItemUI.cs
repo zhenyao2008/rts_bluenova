@@ -67,6 +67,7 @@ public class BuildingItemUI : MonoBehaviour {
 
 	public void SetBuilding(CityBuilding building)
 	{
+		Debug.Log ("SetBuilding");
 		this.currentBuilding = building;
 		buildingName.text = building.buildingName;
 	}

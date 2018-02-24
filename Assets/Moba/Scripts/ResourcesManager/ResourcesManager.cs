@@ -12,7 +12,7 @@ using UnityEditor;
 
 public class ResourcesManager : SingleMonoBehaviour<ResourcesManager>
 {
-
+	Dictionary<string,Sprite> mBuildingIcons;
 
 	protected override void Awake ()
 	{
@@ -103,7 +103,16 @@ public class ResourcesManager : SingleMonoBehaviour<ResourcesManager>
 	}
 
 	public Sprite GetBuildingFullIconById(int buildingId){
-		
+		if (mBuildingIcons == null) {
+			mBuildingIcons = new Dictionary<string, Sprite> ();
+			AssetBundle ab = AssetBundle.LoadFromFile (Application.streamingAssetsPath + "/" + ABConstant.UI_BUILDING_ICON + ABConstant.ASSETBUNDLE);
+			Sprite[] icons = ab.LoadAllAssets<Sprite> ();
+			for(int i=0;i<icons.Length;i++){
+				mBuildingIcons.Add (icons[i].name,icons[i]);
+			}
+		}
+		if(mBuildingIcons.ContainsKey(buildingId.ToString()))
+			return mBuildingIcons[buildingId.ToString()];
 		return null;
 	}
 
