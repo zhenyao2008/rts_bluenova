@@ -8,8 +8,9 @@ public class ServerController_III : NetworkManager {
 	public ApplicationType appType = ApplicationType.None;
 
 	public bool isAIMode;
-	public bool isAutoStartServer;
-	public bool isAutoStartClient;
+	public static bool isAutoStartServer;
+	public static bool isAutoClient;
+	public static string targetIP;
 
 	public List<GameObject> buildPrefabs;
 	public List<GameObject> buildPrefabs1;
@@ -87,17 +88,12 @@ public class ServerController_III : NetworkManager {
 			this.StartClient();
 			break;
 		}
-		if(isAutoStartServer)
-		{
-			if(isAutoStartClient)
-			{
-				StartHost();
-			}
-			else
-			{
-				StartServer();
-			}
-		}
+		if (isAutoStartServer) {
+			StartHost ();
+		} else if(isAutoClient){
+			this.networkAddress = targetIP;
+			StartClient();
+		}	
 	}
 
 
@@ -252,11 +248,10 @@ public class ServerController_III : NetworkManager {
 	{
 		base.OnStopServer ();
 		NetworkServer.Reset ();
-//		Application.LoadLevel("Battle");
-//		UnityEngine.SceneManagement.SceneManager.LoadScene ("Battle");
 		if(ServerController_III.instance!=null)
 			Destroy (ServerController_III.instance.gameObject);
-		UnityEngine.SceneManagement.SceneManager.LoadScene ("Battle");
+		Time.timeScale = 1;
+		SceneUtility.LoadServerManage ();
 	}
 
 	public void PlayerWin(UnitBase ub){

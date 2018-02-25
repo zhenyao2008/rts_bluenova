@@ -9,7 +9,7 @@ using System;
 //recieve the machine controlling messages.
 using UnityEngine.Events;
 
-public class MessageReciever : SingleMonoBehaviour<MessageReciever> {
+public class HostMessageReciever : SingleMonoBehaviour<HostMessageReciever> {
 	//メセージを監視用UDPクライアント。
 	public static UdpClient udp;
 	//メセージを監視用スレッド
@@ -36,6 +36,7 @@ public class MessageReciever : SingleMonoBehaviour<MessageReciever> {
 
 	public void StopReceive(){
 		thread.Abort();
+		udp.Close ();
 	}
 
 	public static bool isRunning = true;

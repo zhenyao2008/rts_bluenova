@@ -195,6 +195,7 @@
      <Compile Include="Assets\Moba\Scripts\Pool\Pool.cs" />
      <Compile Include="Assets\Moba\Scripts\Pool\PoolManager.cs" />
      <Compile Include="Assets\Moba\Scripts\ResourcesManager\ResourcesManager.cs" />
+     <Compile Include="Assets\Moba\Scripts\Scene\SceneUtility.cs" />
      <Compile Include="Assets\Moba\Scripts\Skill\Skill01.cs" />
      <Compile Include="Assets\Moba\Scripts\State\Actions\AttackAction.cs" />
      <Compile Include="Assets\Moba\Scripts\State\Actions\BaseAction.cs" />
@@ -252,8 +253,12 @@
      <Compile Include="Assets\Scripts\Panel\CSharp\ShopPanel\ShopPanelView.cs" />
      <Compile Include="Assets\Scripts\Panel\CSharp\TeamListPanel\TeamListCtrl.cs" />
      <Compile Include="Assets\Scripts\Panel\CSharp\TeamListPanel\TeamListPanelView.cs" />
-     <Compile Include="Assets\Scripts\status_network\client\MessageReciever.cs" />
+     <Compile Include="Assets\Scripts\UDP\HostMessageReciever.cs" />
+     <Compile Include="Assets\Scripts\UDP\HostMessageSender.cs" />
+     <Compile Include="Assets\Scripts\status_network\ui\LoginPanel.cs" />
+     <Compile Include="Assets\Scripts\status_network\ui\PanelBase.cs" />
      <Compile Include="Assets\Scripts\status_network\ui\ServerListPanel.cs" />
+     <Compile Include="Assets\Scripts\status_network\ui\ServerManagePanel.cs" />
      <Compile Include="Assets\Test\Test.cs" />
      <Compile Include="Assets\Test\Test1.cs" />
      <Compile Include="Assets\Test\TestAnim.cs" />

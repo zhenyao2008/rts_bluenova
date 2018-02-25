@@ -18,7 +18,7 @@ namespace MMO
 		string[] mServerNames;
 		public static string targetIp;
 
-		public override void Awake ()
+		protected override void Awake ()
 		{
 			base.Awake ();
 			mServerBtns = new Dictionary<string, GameObject> ();
@@ -29,7 +29,7 @@ namespace MMO
 		{
 			if (mNextCheckTime < Time.time) {
 				mNextCheckTime = Time.time + mCheckIpInterval;
-				foreach (string ip in MessageReciever.ips.Keys) {
+				foreach (string ip in HostMessageReciever.ips.Keys) {
 					if (!mServerBtns.ContainsKey (ip)) {
 						GameObject go = Instantiate (itemPrefab);
 						Text text = go.GetComponentInChildren<Text> (true);
@@ -52,7 +52,7 @@ namespace MMO
 		}
 
 		void OnDisable(){
-			MessageReciever.Instance.StopReceive ();
+			HostMessageReciever.Instance.StopReceive ();
 		}
 
 		string[] GetServerNames(){
