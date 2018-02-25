@@ -51,7 +51,7 @@ public class PlayerUI : MonoBehaviour {
 //			return;
 		} 
 
-		if (frant != null && UICamera.currentCamera) {
+		if (frant != null && UICamera.currentCamera && followPoint) {
 			Vector3 screenPos = Camera.main.WorldToScreenPoint (followPoint.position);
 			pos = UICamera.currentCamera.ScreenToWorldPoint (screenPos) + offset;
 			pos.z = 0;

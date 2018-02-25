@@ -204,6 +204,7 @@
      <Compile Include="Assets\Moba\Scripts\Test\TestPro.cs" />
      <Compile Include="Assets\Moba\Scripts\Test\TestResourceBuilding.cs" />
      <Compile Include="Assets\Moba\Scripts\UI\BaseCtrl.cs" />
+     <Compile Include="Assets\Moba\Scripts\UI\BetterOutline.cs" />
      <Compile Include="Assets\Moba\Scripts\UI\DialogBase.cs" />
      <Compile Include="Assets\Moba\Scripts\UI\Dialogs\TextMessageDialog.cs" />
      <Compile Include="Assets\Moba\Scripts\UI\PanelBase.cs" />
@@ -211,6 +212,8 @@
      <Compile Include="Assets\Moba\Scripts\UI\Panels\BuildingDetail\BuildingDetailPanelView.cs" />
      <Compile Include="Assets\Moba\Scripts\UI\Panels\BuildingList\BuildingListCtrl.cs" />
      <Compile Include="Assets\Moba\Scripts\UI\Panels\BuildingList\BuildingListPanelView.cs" />
+     <Compile Include="Assets\Moba\Scripts\UI\Panels\PrePlay\PrePlayCtrl.cs" />
+     <Compile Include="Assets\Moba\Scripts\UI\Panels\PrePlay\PrePlayPanelView.cs" />
      <Compile Include="Assets\Moba\Scripts\UI\Panels\Sample\sample1\Sample1Ctrl.cs" />
      <Compile Include="Assets\Moba\Scripts\UI\Panels\Sample\sample1\Sample1Panel.cs" />
      <Compile Include="Assets\Moba\Scripts\UI\Panels\Sample\sample2\Sample2Ctrl.cs" />
@@ -499,6 +502,7 @@
      <None Include="Assets\Common\Scripts\UGUI\PanelData\Lua\BuildInfoPanel.txt" />
      <None Include="Assets\ThirdPart\NGUI\Resources\Shaders\Unlit - Transparent Masked 1.shader" />
      <None Include="Assets\Moba\builtin_shaders-5.2.2f1\CGIncludes\UnityLightingCommon.cginc" />
+     <None Include="Assets\Moba\Shaders\FancyText.shader" />
      <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\Particle Multiply.shader" />
      <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\Illumin-Glossy.shader" />
      <None Include="Assets\ThirdPart\Simple RPG Camera\Demo\Sources\Shaders\Toony-Basic.shader" />
@@ -526,7 +530,7 @@
      <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\TerrainShaders\Splats\Standard-Base.shader" />
      <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\TerrainShaders\Details\WavingGrassBillboard.shader" />
      <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\Decal.shader" />
-     <None Include="Assets\Moba\Shader\Mobile-Diffuse-Rim.shader" />
+     <None Include="Assets\Moba\Shaders\Mobile-Diffuse-Rim.shader" />
      <None Include="Assets\ThirdPart\RtsCamera\README.txt" />
      <None Include="Assets\ThirdPart\NGUI\Resources\Shaders\Unlit - Text 1.shader" />
      <None Include="Assets\ThirdPart\NGUI\Resources\Shaders\Unlit - Premultiplied Colored (TextureClip).shader" />
@@ -569,7 +573,7 @@
      <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\UI\UI-Unlit-Text.shader" />
      <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\Particle AddMultiply.shader" />
      <None Include="Assets\Common\Scripts\UGUI\PanelData\CSharp\ShopPanel.txt" />
-     <None Include="Assets\Moba\Shader\Mobile-Transparent Rim Only.shader" />
+     <None Include="Assets\Moba\Shaders\Mobile-Transparent Rim Only.shader" />
      <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\Particle MultiplyDouble.shader" />
      <None Include="Assets\ThirdPart\NGUI\Resources\Shaders\Unlit - Transparent Colored (TextureClip).shader" />
      <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\Mobile\Mobile-Particle-Alpha.shader" />
@@ -591,7 +595,7 @@
      <None Include="Assets\Moba\builtin_shaders-5.2.2f1\CGIncludes\Tessellation.cginc" />
      <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\UI\UI-Lit-Detail.shader" />
      <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\Illumin-ParallaxSpec.shader" />
-     <None Include="Assets\Moba\Shader\Mobile-Diffuse-Outline.shader" />
+     <None Include="Assets\Moba\Shaders\Mobile-Diffuse-Outline.shader" />
      <None Include="Assets\Moba\builtin_shaders-5.2.2f1\CGIncludes\UnityGlobalIllumination.cginc" />
      <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\TerrainShaders\Trees\BillboardTree.shader" />
      <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\Reflect-BumpSpec.shader" />
@@ -643,7 +647,7 @@
      <None Include="Assets\Moba\Prefabs\Effects\Explosion_Dead_New\Shader\OutlineAlphaColored.shader" />
      <None Include="Assets\Common\Scripts\UGUI\PanelData\CSharp\SettingPanel.txt" />
      <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\Normal-DiffuseFast.shader" />
-     <None Include="Assets\Moba\Shader\Mobile-Transparent.shader" />
+     <None Include="Assets\Moba\Shaders\Mobile-Transparent.shader" />
      <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResources\Internal-GUITextureClip.shader" />
      <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\Nature\TreeCreator\TreeCreatorBarkOptimized.shader" />
      <None Include="Assets\Moba\builtin_shaders-5.2.2f1\CGIncludes\UnityStandardUtils.cginc" />
@@ -724,13 +728,13 @@
      <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\Nature\TreeCreator\TreeCreatorBarkRendertex.shader" />
      <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResources\Internal-CombineDepthNormals.shader" />
      <None Include="Assets\Moba\ArtResources\Shader\SimpleTexture.shader" />
-     <None Include="Assets\Moba\Shader\Mobile-Diffuse-RimWithBump.shader" />
+     <None Include="Assets\Moba\Shaders\Mobile-Diffuse-RimWithBump.shader" />
      <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\Reflect-VertexLit.shader" />
      <None Include="Assets\ThirdPart\EasyTouchBundle\EasyTouchControls\Readme.txt" />
      <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\Reflect-Bumped.shader" />
      <None Include="Assets\ThirdPart\NGUI\Examples\Shaders\Unlit - Additive Colored.shader" />
      <None Include="Assets\Model\Building\LightShader1.shader" />
-     <None Include="Assets\Moba\Shader\Mobile-Diffuse-RimTexture.shader" />
+     <None Include="Assets\Moba\Shaders\Mobile-Diffuse-RimTexture.shader" />
      <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResources\Internal-SplashShadowReceiver.shader" />
      <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\Normal-VertexLit.shader" />
      <None Include="Assets\Moba\Lua\uluaentrance.txt" />

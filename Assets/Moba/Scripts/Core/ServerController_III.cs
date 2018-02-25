@@ -342,7 +342,6 @@ public class ServerController_III : NetworkManager {
 	}
 
 	public void UpgradeBuilding(int index,int order,int group){
-		Debug.Log (order);
 		if (!isBattleBegin)
 			return;
 		SpawnPoint building = null;

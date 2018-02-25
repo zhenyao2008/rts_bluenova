@@ -576,9 +576,20 @@ public class PlayerController_III :  NetworkBehaviour,IPlayerController
 	public void RpcSendPlayerInfoMsg (bool isAIMode, int isPlayer0Ready, int isPlayer1Ready, int playerRace0, int playerRace1)
 	{
 		if (isLocalPlayer) {
+
+
+			Hashtable parameters = new Hashtable ();
+			parameters.Add ("playerIndex",playerIndex);
+			parameters.Add ("isAIMode",isAIMode);
+			parameters.Add ("isPlayer0Ready",isPlayer0Ready);
+			parameters.Add ("isPlayer1Ready",isPlayer1Ready);
+			parameters.Add ("playerRace0",playerRace0);
+			parameters.Add ("playerRace1",playerRace1);
+			PrePlayCtrl prePlayCtrl = UIManager.Instance.GetController<PrePlayCtrl> ();
+//			prePlayCtrl.ShowPanel (parameters);
+
 			mServerMsgPanel.root.SetActive (true);
 			if (playerIndex == 0) {
-
 				mCurrentReadyButton = mServerMsgPanel.readyButton;
 				if (isPlayer0Ready != 1) {
 					mServerMsgPanel.readyButton.isEnabled = true;
@@ -588,8 +599,6 @@ public class PlayerController_III :  NetworkBehaviour,IPlayerController
 				} else if (isPlayer0Ready == 1) {
 					mServerMsgPanel.race0.GetComponent<UIButton> ().isEnabled = false;
 				}
-
-
 				if (isAIMode || isPlayer1Ready != -1) {
 					mServerMsgPanel.readyButton1.isEnabled = false;
 					mServerMsgPanel.race1.GetComponent<UIButton> ().isEnabled = false;

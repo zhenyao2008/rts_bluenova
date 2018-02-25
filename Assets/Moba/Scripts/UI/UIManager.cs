@@ -32,18 +32,8 @@ namespace UIFrame
 		public void InitCtrollers ()
 		{
 			AddCtroller<BuildingListCtrl> ();
-//			Hashtable parameters = new Hashtable ();
-//			parameters.Add ("name", "Mike");
-//			UIManager.Instance.GetController<BuildingListCtrl> ().ShowPanel (parameters);
-//			StartCoroutine (_DelayHide());
+			AddCtroller<PrePlayCtrl> ();
 		}
-
-//		IEnumerator _DelayHide(){
-//			yield return new WaitForSeconds(1);
-//			UIManager.Instance.GetController<BuildingListCtrl> ().Close ();
-//			GameObject go = ShowDialog (UILayerType.Mask, "Dialog/TextMsgDialog");
-//			Destroy (go,3);
-//		}
 
 		public T AddCtroller<T> () where T : BaseCtrl
 		{
