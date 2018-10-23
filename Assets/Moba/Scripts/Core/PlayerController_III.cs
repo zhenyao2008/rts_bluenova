@@ -3,6 +3,7 @@ using UnityEngine.Networking;
 using System.Collections;
 using System.Collections.Generic;
 using UIFrame;
+using UnityEngine.EventSystems;
 
 public class PlayerController_III :  NetworkBehaviour,IPlayerController
 {
@@ -286,12 +287,14 @@ public class PlayerController_III :  NetworkBehaviour,IPlayerController
 //		if (isChating)
 //			return;
 
-		if (Input.GetMouseButtonDown (0) && !UICamera.isOverUI) {
+        if (Input.GetMouseButtonDown (0) && !UICamera.isOverUI  && (EventSystem.current == null || !EventSystem.current.IsPointerOverGameObject() )) {
 			if (selectBuilding != null) {
 				selectBuilding.GetComponent<SpawnPoint> ().OnUnSelected ();
 			}
 			RaycastHit hit;
-			if (Physics.Raycast (Camera.main.ScreenPointToRay (Input.mousePosition), out hit, Mathf.Infinity, 1 << buildingLayer)) {
+            Debug.Log(EventSystem.current.IsPointerOverGameObject());
+            //TODO EventSystem.current when at mobile.
+            if ( Physics.Raycast (Camera.main.ScreenPointToRay (Input.mousePosition), out hit, Mathf.Infinity, 1 << buildingLayer)) {
 				//TODO Select Building.
 				selectBuilding = hit.transform.gameObject;
 //				BuildingController.SingleTon ().SelectBuilding (selectBuilding);
