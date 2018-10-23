@@ -15,6 +15,15 @@ public class AssetbundleManager : SingleMonoBehaviour<AssetbundleManager>
 		mCachedAssetbundles = new Dictionary<string, AssetBundle> ();
 	}
 
+	private void OnDisable()
+	{
+        foreach(AssetBundle ab in mCachedAssetbundles.Values){
+            if(ab!=null){
+                ab.Unload(true);
+            }
+        }
+	}
+
 	void LoadManifestAssetbundle ()
 	{
 		mManifestAB = AssetBundle.LoadFromFile (PathConstant.CLIENT_ASSETBUNDLES_PATH + "/" + SystemConstant.GetPlatformName ());

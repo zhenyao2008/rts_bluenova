@@ -509,6 +509,7 @@ public class Enemy : UnitBase
 		this.state = UnitState.Attack;
 		anim.Stop ();
 		anim.Play (attackAnimStateName);
+        unitAttribute.attackInterval = Mathf.Max(unitAttribute.attackInterval,0.01f);
 		anim [this.attackAnimStateName].speed = anim [this.attackAnimStateName].length / unitAttribute.attackInterval;
 	}
 

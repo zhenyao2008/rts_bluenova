@@ -292,7 +292,6 @@ public class PlayerController_III :  NetworkBehaviour,IPlayerController
 				selectBuilding.GetComponent<SpawnPoint> ().OnUnSelected ();
 			}
 			RaycastHit hit;
-            Debug.Log(EventSystem.current.IsPointerOverGameObject());
             //TODO EventSystem.current when at mobile.
             if ( Physics.Raycast (Camera.main.ScreenPointToRay (Input.mousePosition), out hit, Mathf.Infinity, 1 << buildingLayer)) {
 				//TODO Select Building.

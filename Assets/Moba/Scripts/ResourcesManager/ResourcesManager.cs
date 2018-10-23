@@ -107,6 +107,7 @@ public class ResourcesManager : SingleMonoBehaviour<ResourcesManager>
 			mBuildingIcons = new Dictionary<string, Sprite> ();
 			AssetBundle ab = AssetBundle.LoadFromFile (Application.streamingAssetsPath + "/" + ABConstant.UI_BUILDING_ICON + ABConstant.ASSETBUNDLE);
 			Sprite[] icons = ab.LoadAllAssets<Sprite> ();
+            ab.Unload(false);
 			for(int i=0;i<icons.Length;i++){
 				mBuildingIcons.Add (icons[i].name,icons[i]);
 			}
