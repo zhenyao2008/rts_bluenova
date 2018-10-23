@@ -25,6 +25,8 @@ public class LocalSoundManager : MonoBehaviour {
 	public float soundInterval = 0.1f;
 	public bool IsPlayable(AudioClip clip)
 	{
+        if (clip == null)
+            return true;
 		if (playingSounds.ContainsKey (clip)) {
 			if (playingSounds [clip] < Time.time) {
 				playingSounds [clip] = Time.time + soundInterval;
