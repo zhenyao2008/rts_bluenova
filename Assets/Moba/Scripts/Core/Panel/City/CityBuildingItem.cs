@@ -49,7 +49,7 @@ public class CityBuildingItem : MonoBehaviour {
 				BuildingController.SingleTon().SetPreBuilding(go);
 				BuildingController.SingleTon().isNewBuilding = true;
 				BuildingController.SingleTon().isNewBuildingFirstClick = true;
-				BuildingController.SingleTon().ShowPlane();
+//				BuildingController.SingleTon().ShowPlane();
 //				go.GetComponent<CityBuilding>()
 //				CityPanel.SingleTon().Active();
 				CityPanel_I.SingleTon().root.SetActive(true);

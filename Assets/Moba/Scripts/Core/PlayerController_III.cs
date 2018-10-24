@@ -516,7 +516,6 @@ public class PlayerController_III :  NetworkBehaviour,IPlayerController
 	public void SendPlayerIndex (int index)
 	{
 		this.playerIndex = index;
-
 		RpcSendPlayerIndex (index);
 	}
 
@@ -532,7 +531,6 @@ public class PlayerController_III :  NetworkBehaviour,IPlayerController
 			if (index == 0) {
 				this.buildingLayer = LayerConstant.playerLayer0;
 //				rtsCamera.LookAt = new Vector3 (11, 1.5f, -50);//TODO set to spawn position.
-
 			} else if (index == 1) {
 				this.buildingLayer = LayerConstant.playerLayer1;
 //				rtsCamera.LookAt = new Vector3 (11, 1.5f, 50f);//TODO set to spawn position.

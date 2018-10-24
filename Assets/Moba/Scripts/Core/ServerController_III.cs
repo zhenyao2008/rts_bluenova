@@ -31,7 +31,7 @@ public class ServerController_III : NetworkManager {
 	public Transform defaultTarget0;//这两个最好在可寻路网格上面
 	public Transform defaultTarget1;
 
-	public UnitBase boss0;
+	public UnitBase boss0;//test
 	public UnitBase boss1;
 
 	public int layer0 = 16;
@@ -195,6 +195,9 @@ public class ServerController_III : NetworkManager {
 		GameObject player = GameObject.Instantiate(playerPrefab, Vector3.zero, Quaternion.identity) as GameObject;
 		NetworkServer.AddPlayerForConnection(conn, player, playerControllerId);
 		PlayerController_III playerControll = player.GetComponent<PlayerController_III>();
+
+		Debug.LogError ("playerControllerId:" + playerControllerId);
+
 		if (players [0] == null) {
 			playerControll.buildingLayer = 18;
 			playerControll.playerAttribute = playerAttributes[0];
