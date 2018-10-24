@@ -4,17 +4,17 @@ using UnityEngine;
 
 public static class ConfigUtility {
 
-	public static SystemConfig systemConfig;
+	public static BattleConfig systemConfig;
 
 	const string SYSTEM_CONFIG_PATH = "configs/SystemConfig";
 
 	static ConfigUtility(){
-		systemConfig = JsonUtility.FromJson<SystemConfig> (SYSTEM_CONFIG_PATH);
+		systemConfig = JsonUtility.FromJson<BattleConfig> (SYSTEM_CONFIG_PATH);
 	}
 }
 
 [System.Serializable]
-public class SystemConfig{
+public class BattleConfig{
 	//今度コーンを増える時間帯
 	public float moneyPlusInterval;
 

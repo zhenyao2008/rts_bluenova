@@ -96,7 +96,6 @@ public class ServerController_III : NetworkManager {
 		}	
 	}
 
-
 #if ServerDefine
 	public GameObject groundPrefab;
 	public GameObject planePrefab;
@@ -161,6 +160,7 @@ public class ServerController_III : NetworkManager {
 			}
 		}
 	}
+
 
 	void BattleBegin(){
 		isBattleBegin = true;

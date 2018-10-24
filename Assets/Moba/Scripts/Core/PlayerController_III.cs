@@ -43,7 +43,8 @@ public class PlayerController_III :  NetworkBehaviour,IPlayerController
 
 	void Start ()
 	{
-		instance = this;
+		if(instance==null)
+			instance = this;
 		mServerController_III = ServerController_III.instance;
 		if (isClient && isLocalPlayer) {
 			rtsCamera = FindObjectOfType<RtsCamera> ();
@@ -515,6 +516,7 @@ public class PlayerController_III :  NetworkBehaviour,IPlayerController
 
 	public void SendPlayerIndex (int index)
 	{
+		Debug.Log ("SendPlayerIndex:" + index);
 		this.playerIndex = index;
 		RpcSendPlayerIndex (index);
 	}
@@ -522,6 +524,7 @@ public class PlayerController_III :  NetworkBehaviour,IPlayerController
 	[ClientRpc]
 	public void RpcSendPlayerIndex (int index)
 	{
+		Debug.Log ("RpcSendPlayerIndex:" + index);
 		if (!isLocalPlayer) {
 			return;
 		}
