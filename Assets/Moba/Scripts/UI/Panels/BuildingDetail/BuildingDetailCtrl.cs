@@ -20,6 +20,13 @@ namespace UIFrame
 
         public void SetBuildInfo(SpawnPoint sp)
         {
+            mBuildingDetailPanelView.btn_sell.onClick.RemoveAllListeners();
+            mBuildingDetailPanelView.btn_sell.onClick.AddListener(()=>{
+                PlayerController_III.instance.CmdDeleteBuilding();
+                this.Close();
+            });
+
+
             mBuildingDetailPanelView.btn_upgrade.gameObject.SetActive(false);
             mBuildingDetailPanelView.btn_upgrade1.gameObject.SetActive(false);
             mBuildingDetailPanelView.btn_close.onClick.AddListener(Close);

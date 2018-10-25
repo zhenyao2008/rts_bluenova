@@ -14,7 +14,7 @@ public class SpawnPoint: NetworkBehaviour {
 	public Renderer mainRenderer;
 	public Material selectedMat;
 	public Material defaultMat;
-
+    public Transform plane;
 	public int level;
 	public int order;
 
@@ -103,6 +103,12 @@ public class SpawnPoint: NetworkBehaviour {
 		level ++;
 		RpcUpgrade (level);
 	}
+
+    [Server]
+    public void Delete()
+    {
+        NetworkServer.Destroy(gameObject);
+    }
 
 	[ClientRpc]
 	public void RpcUpgrade(int lvl){

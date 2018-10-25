@@ -187,10 +187,9 @@ public class PlayerController_III :  NetworkBehaviour,IPlayerController
         UIManager.Instance.GetController<BuildingDetailCtrl>().ShowPanel(parameters);
 
 
-		mBuildInfoPanel.SetBuildInfo (ua);
-		mBuildInfoPanel.ShowUpgrade (sp);
-
-		ShowBuildDetailPanel ();
+		//mBuildInfoPanel.SetBuildInfo (ua);
+		//mBuildInfoPanel.ShowUpgrade (sp);
+		//ShowBuildDetailPanel ();
 
 		mBuildInfoPanel.returnBtn.onClick.Clear ();
 		mBuildInfoPanel.returnBtn.onClick.Add (new global::EventDelegate (ShowBuildPanel));
@@ -363,14 +362,14 @@ public class PlayerController_III :  NetworkBehaviour,IPlayerController
         //              BuildingController.SingleTon ().SelectBuilding (selectBuilding);
         SpawnPoint sp = selectBuilding.GetComponent<SpawnPoint>();
         sp.OnSelected();
-        ShowBuildDetailPanel();
+        //ShowBuildDetailPanel();
         LevelPrefabs nextPrefabs;
         UnitAttribute ua = sp.GetCurrentPrefab().GetComponent<UnitAttribute>();
 
         Hashtable parameters = new Hashtable();
         parameters.Add("data", sp);
         UIManager.Instance.GetController<BuildingDetailCtrl>().ShowPanel(parameters);
-
+        return;
         mBuildInfoPanel.SetBuildInfo(ua);
         mBuildInfoPanel.ShowUpgrade(sp);
         if (sp.GetNextPrefabs(out nextPrefabs))
@@ -466,6 +465,12 @@ public class PlayerController_III :  NetworkBehaviour,IPlayerController
 		mBuildUpgradePanel.root.SetActive (false);
 	}
 
+    [Command]
+    public void CmdDeleteBuilding()
+    {
+        mServerController_III.DeleteBuilding(selectBuilding.GetComponent<SpawnPoint>().index, playerIndex);
+    }
+
 	[Command]
 	public void CmdUpgradeBuilding (int buildingIndex, int order)
 	{
@@ -538,6 +543,16 @@ public class PlayerController_III :  NetworkBehaviour,IPlayerController
 			mServerController_III.SpawnBuilding (playerIndex, buildIndex, planeIndex, race);
 		}
 	}
+
+    [Command]
+    public void CmdRemoveBuilding(int buildIndex, int planeIndex)
+    {
+        if (playerIndex == 0 || playerIndex == 1)
+        {
+            mServerController_III.SpawnBuilding(playerIndex, buildIndex, planeIndex, race);
+        }
+    }
+
 
 	public void SendPlayerIndex (int index)
 	{

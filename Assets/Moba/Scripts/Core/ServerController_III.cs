@@ -344,6 +344,25 @@ public class ServerController_III : NetworkManager {
 		}
 	}
 
+    public void DeleteBuilding(int index,  int group){
+        if (!isBattleBegin)
+            return;
+        SpawnPoint building = null;
+        if (group == 0)
+        {
+            building = spawners0[index];
+            spawners0.Remove(building);
+            availablePlanes0.Add(building.plane);
+        }
+        else
+        {
+            building = spawners1[index];
+            spawners1.Remove(building);
+            availablePlanes1.Add(building.plane);
+        }
+        NetworkServer.Destroy(building.gameObject);
+    }
+
 	public void UpgradeBuilding(int index,int order,int group){
 		if (!isBattleBegin)
 			return;
@@ -393,7 +412,8 @@ public class ServerController_III : NetworkManager {
 		Transform sp = plane.transform.Find("SpawnPoint");
 		GameObject go = Instantiate(cBuildPrefabs[buildIndex],plane.position,plane.rotation) as GameObject;
 		SpawnPoint spawnPoint = go.GetComponent<SpawnPoint> ();
-		spawnPoint.spawnPoint = sp;
+        spawnPoint.plane = plane;
+        spawnPoint.spawnPoint = sp;
 		spawnPoint.gameObject.layer = buildingLayer;
 		spawnPoint.group = group;
 		spawner.Add (spawnPoint);
