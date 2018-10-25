@@ -181,6 +181,12 @@ public class PlayerController_III :  NetworkBehaviour,IPlayerController
 		SpawnPoint sp = building.GetComponent<SpawnPoint> ();
 		GameObject go = sp.GetCurrentPrefab ();
 		UnitAttribute ua = go.GetComponent<UnitAttribute> ();
+
+        Hashtable parameters = new Hashtable();
+        parameters.Add("data", sp);
+        UIManager.Instance.GetController<BuildingDetailCtrl>().ShowPanel(parameters);
+
+
 		mBuildInfoPanel.SetBuildInfo (ua);
 		mBuildInfoPanel.ShowUpgrade (sp);
 
@@ -295,26 +301,8 @@ public class PlayerController_III :  NetworkBehaviour,IPlayerController
 			RaycastHit hit;
             //TODO EventSystem.current when at mobile.
             if ( Physics.Raycast (Camera.main.ScreenPointToRay (Input.mousePosition), out hit, Mathf.Infinity, 1 << buildingLayer)) {
-				//TODO Select Building.
-				selectBuilding = hit.transform.gameObject;
-//				BuildingController.SingleTon ().SelectBuilding (selectBuilding);
-				SpawnPoint sp = selectBuilding.GetComponent<SpawnPoint> ();
-				sp.OnSelected ();
-				ShowBuildDetailPanel ();
-				LevelPrefabs nextPrefabs;
-				UnitAttribute ua = sp.GetCurrentPrefab ().GetComponent<UnitAttribute> ();
-				mBuildInfoPanel.SetBuildInfo (ua);
-				mBuildInfoPanel.ShowUpgrade (sp);
-				if (sp.GetNextPrefabs (out nextPrefabs)) {
-					if (nextPrefabs.soilderPrefabs.Count > 0) {
-						mBuildInfoPanel.upgradeBtn.gameObject.SetActive (true);
-						mBuildInfoPanel.upgradeBtn.GetComponentInChildren <UILabel> ().text = "To:" + nextPrefabs.soilderPrefabs [0].GetComponent<UnitAttribute> ().unitName;
-					}
-					if (nextPrefabs.soilderPrefabs.Count > 1) {
-						mBuildInfoPanel.upgradeBtn1.gameObject.SetActive (true);
-						mBuildInfoPanel.upgradeBtn1.GetComponentInChildren<UILabel> ().text = "To:" + nextPrefabs.soilderPrefabs [1].GetComponent<UnitAttribute> ().unitName;
-					}
-				}
+                selectBuilding = hit.transform.gameObject;
+                Select(hit.transform.gameObject);
 			} else if (selectPreBuilding == null && Physics.Raycast (Camera.main.ScreenPointToRay (Input.mousePosition), out hit, Mathf.Infinity, 1 << LayerConstant.planeLayer)) {
 				ShowBuildPanel ();
 			} else {
@@ -333,16 +321,7 @@ public class PlayerController_III :  NetworkBehaviour,IPlayerController
 		}
 
 		if (selectPreBuilding != null && Input.GetMouseButtonUp (0)) {
-			RaycastHit hit;
-			if (Physics.Raycast (Camera.main.ScreenPointToRay (Input.mousePosition), out hit, Mathf.Infinity, 1 << LayerConstant.planeLayer)) {
-				int planeIndex = -1;
-				if (playerIndex == 0)
-					planeIndex = mServerController_III.planes0.IndexOf (hit.transform);
-				else
-					planeIndex = mServerController_III.planes1.IndexOf (hit.transform);
-				CmdPlaceBuilding (selectBuildingIndex, planeIndex);
-			}
-			Destroy (selectPreBuilding);
+            Place();
 			selectPreBuilding = null;
 		}
 
@@ -363,6 +342,52 @@ public class PlayerController_III :  NetworkBehaviour,IPlayerController
 		}
 
 	}
+
+    void Place(){
+        RaycastHit hit;
+        if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity, 1 << LayerConstant.planeLayer))
+        {
+            int planeIndex = -1;
+            if (playerIndex == 0)
+                planeIndex = mServerController_III.planes0.IndexOf(hit.transform);
+            else
+                planeIndex = mServerController_III.planes1.IndexOf(hit.transform);
+            CmdPlaceBuilding(selectBuildingIndex, planeIndex);
+        }
+        Destroy(selectPreBuilding);
+    }
+
+    void Select(GameObject selectBuilding){
+        //TODO Select Building.
+        //selectBuilding = hit.transform.gameObject;
+        //              BuildingController.SingleTon ().SelectBuilding (selectBuilding);
+        SpawnPoint sp = selectBuilding.GetComponent<SpawnPoint>();
+        sp.OnSelected();
+        ShowBuildDetailPanel();
+        LevelPrefabs nextPrefabs;
+        UnitAttribute ua = sp.GetCurrentPrefab().GetComponent<UnitAttribute>();
+
+        Hashtable parameters = new Hashtable();
+        parameters.Add("data", sp);
+        UIManager.Instance.GetController<BuildingDetailCtrl>().ShowPanel(parameters);
+
+        mBuildInfoPanel.SetBuildInfo(ua);
+        mBuildInfoPanel.ShowUpgrade(sp);
+        if (sp.GetNextPrefabs(out nextPrefabs))
+        {
+            if (nextPrefabs.soilderPrefabs.Count > 0)
+            {
+                mBuildInfoPanel.upgradeBtn.gameObject.SetActive(true);
+                mBuildInfoPanel.upgradeBtn.GetComponentInChildren<UILabel>().text = "To:" + nextPrefabs.soilderPrefabs[0].GetComponent<UnitAttribute>().unitName;
+            }
+            if (nextPrefabs.soilderPrefabs.Count > 1)
+            {
+                mBuildInfoPanel.upgradeBtn1.gameObject.SetActive(true);
+                mBuildInfoPanel.upgradeBtn1.GetComponentInChildren<UILabel>().text = "To:" + nextPrefabs.soilderPrefabs[1].GetComponent<UnitAttribute>().unitName;
+            }
+        }
+    }
+
 
 	[Client]
 	public void MoveCamera ()

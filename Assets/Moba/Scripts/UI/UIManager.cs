@@ -33,6 +33,7 @@ namespace UIFrame
 		{
 			AddCtroller<BuildingListCtrl> ();
 			AddCtroller<PrePlayCtrl> ();
+            AddCtroller<BuildingDetailCtrl>();
 		}
 
 		public T AddCtroller<T> () where T : BaseCtrl
