@@ -68,7 +68,7 @@ namespace BlueNoah.Localzation
             for (int i = 0; i < UnityEditor.Selection.gameObjects.Length; i++)
             {
                 UnitAttribute unitAttribute = UnityEditor.Selection.gameObjects[i].GetComponent<UnitAttribute>();
-
+                unitAttribute.unitId = i;
                 UnitAttributeEntity unitAttributeEntity = UnitAttributeEntity.CoverTo(unitAttribute);
                 if (unitAttributeEntity != null)
                     unitAttributeList.Add(unitAttributeEntity);

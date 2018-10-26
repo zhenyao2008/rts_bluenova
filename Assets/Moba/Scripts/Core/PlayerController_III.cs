@@ -142,6 +142,7 @@ public class PlayerController_III :  NetworkBehaviour,IPlayerController
 		Destroy (selectPreBuilding.GetComponent<SpawnPoint> ());
 		Destroy (selectPreBuilding.GetComponent<Collider> ());
 		UIManager.Instance.GetController<BuildingListCtrl> ().Close ();
+        Place();
 	}
 
 	[Client]
@@ -162,6 +163,7 @@ public class PlayerController_III :  NetworkBehaviour,IPlayerController
 //		mBuildInfoPanel.SetBuildInfo (ua);
 		mBuildInfoPanel.root.SetActive (false);
 		mBuildingPanel.root.SetActive (false);
+       
 	}
 
 	[Client]
@@ -281,7 +283,7 @@ public class PlayerController_III :  NetworkBehaviour,IPlayerController
 		}
 		#endif
 	}
-
+    Transform mPlane;
 	void Update ()
 	{
 		if (!isBattleBegin)
@@ -305,26 +307,27 @@ public class PlayerController_III :  NetworkBehaviour,IPlayerController
                 selectBuilding = hit.transform.gameObject;
                 Select(hit.transform.gameObject);
 			} else if (selectPreBuilding == null && Physics.Raycast (Camera.main.ScreenPointToRay (Input.mousePosition), out hit, Mathf.Infinity, 1 << LayerConstant.planeLayer)) {
-				ShowBuildPanel ();
+                mPlane = hit.transform;
+                ShowBuildPanel ();
 			} else {
 				mBuildingPanel.root.SetActive (false);
 				mBuildInfoPanel.root.SetActive (false);
 			}
 		}
 
-		if (selectPreBuilding != null) {
-			RaycastHit hit;
-			if (Physics.Raycast (Camera.main.ScreenPointToRay (Input.mousePosition), out hit, Mathf.Infinity, 1 << LayerConstant.planeLayer)) {
-				selectPreBuilding.transform.position = hit.transform.position;
-			} else if (Physics.Raycast (Camera.main.ScreenPointToRay (Input.mousePosition), out hit, Mathf.Infinity, 1 << LayerConstant.groundLayer)) {
-				selectPreBuilding.transform.position = hit.point;
-			}
-		}
+		//if (selectPreBuilding != null) {
+		//	RaycastHit hit;
+		//	if (Physics.Raycast (Camera.main.ScreenPointToRay (Input.mousePosition), out hit, Mathf.Infinity, 1 << LayerConstant.planeLayer)) {
+		//		selectPreBuilding.transform.position = hit.transform.position;
+		//	} else if (Physics.Raycast (Camera.main.ScreenPointToRay (Input.mousePosition), out hit, Mathf.Infinity, 1 << LayerConstant.groundLayer)) {
+		//		selectPreBuilding.transform.position = hit.point;
+		//	}
+		//}
 
-		if (selectPreBuilding != null && Input.GetMouseButtonUp (0)) {
-            Place();
-			selectPreBuilding = null;
-		}
+		//if (selectPreBuilding != null && Input.GetMouseButtonUp (0)) {
+  //          Place();
+		//	selectPreBuilding = null;
+		//}
 
 		if (Input.GetKeyDown (KeyCode.K)) {
 			CmdKillAllEnemys ();
@@ -344,18 +347,33 @@ public class PlayerController_III :  NetworkBehaviour,IPlayerController
 
 	}
 
-    void Place(){
-        RaycastHit hit;
-        if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity, 1 << LayerConstant.planeLayer))
-        {
-            int planeIndex = -1;
-            if (playerIndex == 0)
-                planeIndex = mServerController_III.planes0.IndexOf(hit.transform);
-            else
-                planeIndex = mServerController_III.planes1.IndexOf(hit.transform);
-            CmdPlaceBuilding(selectBuildingIndex, planeIndex);
+    public void Place(){
+        //RaycastHit hit;
+        //if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity, 1 << LayerConstant.planeLayer))
+        //{
+        int planeIndex = -1;
+            
+        if (playerIndex == 0){
+            planeIndex = mServerController_III.planes0.IndexOf(mPlane);
+            if (mPlane == null)
+            {
+                planeIndex = mServerController_III.planes0.IndexOf(mServerController_III.availablePlanes0[0]);
+            }
         }
+        else{
+            planeIndex = mServerController_III.planes1.IndexOf(mPlane);
+            if (mPlane == null)
+            {
+                planeIndex = mServerController_III.planes1.IndexOf(mServerController_III.availablePlanes1[0]);
+            }
+        }
+
+        Debug.Log(mPlane);
+        Debug.Log(planeIndex);
+            CmdPlaceBuilding(selectBuildingIndex, planeIndex);
+        //}
         Destroy(selectPreBuilding);
+        selectPreBuilding = null;
     }
 
     void Select(GameObject selectBuilding){

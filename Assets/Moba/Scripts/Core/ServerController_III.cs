@@ -76,6 +76,8 @@ public class ServerController_III : NetworkManager {
 		if(PlayerPrefs.HasKey(KEY_IP_ADRESS)){
 			this.networkAddress = PlayerPrefs.GetString(KEY_IP_ADRESS);
 		}
+        ConfigUtility.Init();
+        //FindObjectOfType<RtsCameraMouse>().MouseOrbitButton = KeyCode.F; 
 	}
 
 	void Start(){
@@ -315,7 +317,11 @@ public class ServerController_III : NetworkManager {
 			GameObject prefab = spawners[i].GetCurrentPrefab();
 			if(prefab!=null)
 			{
-				prefab.SetActive (false);
+                prefab.SetActive (false);
+
+                if(ConfigUtility.GetUnitAttributeEntity(prefab.GetComponent<UnitAttribute>().unitId)!=null){
+                    UnitAttributeEntity.SetUnitAttribute(ConfigUtility.GetUnitAttributeEntity(prefab.GetComponent<UnitAttribute>().unitId),prefab.GetComponent<UnitAttribute>());
+                }
 				GameObject go = Instantiate(prefab,spawners[i].spawnPoint.position, spawners[i].spawnPoint.rotation) as GameObject;
 				Enemy soilder = go.GetComponent<Enemy>();
 				soilder.defaultTarget = target;
