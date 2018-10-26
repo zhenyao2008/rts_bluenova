@@ -92,6 +92,12 @@ public class ResourcesManager : SingleMonoBehaviour<ResourcesManager>
 		return prefab;
 	}
 
+    const string LOCALZATION_PATH_BASE = "localization/localization_";
+
+    public string LoadLocalization(BlueNoah.Localzation.LocalizationType localizationType){
+        return  Resources.Load<TextAsset>(LOCALZATION_PATH_BASE + localizationType.ToString()).text;
+    }
+
 	public Sprite GetSprite (string path)
 	{
 		return null;

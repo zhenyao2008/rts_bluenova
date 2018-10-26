@@ -52,6 +52,8 @@ public class ServerController_III : NetworkManager {
 	public float cameraHandleSpeed = 20;
 	public float cameraHandleSpeedForMobile = 1;
 
+    bool mIsServer;
+
 	const string  KEY_IP_ADRESS = "address";
 
 	void Awake()
@@ -175,9 +177,27 @@ public class ServerController_III : NetworkManager {
 		base.OnStartServer ();
 	}
 
+    public int playerId;
+
+    PlayerController_III mCurrentPlayer;
+
+    public PlayerController_III CurrentPlayer{
+        get{
+            if(mCurrentPlayer == null){
+                for (int i = 0; i < players.Count;i++){
+                    if(players[i]!=null && playerId == players[i].playerId){
+                        mCurrentPlayer = players[i];
+                    }
+                }
+            }
+            return mCurrentPlayer;
+        }
+    }
+
 	public override void OnStartClient (NetworkClient client)
 	{
 		base.OnStartClient (client);
+        //playerId = client.connection.connectionId;
 		GetComponent<AudioSource> ().enabled = true;
 		PlayerPrefs.SetString (KEY_IP_ADRESS,this.networkAddress);
 		PlayerPrefs.Save ();
@@ -193,15 +213,17 @@ public class ServerController_III : NetworkManager {
 	public override void OnServerAddPlayer (NetworkConnection conn, short playerControllerId)
 	{
 		GameObject player = GameObject.Instantiate(playerPrefab, Vector3.zero, Quaternion.identity) as GameObject;
+        player.name = "Player_" + conn.connectionId;
+        PlayerController_III playerControll = player.GetComponent<PlayerController_III>();
+        playerControll.playerId = conn.connectionId;
+
 		NetworkServer.AddPlayerForConnection(conn, player, playerControllerId);
-		PlayerController_III playerControll = player.GetComponent<PlayerController_III>();
 
 		Debug.LogError ("playerControllerId:" + playerControllerId);
 
 		if (players [0] == null) {
 			playerControll.buildingLayer = 18;
 			playerControll.playerAttribute = playerAttributes[0];
-			playerControll.SendPlayerIndex(0);
 			players [0] = playerControll;
 			if(players [1]!=null)
 			{
@@ -210,13 +232,13 @@ public class ServerController_III : NetworkManager {
 		} else if (players [1] == null && !isAIMode) {
 			playerControll.buildingLayer = 19;
 			playerControll.playerAttribute = playerAttributes[1];
-			playerControll.SendPlayerIndex(1);
 			players[1] = playerControll;
 			if(players [0]!=null)
 			{
 				players [0].SendPlayerInfoMsg();
 			}
 		}
+        playerControll.SendPlayerIndex(conn.connectionId);
 	}
 
 	public void SendChatMsg(string msg){

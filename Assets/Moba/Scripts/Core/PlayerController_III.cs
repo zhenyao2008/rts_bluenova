@@ -38,6 +38,8 @@ public class PlayerController_III :  NetworkBehaviour,IPlayerController
 
 	public int playerIndex = -1;
 
+    public int playerId = -1;
+
 	public PlayerAttribute playerAttribute;
 	public static PlayerController_III instance;
 
@@ -568,6 +570,7 @@ public class PlayerController_III :  NetworkBehaviour,IPlayerController
 		if (!isLocalPlayer) {
 			return;
 		}
+        instance = this;
 		this.playerIndex = index;
 		RtsCamera rtsCamera = Camera.main.GetComponent<RtsCamera> ();
 		if (rtsCamera != null) {

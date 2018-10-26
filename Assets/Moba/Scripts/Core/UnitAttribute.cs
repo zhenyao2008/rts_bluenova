@@ -17,8 +17,9 @@ public enum ArmorType{
 	Heavy,
 	Construction
 };
-public class UnitAttribute : NetworkBehaviour  {
 
+[System.Serializable]
+public class UnitAttribute : NetworkBehaviour  {
 	public int buildCorn;//建造费用
 	public string unitName;
 	public int buildDuration;//建造时间
