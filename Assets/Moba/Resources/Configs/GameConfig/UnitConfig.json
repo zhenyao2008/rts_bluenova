@@ -338,6 +338,3 @@
         }
     ]
 }
-UnityEngine.Debug:Log(Object)
-BlueNoah.Localzation.LocalizationManager:CoverAttributeToJson() (at Assets/Moba/Scripts/Localization/LocalizationManager.cs:78)
-BlueNoah.Localzation.LocalizationManager:Update() (at Assets/Moba/Scripts/Localization/LocalizationManager.cs:58)
