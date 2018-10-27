@@ -1,0 +1,31 @@
+﻿<Properties StartupConfiguration="{69E64999-9622-997E-EFDF-7EA2BC2E6DA5}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Moba/Scripts/Config/ConfigUtility.cs">
+    <Files>
+      <File FileName="Assets/Moba/Scripts/UI/Panels/BuildingList/BuildingListCtrl.cs" Line="39" Column="37" />
+      <File FileName="Assets/Moba/Scripts/Core/PlayerController_III.cs" Line="307" Column="48" />
+      <File FileName="Assets/Moba/Scripts/Core/Enemy.cs" Line="7" Column="19" />
+      <File FileName="Assets/Moba/Resources/Configs/GameConfig/UnitConfig.json" Line="5" Column="45" />
+      <File FileName="Assets/Moba/Scripts/Localization/LocalizationManager.cs" Line="63" Column="9" />
+      <File FileName="Assets/Moba/Scripts/Core/SpawnPoint.cs" Line="169" Column="3" />
+      <File FileName="Assets/ThirdPart/RtsCamera/Scripts/RtsCamera.cs" Line="490" Column="18" />
+      <File FileName="Assets/Moba/Scripts/UI/Panels/BuildingDetail/BuildingDetailCtrl.cs" Line="67" Column="69" />
+      <File FileName="Assets/ThirdPart/RtsCamera/Scripts/RtsCameraMouse.cs" Line="7" Column="28" />
+      <File FileName="Assets/Moba/Scripts/CSV/CSVManager.cs" Line="85" Column="30" />
+      <File FileName="Assets/Moba/Scripts/CSV/structure/GeneralCSVStructure.cs" Line="4" Column="1" />
+      <File FileName="Assets/Moba/Scripts/CSV/structure/KeyValueCSVStructure.cs" Line="3" Column="50" />
+      <File FileName="Assets/Moba/Resources/CSV/m_localization.csv" Line="19" Column="37" />
+      <File FileName="Assets/Moba/Scripts/CSV/structure/BaseCSVStructure.cs" Line="5" Column="21" />
+      <File FileName="Assets/Moba/Scripts/CSV/structure/BuildingCSVStructure.cs" Line="4" Column="34" />
+      <File FileName="Assets/Moba/Scripts/UI/Panels/BuildingList/BuildingListItem.cs" Line="17" Column="43" />
+      <File FileName="Assets/Moba/Scripts/Core/ServerController_III.cs" Line="322" Column="56" />
+      <File FileName="Assets/Moba/Scripts/Config/ConfigUtility.cs" Line="15" Column="61" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.ItemProperties.MobaSub PreferredExecutionTarget="Unity.Editor" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+</Properties>

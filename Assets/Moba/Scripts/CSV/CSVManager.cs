@@ -8,13 +8,15 @@ using System.IO;
 public class CSVManager :SingleMonoBehaviour<CSVManager>
 {
 	private bool loaded = false;
-	private const string CSV_CONVENTION = "m_convention";
-	private const string CSV_NG = "m_ng";
-	private const string CSV_QA = "m_qa";
-	private const string CSV_HELP = "m_help";
-
-	private const string CSV_SKILL = "m_skill";
 	private CsvContext mCsvContext;
+
+    public List<KeyValueCSVStructure> languageList;
+    public Dictionary<string, string> languageDic;
+
+    public List<BuildingCSVStructure> buildingList;
+    public Dictionary<int, BuildingCSVStructure> buildingDic;
+
+
 	public List<GeneralCSVStructure> ConventionList { get; private set; }
 	public Dictionary<int, GeneralCSVStructure> ConventionDic { get; private set; }
 	public List<GeneralCSVStructure> NgList { get; private set; }
@@ -37,15 +39,27 @@ public class CSVManager :SingleMonoBehaviour<CSVManager>
 	void StartLoading ()
 	{
 		mCsvContext = new CsvContext ();
-//		LoadNG ();
+        //		LoadNG ();
+        LoadLanguage();
 		loaded = true;
 	}
 
-	void LoadNG ()
-	{
-		NgList = CreateCSVList<GeneralCSVStructure> (CSV_NG);
-		NgDic = GetDictionary (NgList);
-	}
+    void LoadBuilding(){
+        buildingList = CreateCSVList<BuildingCSVStructure>("m_building");
+        buildingDic = GetDictionary<BuildingCSVStructure>(buildingList);
+    }
+
+    void LoadLanguage(){
+        languageList = CreateCSVList<KeyValueCSVStructure>("m_localization");
+        languageDic = new Dictionary<string, string>();
+        for (int i = 0; i < languageList.Count; i++)
+        {
+            if (!languageDic.ContainsKey(languageList[i].key))
+            {
+                languageDic.Add(languageList[i].key, languageList[i].value1);
+            }
+        }
+    }
 
 	public List<T> CreateCSVList<T> (string csvname) where T:BaseCSVStructure, new()
 	{

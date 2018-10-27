@@ -10,11 +10,11 @@ public static class ConfigUtility {
 
     public static UnitAttributeGroup unitAttributeGroup;
 
-    static Dictionary<int, UnitAttributeEntity> mUnitAttributeEntityDic;
+    static Dictionary<string, UnitAttributeEntity> mUnitAttributeEntityDic;
 
-    public static UnitAttributeEntity GetUnitAttributeEntity(int id){
-        if(mUnitAttributeEntityDic.ContainsKey(id)){
-            return mUnitAttributeEntityDic[id];
+    public static UnitAttributeEntity GetUnitAttributeEntity( string prefabName){
+        if(mUnitAttributeEntityDic.ContainsKey(prefabName)){
+            return mUnitAttributeEntityDic[prefabName];
         }
         return null;
     }
@@ -24,10 +24,10 @@ public static class ConfigUtility {
         string data = Resources.Load<TextAsset>("Configs/GameConfig/UnitConfig").text;
         Debug.Log(data);
         unitAttributeGroup = JsonUtility.FromJson<UnitAttributeGroup>(data);
-        mUnitAttributeEntityDic = new Dictionary<int, UnitAttributeEntity>();
+        mUnitAttributeEntityDic = new Dictionary<string, UnitAttributeEntity>();
         foreach(UnitAttributeEntity entity in unitAttributeGroup.unitAttributes){
-            if(!mUnitAttributeEntityDic.ContainsKey(entity.unitId)){
-                mUnitAttributeEntityDic.Add(entity.unitId, entity);
+            if(!mUnitAttributeEntityDic.ContainsKey(entity.resourceName)){
+                mUnitAttributeEntityDic.Add(entity.resourceName, entity);
             }
         }
         Debug.Log(unitAttributeGroup.unitAttributes.Length);
@@ -75,6 +75,34 @@ public class UnitAttributeEntity
     public int killExp;
     public int levelUpExp;
     public int corn;
+
+    public static string UnitAttributeToString(UnitAttributeEntity unitAttributeEntity){
+        System.Text.StringBuilder stringBuilder = new System.Text.StringBuilder();
+        stringBuilder.Append(unitAttributeEntity.unitId);
+        stringBuilder.Append(unitAttributeEntity.resourceName);
+        stringBuilder.Append(unitAttributeEntity.buildCorn);
+        stringBuilder.Append(unitAttributeEntity.unitName);
+        stringBuilder.Append(unitAttributeEntity.buildDuration);
+        stringBuilder.Append(unitAttributeEntity.minDamage);
+        stringBuilder.Append(unitAttributeEntity.maxDamage);
+        stringBuilder.Append(unitAttributeEntity.attackType);
+        stringBuilder.Append(unitAttributeEntity.attackInterval);
+        stringBuilder.Append(unitAttributeEntity.attackRange);
+        stringBuilder.Append(unitAttributeEntity.isMelee);
+        stringBuilder.Append(unitAttributeEntity.baseHealth);
+        stringBuilder.Append(unitAttributeEntity.armor);
+        stringBuilder.Append(unitAttributeEntity.armorType);
+        stringBuilder.Append(unitAttributeEntity.skillInfo);
+        stringBuilder.Append(unitAttributeEntity.killPrice);
+        stringBuilder.Append(unitAttributeEntity.healthRecover);
+        stringBuilder.Append(unitAttributeEntity.mana);
+        stringBuilder.Append(unitAttributeEntity.manaRecover);
+        stringBuilder.Append(unitAttributeEntity.maxHealth);
+        stringBuilder.Append(unitAttributeEntity.killExp);
+        stringBuilder.Append(unitAttributeEntity.levelUpExp);
+        stringBuilder.Append(unitAttributeEntity.corn);
+        return stringBuilder.ToString();
+    }
 
     public static void SetUnitAttribute(UnitAttributeEntity unitAttributeEntity, UnitAttribute unitAttribute){
         //unitAttributeEntity.instanceId = unitAttribute.GetInstanceID();

@@ -65,9 +65,13 @@ namespace BlueNoah.Localzation
         {
 #if UNITY_EDITOR
             List<UnitAttributeEntity> unitAttributeList = new List<UnitAttributeEntity>();
-            for (int i = 0; i < UnityEditor.Selection.gameObjects.Length; i++)
+
+            string path = UnityEditor.AssetDatabase.GetAssetPath(UnityEditor.Selection.activeObject);
+            Debug.Log(path);
+            string[] prefabs = UnityEditor.AssetDatabase.FindAssets("t:GameObject", new string[1]{"Assets/Moba/Prefabs/Soldiers"});
+            for (int i = 0; i < prefabs.Length; i++)
             {
-                UnitAttribute unitAttribute = UnityEditor.Selection.gameObjects[i].GetComponent<UnitAttribute>();
+                UnitAttribute unitAttribute = UnityEditor.AssetDatabase.LoadAssetAtPath<GameObject>(prefabs[i]).GetComponent<UnitAttribute>();// UnityEditor.Selection.gameObjects[i].GetComponent<UnitAttribute>();
                 unitAttribute.unitId = i;
                 UnitAttributeEntity unitAttributeEntity = UnitAttributeEntity.CoverTo(unitAttribute);
                 if (unitAttributeEntity != null)

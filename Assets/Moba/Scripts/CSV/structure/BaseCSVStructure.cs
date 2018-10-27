@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using CSV;
-
+[System.Serializable]
 public class BaseCSVStructure  {
 
 	[CsvColumn (CanBeNull = true)]

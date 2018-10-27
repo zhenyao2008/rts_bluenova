@@ -318,9 +318,9 @@ public class ServerController_III : NetworkManager {
 			if(prefab!=null)
 			{
                 prefab.SetActive (false);
-
-                if(ConfigUtility.GetUnitAttributeEntity(prefab.GetComponent<UnitAttribute>().unitId)!=null){
-                    UnitAttributeEntity.SetUnitAttribute(ConfigUtility.GetUnitAttributeEntity(prefab.GetComponent<UnitAttribute>().unitId),prefab.GetComponent<UnitAttribute>());
+                //TODO
+                if(ConfigUtility.GetUnitAttributeEntity(prefab.name)!=null){
+                    UnitAttributeEntity.SetUnitAttribute(ConfigUtility.GetUnitAttributeEntity(prefab.name),prefab.GetComponent<UnitAttribute>());
                 }
 				GameObject go = Instantiate(prefab,spawners[i].spawnPoint.position, spawners[i].spawnPoint.rotation) as GameObject;
 				Enemy soilder = go.GetComponent<Enemy>();

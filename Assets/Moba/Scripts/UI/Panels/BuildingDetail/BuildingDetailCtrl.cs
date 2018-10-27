@@ -42,7 +42,10 @@ namespace UIFrame
                         PlayerController_III.instance.ShowUpgrade();
                         this.Close();
                     });
-                    mBuildingDetailPanelView.btn_upgrade.GetComponentInChildren<Text>().text = "To:" + nextPrefabs.soilderPrefabs[0].GetComponent<UnitAttribute>().unitName;
+                    int unitId = nextPrefabs.soilderPrefabs[0].GetComponent<UnitAttribute>().unitId;
+                    Debug.Log(unitId);
+                    string unitName = CSVManager.Instance.languageDic["UNIT_NAME_" + unitId];
+                    mBuildingDetailPanelView.btn_upgrade.GetComponentInChildren<Text>().text = "To:" +  unitName;
                 }
                 if (nextPrefabs.soilderPrefabs.Count > 1)
                 {
@@ -52,7 +55,9 @@ namespace UIFrame
                         PlayerController_III.instance.ShowUpgrade1();
                         Close();
                     });
-                    mBuildingDetailPanelView.btn_upgrade.GetComponentInChildren<Text>().text = "To:" + nextPrefabs.soilderPrefabs[1].GetComponent<UnitAttribute>().unitName;
+                    int unitId = nextPrefabs.soilderPrefabs[0].GetComponent<UnitAttribute>().unitId;
+                    string unitName = CSVManager.Instance.languageDic["UNIT_NAME_" + unitId];
+                    mBuildingDetailPanelView.btn_upgrade1.GetComponentInChildren<Text>().text = "To:" + unitName;
                 }
             }
 
@@ -91,7 +96,10 @@ namespace UIFrame
                     mBuildingDetailPanelView.txt_armor_type.text = "建筑"; break;
             }
             mBuildingDetailPanelView.txt_corn.text = ua.killPrice.ToString();
-            mBuildingDetailPanelView.txt_skill_info.text = ua.skillInfo;
+
+            int currentUnitId = ua.unitId;
+            string skillInfo = CSVManager.Instance.languageDic["UNIT_SKILL_" + currentUnitId];
+            mBuildingDetailPanelView.txt_skill_info.text = skillInfo;
         }
 
         public override void Close()

@@ -3,3 +3,5 @@ Build
 WebBuild
 Assets/Assetbundles
 Battle.app
+MobaSub.csproj
+MobaSub.Editor.csproj
