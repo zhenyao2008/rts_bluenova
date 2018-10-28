@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UIFrame;
 using UnityEngine.EventSystems;
+using BlueNoah.Event;
 
 public class PlayerController_III :  NetworkBehaviour,IPlayerController
 {
@@ -66,7 +67,11 @@ public class PlayerController_III :  NetworkBehaviour,IPlayerController
 			mChatPanel.controllBtn.onClick.Add (new global::EventDelegate (ShowChat));
 			mChatPanel.sendBtn.onClick.Add (new global::EventDelegate (SendChat));
 			mChatPanel.chatInput.onSubmit.Add (new global::EventDelegate (SendChat));
+
+            EasyInput.Instance.AddListener(BlueNoah.Event.TouchType.Click, OnClick);
 		}
+
+
 	}
 
 	public void CloseChat ()
@@ -283,6 +288,36 @@ public class PlayerController_III :  NetworkBehaviour,IPlayerController
 		}
 		#endif
 	}
+
+    void OnClick(EventData eventData){
+        if ( !UICamera.isOverUI && (EventSystem.current == null || !EventSystem.current.IsPointerOverGameObject()))
+        {
+            if (selectBuilding != null)
+            {
+                selectBuilding.GetComponent<SpawnPoint>().OnUnSelected();
+            }
+            RaycastHit hit;
+            //TODO EventSystem.current when at mobile.
+            if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity, 1 << buildingLayer))
+            {
+                selectBuilding = hit.transform.gameObject;
+                Select(hit.transform.gameObject);
+            }
+            else if (selectPreBuilding == null && Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity, 1 << LayerConstant.planeLayer))
+            {
+                mPlane = hit.transform;
+                ShowBuildPanel();
+            }
+            else
+            {
+                mBuildingPanel.root.SetActive(false);
+                mBuildInfoPanel.root.SetActive(false);
+            }
+        }
+    }
+
+
+
     Transform mPlane;
 	void Update ()
 	{
@@ -297,23 +332,23 @@ public class PlayerController_III :  NetworkBehaviour,IPlayerController
 //		if (isChating)
 //			return;
 
-        if (Input.GetMouseButtonDown (0) && !UICamera.isOverUI  && (EventSystem.current == null || !EventSystem.current.IsPointerOverGameObject() )) {
-			if (selectBuilding != null) {
-				selectBuilding.GetComponent<SpawnPoint> ().OnUnSelected ();
-			}
-			RaycastHit hit;
-            //TODO EventSystem.current when at mobile.
-            if ( Physics.Raycast (Camera.main.ScreenPointToRay (Input.mousePosition), out hit, Mathf.Infinity, 1 << buildingLayer)) {
-                selectBuilding = hit.transform.gameObject;
-                Select(hit.transform.gameObject);
-			} else if (selectPreBuilding == null && Physics.Raycast (Camera.main.ScreenPointToRay (Input.mousePosition), out hit, Mathf.Infinity, 1 << LayerConstant.planeLayer)) {
-                mPlane = hit.transform;
-                ShowBuildPanel ();
-			} else {
-				mBuildingPanel.root.SetActive (false);
-				mBuildInfoPanel.root.SetActive (false);
-			}
-		}
+  //      if (Input.GetMouseButtonDown (0) && !UICamera.isOverUI  && (EventSystem.current == null || !EventSystem.current.IsPointerOverGameObject() )) {
+		//	if (selectBuilding != null) {
+		//		selectBuilding.GetComponent<SpawnPoint> ().OnUnSelected ();
+		//	}
+		//	RaycastHit hit;
+  //          //TODO EventSystem.current when at mobile.
+  //          if ( Physics.Raycast (Camera.main.ScreenPointToRay (Input.mousePosition), out hit, Mathf.Infinity, 1 << buildingLayer)) {
+  //              selectBuilding = hit.transform.gameObject;
+  //              Select(hit.transform.gameObject);
+		//	} else if (selectPreBuilding == null && Physics.Raycast (Camera.main.ScreenPointToRay (Input.mousePosition), out hit, Mathf.Infinity, 1 << LayerConstant.planeLayer)) {
+  //              mPlane = hit.transform;
+  //              ShowBuildPanel ();
+		//	} else {
+		//		mBuildingPanel.root.SetActive (false);
+		//		mBuildInfoPanel.root.SetActive (false);
+		//	}
+		//}
 
 		//if (selectPreBuilding != null) {
 		//	RaycastHit hit;
@@ -795,7 +830,7 @@ public class PlayerController_III :  NetworkBehaviour,IPlayerController
 			mBuildingPanel.buildings [i].GetComponentInChildren<UILabel> ().text = mServerController_III.buildPrefabs [i].GetComponent<SpawnPoint> ().buildingName;
 		}
 		mServerMsgPanel.msgTime.gameObject.SetActive (false);
-		ShowBuildPanel ();
+		//ShowBuildPanel ();
 	}
 
 
