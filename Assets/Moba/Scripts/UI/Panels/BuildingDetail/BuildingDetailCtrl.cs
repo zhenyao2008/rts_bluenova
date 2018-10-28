@@ -42,10 +42,14 @@ namespace UIFrame
                         PlayerController_III.instance.ShowUpgrade();
                         this.Close();
                     });
-                    int unitId = nextPrefabs.soilderPrefabs[0].GetComponent<UnitAttribute>().unitId;
-                    Debug.Log(unitId);
-                    string unitName = CSVManager.Instance.languageDic["UNIT_NAME_" + unitId];
-                    mBuildingDetailPanelView.btn_upgrade.GetComponentInChildren<Text>().text = "To:" +  unitName;
+                    Debug.LogError(nextPrefabs.soilderPrefabs[0]);
+                    if (ConfigUtility.GetUnitAttributeEntity(nextPrefabs.soilderPrefabs[0].name) != null)
+                    {
+                        int unitId = ConfigUtility.GetUnitAttributeEntity(nextPrefabs.soilderPrefabs[0].name).unitId;
+                        string unitName = CSVManager.Instance.languageDic["UNIT_NAME_" + unitId];
+                        mBuildingDetailPanelView.txt_upgrade.text = "To:" + unitName;
+                        mBuildingDetailPanelView.txt_upgrade_price.text = nextPrefabs.soilderPrefabs[0].GetComponent<UnitAttribute>().buildCorn.ToString();
+                    }
                 }
                 if (nextPrefabs.soilderPrefabs.Count > 1)
                 {
@@ -55,13 +59,19 @@ namespace UIFrame
                         PlayerController_III.instance.ShowUpgrade1();
                         Close();
                     });
-                    int unitId = nextPrefabs.soilderPrefabs[0].GetComponent<UnitAttribute>().unitId;
-                    string unitName = CSVManager.Instance.languageDic["UNIT_NAME_" + unitId];
-                    mBuildingDetailPanelView.btn_upgrade1.GetComponentInChildren<Text>().text = "To:" + unitName;
+                    if (ConfigUtility.GetUnitAttributeEntity(nextPrefabs.soilderPrefabs[1].name) != null)
+                    {
+                        int unitId = ConfigUtility.GetUnitAttributeEntity(nextPrefabs.soilderPrefabs[1].name).unitId;
+                        Debug.Log(unitId);
+                        string unitName = CSVManager.Instance.languageDic["UNIT_NAME_" + unitId];
+                        //mBuildingDetailPanelView.btn_upgrade.GetComponentInChildren<Text>().text = "To:" + unitName;
+                        mBuildingDetailPanelView.txt_upgrade1.text = "To:" + unitName;
+                        mBuildingDetailPanelView.txt_upgrade1_price.text = nextPrefabs.soilderPrefabs[1].GetComponent<UnitAttribute>().buildCorn.ToString();
+
+                    }
                 }
             }
 
-            mBuildingDetailPanelView.txt_soild_name.text = ua.unitName;
             mBuildingDetailPanelView.txt_build_corn.text = ua.buildCorn.ToString();
             mBuildingDetailPanelView.txt_build_time.text = ua.buildDuration.ToString() + "s";
             mBuildingDetailPanelView.txt_health.text = ua.baseHealth.ToString();
@@ -96,10 +106,13 @@ namespace UIFrame
                     mBuildingDetailPanelView.txt_armor_type.text = "建筑"; break;
             }
             mBuildingDetailPanelView.txt_corn.text = ua.killPrice.ToString();
-
-            int currentUnitId = ua.unitId;
-            string skillInfo = CSVManager.Instance.languageDic["UNIT_SKILL_" + currentUnitId];
-            mBuildingDetailPanelView.txt_skill_info.text = skillInfo;
+            mBuildingDetailPanelView.txt_soild_name.text = ua.unitName;
+            if (ConfigUtility.GetUnitAttributeEntity(ua.gameObject.name) != null)
+            {
+                int currentUnitId = ConfigUtility.GetUnitAttributeEntity(ua.gameObject.name).unitId;
+                mBuildingDetailPanelView.txt_skill_info.text = CSVManager.Instance.languageDic["UNIT_SKILL_" + currentUnitId];
+                mBuildingDetailPanelView.txt_soild_name.text = CSVManager.Instance.languageDic["UNIT_NAME_" + currentUnitId];
+            }
         }
 
         public override void Close()

@@ -9,7 +9,11 @@ namespace UIFrame
 
 		public GridLayoutGroup grid_unit_detail;
 		public Button btn_upgrade;
+        public Text txt_upgrade;
+        public Text txt_upgrade_price;
 		public Button btn_upgrade1;
+        public Text txt_upgrade1;
+        public Text txt_upgrade1_price;
         public Button btn_sell;
         public Text txt_soild_name;
         public Text txt_build_corn;
@@ -26,23 +30,15 @@ namespace UIFrame
         public Text txt_corn;
         public Text txt_skill_info;
 
-
-		//public Transform unit_tree;
-		//public Transform arrow1;
-		//public Transform arrow2;
-		//public Transform arrow3;
-		//public Transform arrow4;
-		//public Transform unit_point1;
-		//public Transform unit_point2;
-		//public Transform unit_point3;
-		//public Transform unit_point4;
-		//public Transform unit_point5;
-
 		public override void Awake()
 		{
             //grid_unit_detail = transform.Find ("Root/grid_unit_detail").GetComponent<GridLayoutGroup>();
             btn_upgrade = transform.Find ("Root/btn_upgrade").GetComponent<Button>();
+            txt_upgrade= transform.Find("Root/btn_upgrade/txt_upgrade").GetComponent<Text>();
+            txt_upgrade_price= transform.Find("Root/btn_upgrade/txt_upgrade_price").GetComponent<Text>();
             btn_upgrade1 = transform.Find ("Root/btn_upgrade1").GetComponent<Button> ();
+            txt_upgrade1 = transform.Find("Root/btn_upgrade1/txt_upgrade").GetComponent<Text>();
+            txt_upgrade1_price = transform.Find("Root/btn_upgrade1/txt_upgrade_price").GetComponent<Text>();
             btn_sell = transform.Find("Root/btn_sell").GetComponent<Button>();
             txt_soild_name = transform.Find("Root/container_detail/item/txt_soild_name").GetComponent<Text>(); 
             txt_build_corn = transform.Find("Root/container_detail/item/txt_build_corn").GetComponent<Text>();

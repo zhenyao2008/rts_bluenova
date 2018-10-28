@@ -221,7 +221,6 @@ public class ServerController_III : NetworkManager {
 
 		NetworkServer.AddPlayerForConnection(conn, player, playerControllerId);
 
-		Debug.LogError ("playerControllerId:" + playerControllerId);
 
 		if (players [0] == null) {
 			playerControll.buildingLayer = 18;
@@ -321,6 +320,7 @@ public class ServerController_III : NetworkManager {
                 //TODO
               
 				GameObject go = Instantiate(prefab,spawners[i].spawnPoint.position, spawners[i].spawnPoint.rotation) as GameObject;
+                go.name = prefab.name;
                 if (ConfigUtility.GetUnitAttributeEntity(go.name) != null)
                 {
                     UnitAttributeEntity.SetUnitAttribute(ConfigUtility.GetUnitAttributeEntity(go.name), go.GetComponent<UnitAttribute>());

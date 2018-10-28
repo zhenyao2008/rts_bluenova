@@ -164,7 +164,6 @@ public class SpawnPoint: NetworkBehaviour {
 	//获取当前制造的士兵
 	public GameObject GetCurrentPrefab(){
 		LevelPrefabs lp = leveledSoilderPrefabs [level];
-        Debug.Log(lp.soilderPrefabs[order].GetComponent<UnitAttribute>().buildCorn);
 		return lp.soilderPrefabs[order];
 	}
 
