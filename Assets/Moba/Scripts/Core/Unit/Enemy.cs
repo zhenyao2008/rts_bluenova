@@ -262,7 +262,7 @@ public class Enemy : UnitBase
 		return false;
 	}
 
-	UnitBase mTarget;
+	UnitBase mMainTarget;
 	public float mScanRadius = 20;
 	public float attackRadius = 2;
 	float mNextAttackTime;
@@ -289,29 +289,29 @@ public class Enemy : UnitBase
 			return;
 		}
 
-		if (mTarget == null) {
+		if (mMainTarget == null) {
 			state = UnitState.Idle;
 			return;
 		}
 		if (isMelee) {
-			if (Vector3.Distance (mTarget.transform.position, mTrans.position) > (unitAttribute.attackRange / 25 * 1.5f + mTarget.bodyRadius)) {
+            if (Vector3.Distance (mMainTarget.transform.position, mTrans.position) > (unitAttribute.RealAttackRange * 1.5f + mMainTarget.bodyRadius)) {
 				state = UnitState.Idle;
 				return;
 			}
 		} else {
-			if (Vector3.Distance (mTarget.transform.position, mTrans.position) > (mScanRadius + 1 + mTarget.bodyRadius)) {
+			if (Vector3.Distance (mMainTarget.transform.position, mTrans.position) > (mScanRadius + 1 + mMainTarget.bodyRadius)) {
 				state = UnitState.Idle;
 				return;
 			}
 		}
-		if (mTarget.unitAttribute.currentHealth <= 0) {
+		if (mMainTarget.unitAttribute.currentHealth <= 0) {
 			state = UnitState.Idle;
 			return;
 		}
 
 		if (nav.enabled)
 			nav.isStopped=true;
-		Vector3 forward = mTarget.transform.position - mTrans.position;
+		Vector3 forward = mMainTarget.transform.position - mTrans.position;
 		forward.y = 0;
 		if (forward != Vector3.zero)
 			mTrans.rotation = Quaternion.LookRotation (forward);
@@ -323,9 +323,38 @@ public class Enemy : UnitBase
 		if (mNextAttackTime < Time.time) {
 			mNextAttackTime = Time.time + unitAttribute.attackInterval;
 			if (isMelee) {
-				MeleeAttack ();
+                Collider[] colls = Physics.OverlapSphere(mTrans.position, unitAttribute.RealAttackRange, targetLayer);
+                int otherCount = 0;
+                for (int i = 0; i < colls.Length; i++)
+                {
+                    if (otherCount >= unitAttribute.maxTarget - 1)
+                    {
+                        break;
+                    }
+                    Transform target = colls[i].transform;
+                    if (target != mMainTarget.transform)
+                    {
+                        otherCount++;
+                        MeleeAttack(target.GetComponent<UnitBase>(),false);
+                    }
+                }
+                MeleeAttack (mMainTarget,true);
 			} else {
-				RemoteAttack (mTarget);
+                Collider[] colls = Physics.OverlapSphere(mTrans.position, unitAttribute.RealAttackRange, targetLayer);
+                int otherCount = 0;
+                for (int i = 0; i < colls.Length;i ++){
+                    if (otherCount >= unitAttribute.maxTarget - 1)
+                    {
+                        break;
+                    }
+                    Transform target = colls[i].transform;
+                    if (target != mMainTarget.transform)
+                    {
+                        otherCount++;
+                        RemoteAttack(target.GetComponent<UnitBase>());
+                    }
+                }
+				RemoteAttack (mMainTarget);
 			}
 			RpcAttack ();
 		}
@@ -346,18 +375,18 @@ public class Enemy : UnitBase
 
 	public bool isOneShootGunEffect = false;
 
-	void MeleeAttack ()
+    void MeleeAttack (UnitBase target,bool showAttackEffect = false)
 	{
-		if (hitPrefab != null) {
+        if (hitPrefab != null) {
 
-			Transform trans = mTarget.GetHitPoint ();
+            Transform trans = target.GetHitPoint ();
 			RpcShowHitEffect (trans.position);
 		}
-		int damage = unitAttribute.GetHitDamage (mTarget);
-		if (isOneShootGunEffect && gunEffect != null) {
+        int damage = unitAttribute.GetHitDamage (target);
+        if (isOneShootGunEffect && gunEffect != null && showAttackEffect) {
 			RpcGunEffect ();
 		}
-		mTarget.Damage (this, damage);
+        target.Damage (this, damage);
 	}
 
 	IEnumerator _NetworkServerDestoryDelay (GameObject go, float delay)
@@ -430,12 +459,12 @@ public class Enemy : UnitBase
 			return;
 		}
 
-		if (mTarget != null) {
+		if (mMainTarget != null) {
 			if (nav.enabled) {
-				nav.SetDestination (mTarget.transform.position);
-				targetPos = mTarget.transform.position;
+				nav.SetDestination (mMainTarget.transform.position);
+				targetPos = mMainTarget.transform.position;
 			}
-			if (Vector3.Distance (mTarget.transform.position, mTrans.position) <= unitAttribute.attackRange / 25 + mTarget.bodyRadius) {
+            if (Vector3.Distance (mMainTarget.transform.position, mTrans.position) <= unitAttribute.RealAttackRange + mMainTarget.bodyRadius) {
 				if (nav.enabled)
 					nav.isStopped=true;
 				state = UnitState.Attack;
@@ -453,19 +482,19 @@ public class Enemy : UnitBase
 
 	void Scan ()
 	{
-		mTarget = null;
+        mMainTarget = null;
 		if (targetLayers.Count > 0) {
 			Collider[] colls = Physics.OverlapSphere (mTrans.position, mScanRadius, targetLayer);
 			if (colls != null && colls.Length > 0) {
 				Transform target = null;
 				target = colls [Random.Range (0, colls.Length)].transform;
 				if (target != null) {
-					mTarget = target.GetComponent<UnitBase> ();
+					mMainTarget = target.GetComponent<UnitBase> ();
 					state = UnitState.Move;
 				}
 			}
 		}
-		if (mTarget == null && defaultTarget != null) {
+		if (mMainTarget == null && defaultTarget != null) {
 			if (nav.enabled) {
 				nav.SetDestination (defaultTarget.position);
 				targetPos = defaultTarget.position;

@@ -29,6 +29,13 @@ public class UnitAttribute : NetworkBehaviour  {
 	public AttackType attackType = AttackType.Normal;
 	public float attackInterval;//攻击间隔
 	public float attackRange;//攻击距离
+
+    public float RealAttackRange{
+        get {
+            return attackRange / 25;
+        }
+    }
+
 	public bool isMelee;
 	public int baseHealth = -1;
 	public int armor = -1;
@@ -39,6 +46,8 @@ public class UnitAttribute : NetworkBehaviour  {
 	public int healthRecover = 0;
 	public float mana = 60;
 	public float manaRecover = 0;
+
+    public int maxTarget = 1;
 //	[SyncVar]
 
 
