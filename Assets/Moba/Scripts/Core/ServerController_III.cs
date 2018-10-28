@@ -319,10 +319,12 @@ public class ServerController_III : NetworkManager {
 			{
                 prefab.SetActive (false);
                 //TODO
-                if(ConfigUtility.GetUnitAttributeEntity(prefab.name)!=null){
-                    UnitAttributeEntity.SetUnitAttribute(ConfigUtility.GetUnitAttributeEntity(prefab.name),prefab.GetComponent<UnitAttribute>());
-                }
+              
 				GameObject go = Instantiate(prefab,spawners[i].spawnPoint.position, spawners[i].spawnPoint.rotation) as GameObject;
+                if (ConfigUtility.GetUnitAttributeEntity(go.name) != null)
+                {
+                    UnitAttributeEntity.SetUnitAttribute(ConfigUtility.GetUnitAttributeEntity(go.name), go.GetComponent<UnitAttribute>());
+                }
 				Enemy soilder = go.GetComponent<Enemy>();
 				soilder.defaultTarget = target;
 				soilder.pos = spawners[i].spawnPoint.position;
