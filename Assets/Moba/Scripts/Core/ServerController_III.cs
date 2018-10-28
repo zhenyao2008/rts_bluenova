@@ -110,10 +110,6 @@ public class ServerController_III : NetworkManager {
 	}
 #endif
 
-
-	float mNextMoneyTime = 0;//下一次加钱时间
-	float mMoneyInterval = 1;//加钱时间间隔
-	public int moneyPerTips = 36;//每一跳加钱数
 	void Update(){
 		if(NetworkServer.active)
 		{
@@ -138,24 +134,14 @@ public class ServerController_III : NetworkManager {
 			else
 			{
 				//加钱
-				if(mNextMoneyTime < Time.time)
-				{
-					foreach(PlayerAttribute pa in playerAttributes)
-					{
-						pa.corn += moneyPerTips;
-					}
-					foreach(PlayerController_III pc in players)
-					{
-						if(pc!=null)pc.RefreshCorn();
-					}
-
-					mNextMoneyTime = Time.time + mMoneyInterval;
-				}
+				
 			}
 			if(nextSpawnTime < Time.time)
 			{
 				nextSpawnTime = Time.time + spawnInterval;
-				SpawnSoilders (spawners0,spawnPoints0,defaultTarget1,layer0,layer1,playerAttributes[0],0);
+                mSpawnTurn++;
+                AddMoney();
+                SpawnSoilders (spawners0,spawnPoints0,defaultTarget1,layer0,layer1,playerAttributes[0],0);
 				SpawnSoilders (spawners1,spawnPoints1,defaultTarget0,layer1,layer0,playerAttributes[1],1);
 				for(int i=0;i<players.Count;i++)
 				{
@@ -165,6 +151,25 @@ public class ServerController_III : NetworkManager {
 		}
 	}
 
+    //float mNextMoneyTime = 0;//下一次加钱时间
+    //float mMoneyInterval = 1;//加钱时间间隔
+    int mSpawnTurn;
+    int mMoneyPerTips = 800;//每一跳加钱数
+    void AddMoney(){
+        //if (mNextMoneyTime < Time.time)
+        //{
+            foreach (PlayerAttribute pa in playerAttributes)
+            {
+            pa.corn += Mathf.RoundToInt( mMoneyPerTips * (1 + Mathf.Min(mSpawnTurn/100f,1f)));
+            }
+            foreach (PlayerController_III pc in players)
+            {
+                if (pc != null) pc.RefreshCorn();
+            }
+
+            //mNextMoneyTime = Time.time + mMoneyInterval;
+        //}
+    }
 
 	void BattleBegin(){
 		isBattleBegin = true;
@@ -307,7 +312,7 @@ public class ServerController_III : NetworkManager {
 		StopServer ();
 	}
 
-	public float spawnInterval = 10;
+	float spawnInterval = 60;
 	float nextSpawnTime = 0;
 	void SpawnSoilders(List<SpawnPoint> spawners,List<Transform> spTrans,Transform target,int layer,int targetLayer,PlayerAttribute playerAttribute,int playerIndex)
 	{
