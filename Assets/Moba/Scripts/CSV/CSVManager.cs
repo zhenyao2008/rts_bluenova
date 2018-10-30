@@ -7,7 +7,7 @@ using System.IO;
 
 public class CSVManager :SingleMonoBehaviour<CSVManager>
 {
-	private bool loaded = false;
+    private bool mLoaded = false;
 	private CsvContext mCsvContext;
 
     public List<KeyValueCSVStructure> languageList;
@@ -16,6 +16,8 @@ public class CSVManager :SingleMonoBehaviour<CSVManager>
     public List<BuildingCSVStructure> buildingList;
     public Dictionary<int, BuildingCSVStructure> buildingDic;
 
+    public List<UnitCSVStructure> unitList;
+    public Dictionary<int, UnitCSVStructure> unitDic;
 
 	public List<GeneralCSVStructure> ConventionList { get; private set; }
 	public Dictionary<int, GeneralCSVStructure> ConventionDic { get; private set; }
@@ -39,10 +41,16 @@ public class CSVManager :SingleMonoBehaviour<CSVManager>
 	void StartLoading ()
 	{
 		mCsvContext = new CsvContext ();
-        //		LoadNG ();
         LoadLanguage();
-		loaded = true;
+        LoadUnit();
+        LoadBuilding();
+		mLoaded = true;
 	}
+
+    void LoadUnit(){
+        unitList = CreateCSVList<UnitCSVStructure>("m_unit");
+        unitDic = GetDictionary<UnitCSVStructure>(unitList);
+    }
 
     void LoadBuilding(){
         buildingList = CreateCSVList<BuildingCSVStructure>("m_building");

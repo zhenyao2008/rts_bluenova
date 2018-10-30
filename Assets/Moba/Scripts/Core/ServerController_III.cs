@@ -43,7 +43,6 @@ public class ServerController_III : NetworkManager {
 	public List<PlayerController_III> players;
 	public List<PlayerAttribute> playerAttributes;
 
-
 	public AIController_III aiController;
 	public static ServerController_III instance;
 
@@ -51,8 +50,6 @@ public class ServerController_III : NetworkManager {
 	public int battleBeginDelay = 5;
 	public float cameraHandleSpeed = 20;
 	public float cameraHandleSpeedForMobile = 1;
-
-    bool mIsServer;
 
 	const string  KEY_IP_ADRESS = "address";
 

@@ -1,5 +1,4 @@
-﻿using System;
-using CSV;
+﻿using CSV;
 
 public class BuildingCSVStructure : BaseCSVStructure
 {
