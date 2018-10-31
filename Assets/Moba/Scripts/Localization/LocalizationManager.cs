@@ -57,18 +57,16 @@ namespace BlueNoah.Localzation
         {
             if (load)
             {
-                CoverAttributeToJson();
+                CoverAttributeToCSV();
                 load = false;
             }
         }
 
-        public void CoverAttributeToJson()
+        public void CoverAttributeToCSV()
         {
 #if UNITY_EDITOR
             List<UnitAttributeEntity> unitAttributeList = new List<UnitAttributeEntity>();
-
             string path = UnityEditor.AssetDatabase.GetAssetPath(UnityEditor.Selection.activeObject);
-            //Debug.Log(path);
             string[] prefabs = UnityEditor.AssetDatabase.FindAssets("t:GameObject", new string[1]{"Assets/Moba/Prefabs/Soldiers"});
             StringBuilder stringBuilder = new StringBuilder();
             stringBuilder.AppendLine("id,resourceName,buildCorn,unitName,buildDuration,minDamage,maxDamage,attackType,attackInterval,attackRange,isMelee,baseHealth,armor,armorType,skillInfo,killPrice,healthRecover,mana," +

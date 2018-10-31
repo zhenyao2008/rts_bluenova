@@ -51,11 +51,14 @@ public class ServerController_III : NetworkManager {
 	public float cameraHandleSpeed = 20;
 	public float cameraHandleSpeedForMobile = 1;
 
+    BattleSpawnService mBattleSpawnService;
+
 	const string  KEY_IP_ADRESS = "address";
 
 	void Awake()
 	{
 		instance = this;
+        mBattleSpawnService = new BattleSpawnService(this);
 		players.Add (null);
 		players.Add (null);
 		playerAttributes = new List<PlayerAttribute> ();
@@ -138,8 +141,10 @@ public class ServerController_III : NetworkManager {
 				nextSpawnTime = Time.time + spawnInterval;
                 mSpawnTurn++;
                 AddMoney();
-                SpawnSoilders (spawners0,spawnPoints0,defaultTarget1,layer0,layer1,playerAttributes[0],0);
-				SpawnSoilders (spawners1,spawnPoints1,defaultTarget0,layer1,layer0,playerAttributes[1],1);
+                mBattleSpawnService.SpawnSoilders(spawners0,defaultTarget1, layer0, layer1, playerAttributes[0], 0);
+                mBattleSpawnService.SpawnSoilders(spawners1, defaultTarget0, layer1, layer0, playerAttributes[1], 1);
+    //            SpawnSoilders (spawners0,spawnPoints0,defaultTarget1,layer0,layer1,playerAttributes[0],0);
+				//SpawnSoilders (spawners1,spawnPoints1,defaultTarget0,layer1,layer0,playerAttributes[1],1);
 				for(int i=0;i<players.Count;i++)
 				{
 					if(players[i]!=null)players[i].ChangeTimeLimit(spawnInterval);
@@ -369,9 +374,11 @@ public class ServerController_III : NetworkManager {
 			if(players[playerIndex]!=null)
 				players[playerIndex].RefreshCorn();
 			if (playerIndex == 0) {
-				SpawnBuilding(planes0,availablePlanes0,planeIndex,buildIndex,spawners0,buildingLayer0,playerIndex,currentBuildPrefabs);
+                mBattleSpawnService.SpawnBuilding(planes0, availablePlanes0, planeIndex, buildIndex, spawners0, buildingLayer0, playerIndex, currentBuildPrefabs);
+				//SpawnBuilding(planes0,availablePlanes0,planeIndex,buildIndex,spawners0,buildingLayer0,playerIndex,currentBuildPrefabs);
 			}else if (playerIndex == 1) {
-				SpawnBuilding(planes1,availablePlanes1,planeIndex,buildIndex,spawners1,buildingLayer1,playerIndex,currentBuildPrefabs);
+                mBattleSpawnService.SpawnBuilding(planes1, availablePlanes1, planeIndex, buildIndex, spawners1, buildingLayer1, playerIndex, currentBuildPrefabs);
+                //SpawnBuilding(planes1,availablePlanes1,planeIndex,buildIndex,spawners1,buildingLayer1,playerIndex,currentBuildPrefabs);
 			}
 		}
 	}

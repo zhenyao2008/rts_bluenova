@@ -132,4 +132,48 @@ public class ResourcesManager : SingleMonoBehaviour<ResourcesManager>
 	{
 		return null;
 	}
+
+    //public static T LoadFromAssetBundleOrEditor<T>(string path, string fileName) where T : Object
+    //{
+    //    T t = null;
+    //    #if UNITY_EDITOR
+    //          if (fileName.IndexOf(".", System.StringComparison.CurrentCulture) == -1)
+    //          {
+    //              if (typeof(T) == typeof(Sprite))
+    //              {
+    //                  fileName += ".png";
+    //              }
+    //              else if (typeof(T) == typeof(GameObject))
+    //              {
+    //                  fileName += ".prefab";
+    //              }
+    //              else if (typeof(T) == typeof(AudioClip))
+    //              {
+    //                  //TODO
+    //                  fileName += ".wav";
+    //              }
+    //              else if (typeof(T) == typeof(Material))
+    //              {
+    //                  fileName += ".mat";
+    //              }
+    //              else
+    //              {
+    //                  fileName += ".asset";
+    //              }
+    //          }
+    //          path = "Assets" + AssetBundleConstant.ASSETBUNDLE_RESOURCES_PATH + path + "/" + fileName;
+    //          t = UnityEditor.AssetDatabase.LoadAssetAtPath<T>(path);
+    //          Debug.Log(path + "||" + t);
+    //    #else
+    //    if (fileName.IndexOf(".", System.StringComparison.CurrentCulture) != -1)
+    //    {
+    //        fileName = fileName.Substring(0, fileName.IndexOf(".", System.StringComparison.CurrentCulture));
+    //    }
+    //    t = AssetBundleLoadManager.Instance.LoadAssetFromLocalAssetBundle<T>(path + ".ab", fileName);
+    //    //#endif
+    //    return t;
+    //}
+
+
+
 }
