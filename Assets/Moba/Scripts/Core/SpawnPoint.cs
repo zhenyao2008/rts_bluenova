@@ -43,7 +43,7 @@ public class SpawnPoint : NetworkBehaviour
         if (NetworkClient.active)
         {
             selectedMat = new Material(selectedMat);
-            if (showBuildingSpawn && LocalEffectManager.SingleTon().buildingSpawnPrefab != null)
+            if (showBuildingSpawn )
             {
                 GameObject go = ResourcesManager.Instance.GetEffect("effects/Explosion 25");
                 go.transform.position = transform.position;
