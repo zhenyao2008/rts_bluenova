@@ -1,0 +1,25 @@
+ManifestFileVersion: 0
+CRC: 1547523000
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 130f5df396108d6e278929feb8d306ef
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 36c33a819640bead83b84b1645a12e6d
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+Assets:
+- Assets/Images/UI/BuildingIcons/8.png
+- Assets/Images/UI/BuildingIcons/6.png
+- Assets/Images/UI/BuildingIcons/2.png
+- Assets/Images/UI/BuildingIcons/1.png
+- Assets/Images/UI/BuildingIcons/3.png
+- Assets/Images/UI/BuildingIcons/7.png
+- Assets/Images/UI/BuildingIcons/4.png
+- Assets/Images/UI/BuildingIcons/5.png
+Dependencies: []

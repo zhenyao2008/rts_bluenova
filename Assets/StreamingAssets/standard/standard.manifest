@@ -1,0 +1,10 @@
+ManifestFileVersion: 0
+CRC: 2608575924
+AssetBundleManifest:
+  AssetBundleInfos:
+    Info_0:
+      Name: prefab_ui_shoppanel.assetbundle
+      Dependencies: {}
+    Info_1:
+      Name: sprite_building_icon.assetbundle
+      Dependencies: {}
