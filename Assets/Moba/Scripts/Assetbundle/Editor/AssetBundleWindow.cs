@@ -434,7 +434,7 @@ public class AssetBundleWindow : EditorWindow
 
 	static void CreateVersion ()
 	{
-		Caching.CleanCache ();
+		Caching.ClearCache ();
 		StringBuilder result = new StringBuilder ();
 		string title = "FileName,FileSize,IsCSV,HashCode";
 		result.AppendLine (title);

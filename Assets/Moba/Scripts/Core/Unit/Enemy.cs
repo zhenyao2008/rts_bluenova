@@ -528,7 +528,7 @@ public class Enemy : UnitBase
 	public void RpcShowHitEffect (Vector3 pos)
 	{
 		GameObject go = BattleFramework.PoolManager.SingleTon ().Spawn (hitPrefab, pos, Quaternion.identity);
-		go.GetComponent<ParticleEmitter> ().emit = true;
+		//go.GetComponent<ParticleEmitter> ().emit = true;
 		BattleFramework.PoolManager.SingleTon ().UnSpawn (0.2f, go);
 	}
 
