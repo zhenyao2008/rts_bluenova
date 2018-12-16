@@ -1,10 +1,11 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.EventSystems;
 
 namespace BlueNoah.Event
 {
-    public enum TouchType { TouchBegin, TouchEnd, Touch, Click, LongPress, TwoFingerBegin, TwoFinger, TwoFingerEnd};
+    public enum TouchType { TouchBegin, TouchEnd, Touch, Click, DoubleClick, LongPressBegin, TwoFingerBegin, TwoFinger, TwoFingerEnd };
 
     public class EventData
     {
@@ -12,6 +13,9 @@ namespace BlueNoah.Event
         public Vector3 touchPos0;
         public Vector3 deltaTouchPos0;
         public float touchStartTime0;
+        public float touchEndTime0;
+
+        public bool isPointerOnGameObject;
 
         public Vector3 touchStartPos1;
         public Vector3 touchPos1;
@@ -21,40 +25,54 @@ namespace BlueNoah.Event
         public float deltaAngle;
         public float pinchDistance;
         public float deltaPinchDistance;
+        public bool isLongPressed;
+
+        public float preClickTime;
     }
 
+    //説明：GetTouchDownなどの名前と仕組みは、Input.GetMouseBottonDown(0)と近いてる。
     public class EasyInput : SimpleSingleMonoBehaviour<EasyInput>
     {
         //Click interval max(same as ugui system)
         //Double click interval 0.3f~0.5f
         Dictionary<TouchType, List<UnityAction<EventData>>> touchActionDic;
+
         Dictionary<TouchType, List<UnityAction<EventData>>> lateTouchActionDic;
+
         EventData mEventData;
+
+        EventData mLateEventData;
+
+        const float MIN_LONGPRESS_DURATION = 1f;
+
+        const float MIN_LONGPRESS_DISTANCE = 0.02f;
 
         protected override void Awake()
         {
             base.Awake();
             mEventData = new EventData();
+            mLateEventData = new EventData();
             touchActionDic = new Dictionary<TouchType, List<UnityAction<EventData>>>();
-            //TODO use AddListener as UnityEvent;
             touchActionDic.Add(TouchType.TouchBegin, new List<UnityAction<EventData>>());
             touchActionDic.Add(TouchType.TouchEnd, new List<UnityAction<EventData>>());
             touchActionDic.Add(TouchType.Touch, new List<UnityAction<EventData>>());
             touchActionDic.Add(TouchType.Click, new List<UnityAction<EventData>>());
-            touchActionDic.Add(TouchType.LongPress, new List<UnityAction<EventData>>());
+            touchActionDic.Add(TouchType.LongPressBegin, new List<UnityAction<EventData>>());
             touchActionDic.Add(TouchType.TwoFingerBegin, new List<UnityAction<EventData>>());
             touchActionDic.Add(TouchType.TwoFinger, new List<UnityAction<EventData>>());
             touchActionDic.Add(TouchType.TwoFingerEnd, new List<UnityAction<EventData>>());
+            touchActionDic.Add(TouchType.DoubleClick, new List<UnityAction<EventData>>());
 
             lateTouchActionDic = new Dictionary<TouchType, List<UnityAction<EventData>>>();
             lateTouchActionDic.Add(TouchType.TouchBegin, new List<UnityAction<EventData>>());
             lateTouchActionDic.Add(TouchType.TouchEnd, new List<UnityAction<EventData>>());
             lateTouchActionDic.Add(TouchType.Touch, new List<UnityAction<EventData>>());
             lateTouchActionDic.Add(TouchType.Click, new List<UnityAction<EventData>>());
-            lateTouchActionDic.Add(TouchType.LongPress, new List<UnityAction<EventData>>());
+            lateTouchActionDic.Add(TouchType.LongPressBegin, new List<UnityAction<EventData>>());
             lateTouchActionDic.Add(TouchType.TwoFingerBegin, new List<UnityAction<EventData>>());
             lateTouchActionDic.Add(TouchType.TwoFinger, new List<UnityAction<EventData>>());
             lateTouchActionDic.Add(TouchType.TwoFingerEnd, new List<UnityAction<EventData>>());
+            lateTouchActionDic.Add(TouchType.DoubleClick, new List<UnityAction<EventData>>());
         }
 
         public void RemoveAllListener(TouchType touchType)
@@ -109,8 +127,15 @@ namespace BlueNoah.Event
             return isPress;
         }
 
-        bool GetLongPress()
+        bool GetLongPress(EventData eventData)
         {
+            if(GetTouch() && !eventData.isLongPressed && Time.realtimeSinceStartup - eventData.touchStartTime0 > MIN_LONGPRESS_DURATION){
+                float distance = Vector3.Distance(eventData.touchStartPos0, GetTouchPosition(0));
+                if (distance / Screen.height < 0.02f)
+                {
+                    return true;
+                }
+            }
             return false;
         }
 
@@ -135,27 +160,39 @@ namespace BlueNoah.Event
             return isUp;
         }
 
-        public Vector3 GetMousePosition()
+        public Vector3 GetTouchPosition(int index)
         {
 #if UNITY_EDITOR || UNITY_STANDALONE || UNITY_WEBGL
-            return Input.mousePosition;
+            if (index == 0)
+            {
+                return Input.mousePosition;
+            }
+            else
+            {
+                return Vector3.zero;
+            }
 #else
-        if(Input.touches.Length == 1){
-            return (Vector3)Input.touches[0].position;
-        }else{
-            return Vector3.zero;
-        }
+            return (Vector3)Input.touches[index].position;
 #endif
         }
 
-        bool GetMouseClick()
+        bool GetMouseClick(EventData eventData)
         {
             //範囲の判断はもっと確認したい。
             bool isClick = false;
-            float distance = Vector3.Distance(mEventData.touchStartPos0, GetTouchPosition(0));
+            float distance = Vector3.Distance(eventData.touchStartPos0, GetTouchPosition(0));
             if (distance / Screen.height < 0.02f)
             {
                 isClick = true;
+            }
+            return isClick;
+        }
+
+        bool GetDoubleMouseClick(EventData eventData)
+        {
+            bool isClick = GetMouseClick(eventData);
+            if(Time.realtimeSinceStartup - eventData.preClickTime > 0.3f ){
+                isClick = false;
             }
             return isClick;
         }
@@ -189,7 +226,7 @@ namespace BlueNoah.Event
                 isTwoFinger = true;
             }
 #else
-            if(Input.touches.Length == 2 && (Input.touches[0].phase == TouchPhase.Moved || Input.touches[0].phase == TouchPhase.Stationary) && (Input.touches[1].phase == TouchPhase.Moved || Input.touches[1].phase == TouchPhase.Stationary)){
+            if(Input.touches.Length == 2 && (Input.touches[0].phase == TouchPhase.Moved || Input.touches[0].phase == TouchPhase.Stationary || Input.touches[1].phase == TouchPhase.Moved || Input.touches[1].phase == TouchPhase.Stationary)){
                 isTwoFinger = true;
             }
 #endif
@@ -215,151 +252,165 @@ namespace BlueNoah.Event
             return isTwoFingerUp;
         }
 
-        void OnActions(List<UnityAction<EventData>> unityActions)
+        void OnActions(List<UnityAction<EventData>> unityActions,EventData eventData)
         {
             for (int i = 0; i < unityActions.Count; i++)
             {
                 if (unityActions[i] != null)
-                    unityActions[i](mEventData);
+                    unityActions[i](eventData);
             }
         }
 
         void Update()
         {
+            OnUpdate(touchActionDic, mEventData);
+        }
+
+        void LateUpdate()
+        {
+            OnUpdate(lateTouchActionDic, mLateEventData);
+        }
+
+        void OnUpdate(Dictionary<TouchType, List<UnityAction<EventData>>> actionDic,EventData eventData){
             if (GetTouchDown())
             {
-                OnTouchDown();
-                OnActions(touchActionDic[TouchType.TouchBegin]);
+                OnTouchDown(eventData);
+                OnActions(actionDic[TouchType.TouchBegin], eventData);
             }
             if (GetTouch())
             {
-                OnTouch();
-                OnActions(touchActionDic[TouchType.Touch]);
+                OnTouch(eventData);
+                OnActions(actionDic[TouchType.Touch], eventData);
             }
             if (GetTouchUp())
             {
-                OnTouchUp();
-                if (GetMouseClick())
+                OnTouchUp(eventData);
+                if (GetDoubleMouseClick(eventData))
                 {
-                    OnActions(touchActionDic[TouchType.Click]);
+                    OnDoubleClick(eventData);
+                    OnActions(actionDic[TouchType.DoubleClick], eventData);
                 }
-                OnActions(touchActionDic[TouchType.TouchEnd]);
+                else if (GetMouseClick(eventData))
+                {
+                    OnClick(eventData);
+                    OnActions(actionDic[TouchType.Click], eventData);
+                }
+                OnActions(actionDic[TouchType.TouchEnd], eventData);
+            }
+            if (GetLongPress(eventData))
+            {
+                OnLongPress(eventData);
+                OnActions(actionDic[TouchType.LongPressBegin], eventData);
             }
             if (GetTwoFingerBegin())
             {
-                OnTwoFingerBegin();
-                OnActions(touchActionDic[TouchType.TwoFingerBegin]);
+                OnTwoFingerBegin(eventData);
+                OnActions(actionDic[TouchType.TwoFingerBegin], eventData);
             }
             if (GetTwoFinger())
             {
-                OnTwoFinger();
-                OnActions(touchActionDic[TouchType.TwoFinger]);
+                OnTwoFinger(eventData);
+                OnActions(actionDic[TouchType.TwoFinger], eventData);
             }
             if (GetTwoFingerEnd())
             {
                 OnTwoFingerEnd();
-                OnActions(touchActionDic[TouchType.TwoFingerEnd]);
+                OnActions(actionDic[TouchType.TwoFingerEnd], eventData);
             }
         }
 
-        void OnTouchDown()
+        void OnTouchDown(EventData eventData)
         {
-            mEventData.touchStartPos0 = GetTouchPosition(0);
-            mEventData.touchPos0 = mEventData.touchStartPos0;
-            mEventData.touchStartTime0 = Time.realtimeSinceStartup;
+            eventData.touchStartPos0 = GetTouchPosition(0);
+            eventData.touchPos0 = eventData.touchStartPos0;
+            eventData.touchStartTime0 = Time.realtimeSinceStartup;
+            eventData.isLongPressed = false;
+            eventData.isPointerOnGameObject = IsPointerOverUIObject();
+            //Debug.Log(eventData.isPointerOnGameObject);
+            //Debug.Log(EventSystem.current.IsPointerOverGameObject());
+            //Debug.Log(IsPointerOverUIObject());
         }
 
-        void OnTouch()
+        private bool IsPointerOverUIObject()
         {
-            mEventData.deltaTouchPos0 = GetTouchPosition(0) - mEventData.touchPos0;
-            mEventData.touchPos0 = GetTouchPosition(0);
+            PointerEventData eventDataCurrentPosition = new PointerEventData(EventSystem.current);
+            eventDataCurrentPosition.position = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
+            List<RaycastResult> results = new List<RaycastResult>();
+            EventSystem.current.RaycastAll(eventDataCurrentPosition, results);
+            return results.Count > 0;
         }
 
-        void OnTouchUp()
+
+        bool CheckOverGameObject()
         {
-            mEventData.deltaTouchPos0 = GetTouchPosition(0) - mEventData.touchPos0;
-            mEventData.touchPos0 = GetTouchPosition(0);
+#if UNITY_EDITOR
+            if (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject())
+            {
+                return true;
+            }
+#else
+            //Debug.Log(Input.touchCount + "||" + EventSystem.current.IsPointerOverGameObject(Input.GetTouch(0).fingerId));
+            if (EventSystem.current != null && Input.touchCount > 0)
+            {
+
+                if (EventSystem.current.IsPointerOverGameObject(Input.GetTouch(0).fingerId))
+                    return true;
+            }
+#endif
+            return false;
         }
 
-        void OnTwoFingerBegin()
+        void OnTouch(EventData eventData)
         {
-            mEventData.touchPos0 = GetTouchPosition(0);
-            mEventData.touchPos1 = GetTouchPosition(1);
-            mEventData.touchStartPos1 = GetTouchPosition(1);
-            mEventData.pinchDistance = Vector3.Distance(mEventData.touchPos0, mEventData.touchPos1);
+            eventData.deltaTouchPos0 = GetTouchPosition(0) - eventData.touchPos0;
+            eventData.touchPos0 = GetTouchPosition(0);
         }
 
-        void OnTwoFinger()
+        void OnTouchUp(EventData eventData)
         {
-            mEventData.deltaTouchPos0 = GetTouchPosition(0) - mEventData.touchPos0;
-            mEventData.deltaTouchPos1 = GetTouchPosition(1) - mEventData.touchPos1;
-            mEventData.deltaAngle = SignedAngle(GetTouchPosition(1) - GetTouchPosition(0), mEventData.touchPos1 - mEventData.touchPos0,new Vector3(0,0,1));
-            mEventData.touchPos0 = GetTouchPosition(0);
-            mEventData.touchPos1 = GetTouchPosition(1);
-            float currentDistance = Vector3.Distance(mEventData.touchPos0, mEventData.touchPos1);
-            mEventData.deltaPinchDistance = currentDistance - mEventData.pinchDistance;
-            mEventData.pinchDistance = currentDistance;
+            eventData.deltaTouchPos0 = GetTouchPosition(0) - eventData.touchPos0;
+            eventData.touchPos0 = GetTouchPosition(0);
+            eventData.touchEndTime0 = Time.realtimeSinceStartup;
+            eventData.isLongPressed = false;
         }
 
-        float SignedAngle(Vector3 from,Vector3 to,Vector3 axis){
-            Vector3 normalized = from.normalized;
-            Vector3 normalized2 = to.normalized;
-            float num = Mathf.Acos(Mathf.Clamp(Vector3.Dot(normalized, normalized2), -1f, 1f)) * 57.29578f;
-            float num2 = Mathf.Sign(Vector3.Dot(axis, Vector3.Cross(normalized, normalized2)));
-            return num * num2;
+        void OnTwoFingerBegin(EventData eventData)
+        {
+            eventData.touchPos0 = GetTouchPosition(0);
+            eventData.touchPos1 = GetTouchPosition(1);
+            eventData.touchStartPos1 = GetTouchPosition(1);
+            eventData.pinchDistance = Vector3.Distance(eventData.touchPos0, eventData.touchPos1);
         }
 
+        void OnTwoFinger(EventData eventData)
+        {
+            eventData.deltaTouchPos0 = GetTouchPosition(0) - eventData.touchPos0;
+            eventData.deltaTouchPos1 = GetTouchPosition(1) - eventData.touchPos1;
+            eventData.deltaAngle = Vector3.SignedAngle(GetTouchPosition(1) - GetTouchPosition(0), eventData.touchPos1 - eventData.touchPos0, new Vector3(0, 0, 1));
+            eventData.touchPos0 = GetTouchPosition(0);
+            eventData.touchPos1 = GetTouchPosition(1);
+            float currentDistance = Vector3.Distance(eventData.touchPos0, eventData.touchPos1);
+            eventData.deltaPinchDistance = currentDistance - eventData.pinchDistance;
+            eventData.pinchDistance = currentDistance;
+        }
 
         void OnTwoFingerEnd()
         {
 
         }
 
-        void OnLongPress()
+        void OnLongPress(EventData eventData)
         {
-
+            eventData.isLongPressed = true;
         }
 
-        Vector3 GetTouchPosition(int index)
+        void OnClick(EventData eventData)
         {
-#if UNITY_EDITOR || UNITY_STANDALONE || UNITY_WEBGL
-            return Input.mousePosition;
-#else
-            return Input.touches[index].position;
-#endif
+            eventData.preClickTime = Time.realtimeSinceStartup;
         }
 
-        void LateUpdate()
-        {
-            if (GetTouchDown())
-            {
-                OnActions(lateTouchActionDic[TouchType.TouchBegin]);
-            }
-            if (GetTouch())
-            {
-                OnActions(lateTouchActionDic[TouchType.Touch]);
-            }
-            if (GetTouchUp())
-            {
-                if (GetMouseClick())
-                {
-                    OnActions(lateTouchActionDic[TouchType.Click]);
-                }
-                OnActions(lateTouchActionDic[TouchType.TouchEnd]);
-            }
-            if (GetTwoFingerBegin())
-            {
-                OnActions(lateTouchActionDic[TouchType.TwoFingerBegin]);
-            }
-            if (GetTwoFinger())
-            {
-                OnActions(lateTouchActionDic[TouchType.TwoFinger]);
-            }
-            if (GetTwoFingerEnd())
-            {
-                OnActions(lateTouchActionDic[TouchType.TwoFingerEnd]);
-            }
+        void OnDoubleClick(EventData eventData){
+            eventData.preClickTime = 0;
         }
-
     }
 }
