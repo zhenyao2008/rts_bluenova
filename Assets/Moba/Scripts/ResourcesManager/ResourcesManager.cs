@@ -115,12 +115,23 @@ public class ResourcesManager : SingleMonoBehaviour<ResourcesManager>
         if (mBuildingIcons == null)
         {
             mBuildingIcons = new Dictionary<string, Sprite>();
-            AssetBundle ab = AssetBundle.LoadFromFile(Application.streamingAssetsPath + "/" + ABConstant.UI_BUILDING_ICON + ABConstant.ASSETBUNDLE);
-            Sprite[] icons = ab.LoadAllAssets<Sprite>();
-            ab.Unload(false);
-            for (int i = 0; i < icons.Length; i++)
-            {
-                mBuildingIcons.Add(icons[i].name, icons[i]);
+            string subPath = "";
+#if UNITY_IOS
+            subPath = "/ios";
+#elif UNITY_ANDROID
+            subPath = "/android";
+#else
+            subPath = "/standard";
+#endif
+            AssetBundle ab = AssetBundle.LoadFromFile(Application.streamingAssetsPath + subPath + "/" + ABConstant.UI_BUILDING_ICON + ABConstant.ASSETBUNDLE);
+            Debug.Log(ab);
+            if(ab!=null){
+                Sprite[] icons = ab.LoadAllAssets<Sprite>();
+                ab.Unload(false);
+                for (int i = 0; i < icons.Length; i++)
+                {
+                    mBuildingIcons.Add(icons[i].name, icons[i]);
+                }
             }
         }
         if (mBuildingIcons.ContainsKey(buildingId.ToString()))
@@ -135,7 +146,7 @@ public class ResourcesManager : SingleMonoBehaviour<ResourcesManager>
 
     public byte[] GetCSV(string csvName)
     {
-        return null;
+        return Resources.Load<TextAsset>("CSV/" + csvName).bytes;
     }
 
     Dictionary<string, GameObject> mEffectPrefabs;
