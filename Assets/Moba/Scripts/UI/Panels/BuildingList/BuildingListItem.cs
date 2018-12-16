@@ -23,7 +23,10 @@ public class BuildingListItem : MonoBehaviour
             PlayerController_III.instance.SelectPreBuilding(mId);
         });
         trigger.triggers.Add(entry);
-        img_icon.sprite = ResourcesManager.Instance.GetBuildingFullIconById(id + 1);
+        Sprite sprite = ResourcesManager.Instance.GetBuildingFullIconById(id + 1);
+        if(sprite!=null){
+            img_icon.sprite = ResourcesManager.Instance.GetBuildingFullIconById(id + 1);
+        }
     }
 
 }

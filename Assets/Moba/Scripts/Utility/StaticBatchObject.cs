@@ -9,7 +9,6 @@ public class StaticBatchObject : MonoBehaviour {
 	{
 		time = Time.realtimeSinceStartup;
 		if(staticBatch)StaticBatchingUtility.Combine (gameObject);
-		Debug.Log (Time.realtimeSinceStartup  - time);
 	}
 
 	void Start()

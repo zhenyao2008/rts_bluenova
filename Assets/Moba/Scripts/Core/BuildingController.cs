@@ -138,7 +138,7 @@ public class BuildingController : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             isNewBuildingFirstClick = false;
-			if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out mRaycastHit, Mathf.Infinity, 1 << LayerConstant.groundLayer | 1 << LayerConstant.playerLayer0))
+            if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out mRaycastHit, Mathf.Infinity, 1 << LayerConstant.LAYER_GROUND | 1 << LayerConstant.playerLayer0))
             {
                 mDownBuilding = mRaycastHit.transform.gameObject;
                 mDownTime = Time.time;
