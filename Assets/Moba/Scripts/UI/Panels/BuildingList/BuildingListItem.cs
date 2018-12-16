@@ -18,7 +18,7 @@ public class BuildingListItem : MonoBehaviour
         Text txt_warning = item.Find("Button/txt_warning").GetComponent<Text>();
         EventTrigger trigger = item.Find("Button").GetComponent<EventTrigger>();
         EventTrigger.Entry entry = new EventTrigger.Entry();
-        entry.eventID = EventTriggerType.PointerDown;
+        entry.eventID = EventTriggerType.PointerClick;
         entry.callback.AddListener((data) => {
             PlayerController_III.instance.SelectPreBuilding(mId);
         });
