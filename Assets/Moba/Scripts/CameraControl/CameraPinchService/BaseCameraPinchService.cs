@@ -7,22 +7,32 @@ namespace BlueNoah.CameraControl
     {
         protected bool mIsPinching;
         protected bool mIsPinchable = true;
-        protected float mPinchRadiu = 0.018f;
+        protected float mPinchRadiu = 0.009f;
+        protected float mMaxPinchOver = 0.5f;
         protected Camera mCamera;
 
-        public virtual void Init(){
-            
+        public virtual void Init()
+        {
+
         }
 
-        public virtual void OnUpdate(){
-            
+        public virtual void OnUpdate()
+        {
+
         }
 
-        public virtual void OnLateUpdate(){
-            if (Input.GetAxis("Mouse ScrollWheel") != 0f)
+        public virtual void OnLateUpdate()
+        {
+            if (Input.GetMouseButton(2) )
             {
-                OnMouseScrollWheel();
-            }   
+                if(Input.GetAxis("Mouse ScrollWheel") != 0f)
+                    OnMouseScrollWheel();
+                mIsPinching = true;
+            }
+            else
+            {
+                mIsPinching = false;
+            }
         }
 
         protected abstract void OnMouseScrollWheel();
@@ -63,7 +73,7 @@ namespace BlueNoah.CameraControl
 
         public abstract void OnPinch(EventData eventData);
 
-        public  void OnPinchEnd()
+        public void OnPinchEnd()
         {
             if (mIsPinching)
             {
@@ -71,7 +81,7 @@ namespace BlueNoah.CameraControl
             }
         }
 
-        public  void CancelPinch()
+        public void CancelPinch()
         {
             mIsPinching = false;
         }

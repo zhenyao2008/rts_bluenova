@@ -11,7 +11,7 @@ namespace BlueNoah.CameraControl
         protected Camera mCamera;
         protected float mMoveSpeed = 2f;
         protected float mSmooth = 20f;
-        protected float mSmoothDistance = 0.5f;
+        protected float mMaxOverDistance = 0.5f;
         protected Vector3 mRemainRightDistance;
         protected Vector3 mRemainForwardDistance;
         protected BoxCollider mMoveArea;
@@ -36,9 +36,20 @@ namespace BlueNoah.CameraControl
             }
         }
 
+        public float MoveSpeed
+        {
+            get
+            {
+                return mMoveSpeed;
+            }
+            set
+            {
+                mMoveSpeed = value;
+            }
+        }
+
         public void MoveBegin(EventData eventData)
         {
-            Debug.Log("MoveBegin");
             mIsTouching = true;
         }
 
@@ -58,8 +69,9 @@ namespace BlueNoah.CameraControl
             mIsTouching = false;
         }
 
-        public virtual void Init(){
-            
+        public virtual void Init()
+        {
+
         }
 
         public void OnUpdate()
@@ -125,43 +137,43 @@ namespace BlueNoah.CameraControl
 
             float angle = Vector3.Angle(mCamera.transform.forward, new Vector3(0, -1, 0));
 
-            Vector3 offset = GetMoveAreOffset(mCamera.transform.position + mRemainForwardDistance + mRemainRightDistance);
+            Vector3 offsetOverArea = GetMoveAreOffset(mCamera.transform.position + mRemainForwardDistance + mRemainRightDistance);
 
             bool isSameForwardDirect = false;
 
             bool isSameRightDirect = false;
 
-            if ((Vector3.Dot(Vector3.Project(offset, forward).normalized, forward) > 0 && y < 0) || (Vector3.Dot(Vector3.Project(offset, forward).normalized, forward) < 0 && y > 0))
+            if ((Vector3.Dot(Vector3.Project(offsetOverArea, forward).normalized, forward) > 0 && y < 0) || (Vector3.Dot(Vector3.Project(offsetOverArea, forward).normalized, forward) < 0 && y > 0))
             {
                 isSameForwardDirect = true;
             }
 
-            if ((Vector3.Dot(Vector3.Project(offset, right).normalized, right) > 0 && x < 0) || (Vector3.Dot(Vector3.Project(offset, right).normalized, right) < 0 && x > 0))
+            if ((Vector3.Dot(Vector3.Project(offsetOverArea, right).normalized, right) > 0 && x < 0) || (Vector3.Dot(Vector3.Project(offsetOverArea, right).normalized, right) < 0 && x > 0))
             {
                 isSameRightDirect = true;
             }
 
-            float forwardFloat = 0;
+            float forwardOverDistance = 0;
 
             if (isSameForwardDirect)
             {
-                forwardFloat = Vector3.Project(offset, forward).magnitude;
+                forwardOverDistance = Vector3.Project(offsetOverArea, forward).magnitude;
             }
 
-            float rightFloat = 0;
+            float rightOverDistance = 0;
 
             if (isSameRightDirect)
             {
-                rightFloat = Vector3.Project(offset, right).magnitude;
+                rightOverDistance = Vector3.Project(offsetOverArea, right).magnitude;
             }
 
             float forwardRadiu = Mathf.Cos(angle / 180f * Mathf.PI);
 
-            mRemainForwardDistance -= forward * y * Mathf.Max(0, Mathf.Cos((mSmoothDistance / forwardRadiu - forwardFloat) / 2f * Mathf.PI / (mSmoothDistance * 2 / forwardRadiu))) * mCamera.orthographicSize / Screen.height * mMoveSpeed / forwardRadiu;
+            mRemainForwardDistance -= forward * y * Mathf.Max(0, Mathf.Cos((mMaxOverDistance / forwardRadiu - forwardOverDistance) / 2f * Mathf.PI / (mMaxOverDistance * 2 / forwardRadiu))) * mCamera.orthographicSize / Screen.height * mMoveSpeed / forwardRadiu;
+            mRemainRightDistance -= right * x * Mathf.Max(0, Mathf.Cos((mMaxOverDistance - rightOverDistance) / 2f * Mathf.PI / (mMaxOverDistance * 2))) * mCamera.orthographicSize / Screen.height * mMoveSpeed;
+
             //mRemainForwardDistance -= forward * y * Mathf.Max(0,Mathf.Cos((mSmoothDistance / forwardRadiu - forwardFloat) / 2f * Mathf.PI / (mSmoothDistance * 2 / forwardRadiu) )) * DistancePerPixel * CameraSpeed / forwardRadiu;
             //mRemainForwardDistance -= forward * y * Mathf.Max(0, Mathf.Cos((mSmoothDistance / forwardRadiu - forwardFloat) / 2f * Mathf.PI / (mSmoothDistance * 2 / forwardRadiu))) * mCamera.orthographicSize / Screen.height * mMoveSpeed / forwardRadiu;
-            mRemainRightDistance -= right * x * Mathf.Max(0, Mathf.Cos((mSmoothDistance - rightFloat) / 2f * Mathf.PI / (mSmoothDistance * 2))) * mCamera.orthographicSize / Screen.height * mMoveSpeed;
-
         }
 
         void KeyboardMove()
@@ -198,34 +210,6 @@ namespace BlueNoah.CameraControl
         protected Vector3 GetCameraRight()
         {
             return new Vector3(mCamera.transform.right.x, 0, mCamera.transform.right.z).normalized;
-        }
-
-        protected Vector3 CameraLeftTop(Vector3 pos)
-        {
-            float width = (float)Screen.width / Screen.height * mCamera.orthographicSize;
-            pos = pos - mCamera.transform.right * width + mCamera.transform.up * mCamera.orthographicSize;
-            return pos;
-        }
-
-        protected Vector3 CameraLeftBottom(Vector3 pos)
-        {
-            float width = (float)Screen.width / Screen.height * mCamera.orthographicSize;
-            pos = pos - mCamera.transform.right * width - mCamera.transform.up * mCamera.orthographicSize;
-            return pos;
-        }
-
-        protected Vector3 CameraRightTop(Vector3 pos)
-        {
-            float width = (float)Screen.width / Screen.height * mCamera.orthographicSize;
-            pos = pos + mCamera.transform.right * width + mCamera.transform.up * mCamera.orthographicSize;
-            return pos;
-        }
-
-        protected Vector3 CameraRightBottom(Vector3 pos)
-        {
-            float width = (float)Screen.width / Screen.height * mCamera.orthographicSize;
-            pos = pos + mCamera.transform.right * width - mCamera.transform.up * mCamera.orthographicSize;
-            return pos;
         }
 
         protected abstract Vector3 GetMoveAreOffset(Vector3 targetPos);

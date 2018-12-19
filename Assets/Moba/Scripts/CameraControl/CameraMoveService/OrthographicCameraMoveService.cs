@@ -12,8 +12,8 @@ namespace BlueNoah.CameraControl
             mCamera = camera;
         }
 
-		protected override Vector3 GetMoveAreOffset(Vector3 targetPos)
-		{
+        protected override Vector3 GetMoveAreOffset(Vector3 targetPos)
+        {
             Vector3 offset = Vector3.zero;
             if (mMoveArea != null)
             {
@@ -59,7 +59,35 @@ namespace BlueNoah.CameraControl
                 }
             }
             return offset;
-		}
+        }
+
+        Vector3 CameraLeftTop(Vector3 pos)
+        {
+            float width = (float)Screen.width / Screen.height * mCamera.orthographicSize;
+            pos = pos - mCamera.transform.right * width + mCamera.transform.up * mCamera.orthographicSize;
+            return pos;
+        }
+
+        Vector3 CameraLeftBottom(Vector3 pos)
+        {
+            float width = (float)Screen.width / Screen.height * mCamera.orthographicSize;
+            pos = pos - mCamera.transform.right * width - mCamera.transform.up * mCamera.orthographicSize;
+            return pos;
+        }
+
+        Vector3 CameraRightTop(Vector3 pos)
+        {
+            float width = (float)Screen.width / Screen.height * mCamera.orthographicSize;
+            pos = pos + mCamera.transform.right * width + mCamera.transform.up * mCamera.orthographicSize;
+            return pos;
+        }
+
+        Vector3 CameraRightBottom(Vector3 pos)
+        {
+            float width = (float)Screen.width / Screen.height * mCamera.orthographicSize;
+            pos = pos + mCamera.transform.right * width - mCamera.transform.up * mCamera.orthographicSize;
+            return pos;
+        }
 
         Vector3 GetOffset(Vector3 startPos)
         {

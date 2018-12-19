@@ -10,6 +10,7 @@ namespace BlueNoah.CameraControl
         private float mMinOrthographicSize = 2f;
         private float mMaxOrthographicSize = 5f;
         private float mTargetOrthographicSize;
+        protected float mSmooth = 20f;
 
         public override float minSize
         {
@@ -42,12 +43,18 @@ namespace BlueNoah.CameraControl
             mCamera = camera;
         }
 
-		public override void Init()
-		{
-            
-		}
+        public override void Init()
+        {
 
-		public override void OnPinchBegin()
+        }
+
+        public override void OnLateUpdate()
+        {
+            base.OnLateUpdate();
+            MoveBack();
+        }
+
+        public override void OnPinchBegin()
         {
             mTargetOrthographicSize = mCamera.orthographicSize;
         }
@@ -55,9 +62,34 @@ namespace BlueNoah.CameraControl
         public override void OnPinch(EventData eventData)
         {
             float detalDistance = eventData.deltaPinchDistance;
-            mTargetOrthographicSize -= detalDistance * mPinchRadiu;
-            mTargetOrthographicSize = Mathf.Clamp(mTargetOrthographicSize, mMinOrthographicSize, mMaxOrthographicSize);
+
+            float sizeOver = mTargetOrthographicSize - Mathf.Clamp(mTargetOrthographicSize, mMinOrthographicSize, mMaxOrthographicSize);
+
+            if ((detalDistance < 0 && sizeOver > 0))
+            {
+                mTargetOrthographicSize -= detalDistance * mPinchRadiu * Mathf.Max(0, Mathf.Cos((mMaxPinchOver - sizeOver) / 2f * Mathf.PI / (mMaxPinchOver * 2)));
+            }
+            else if (detalDistance > 0 && sizeOver < 0)
+            {
+                mTargetOrthographicSize -= detalDistance * mPinchRadiu * Mathf.Max(0, Mathf.Cos((mMaxPinchOver * 2 - sizeOver) / 2f * Mathf.PI / (mMaxPinchOver * 4)));
+            }
+            else
+            {
+                mTargetOrthographicSize -= detalDistance * mPinchRadiu;
+            }
+
+            //mTargetOrthographicSize = Mathf.Clamp(mTargetOrthographicSize, mMinOrthographicSize, mMaxOrthographicSize);
             mCamera.orthographicSize = mTargetOrthographicSize;
+        }
+
+        void MoveBack()
+        {
+            if (!mIsPinching)
+            {
+                float offset = Mathf.Clamp(mCamera.orthographicSize, mMinOrthographicSize, mMaxOrthographicSize);
+                offset = mCamera.orthographicSize - offset;
+                mCamera.orthographicSize -= offset * Time.deltaTime * mSmooth / 2f;
+            }
         }
 
         protected override void OnMouseScrollWheel()

@@ -21,28 +21,29 @@ namespace BlueNoah.CameraControl
             if(mMoveArea!=null){
 #if UNITY_EDITOR
                 RaycastHit raycastHit;
-                if (Physics.Raycast(NearTopRightCorner, (FarTopRightCorner - NearTopRightCorner).normalized, out raycastHit, 1 << LayerConstant.LAYER_GROUND))
+                if (Physics.Raycast(NearTopRightCorner, (FarTopRightCorner - NearTopRightCorner).normalized, out raycastHit,Mathf.Infinity, 1 << LayerConstant.LAYER_GROUND))
                 {
                     pos0 = raycastHit.point;
                 }
-                if (Physics.Raycast(NearTopLeftCorner, (FarTopLeftCorner - NearTopLeftCorner).normalized, out raycastHit, 1 << LayerConstant.LAYER_GROUND))
+                if (Physics.Raycast(NearTopLeftCorner, (FarTopLeftCorner - NearTopLeftCorner).normalized, out raycastHit, Mathf.Infinity, 1 << LayerConstant.LAYER_GROUND))
                 {
                     pos1 = raycastHit.point;
                 }
-                if (Physics.Raycast(NearBottomLeftCorner, (FarBottomLeftCorner - NearBottomLeftCorner).normalized, out raycastHit, 1 << LayerConstant.LAYER_GROUND))
+                if (Physics.Raycast(NearBottomLeftCorner, (FarBottomLeftCorner - NearBottomLeftCorner).normalized, out raycastHit, Mathf.Infinity, 1 << LayerConstant.LAYER_GROUND))
                 {
                     pos2 = raycastHit.point;
                 }
-                if (Physics.Raycast(NearBottomRightCorner, (FarBottomRightCorner - NearBottomRightCorner).normalized, out raycastHit, 1 << LayerConstant.LAYER_GROUND))
+                if (Physics.Raycast(NearBottomRightCorner, (FarBottomRightCorner - NearBottomRightCorner).normalized, out raycastHit, Mathf.Infinity, 1 << LayerConstant.LAYER_GROUND))
                 {
                     pos3 = raycastHit.point;
                 }
 #endif
-                Vector3 centerOffset = targetPos - mCamera.transform.position;
-                Vector3 offset0 = GetOffset(NearTopRightCorner + centerOffset, (FarTopRightCorner - NearTopRightCorner).normalized);
-                Vector3 offset1 = GetOffset(NearTopLeftCorner + centerOffset, (FarTopLeftCorner - NearTopLeftCorner).normalized);
-                Vector3 offset2 = GetOffset(NearBottomLeftCorner + centerOffset, (FarBottomLeftCorner - NearBottomLeftCorner).normalized);
-                Vector3 offset3 = GetOffset(NearBottomRightCorner + centerOffset, (FarBottomRightCorner - NearBottomRightCorner).normalized);
+                //Vector3 centerOffset = targetPos - mCamera.transform.position;
+                //Vector3 centerOffset = Vector3.zero;
+                Vector3 offset0 = GetOffset(NearTopRightCorner, (FarTopRightCorner - NearTopRightCorner).normalized);
+                Vector3 offset1 = GetOffset(NearTopLeftCorner, (FarTopLeftCorner - NearTopLeftCorner).normalized);
+                Vector3 offset2 = GetOffset(NearBottomLeftCorner, (FarBottomLeftCorner - NearBottomLeftCorner).normalized);
+                Vector3 offset3 = GetOffset(NearBottomRightCorner, (FarBottomRightCorner - NearBottomRightCorner).normalized);
                 if (offset0.sqrMagnitude > offset.sqrMagnitude)
                 {
                     offset = offset0;
@@ -59,6 +60,7 @@ namespace BlueNoah.CameraControl
                 {
                     offset = offset3;
                 }
+
             }
             return offset;
 		}
@@ -67,12 +69,13 @@ namespace BlueNoah.CameraControl
         {
             Vector3 offset = Vector3.zero;
             RaycastHit raycastHit;
-            if (Physics.Raycast(startPos, forward, out raycastHit, 1 << LayerConstant.LAYER_GROUND))
+            if (Physics.Raycast(startPos, forward, out raycastHit,Mathf.Infinity, 1 << LayerConstant.LAYER_GROUND))
             {
                 Vector3 pos = raycastHit.point;
                 Vector3 closePos = mMoveArea.ClosestPoint(pos);
                 offset = pos - closePos;
             }
+            Debug.Log(offset);
             return offset;
         }
 
@@ -81,7 +84,6 @@ namespace BlueNoah.CameraControl
             get
             {
                 return mCamera.ViewportToWorldPoint(new Vector3(1, 1, mCamera.nearClipPlane));
-
             }
         }
 

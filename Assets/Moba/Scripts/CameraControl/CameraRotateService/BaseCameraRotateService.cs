@@ -6,7 +6,7 @@ using UnityEngine.Events;
 namespace BlueNoah.CameraControl
 {
     [System.Serializable]
-    public class CameraRotateService
+    public class BaseCameraRotateService
     {
 
         Camera mCamera;
@@ -21,13 +21,15 @@ namespace BlueNoah.CameraControl
 
         Vector3 mPreMousePos;
 
+        BoxCollider mMoveArea;
+
         public float minAngle = 20;
 
         public float maxAngle = 55;
 
         public float currentAngle = 25;
 
-        public CameraRotateService(Camera camera)
+        public BaseCameraRotateService(Camera camera)
         {
             mCamera = camera;
         }
@@ -64,6 +66,11 @@ namespace BlueNoah.CameraControl
             }
         }
 
+        public void SetMoveArea(BoxCollider boxCollider)
+        {
+            mMoveArea = boxCollider;
+        }
+
         public void OnUpdate()
         {
 
@@ -94,20 +101,6 @@ namespace BlueNoah.CameraControl
                 {
                     HorizontalRotate(-mRotateSpeed * Time.deltaTime);
                 }
-            }
-        }
-
-        public void OnTouch(EventData eventData)
-        {
-            if (mIsCameraAutoRotate)
-                return;
-            if (mVerticalRotateable)
-            {
-                VerticalRotate(eventData.deltaTouchPos1.y);
-            }
-            if (mHorizontalRotateable)
-            {
-                HorizontalRotate(eventData.deltaTouchPos1.x);
             }
         }
 
@@ -184,10 +177,10 @@ namespace BlueNoah.CameraControl
         public static void RotateAround(Transform trans, Vector3 center, Vector3 axis, float angle, out Quaternion targetQuaternion, out Vector3 targetPosition)
         {
             Vector3 pos = trans.position;
-            Quaternion rot = Quaternion.AngleAxis(angle, axis); 
-            Vector3 dir = pos - center; 
-            dir = rot * dir; 
-            targetPosition = center + dir; 
+            Quaternion rot = Quaternion.AngleAxis(angle, axis);
+            Vector3 dir = pos - center;
+            dir = rot * dir;
+            targetPosition = center + dir;
             Quaternion myRot = trans.rotation;
             targetQuaternion = trans.rotation * Quaternion.Inverse(myRot) * rot * myRot;
         }

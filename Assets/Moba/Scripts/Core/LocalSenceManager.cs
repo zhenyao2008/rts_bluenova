@@ -15,6 +15,11 @@ public class LocalSenceManager : MonoBehaviour {
 		wall1 = Instantiate (wall1);
 	}
 
+	private void Start()
+	{
+        BlueNoah.CameraControl.CameraController.Instance.SetCameraMoveArea(GameObject.Find("CameraMoveArea").GetComponent<BoxCollider>());
+	}
+
 	void Update()
 	{
 		if(Input.GetKeyDown(KeyCode.L))

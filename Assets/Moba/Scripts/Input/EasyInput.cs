@@ -2,6 +2,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 namespace BlueNoah.Event
 {
@@ -35,9 +36,9 @@ namespace BlueNoah.Event
     {
         //Click interval max(same as ugui system)
         //Double click interval 0.3f~0.5f
-        Dictionary<TouchType, List<UnityAction<EventData>>> touchActionDic;
+        Dictionary<TouchType, List<UnityAction<EventData>>> mTouchActionDic;
 
-        Dictionary<TouchType, List<UnityAction<EventData>>> lateTouchActionDic;
+        Dictionary<TouchType, List<UnityAction<EventData>>> mLateTouchActionDic;
 
         EventData mEventData;
 
@@ -52,45 +53,61 @@ namespace BlueNoah.Event
             base.Awake();
             mEventData = new EventData();
             mLateEventData = new EventData();
-            touchActionDic = new Dictionary<TouchType, List<UnityAction<EventData>>>();
-            touchActionDic.Add(TouchType.TouchBegin, new List<UnityAction<EventData>>());
-            touchActionDic.Add(TouchType.TouchEnd, new List<UnityAction<EventData>>());
-            touchActionDic.Add(TouchType.Touch, new List<UnityAction<EventData>>());
-            touchActionDic.Add(TouchType.Click, new List<UnityAction<EventData>>());
-            touchActionDic.Add(TouchType.LongPressBegin, new List<UnityAction<EventData>>());
-            touchActionDic.Add(TouchType.TwoFingerBegin, new List<UnityAction<EventData>>());
-            touchActionDic.Add(TouchType.TwoFinger, new List<UnityAction<EventData>>());
-            touchActionDic.Add(TouchType.TwoFingerEnd, new List<UnityAction<EventData>>());
-            touchActionDic.Add(TouchType.DoubleClick, new List<UnityAction<EventData>>());
+            mTouchActionDic = new Dictionary<TouchType, List<UnityAction<EventData>>>();
+            mTouchActionDic.Add(TouchType.TouchBegin, new List<UnityAction<EventData>>());
+            mTouchActionDic.Add(TouchType.TouchEnd, new List<UnityAction<EventData>>());
+            mTouchActionDic.Add(TouchType.Touch, new List<UnityAction<EventData>>());
+            mTouchActionDic.Add(TouchType.Click, new List<UnityAction<EventData>>());
+            mTouchActionDic.Add(TouchType.LongPressBegin, new List<UnityAction<EventData>>());
+            mTouchActionDic.Add(TouchType.TwoFingerBegin, new List<UnityAction<EventData>>());
+            mTouchActionDic.Add(TouchType.TwoFinger, new List<UnityAction<EventData>>());
+            mTouchActionDic.Add(TouchType.TwoFingerEnd, new List<UnityAction<EventData>>());
+            mTouchActionDic.Add(TouchType.DoubleClick, new List<UnityAction<EventData>>());
 
-            lateTouchActionDic = new Dictionary<TouchType, List<UnityAction<EventData>>>();
-            lateTouchActionDic.Add(TouchType.TouchBegin, new List<UnityAction<EventData>>());
-            lateTouchActionDic.Add(TouchType.TouchEnd, new List<UnityAction<EventData>>());
-            lateTouchActionDic.Add(TouchType.Touch, new List<UnityAction<EventData>>());
-            lateTouchActionDic.Add(TouchType.Click, new List<UnityAction<EventData>>());
-            lateTouchActionDic.Add(TouchType.LongPressBegin, new List<UnityAction<EventData>>());
-            lateTouchActionDic.Add(TouchType.TwoFingerBegin, new List<UnityAction<EventData>>());
-            lateTouchActionDic.Add(TouchType.TwoFinger, new List<UnityAction<EventData>>());
-            lateTouchActionDic.Add(TouchType.TwoFingerEnd, new List<UnityAction<EventData>>());
-            lateTouchActionDic.Add(TouchType.DoubleClick, new List<UnityAction<EventData>>());
+            mLateTouchActionDic = new Dictionary<TouchType, List<UnityAction<EventData>>>();
+            mLateTouchActionDic.Add(TouchType.TouchBegin, new List<UnityAction<EventData>>());
+            mLateTouchActionDic.Add(TouchType.TouchEnd, new List<UnityAction<EventData>>());
+            mLateTouchActionDic.Add(TouchType.Touch, new List<UnityAction<EventData>>());
+            mLateTouchActionDic.Add(TouchType.Click, new List<UnityAction<EventData>>());
+            mLateTouchActionDic.Add(TouchType.LongPressBegin, new List<UnityAction<EventData>>());
+            mLateTouchActionDic.Add(TouchType.TwoFingerBegin, new List<UnityAction<EventData>>());
+            mLateTouchActionDic.Add(TouchType.TwoFinger, new List<UnityAction<EventData>>());
+            mLateTouchActionDic.Add(TouchType.TwoFingerEnd, new List<UnityAction<EventData>>());
+            mLateTouchActionDic.Add(TouchType.DoubleClick, new List<UnityAction<EventData>>());
+
+            SceneManager.sceneUnloaded += OnUnloaded;
+
+        }
+
+        void OnUnloaded(Scene scene)
+        {
+            foreach (TouchType touchType in mTouchActionDic.Keys)
+            {
+                mTouchActionDic[touchType].Clear();
+            }
+
+            foreach (TouchType touchType in mLateTouchActionDic.Keys)
+            {
+                mLateTouchActionDic[touchType].Clear();
+            }
         }
 
         public void RemoveAllListener(TouchType touchType)
         {
-            if (touchActionDic.ContainsKey(touchType))
+            if (mTouchActionDic.ContainsKey(touchType))
             {
-                touchActionDic.Remove(touchType);
+                mTouchActionDic.Remove(touchType);
             }
         }
 
         public void AddListener(TouchType touchType, UnityAction<EventData> unityAction)
         {
-            touchActionDic[touchType].Add(unityAction);
+            mTouchActionDic[touchType].Add(unityAction);
         }
 
         public void AddLateUpdateListener(TouchType touchType, UnityAction<EventData> unityAction)
         {
-            lateTouchActionDic[touchType].Add(unityAction);
+            mLateTouchActionDic[touchType].Add(unityAction);
         }
 
         bool GetTouchDown()
@@ -129,7 +146,8 @@ namespace BlueNoah.Event
 
         bool GetLongPress(EventData eventData)
         {
-            if(GetTouch() && !eventData.isLongPressed && Time.realtimeSinceStartup - eventData.touchStartTime0 > MIN_LONGPRESS_DURATION){
+            if (GetTouch() && !eventData.isLongPressed && Time.realtimeSinceStartup - eventData.touchStartTime0 > MIN_LONGPRESS_DURATION)
+            {
                 float distance = Vector3.Distance(eventData.touchStartPos0, GetTouchPosition(0));
                 if (distance / Screen.height < 0.02f)
                 {
@@ -145,15 +163,11 @@ namespace BlueNoah.Event
 #if UNITY_EDITOR || UNITY_STANDALONE || UNITY_WEBGL
             if (Input.GetMouseButtonUp(0))
             {
-                //mouseUpTime = Time.realtimeSinceStartup;
-                //endPos = Input.mousePosition;
                 isUp = true;
             }
 #else
             if (Input.touchCount == 1 && (Input.touches[0].phase == TouchPhase.Ended || Input.touches[0].phase == TouchPhase.Canceled))
             {
-                //mouseUpTime = Time.realtimeSinceStartup;
-                //endPos = Input.touches[0].position;
                 isUp = true;
             }
 #endif
@@ -191,7 +205,8 @@ namespace BlueNoah.Event
         bool GetDoubleMouseClick(EventData eventData)
         {
             bool isClick = GetMouseClick(eventData);
-            if(Time.realtimeSinceStartup - eventData.preClickTime > 0.3f ){
+            if (Time.realtimeSinceStartup - eventData.preClickTime > 0.3f)
+            {
                 isClick = false;
             }
             return isClick;
@@ -252,7 +267,7 @@ namespace BlueNoah.Event
             return isTwoFingerUp;
         }
 
-        void OnActions(List<UnityAction<EventData>> unityActions,EventData eventData)
+        void OnActions(List<UnityAction<EventData>> unityActions, EventData eventData)
         {
             for (int i = 0; i < unityActions.Count; i++)
             {
@@ -263,15 +278,16 @@ namespace BlueNoah.Event
 
         void Update()
         {
-            OnUpdate(touchActionDic, mEventData);
+            OnUpdate(mTouchActionDic, mEventData);
         }
 
         void LateUpdate()
         {
-            OnUpdate(lateTouchActionDic, mLateEventData);
+            OnUpdate(mLateTouchActionDic, mLateEventData);
         }
 
-        void OnUpdate(Dictionary<TouchType, List<UnityAction<EventData>>> actionDic,EventData eventData){
+        void OnUpdate(Dictionary<TouchType, List<UnityAction<EventData>>> actionDic, EventData eventData)
+        {
             if (GetTouchDown())
             {
                 OnTouchDown(eventData);
@@ -290,7 +306,7 @@ namespace BlueNoah.Event
                     OnDoubleClick(eventData);
                     OnActions(actionDic[TouchType.DoubleClick], eventData);
                 }
-                else if (GetMouseClick(eventData))
+                if (GetMouseClick(eventData))
                 {
                     OnClick(eventData);
                     OnActions(actionDic[TouchType.Click], eventData);
@@ -326,12 +342,9 @@ namespace BlueNoah.Event
             eventData.touchStartTime0 = Time.realtimeSinceStartup;
             eventData.isLongPressed = false;
             eventData.isPointerOnGameObject = IsPointerOverUIObject();
-            //Debug.Log(eventData.isPointerOnGameObject);
-            //Debug.Log(EventSystem.current.IsPointerOverGameObject());
-            //Debug.Log(IsPointerOverUIObject());
         }
 
-        private bool IsPointerOverUIObject()
+        bool IsPointerOverUIObject()
         {
             PointerEventData eventDataCurrentPosition = new PointerEventData(EventSystem.current);
             eventDataCurrentPosition.position = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
@@ -339,7 +352,6 @@ namespace BlueNoah.Event
             EventSystem.current.RaycastAll(eventDataCurrentPosition, results);
             return results.Count > 0;
         }
-
 
         bool CheckOverGameObject()
         {
@@ -409,7 +421,8 @@ namespace BlueNoah.Event
             eventData.preClickTime = Time.realtimeSinceStartup;
         }
 
-        void OnDoubleClick(EventData eventData){
+        void OnDoubleClick(EventData eventData)
+        {
             eventData.preClickTime = 0;
         }
     }

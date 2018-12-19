@@ -2,7 +2,6 @@
 using DG.Tweening;
 using UnityEngine.Events;
 using BlueNoah.Event;
-
 namespace BlueNoah.CameraControl
 {
     [DefaultExecutionOrder(-100)]
@@ -12,8 +11,9 @@ namespace BlueNoah.CameraControl
         bool mIsMoveable = true;
         bool mIsStoryPlaying;
         Camera mCamera;
+        BoxCollider mMoveArea;
         BaseCameraPinchService mBaseCameraPinchService;
-        CameraRotateService mCameraRotateService;
+        BaseCameraRotateService mCameraRotateService;
         BaseCameraMoveService mBaseCameraMoveService;
 
         protected override void Awake()
@@ -22,8 +22,8 @@ namespace BlueNoah.CameraControl
             mCamera = GetComponent<Camera>();
             if (mCamera == null)
                 mCamera = Camera.main;
-            
-            mCameraRotateService = new CameraRotateService(mCamera);
+
+            mCameraRotateService = new BaseCameraRotateService(mCamera);
 
             if (mCamera.orthographic)
             {
@@ -163,14 +163,28 @@ namespace BlueNoah.CameraControl
             }
         }
 
+        public float MoveSpeed
+        {
+            get
+            {
+                return mBaseCameraMoveService.MoveSpeed;
+            }
+            set
+            {
+                mBaseCameraMoveService.MoveSpeed = value;
+            }
+        }
+
         public void SetCameraMoveArea(BoxCollider boxCollider)
         {
             mBaseCameraMoveService.SetMoveArea(boxCollider);
+            mCameraRotateService.SetMoveArea(boxCollider);
         }
 
         void OnTouchBegin(EventData eventData)
         {
-            if(!eventData.isPointerOnGameObject){
+            if (!eventData.isPointerOnGameObject)
+            {
                 mBaseCameraMoveService.CancelMove();
                 mBaseCameraPinchService.CancelPinch();
                 if (!mCameraRotateService.IsCameraAutoRotate && mIsControllable && mIsMoveable && !mBaseCameraPinchService.IsPinching)
@@ -240,6 +254,9 @@ namespace BlueNoah.CameraControl
         void OnPinch(EventData eventData)
         {
             mBaseCameraPinchService.OnPinch(eventData);
+            //mCameraRotateService.IsHorizontalRotateable = true;
+            //mCameraRotateService.IsVerticalRotateable = true;
+            //OnRotate(eventData);
         }
 
         void OnPinchEnd(EventData eventData)
@@ -416,10 +433,12 @@ namespace BlueNoah.CameraControl
         {
             if (mBaseCameraMoveService != null)
             {
-                Gizmos.DrawWireSphere(mBaseCameraMoveService.pos0, 1);
-                Gizmos.DrawWireSphere(mBaseCameraMoveService.pos1, 1);
-                Gizmos.DrawWireSphere(mBaseCameraMoveService.pos2, 1);
-                Gizmos.DrawWireSphere(mBaseCameraMoveService.pos3, 1);
+                Gizmos.color = Color.blue;
+                Gizmos.DrawSphere(mBaseCameraMoveService.pos0, 1f);
+                Gizmos.DrawSphere(mBaseCameraMoveService.pos1, 1f);
+                Gizmos.DrawSphere(mBaseCameraMoveService.pos2, 1f);
+                Gizmos.DrawSphere(mBaseCameraMoveService.pos3, 1f);
+                Gizmos.color = Color.white;
             }
         }
     }
