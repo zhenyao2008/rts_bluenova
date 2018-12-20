@@ -15,7 +15,7 @@ public class Menu : MonoBehaviour
                 serverController_III.StopClient();
                 serverController_III.StopServer();
             }
-            SceneManager.LoadScene("ServerManage");
+            SceneManager.LoadScene("Main");
         });
     }
 }

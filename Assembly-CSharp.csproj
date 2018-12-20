@@ -23,7 +23,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>Temp\bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_2_OR_NEWER;UNITY_2018_2_0;UNITY_2018_2;UNITY_2018;UNITY_ANALYTICS;UNITY_PURCHASING;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_SPRITES;ENABLE_GRID;ENABLE_TILEMAP;ENABLE_TERRAIN;ENABLE_TEXTURE_STREAMING;ENABLE_DIRECTOR;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_TIMELINE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;ENABLE_MANAGED_ANIMATION_JOBS;INCLUDE_DYNAMIC_GI;INCLUDE_GI;ENABLE_MONO_BDWGC;PLATFORM_SUPPORTS_MONO;INCLUDE_PUBNUB;ENABLE_VIDEO;ENABLE_PACKMAN;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_LOCALIZATION;ENABLE_RUNTIME_GI;ENABLE_SUBSTANCE;ENABLE_GAMECENTER;ENABLE_NETWORK;ENABLE_UNITYWEBREQUEST;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_IOS_NATIVE_CRASH_REPORTING;PLAYERCONNECTION_LISTENS_FIXED_PORT;DEBUGGER_LISTENS_FIXED_PORT;PLATFORM_SUPPORTS_ADS_ID;SUPPORT_ENVIRONMENT_VARIABLES;PLATFORM_SUPPORTS_PROFILER;PLATFORM_HAS_NO_SUPPORT_FOR_BUCKET_ALLOCATOR;STRICTCPP_NEW_DELETE_SIGNATURES;HAS_NEON_SKINNING;UNITY_GFX_USE_PLATFORM_VSYNC;UNITY_INPUT_SIMULATE_EVENTS;PLATFORM_ALWAYS_USES_STDOUT_FOR_LOG;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITYADS_RUNTIME;UNITY_UNITYADS_API;PLATFORM_IOS;UNITY_IOS;PLATFORM_IPHONE;UNITY_IPHONE;UNITY_IPHONE_API;SUPPORT_MULTIPLE_DISPLAYS;ENABLE_VR;ENABLE_AR;ENABLE_SPATIALTRACKING;ENABLE_IL2CPP;NET_2_0_SUBSET;ENABLE_PROFILER;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_OSX;ENABLE_UNITY_COLLECTIONS_CHECKS;ENABLE_BURST_AOT;UNITY_TEAM_LICENSE;ENABLE_VSTU;UNITY_PRO_LICENSE;ENABLE_IOS_ON_DEMAND_RESOURCES;ENABLE_IOS_APP_SLICING;UNITY_HAS_GOOGLEVR;ENABLE_MONO</DefineConstants>
+    <DefineConstants>DEBUG;TRACE;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_2_OR_NEWER;UNITY_2018_2_0;UNITY_2018_2;UNITY_2018;UNITY_PURCHASING;UNITY_ANALYTICS;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_SPRITES;ENABLE_GRID;ENABLE_TILEMAP;ENABLE_TERRAIN;ENABLE_TEXTURE_STREAMING;ENABLE_DIRECTOR;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_TIMELINE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;ENABLE_MANAGED_ANIMATION_JOBS;INCLUDE_DYNAMIC_GI;INCLUDE_GI;ENABLE_MONO_BDWGC;PLATFORM_SUPPORTS_MONO;INCLUDE_PUBNUB;ENABLE_VIDEO;ENABLE_PACKMAN;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_LOCALIZATION;ENABLE_RUNTIME_GI;ENABLE_SUBSTANCE;ENABLE_GAMECENTER;ENABLE_NETWORK;ENABLE_UNITYWEBREQUEST;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_IOS_NATIVE_CRASH_REPORTING;PLAYERCONNECTION_LISTENS_FIXED_PORT;DEBUGGER_LISTENS_FIXED_PORT;PLATFORM_SUPPORTS_ADS_ID;SUPPORT_ENVIRONMENT_VARIABLES;PLATFORM_SUPPORTS_PROFILER;PLATFORM_HAS_NO_SUPPORT_FOR_BUCKET_ALLOCATOR;STRICTCPP_NEW_DELETE_SIGNATURES;HAS_NEON_SKINNING;UNITY_GFX_USE_PLATFORM_VSYNC;UNITY_INPUT_SIMULATE_EVENTS;PLATFORM_ALWAYS_USES_STDOUT_FOR_LOG;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITYADS_RUNTIME;UNITY_UNITYADS_API;PLATFORM_IOS;UNITY_IOS;PLATFORM_IPHONE;UNITY_IPHONE;UNITY_IPHONE_API;SUPPORT_MULTIPLE_DISPLAYS;ENABLE_VR;ENABLE_AR;ENABLE_SPATIALTRACKING;ENABLE_IL2CPP;NET_2_0;ENABLE_PROFILER;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_OSX;ENABLE_UNITY_COLLECTIONS_CHECKS;ENABLE_BURST_AOT;UNITY_TEAM_LICENSE;ENABLE_VSTU;UNITY_PRO_LICENSE;ENABLE_IOS_ON_DEMAND_RESOURCES;ENABLE_IOS_APP_SLICING;UNITY_HAS_GOOGLEVR;ENABLE_MONO</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <NoWarn>0169</NoWarn>
@@ -72,6 +72,15 @@
     <Compile Include="Assets\Moba\Scripts\Assetbundle\AssetbundleManager.cs" />
     <Compile Include="Assets\Moba\Scripts\AssetsManager\BattleSpawnService.cs" />
     <Compile Include="Assets\Moba\Scripts\BattleFramework\Data\Entity\Unit_Info.cs" />
+    <Compile Include="Assets\Moba\Scripts\CameraControl\CameraController\CameraController.cs" />
+    <Compile Include="Assets\Moba\Scripts\CameraControl\CameraMoveService\BaseCameraMoveService.cs" />
+    <Compile Include="Assets\Moba\Scripts\CameraControl\CameraMoveService\OrthographicCameraMoveService.cs" />
+    <Compile Include="Assets\Moba\Scripts\CameraControl\CameraMoveService\PerspectiveCameraMoveService.cs" />
+    <Compile Include="Assets\Moba\Scripts\CameraControl\CameraPinchService\BaseCameraPinchService.cs" />
+    <Compile Include="Assets\Moba\Scripts\CameraControl\CameraPinchService\InertiaCameraPinchService.cs" />
+    <Compile Include="Assets\Moba\Scripts\CameraControl\CameraPinchService\OrthographicsCameraPinchService.cs" />
+    <Compile Include="Assets\Moba\Scripts\CameraControl\CameraPinchService\PerspectiveCameraPinchService.cs" />
+    <Compile Include="Assets\Moba\Scripts\CameraControl\CameraRotateService\BaseCameraRotateService.cs" />
     <Compile Include="Assets\Moba\Scripts\Config\ConfigUtility.cs" />
     <Compile Include="Assets\Moba\Scripts\Constant\ABConstant.cs" />
     <Compile Include="Assets\Moba\Scripts\Constant\LayerConstant.cs" />
@@ -236,6 +245,7 @@
     <Compile Include="Assets\Moba\Scripts\ResourcesManager\ResourcesManager.cs" />
     <Compile Include="Assets\Moba\Scripts\Scene\SceneUtility.cs" />
     <Compile Include="Assets\Moba\Scripts\Skill\Skill01.cs" />
+    <Compile Include="Assets\Moba\Scripts\Start\StartController.cs" />
     <Compile Include="Assets\Moba\Scripts\State\Actions\AttackAction.cs" />
     <Compile Include="Assets\Moba\Scripts\State\Actions\BaseAction.cs" />
     <Compile Include="Assets\Moba\Scripts\status_network\ui\LoginPanel.cs" />
@@ -252,6 +262,7 @@
     <Compile Include="Assets\Moba\Scripts\UI\BetterOutline.cs" />
     <Compile Include="Assets\Moba\Scripts\UI\DialogBase.cs" />
     <Compile Include="Assets\Moba\Scripts\UI\Dialogs\TextMessageDialog.cs" />
+    <Compile Include="Assets\Moba\Scripts\UI\Menu.cs" />
     <Compile Include="Assets\Moba\Scripts\UI\PanelBase.cs" />
     <Compile Include="Assets\Moba\Scripts\UI\Panels\BuildingDetail\BuildingDetailCtrl.cs" />
     <Compile Include="Assets\Moba\Scripts\UI\Panels\BuildingDetail\BuildingDetailPanelView.cs" />
@@ -545,7 +556,9 @@
     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\CGIncludes\UnityBuiltin3xTreeLibrary.cginc" />
     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\Skybox-Procedural.shader" />
     <None Include="Assets\ThirdPart\NGUI\Examples\Atlases\Wooden\Arimo14.txt" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\Nature\SoftOcclusion\TreeSoftOcclusionBarkRendertex.shader" />
+    <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
     <None Include="Assets\Moba\Lua\uluavariables.txt" />
     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\CGIncludes\UnityCG.cginc" />
     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\UI\UI-Unlit-TextDetail.shader" />
@@ -599,6 +612,7 @@
     <None Include="Assets\Common\Scripts\UGUI\PanelData\CSharp\ShopPanel.txt" />
     <None Include="Assets\Moba\Shaders\Mobile-Transparent Rim Only.shader" />
     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\Particle MultiplyDouble.shader" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro_Properties.cginc" />
     <None Include="Assets\ThirdPart\NGUI\Resources\Shaders\Unlit - Transparent Colored (TextureClip).shader" />
     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\Mobile\Mobile-Particle-Alpha.shader" />
     <None Include="Assets\Test\MagicProjectiles - ReadMe.txt" />
@@ -621,6 +635,7 @@
     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\Illumin-ParallaxSpec.shader" />
     <None Include="Assets\Moba\Shaders\Mobile-Diffuse-Outline.shader" />
     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\CGIncludes\UnityGlobalIllumination.cginc" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\TerrainShaders\Trees\BillboardTree.shader" />
     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\Reflect-BumpSpec.shader" />
     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\Mobile\Mobile-Particle-Multiply.shader" />
@@ -674,15 +689,18 @@
     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\CGIncludes\UnityStandardUtils.cginc" />
     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResources\Internal-Flare.shader" />
     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\Mobile\Mobile-Diffuse.shader" />
+    <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\Nature\TreeCreator\TreeCreatorLeavesFastOptimized.shader" />
     <None Include="Assets\ThirdPart\NGUI\Resources\Shaders\Unlit - Transparent Packed 1.shader" />
     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\TerrainShaders\Splats\Specular-FirstPass.shader" />
     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\Normal-DiffuseDetail.shader" />
     <None Include="Assets\ThirdPart\NGUI\Resources\Shaders\Unlit - Premultiplied Colored 1.shader" />
+    <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
     <None Include="Assets\Moba\ArtResources\Models\ArmyPilot\ArmyPilot.skeleton.xml" />
     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\Particle Premultiply Blend.shader" />
     <None Include="Assets\Model\Building\War3Building1.shader" />
     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResources\Internal-SplashShadowCaster.shader" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Masking.shader" />
     <None Include="Assets\Moba\Resources\Configs\SysConfig\BaseConfig.txt" />
     <None Include="Assets\ThirdPart\NGUI\Resources\Shaders\Unlit - Premultiplied Colored.shader" />
     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\Alpha-Glossy.shader" />
@@ -703,6 +721,7 @@
     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\CGIncludes\SpeedTreeVertex.cginc" />
     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\Skybox.shader" />
     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\CGIncludes\UnityUI.cginc" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap-Mobile.shader" />
     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\UI\UI-Default.shader" />
     <None Include="Assets\Common\Scripts\UGUI\PanelData\CSharp\PlayerListPanel.txt" />
     <None Include="Assets\ThirdPart\iTween\ReadMe!\ReadMe!.txt" />
@@ -724,6 +743,7 @@
     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\Nature\SoftOcclusion\TreeSoftOcclusionLeaves.shader" />
     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\Lightmap-Bumped.shader" />
     <None Include="Assets\ThirdPart\NGUI\Resources\Shaders\Unlit - Transparent Packed.shader" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF Overlay.shader" />
     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\CGIncludes\SpeedTreeBillboardCommon.cginc" />
     <None Include="Assets\Common\Scripts\UGUI\PanelData\Lua\LoginPanel.txt" />
     <None Include="Assets\ThirdPart\NGUI\Resources\Shaders\Unlit - Transparent Packed 3.shader" />
@@ -735,12 +755,14 @@
     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResources\Internal-PrePassCollectShadows.shader" />
     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\Alpha-BumpSpec.shader" />
     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResources\Internal-GUITextureClipText.shader" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro_Surface.cginc" />
     <None Include="Assets\Moba\ArtResources\Models\ArmyPilot\ArmyPilot.mesh.xml" />
     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\Cubemaps\CubeBlur.shader" />
     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\Alpha-VertexLit.shader" />
     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\Mobile\Mobile-VertexLit.shader" />
     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\Mobile\Mobile-Skybox.shader" />
     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResources\Internal-ErrorShader.shader" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Overlay.shader" />
     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\Reflect-Glossy.shader" />
     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\AlphaTest-BumpSpec.shader" />
     <None Include="Assets\Moba\Prefabs\Effects\Explosion_Dead_New\Shader\AlphaVertexColored.shader" />
@@ -762,7 +784,9 @@
     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\Mobile\Mobile-VertexLit-OnlyDirectionalLights.shader" />
     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\UI\UI-Unlit-Transparent.shader" />
     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\Nature\SoftOcclusion\TreeSoftOcclusionLeavesRendertex.shader" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap.shader" />
     <None Include="Assets\ThirdPart\NGUI\Resources\Shaders\Unlit - Transparent Masked.shader" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
     <None Include="Assets\ThirdPart\EasyTouchBundle\EasyTouch\RealseNotes.txt" />
     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\Internal-DeferredReflections.shader" />
     <None Include="Assets\ThirdPart\NGUI\Examples\Atlases\Refractive\Refractive Font - Header.txt" />
@@ -777,6 +801,7 @@
     <None Include="Assets\ThirdPart\NGUI\Resources\Shaders\Unlit - Text (TextureClip).shader" />
     <None Include="Assets\Common\Scripts\UGUI\PanelData\CSharp\MaskPanel.txt" />
     <None Include="Assets\ThirdPart\RtsCamera\DemoScene\Shaders\Additive.shader" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF.shader" />
     <None Include="Assets\ThirdPart\NGUI\Examples\Shaders\Unlit - Depth.shader" />
     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\TerrainShaders\Splats\Standard-AddPass.shader" />
     <None Include="Assets\ThirdPart\NGUI\Examples\Atlases\SciFi\SciFi Font - Normal.txt" />
@@ -787,6 +812,7 @@
     <None Include="Assets\ThirdPart\Simple RPG Camera\Demo\Sources\Shaders\Toony-Lighted-Transparent.shader" />
     <None Include="Assets\ThirdPart\Simple RPG Camera\Documentation\changelog.txt" />
     <None Include="Assets\Moba\Lua\CityPanels.txt" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile.shader" />
     <None Include="Assets\Common\Scripts\UGUI\PanelData\CSharp\MainInterfacePanel.txt" />
     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\Lightmap-BumpSpec.shader" />
     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\AlphaTest-Bumped.shader" />
@@ -794,11 +820,13 @@
     <None Include="Assets\Moba\Prefabs\Effects\Explosion_Dead_New\Shader\Outline3.shader" />
     <None Include="Assets\ThirdPart\NGUI\Examples\Models\Orc Armor\Orc Armor.shader" />
     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResources\Internal-GUITextureBlit.shader" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Sprite.shader" />
     <None Include="Assets\ThirdPart\NGUI\Examples\Resources\Localization.txt" />
     <None Include="Assets\Common\Scripts\UGUI\Templates\LuaBinder.txt" />
     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResources\Internal-SplashShadowBlur.shader" />
     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResourcesExtra\TerrainShaders\Splats\Specular-AddPass.shader" />
     <None Include="Assets\Common\Scripts\UGUI\PanelData\Lua\TroopInfoPanel.txt" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface.shader" />
     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\DefaultResources\Internal-Halo.shader" />
     <None Include="Assets\Moba\builtin_shaders-5.2.2f1\CGIncludes\UnityShadowLibrary.cginc" />
     <None Include="Assets\Common\Scripts\UGUI\Templates\LuaPanelView.txt" />
@@ -885,6 +913,9 @@
     </Reference>
     <Reference Include="UnityEngine.ParticleSystemModule">
       <HintPath>/Applications/Unity2018.2.0/Unity.app/Contents/Managed/UnityEngine/UnityEngine.ParticleSystemModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ParticlesLegacyModule">
+      <HintPath>/Applications/Unity2018.2.0/Unity.app/Contents/Managed/UnityEngine/UnityEngine.ParticlesLegacyModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.PerformanceReportingModule">
       <HintPath>/Applications/Unity2018.2.0/Unity.app/Contents/Managed/UnityEngine/UnityEngine.PerformanceReportingModule.dll</HintPath>
@@ -1040,31 +1071,31 @@
       <HintPath>/Users/yingyugang/Library/Unity/cache/packages/packages.unity.com/com.unity.standardevents@1.0.13/UnityEngine.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
-      <HintPath>/Applications/Unity2018.2.0/Unity.app/Contents/MonoBleedingEdge/lib/mono/unity/mscorlib.dll</HintPath>
+      <HintPath>/Applications/Unity2018.2.0/Unity.app/Contents/MonoBleedingEdge/lib/mono/2.0-api/mscorlib.dll</HintPath>
     </Reference>
     <Reference Include="System">
-      <HintPath>/Applications/Unity2018.2.0/Unity.app/Contents/MonoBleedingEdge/lib/mono/unity/System.dll</HintPath>
+      <HintPath>/Applications/Unity2018.2.0/Unity.app/Contents/MonoBleedingEdge/lib/mono/2.0-api/System.dll</HintPath>
     </Reference>
     <Reference Include="System.Core">
-      <HintPath>/Applications/Unity2018.2.0/Unity.app/Contents/MonoBleedingEdge/lib/mono/unity/System.Core.dll</HintPath>
+      <HintPath>/Applications/Unity2018.2.0/Unity.app/Contents/MonoBleedingEdge/lib/mono/2.0-api/System.Core.dll</HintPath>
     </Reference>
     <Reference Include="System.Runtime.Serialization">
-      <HintPath>/Applications/Unity2018.2.0/Unity.app/Contents/MonoBleedingEdge/lib/mono/unity/System.Runtime.Serialization.dll</HintPath>
+      <HintPath>/Applications/Unity2018.2.0/Unity.app/Contents/MonoBleedingEdge/lib/mono/2.0-api/System.Runtime.Serialization.dll</HintPath>
     </Reference>
     <Reference Include="System.Xml">
-      <HintPath>/Applications/Unity2018.2.0/Unity.app/Contents/MonoBleedingEdge/lib/mono/unity/System.Xml.dll</HintPath>
+      <HintPath>/Applications/Unity2018.2.0/Unity.app/Contents/MonoBleedingEdge/lib/mono/2.0-api/System.Xml.dll</HintPath>
     </Reference>
     <Reference Include="System.Xml.Linq">
-      <HintPath>/Applications/Unity2018.2.0/Unity.app/Contents/MonoBleedingEdge/lib/mono/unity/System.Xml.Linq.dll</HintPath>
+      <HintPath>/Applications/Unity2018.2.0/Unity.app/Contents/MonoBleedingEdge/lib/mono/2.0-api/System.Xml.Linq.dll</HintPath>
     </Reference>
     <Reference Include="UnityScript">
-      <HintPath>/Applications/Unity2018.2.0/Unity.app/Contents/MonoBleedingEdge/lib/mono/unity/UnityScript.dll</HintPath>
+      <HintPath>/Applications/Unity2018.2.0/Unity.app/Contents/MonoBleedingEdge/lib/mono/2.0-api/UnityScript.dll</HintPath>
     </Reference>
     <Reference Include="UnityScript.Lang">
-      <HintPath>/Applications/Unity2018.2.0/Unity.app/Contents/MonoBleedingEdge/lib/mono/unity/UnityScript.Lang.dll</HintPath>
+      <HintPath>/Applications/Unity2018.2.0/Unity.app/Contents/MonoBleedingEdge/lib/mono/2.0-api/UnityScript.Lang.dll</HintPath>
     </Reference>
     <Reference Include="Boo.Lang">
-      <HintPath>/Applications/Unity2018.2.0/Unity.app/Contents/MonoBleedingEdge/lib/mono/unity/Boo.Lang.dll</HintPath>
+      <HintPath>/Applications/Unity2018.2.0/Unity.app/Contents/MonoBleedingEdge/lib/mono/2.0-api/Boo.Lang.dll</HintPath>
     </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

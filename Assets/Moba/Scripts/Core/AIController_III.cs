@@ -22,7 +22,7 @@ public class AIController_III : MonoBehaviour ,IPlayerController{
 
 	void Update()
 	{
-		if( mNextBuildTime<Time.time)
+        if(PlayerController_III.instance.isBattleBegin && mNextBuildTime<Time.time)
 		{
 			mNextBuildTime = Time.time + commonInterval;
 //			mNextBuildTime = Mathf.Infinity;

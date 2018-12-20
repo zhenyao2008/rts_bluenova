@@ -863,17 +863,18 @@ public class PlayerController_III : NetworkBehaviour, IPlayerController
     {
         if (isLocalPlayer)
         {
-            StartCoroutine(_HideServerMsgPanel());
+            StartCoroutine(_CooldownAndStart());
             UIManager.Instance.GetController<PrePlayCtrl>().Close();
         }
     }
 
-    IEnumerator _HideServerMsgPanel()
+    IEnumerator _CooldownAndStart()
     {
         mServerMsgPanel.msgTime.gameObject.SetActive(true);
         mServerMsgPanel.root.SetActive(false);
 
         int t = 3;
+        AudioSource.PlayClipAtPoint(ResourcesManager.Instance.GetCoolDown(),Camera.main.transform.position);
         while (t > 0)
         {
             mServerMsgPanel.msgTime.text = t.ToString();
@@ -881,6 +882,7 @@ public class PlayerController_III : NetworkBehaviour, IPlayerController
             yield return new WaitForSeconds(1);
         }
         mServerMsgPanel.msgTime.text = "Begin";
+        AudioSource.PlayClipAtPoint(ResourcesManager.Instance.GetCoolDownEnd(), Camera.main.transform.position);
         yield return new WaitForSeconds(1);
         isBattleBegin = true;
         mPlayerPanel.root.SetActive(true);

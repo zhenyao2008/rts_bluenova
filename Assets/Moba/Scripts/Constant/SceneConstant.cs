@@ -6,5 +6,5 @@
 	public const string SCENE_BATTLEFIELD = "Battlefield";
 
 	public const string SCENE_BATTLE = "Battle";
-	public const string SCENE_SERVER_MANAGE = "ServerManage";
+	public const string SCENE_SERVER_MANAGE = "Main";
 }

@@ -63,6 +63,14 @@ public class ResourcesManager : SingleMonoBehaviour<ResourcesManager>
         return clip;
     }
 
+    public AudioClip GetCoolDown(){
+        return Resources.Load<AudioClip>("Sounds/cooldown");
+    }
+
+    public AudioClip GetCoolDownEnd(){
+        return Resources.Load<AudioClip>("Sounds/cooldown_end");
+    }
+
     #endregion
 
     #region UI
