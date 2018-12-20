@@ -60,22 +60,19 @@ namespace BlueNoah.CameraControl
                 {
                     offset = offset3;
                 }
-
             }
             return offset;
 		}
 
         Vector3 GetOffset(Vector3 startPos, Vector3 forward)
         {
-            Vector3 offset = Vector3.zero;
-            RaycastHit raycastHit;
-            if (Physics.Raycast(startPos, forward, out raycastHit,Mathf.Infinity, 1 << LayerConstant.LAYER_GROUND))
-            {
-                Vector3 pos = raycastHit.point;
-                Vector3 closePos = mMoveArea.ClosestPoint(pos);
-                offset = pos - closePos;
-            }
-            Debug.Log(offset);
+
+            Vector3 groundPosition = CameraController.GetIntersectWithLineAndPlane(startPos, forward, planeNormal, planeNormalPoint);
+
+            Vector3 closePos = mMoveArea.ClosestPoint(groundPosition);
+
+            Vector3 offset = groundPosition - closePos;
+
             return offset;
         }
 

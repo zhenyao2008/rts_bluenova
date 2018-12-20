@@ -91,14 +91,15 @@ namespace BlueNoah.CameraControl
 
         Vector3 GetOffset(Vector3 startPos)
         {
-            Vector3 offset = Vector3.zero;
-            RaycastHit raycastHit;
-            if (CameraController.Instance.RaycastForward(startPos, out raycastHit, LayerConstant.LAYER_GROUND))
-            {
-                Vector3 pos = raycastHit.point;
-                Vector3 closePos = mMoveArea.ClosestPoint(pos);
-                offset = pos - closePos;
-            }
+
+            Vector3 forward = CameraController.Instance.CurrentCamera.transform.forward;
+
+            Vector3 groundPosition = CameraController.GetIntersectWithLineAndPlane(startPos, forward, planeNormal, planeNormalPoint);
+
+            Vector3 closePos = mMoveArea.ClosestPoint(groundPosition);
+
+            Vector3 offset = groundPosition - closePos;
+
             return offset;
         }
     }

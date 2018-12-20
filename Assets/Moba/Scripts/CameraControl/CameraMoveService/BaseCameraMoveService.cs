@@ -18,6 +18,8 @@ namespace BlueNoah.CameraControl
         protected bool mIsTouching;
         protected bool mKeyboardMoveable = true;
         protected float mKeyboardSpeed = 1000;
+        protected Vector3 planeNormal = new Vector3(0,1,0);
+        protected Vector3 planeNormalPoint = new Vector3(0,0,0);
 
         public void CancelMove()
         {
@@ -169,8 +171,17 @@ namespace BlueNoah.CameraControl
 
             float forwardRadiu = Mathf.Cos(angle / 180f * Mathf.PI);
 
-            mRemainForwardDistance -= forward * y * Mathf.Max(0, Mathf.Cos((mMaxOverDistance / forwardRadiu - forwardOverDistance) / 2f * Mathf.PI / (mMaxOverDistance * 2 / forwardRadiu))) * mCamera.orthographicSize / Screen.height * mMoveSpeed / forwardRadiu;
-            mRemainRightDistance -= right * x * Mathf.Max(0, Mathf.Cos((mMaxOverDistance - rightOverDistance) / 2f * Mathf.PI / (mMaxOverDistance * 2))) * mCamera.orthographicSize / Screen.height * mMoveSpeed;
+            float detalForwardDistance = y * Mathf.Max(0, Mathf.Cos((mMaxOverDistance / forwardRadiu - forwardOverDistance) / 2f * Mathf.PI / (mMaxOverDistance * 2 / forwardRadiu))) * mCamera.orthographicSize / Screen.height * mMoveSpeed / forwardRadiu;
+
+            float detalRightDistance = x * Mathf.Max(0, Mathf.Cos((mMaxOverDistance - rightOverDistance) / 2f * Mathf.PI / (mMaxOverDistance * 2))) * mCamera.orthographicSize / Screen.height * mMoveSpeed;
+
+            float forwardDistance = (mRemainForwardDistance - forward * detalForwardDistance).magnitude;
+
+            float rightDistance = (mRemainRightDistance - right * detalRightDistance).magnitude;
+
+            mRemainForwardDistance -= forward * detalForwardDistance;
+
+            mRemainRightDistance -= right * detalRightDistance;
 
             //mRemainForwardDistance -= forward * y * Mathf.Max(0,Mathf.Cos((mSmoothDistance / forwardRadiu - forwardFloat) / 2f * Mathf.PI / (mSmoothDistance * 2 / forwardRadiu) )) * DistancePerPixel * CameraSpeed / forwardRadiu;
             //mRemainForwardDistance -= forward * y * Mathf.Max(0, Mathf.Cos((mSmoothDistance / forwardRadiu - forwardFloat) / 2f * Mathf.PI / (mSmoothDistance * 2 / forwardRadiu))) * mCamera.orthographicSize / Screen.height * mMoveSpeed / forwardRadiu;

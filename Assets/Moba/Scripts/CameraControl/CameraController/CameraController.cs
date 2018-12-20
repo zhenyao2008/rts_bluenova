@@ -2,6 +2,7 @@
 using DG.Tweening;
 using UnityEngine.Events;
 using BlueNoah.Event;
+
 namespace BlueNoah.CameraControl
 {
     [DefaultExecutionOrder(-100)]
@@ -411,6 +412,12 @@ namespace BlueNoah.CameraControl
         public Vector3 GetCameraRight()
         {
             return new Vector3(mCamera.transform.right.x, 0, mCamera.transform.right.z).normalized;
+        }
+
+        public static Vector3 GetIntersectWithLineAndPlane(Vector3 point, Vector3 direct, Vector3 planeNormal, Vector3 planePoint)
+        {
+            float d = Vector3.Dot(planePoint - point, planeNormal) / Vector3.Dot(direct, planeNormal);
+            return d * direct.normalized + point;
         }
 
         void Update()
