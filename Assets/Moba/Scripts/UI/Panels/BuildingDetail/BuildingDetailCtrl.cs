@@ -1,7 +1,5 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace UIFrame
 {
@@ -25,8 +23,6 @@ namespace UIFrame
                 PlayerController_III.instance.CmdDeleteBuilding();
                 this.Close();
             });
-
-
             mBuildingDetailPanelView.btn_upgrade.gameObject.SetActive(false);
             mBuildingDetailPanelView.btn_upgrade1.gameObject.SetActive(false);
             mBuildingDetailPanelView.btn_close.onClick.AddListener(Close);
