@@ -74,4 +74,5 @@ public class BattleSpawnService
         spawnPoint.index = spawner.IndexOf(spawnPoint);
         NetworkServer.Spawn(go);
     }
+
 }

@@ -38,7 +38,6 @@ namespace UIFrame
                         PlayerController_III.instance.ShowUpgrade();
                         this.Close();
                     });
-                    Debug.LogError(nextPrefabs.soilderPrefabs[0]);
                     if (ConfigUtility.GetUnitAttributeEntity(nextPrefabs.soilderPrefabs[0].name) != null)
                     {
                         int unitId = ConfigUtility.GetUnitAttributeEntity(nextPrefabs.soilderPrefabs[0].name).unitId;

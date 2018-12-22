@@ -71,7 +71,7 @@ public class ServerController_II : NetworkManager {
 	public PlayerSelect playerSelect;
 
 
-	public float soldierSpawnInterval = 30;
+	float soldierSpawnInterval = 10;
 
 	public bool isServer;
 	public  bool isClient;

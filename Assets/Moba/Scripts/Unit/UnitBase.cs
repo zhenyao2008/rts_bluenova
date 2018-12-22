@@ -2,6 +2,7 @@
 using UnityEngine.Networking;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.Events;
 
 public enum UnitState{Idle,Move,Attack,NavOffLink,Death,Special,Skill,Skill01,Skill02};
 public class UnitBase : NetworkBehaviour {
@@ -12,6 +13,8 @@ public class UnitBase : NetworkBehaviour {
 //	public IPlayerController player;
 	public PlayerAttribute playerAttribute;
 	public int playerIndex;
+
+    public UnityAction onDeadAction;
 
 	public UnitAttribute unitAttribute;
 	public List<int> targetLayers;
@@ -81,6 +84,9 @@ public class UnitBase : NetworkBehaviour {
 				attackActions[i].OnAwake();
 			}
 		}
+
+        BlueNoah.UI.UnitUIManager.Instance.CreateUnitArrowUI(this);
+
 	}
 
 	[ClientRpc]

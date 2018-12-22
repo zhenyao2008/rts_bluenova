@@ -874,7 +874,8 @@ public class PlayerController_III : NetworkBehaviour, IPlayerController
         mServerMsgPanel.root.SetActive(false);
 
         int t = 3;
-        AudioSource.PlayClipAtPoint(ResourcesManager.Instance.GetCoolDown(),Camera.main.transform.position);
+        Camera.main.GetComponent<AudioSource>().clip = ResourcesManager.Instance.GetCoolDown();
+        Camera.main.GetComponent<AudioSource>().Play();
         while (t > 0)
         {
             mServerMsgPanel.msgTime.text = t.ToString();
@@ -882,7 +883,8 @@ public class PlayerController_III : NetworkBehaviour, IPlayerController
             yield return new WaitForSeconds(1);
         }
         mServerMsgPanel.msgTime.text = "Begin";
-        AudioSource.PlayClipAtPoint(ResourcesManager.Instance.GetCoolDownEnd(), Camera.main.transform.position);
+        Camera.main.GetComponent<AudioSource>().clip = ResourcesManager.Instance.GetCoolDownEnd();
+        Camera.main.GetComponent<AudioSource>().Play();
         yield return new WaitForSeconds(1);
         isBattleBegin = true;
         mPlayerPanel.root.SetActive(true);

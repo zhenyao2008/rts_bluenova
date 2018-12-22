@@ -60,6 +60,7 @@ namespace BlueNoah.CameraControl
                 {
                     offset = offset3;
                 }
+
             }
             return offset;
 		}

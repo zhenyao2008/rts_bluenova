@@ -35,6 +35,15 @@ public class ResourcesManager : SingleMonoBehaviour<ResourcesManager>
         return AssetbundleManager.Instance.GetAssetFromLocal<GameObject>(soliderName, soliderName);
     }
 
+    public GameObject GetUnitArrowUI()
+    {
+        return Resources.Load<GameObject>("UI/UITownUnit");
+    }
+
+    public GameObject GetUnitUI(){
+        return Resources.Load<GameObject>("UI/HealthBar1");
+    }
+
     #endregion
 
     #region Buildings
@@ -63,11 +72,13 @@ public class ResourcesManager : SingleMonoBehaviour<ResourcesManager>
         return clip;
     }
 
-    public AudioClip GetCoolDown(){
+    public AudioClip GetCoolDown()
+    {
         return Resources.Load<AudioClip>("Sounds/cooldown");
     }
 
-    public AudioClip GetCoolDownEnd(){
+    public AudioClip GetCoolDownEnd()
+    {
         return Resources.Load<AudioClip>("Sounds/cooldown_end");
     }
 
@@ -133,7 +144,8 @@ public class ResourcesManager : SingleMonoBehaviour<ResourcesManager>
 #endif
             AssetBundle ab = AssetBundle.LoadFromFile(Application.streamingAssetsPath + subPath + "/" + ABConstant.UI_BUILDING_ICON + ABConstant.ASSETBUNDLE);
             Debug.Log(ab);
-            if(ab!=null){
+            if (ab != null)
+            {
                 Sprite[] icons = ab.LoadAllAssets<Sprite>();
                 ab.Unload(false);
                 for (int i = 0; i < icons.Length; i++)

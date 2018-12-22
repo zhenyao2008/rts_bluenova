@@ -57,7 +57,7 @@ public class Enemy : UnitBase
 		}
 		if (NetworkClient.active) {
 			if (showUI) {
-				GameObject go = Instantiate (playerUIPrefab) as GameObject;
+                GameObject go = BlueNoah.UI.UnitUIManager.Instance.CreateUnitUI();
 				playerUI = go;
 				go.GetComponent<PlayerUI> ().followPoint = headPoint;
 				go.GetComponent<PlayerUI> ().unitAttribute = unitAttribute;
@@ -117,6 +117,10 @@ public class Enemy : UnitBase
 			RpcShowMsgTips (2, "+" + unitAttribute.killPrice, Color.yellow, 3, new Vector3 (0, 20, 0));
 			if (nav.enabled)
 				nav.isStopped = true;
+            if (onDeadAction != null){
+                onDeadAction();
+                onDeadAction = null;
+            }
 			StartCoroutine (NetDestroy (2));
 		}
 		RpcUpdateHealth (unitAttribute.currentHealth);

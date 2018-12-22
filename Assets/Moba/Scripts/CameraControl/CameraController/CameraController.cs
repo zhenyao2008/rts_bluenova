@@ -64,7 +64,7 @@ namespace BlueNoah.CameraControl
 #endif
         }
 
-        public float minPinchSize
+        public float MinPinchSize
         {
             set
             {
@@ -76,7 +76,7 @@ namespace BlueNoah.CameraControl
             }
         }
 
-        public float maxPinchSize
+        public float MaxPinchSize
         {
             set
             {
@@ -188,7 +188,7 @@ namespace BlueNoah.CameraControl
             {
                 mBaseCameraMoveService.CancelMove();
                 mBaseCameraPinchService.CancelPinch();
-                if (!mCameraRotateService.IsCameraAutoRotate && mIsControllable && mIsMoveable && !mBaseCameraPinchService.IsPinching)
+                if (!mCameraRotateService.IsCameraAutoRotate && mIsControllable && IsMoveable && !mBaseCameraPinchService.IsPinching)
                 {
                     mBaseCameraMoveService.MoveBegin(eventData);
                 }
@@ -197,7 +197,7 @@ namespace BlueNoah.CameraControl
 
         void OnTouch(EventData eventData)
         {
-            if (!mCameraRotateService.IsCameraAutoRotate && mIsControllable && mIsMoveable && !mBaseCameraPinchService.IsPinching)
+            if (!mCameraRotateService.IsCameraAutoRotate && mIsControllable && IsMoveable && !mBaseCameraPinchService.IsPinching)
             {
                 mBaseCameraMoveService.Move(eventData);
             }
@@ -205,7 +205,7 @@ namespace BlueNoah.CameraControl
 
         void OnTouchEnd(EventData eventData)
         {
-            if (!mCameraRotateService.IsCameraAutoRotate && mIsControllable && mIsMoveable && !mBaseCameraPinchService.IsPinching)
+            if (!mCameraRotateService.IsCameraAutoRotate && mIsControllable && IsMoveable && !mBaseCameraPinchService.IsPinching)
             {
                 mBaseCameraMoveService.MoveEnd(eventData);
             }
@@ -245,7 +245,7 @@ namespace BlueNoah.CameraControl
         {
             mBaseCameraMoveService.CancelMove();
             mBaseCameraPinchService.CancelPinch();
-            if (mBaseCameraPinchService.IsPinchable && mIsControllable)
+            if (IsPinchable && IsControllable)
             {
                 mBaseCameraPinchService.OnPinchBegin();
             }
@@ -254,15 +254,15 @@ namespace BlueNoah.CameraControl
 
         void OnPinch(EventData eventData)
         {
-            mBaseCameraPinchService.OnPinch(eventData);
-            //mCameraRotateService.IsHorizontalRotateable = true;
-            //mCameraRotateService.IsVerticalRotateable = true;
-            //OnRotate(eventData);
+            if (IsPinchable && IsControllable)
+            {
+                mBaseCameraPinchService.OnPinch(eventData);
+            }
         }
 
         void OnPinchEnd(EventData eventData)
         {
-            if (mBaseCameraPinchService.IsPinchable && mIsControllable)
+            if (IsPinchable && IsControllable)
             {
                 mBaseCameraPinchService.OnPinchEnd();
             }
@@ -441,10 +441,10 @@ namespace BlueNoah.CameraControl
             if (mBaseCameraMoveService != null)
             {
                 Gizmos.color = Color.blue;
-                Gizmos.DrawSphere(mBaseCameraMoveService.pos0, 1f);
-                Gizmos.DrawSphere(mBaseCameraMoveService.pos1, 1f);
-                Gizmos.DrawSphere(mBaseCameraMoveService.pos2, 1f);
-                Gizmos.DrawSphere(mBaseCameraMoveService.pos3, 1f);
+                Gizmos.DrawSphere(mBaseCameraMoveService.pos0, 0.1f);
+                Gizmos.DrawSphere(mBaseCameraMoveService.pos1, 0.1f);
+                Gizmos.DrawSphere(mBaseCameraMoveService.pos2, 0.1f);
+                Gizmos.DrawSphere(mBaseCameraMoveService.pos3, 0.1f);
                 Gizmos.color = Color.white;
             }
         }
