@@ -48,11 +48,12 @@ public class ServerController_III : NetworkManager
     public static ServerController_III instance;
 
     public bool isBattleBegin = false;
+    public bool isOver = false;
     public int battleBeginDelay = 5;
     public float cameraHandleSpeed = 20;
     public float cameraHandleSpeedForMobile = 1;
 
-    float spawnInterval = 60;
+    //float spawnInterval = 60;
     float nextSpawnTime = 0;
 
     BattleSpawnService mBattleSpawnService;
@@ -123,6 +124,8 @@ public class ServerController_III : NetworkManager
     {
         if (NetworkServer.active)
         {
+            if (isOver)
+                return;
             if (!isBattleBegin)
             {
                 if (isAIMode)
@@ -148,7 +151,7 @@ public class ServerController_III : NetworkManager
             }
             if (nextSpawnTime < Time.time)
             {
-                nextSpawnTime = Time.time + spawnInterval;
+                nextSpawnTime = Time.time + SystemConfig.Instance.battleSpawnInterval;
                 mSpawnTurn++;
                 AddMoney();
                 mBattleSpawnService.SpawnSoilders(spawners0, defaultTarget1, layer0, layer1, playerAttributes[0], 0);
@@ -157,7 +160,7 @@ public class ServerController_III : NetworkManager
                 //SpawnSoilders (spawners1,spawnPoints1,defaultTarget0,layer1,layer0,playerAttributes[1],1);
                 for (int i = 0; i < players.Count; i++)
                 {
-                    if (players[i] != null) players[i].ChangeTimeLimit(spawnInterval);
+                    if (players[i] != null) players[i].ChangeTimeLimit(SystemConfig.Instance.battleSpawnInterval);
                 }
             }
         }
@@ -313,7 +316,6 @@ public class ServerController_III : NetworkManager
         {
             winIndex = 0;
         }
-        Debug.Log(winIndex);
         if (winIndex != -1)
         {
             if (players[0] != null)
@@ -325,7 +327,18 @@ public class ServerController_III : NetworkManager
                 players[1].SendPlayerWin(winIndex);
             }
         }
-        Time.timeScale = 0;
+        isOver = true;
+
+        Enemy[] enemies = FindObjectsOfType<Enemy>();
+        foreach(Enemy enemy in enemies){
+            enemy.enabled = false;
+            //enemy.state = UnitState.Idle;
+            //enemy.OnStateIdle();
+            //enemy.UpdateClient();
+            enemy.nav.isStopped = true;
+            enemy.anim.Play(enemy.idleAnimStateName);
+        }
+        //Time.timeScale = 0;
     }
 
     IEnumerator _RestartServer()

@@ -15,6 +15,8 @@ namespace UIFrame
 
 		public virtual void Awake ()
 		{
+            root = transform.Find("Root").gameObject;
+            btn_close = transform.Find("Root/btn_close").GetComponent<Button>();
 			if (btn_close != null)
 				btn_close.onClick.AddListener (Close);
 		}

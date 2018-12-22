@@ -1,5 +1,6 @@
 {
   "defaultMoveSpeed": 5,
   "removeIp": "127.0.0.1",
-  "rips": null
+  "rips": null,
+  "battleSpawnInterval":"50"
 }

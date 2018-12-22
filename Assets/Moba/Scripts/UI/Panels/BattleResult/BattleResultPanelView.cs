@@ -1,25 +1,26 @@
-﻿using UnityEngine.UI;
+﻿using UnityEngine;
+using UnityEngine.UI;
 
 namespace BlueNoah.UI
 {
-    public class BattleResultPanelView : PanelBase
+    public class BattleResultPanelView : UIFrame.PanelBase
     {
 
-        public Button btnWin;
+        public GameObject containerWin;
 
-        public Button btnFail;
+        public GameObject containerLost;
+
+        public Button btnRestart;
 
         public override void Awake()
         {
             base.Awake();
 
-            btnWin = transform.Find("Root/btn_win").GetComponent<Button>();
+            containerWin = transform.Find("Root/container_win").gameObject;
 
-            btnFail = transform.Find("Root/btn_fail").GetComponent<Button>();
+            containerLost = transform.Find("Root/container_lost").gameObject;
 
-            btnWin.onClick.AddListener(ServerController_III.instance.StopHost);
-
-            btnFail.onClick.AddListener(ServerController_III.instance.StopHost);
+            btnRestart = transform.Find("Root/btn_restart").GetComponent<Button>();
         }
 
     }

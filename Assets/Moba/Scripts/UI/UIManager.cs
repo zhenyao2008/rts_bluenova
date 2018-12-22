@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using BlueNoah.UI;
 
 namespace UIFrame
 {
@@ -34,6 +35,7 @@ namespace UIFrame
 			AddCtroller<BuildingListCtrl> ();
 			AddCtroller<PrePlayCtrl> ();
             AddCtroller<BuildingDetailCtrl>();
+            AddCtroller<BattleResultCtrl>();
 		}
 
 		public T AddCtroller<T> () where T : BaseCtrl

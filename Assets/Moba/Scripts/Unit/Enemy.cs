@@ -160,7 +160,7 @@ public class Enemy : UnitBase
 
 	Vector3 mPrePos;
 	//	string mCurrentAnimState = "";
-	void UpdateClient ()
+	public void UpdateClient ()
 	{
 		if (pos != Vector3.zero) {
 //			mTrans.position = Vector3.Lerp (mTrans.position,pos,Mathf.Clamp(3.0f / Vector3.Distance (mTrans.position, pos),syncFactor ,0.5f));
@@ -219,7 +219,7 @@ public class Enemy : UnitBase
 			;
 			break;
 		case UnitState.Idle:
-			StateIdle ();
+			OnStateIdle ();
 			break;
 		case UnitState.Move:
 			StateMove ();
@@ -237,7 +237,7 @@ public class Enemy : UnitBase
 	}
 
 
-	public void StateIdle ()
+	public void OnStateIdle ()
 	{
 		if (preState != UnitState.Idle) {
 			preState = UnitState.Idle;

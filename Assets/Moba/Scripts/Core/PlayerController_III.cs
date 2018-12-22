@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using UIFrame;
 using UnityEngine.EventSystems;
 using BlueNoah.Event;
+using BlueNoah.UI;
 
 public class PlayerController_III : NetworkBehaviour, IPlayerController
 {
@@ -937,11 +938,13 @@ public class PlayerController_III : NetworkBehaviour, IPlayerController
     {
         if (index == this.playerIndex)
         {
-            mResultPanel.winNode.SetActive(true);
+            UIManager.Instance.GetController<BattleResultCtrl>().Win();
+            //mResultPanel.winNode.SetActive(true);
         }
         else if (index != this.playerIndex)
         {
-            mResultPanel.failNode.SetActive(true);
+            UIManager.Instance.GetController<BattleResultCtrl>().Fail();
+            //mResultPanel.failNode.SetActive(true);
         }
     }
 
