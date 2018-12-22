@@ -52,6 +52,9 @@ public class ServerController_III : NetworkManager
     public float cameraHandleSpeed = 20;
     public float cameraHandleSpeedForMobile = 1;
 
+    float spawnInterval = 60;
+    float nextSpawnTime = 0;
+
     BattleSpawnService mBattleSpawnService;
 
     const string KEY_IP_ADRESS = "address";
@@ -160,14 +163,10 @@ public class ServerController_III : NetworkManager
         }
     }
 
-    //float mNextMoneyTime = 0;//下一次加钱时间
-    //float mMoneyInterval = 1;//加钱时间间隔
     int mSpawnTurn;
     int mMoneyPerTips = 800;//每一跳加钱数
     void AddMoney()
     {
-        //if (mNextMoneyTime < Time.time)
-        //{
         foreach (PlayerAttribute pa in playerAttributes)
         {
             pa.corn += Mathf.RoundToInt(mMoneyPerTips * (1 + Mathf.Min(mSpawnTurn / 100f, 1f)));
@@ -176,9 +175,6 @@ public class ServerController_III : NetworkManager
         {
             if (pc != null) pc.RefreshCorn();
         }
-
-        //mNextMoneyTime = Time.time + mMoneyInterval;
-        //}
     }
 
     void BattleBegin()
@@ -338,8 +334,6 @@ public class ServerController_III : NetworkManager
         StopServer();
     }
 
-    float spawnInterval = 10;
-    float nextSpawnTime = 0;
     void SpawnSoilders(List<SpawnPoint> spawners, List<Transform> spTrans, Transform target, int layer, int targetLayer, PlayerAttribute playerAttribute, int playerIndex)
     {
         for (int i = 0; i < spawners.Count; i++)
