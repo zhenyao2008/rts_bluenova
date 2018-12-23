@@ -55,10 +55,12 @@ public class ServerController_III : NetworkManager
 
     //float spawnInterval = 60;
     float nextSpawnTime = 0;
-
+    int mMoneyPerTips = 800;//每一跳加钱数
     BattleSpawnService mBattleSpawnService;
 
     const string KEY_IP_ADRESS = "address";
+
+    public Dictionary<string, GameObject> spawnPrefabDic;
 
     void Awake()
     {
@@ -83,7 +85,17 @@ public class ServerController_III : NetworkManager
             this.networkAddress = PlayerPrefs.GetString(KEY_IP_ADRESS);
         }
         ConfigUtility.Init();
-        //FindObjectOfType<RtsCameraMouse>().MouseOrbitButton = KeyCode.F; 
+        spawnPrefabDic = new Dictionary<string, GameObject>();
+        for (int i = 0; i < spawnPrefabs.Count; i++)
+        {
+            if (!spawnPrefabDic.ContainsKey(spawnPrefabs[i].name))
+                spawnPrefabDic.Add(spawnPrefabs[i].name, spawnPrefabs[i]);
+        }
+
+        boss0.GetComponent<UnitAttribute>().currentHealth = SystemConfig.Instance.battleTownHealth;
+        boss0.GetComponent<UnitAttribute>().maxHealth = SystemConfig.Instance.battleTownHealth;
+        boss1.GetComponent<UnitAttribute>().currentHealth = SystemConfig.Instance.battleTownHealth;
+        boss1.GetComponent<UnitAttribute>().maxHealth = SystemConfig.Instance.battleTownHealth;
     }
 
     void Start()
@@ -151,6 +163,7 @@ public class ServerController_III : NetworkManager
             }
             if (nextSpawnTime < Time.time)
             {
+                Menu.Instance.ShowSkills();
                 nextSpawnTime = Time.time + SystemConfig.Instance.battleSpawnInterval;
                 mSpawnTurn++;
                 AddMoney();
@@ -166,13 +179,35 @@ public class ServerController_III : NetworkManager
         }
     }
 
+    public void SpawnUnit(string prefabName, int playerIndex)
+    {
+        if (playerIndex == 0)
+        {
+            mBattleSpawnService.SpawnUnit(prefabName,boss0.transform.position + new Vector3(Random.Range(-1f,1f),0,Random.Range(-1f,1f)).normalized * 2 , defaultTarget1, layer0, layer1, playerAttributes[0], 0);
+        }
+        else
+        {
+            mBattleSpawnService.SpawnUnit(prefabName,boss1.transform.position + new Vector3(Random.Range(-1f, 1f), 0, Random.Range(-1f, 1f)).normalized * 2, defaultTarget0, layer1, layer0, playerAttributes[1], 1);
+        }
+    }
+
+    void InitMoney(){
+        foreach (PlayerAttribute pa in playerAttributes)
+        {
+            pa.corn = SystemConfig.Instance.defaultCorn;
+        }
+        foreach (PlayerController_III pc in players)
+        {
+            if (pc != null) pc.RefreshCorn();
+        }
+    }
+
     int mSpawnTurn;
-    int mMoneyPerTips = 800;//每一跳加钱数
     void AddMoney()
     {
         foreach (PlayerAttribute pa in playerAttributes)
         {
-            pa.corn += Mathf.RoundToInt(mMoneyPerTips * (1 + Mathf.Min(mSpawnTurn / 100f, 1f)));
+            pa.corn += Mathf.RoundToInt(SystemConfig.Instance.turnCorn * (1 + Mathf.Min(mSpawnTurn / 100f, 1f)));
         }
         foreach (PlayerController_III pc in players)
         {
@@ -187,6 +222,14 @@ public class ServerController_III : NetworkManager
             players[0].SendBattleBegin();
         if (players[1] != null)
             players[1].SendBattleBegin();
+        nextSpawnTime = Time.time + SystemConfig.Instance.battleSpawnInterval + 3;
+
+        for (int i = 0; i < players.Count; i++)
+        {
+            if (players[i] != null) players[i].ChangeTimeLimit(SystemConfig.Instance.battleSpawnInterval + 3);
+        }
+
+        InitMoney();
     }
 
     public override void OnStartServer()
@@ -328,14 +371,13 @@ public class ServerController_III : NetworkManager
             }
         }
         isOver = true;
-
+        Menu.Instance.HideSkills();
         Enemy[] enemies = FindObjectsOfType<Enemy>();
-        foreach(Enemy enemy in enemies){
+        foreach (Enemy enemy in enemies)
+        {
             enemy.enabled = false;
-            //enemy.state = UnitState.Idle;
-            //enemy.OnStateIdle();
-            //enemy.UpdateClient();
-            enemy.nav.isStopped = true;
+            if(enemy.nav.enabled)
+                enemy.nav.isStopped = true;
             enemy.anim.Play(enemy.idleAnimStateName);
         }
         //Time.timeScale = 0;
@@ -356,7 +398,6 @@ public class ServerController_III : NetworkManager
             {
                 prefab.SetActive(false);
                 //TODO
-
                 GameObject go = Instantiate(prefab, spawners[i].spawnPoint.position, spawners[i].spawnPoint.rotation) as GameObject;
                 go.name = prefab.name;
                 if (ConfigUtility.GetUnitAttributeEntity(go.name) != null)

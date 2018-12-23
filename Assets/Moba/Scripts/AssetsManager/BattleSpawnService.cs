@@ -46,12 +46,34 @@ public class BattleSpawnService
         return go;
     }
 
+    public void SpawnUnit(string prefabName,Vector3 position,Transform target, int layer,int targetlayer,PlayerAttribute playerAttribute, int playerIndex){
+        GameObject prefab = mServerController_III.spawnPrefabDic[prefabName];
+        if (prefab != null)
+        {
+            prefab.SetActive(false);
+            GameObject go = GameObject.Instantiate(prefab, position,Quaternion.identity) as GameObject;
+            go.name = prefab.name;
+            Enemy soilder = go.GetComponent<Enemy>();
+            soilder.defaultTarget = target;
+            soilder.pos = position;
+            go.layer = layer;
+            soilder.targetLayers.Add(targetlayer);
+            soilder.playerAttribute = playerAttribute;
+            soilder.playerIndex = playerIndex;
+            go.SetActive(true);
+            mServerController_III.StartCoroutine(_DelayMove(soilder, target));
+            NetworkServer.Spawn(go);
+        }
+    }
+
     IEnumerator _DelayMove(Enemy enemy, Transform target)
     {
         UnityEngine.AI.NavMeshAgent nav = enemy.GetComponent<UnityEngine.AI.NavMeshAgent>();
         nav.enabled = false;
         yield return new WaitForSeconds(1);
-        nav.enabled = true;
+        if(!mServerController_III.isOver){
+            nav.enabled = true;
+        }
     }
 
     //TODO

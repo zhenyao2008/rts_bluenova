@@ -887,6 +887,7 @@ public class PlayerController_III : NetworkBehaviour, IPlayerController
         Camera.main.GetComponent<AudioSource>().clip = ResourcesManager.Instance.GetCoolDownEnd();
         Camera.main.GetComponent<AudioSource>().Play();
         yield return new WaitForSeconds(1);
+
         isBattleBegin = true;
         mPlayerPanel.root.SetActive(true);
         mBuildingPanel.closeButton.onClick.Add(new global::EventDelegate(CloseBuildingPanel));

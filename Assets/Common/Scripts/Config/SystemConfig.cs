@@ -23,4 +23,7 @@ public class SystemConfig{
 	public string[] rips;
 
     public int battleSpawnInterval;
+    public int battleTownHealth;
+    public int defaultCorn;
+    public int turnCorn;
 }
