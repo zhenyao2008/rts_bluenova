@@ -78,21 +78,24 @@ public class MasterSkillService
         {
             Enemy enemy = targetEnemyList[Random.Range(0, targetEnemyList.Count)];
             targetEnemyList.Remove(enemy);
-            enemy.Damage(attacker, 1000);
-            GameObject effect = ResourcesManager.Instance.GetEffect(prefabName);
-            if (effect != null)
+            if (enemy != null)
             {
-                GameObject.Destroy(effect, 3f);
-                effect.transform.position = enemy.transform.position;
+                enemy.Damage(attacker, 1000);
+                GameObject effect = ResourcesManager.Instance.GetEffect(prefabName);
+                if (effect != null)
+                {
+                    GameObject.Destroy(effect, 3f);
+                    effect.transform.position = enemy.transform.position;
+                }
+                //TODO
+                GameObject gameObject = new GameObject();
+                gameObject.transform.SetParent(Camera.main.transform);
+                gameObject.transform.localPosition = Vector3.zero;
+                AudioSource audioSource = gameObject.AddComponent<AudioSource>();
+                audioSource.clip = ResourcesManager.Instance.GetThunder();
+                audioSource.Play();
+                GameObject.Destroy(gameObject, 5f);
             }
-            //TODO
-            GameObject gameObject = new GameObject();
-            gameObject.transform.SetParent(Camera.main.transform);
-            gameObject.transform.localPosition = Vector3.zero;
-            AudioSource audioSource = gameObject.AddComponent<AudioSource>();
-            audioSource.clip = ResourcesManager.Instance.GetThunder();
-            audioSource.Play();
-            GameObject.Destroy(gameObject,5f);
             yield return new WaitForSeconds(0.1f);
         }
     }
