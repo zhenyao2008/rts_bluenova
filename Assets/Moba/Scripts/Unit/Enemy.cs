@@ -132,7 +132,6 @@ public class Enemy : UnitBase
 		this.playerAttribute.corn += target.unitAttribute.killPrice;
 	}
 
-
 	[ClientRpc]
 	public void RpcUpdateHealth (int health)
 	{

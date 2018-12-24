@@ -74,12 +74,20 @@ public class ResourcesManager : SingleMonoBehaviour<ResourcesManager>
 
     public AudioClip GetCoolDown()
     {
-        return Resources.Load<AudioClip>("Sounds/cooldown");
+        return Resources.Load<AudioClip>("Sounds/Battle/cooldown");
     }
 
     public AudioClip GetCoolDownEnd()
     {
-        return Resources.Load<AudioClip>("Sounds/cooldown_end");
+        return Resources.Load<AudioClip>("Sounds/Battle/cooldown_end");
+    }
+
+    public AudioClip GetThunderStart(){
+        return Resources.Load<AudioClip>("Sounds/SE/SE_skillsound_lightning01");
+    }
+
+    public AudioClip GetThunder(){
+        return Resources.Load<AudioClip>("Sounds/SE/CanonTowerShoot");
     }
 
     #endregion
@@ -172,6 +180,8 @@ public class ResourcesManager : SingleMonoBehaviour<ResourcesManager>
     Dictionary<string, GameObject> mEffectPrefabs;
 
     const string BUILDING_SPAWN_EFFECT = "effects/Explosion 25";
+
+    public const string SKILL_THUNDER_EFFECT = "effects/SingleThunder";
 
     public GameObject GetEffect(string effectPath)
     {
