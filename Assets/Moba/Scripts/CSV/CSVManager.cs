@@ -43,12 +43,12 @@ public class CSVManager :SingleMonoBehaviour<CSVManager>
 		mCsvContext = new CsvContext ();
         LoadLanguage();
         LoadUnit();
-        LoadBuilding();
+        //LoadBuilding();
 		mLoaded = true;
 	}
 
     void LoadUnit(){
-        unitList = CreateCSVList<UnitCSVStructure>("m_unit");
+        unitList = CreateCSVList<UnitCSVStructure>("m_unit_1");
         unitDic = GetDictionary<UnitCSVStructure>(unitList);
     }
 
