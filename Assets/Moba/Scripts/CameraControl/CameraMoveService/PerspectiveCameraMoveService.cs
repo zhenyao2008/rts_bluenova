@@ -1,6 +1,4 @@
 using UnityEngine;
-using System.Collections;
-using BlueNoah.Event;
 
 namespace BlueNoah.CameraControl
 {
@@ -38,8 +36,6 @@ namespace BlueNoah.CameraControl
                     pos3 = raycastHit.point;
                 }
 #endif
-                //Vector3 centerOffset = targetPos - mCamera.transform.position;
-                //Vector3 centerOffset = Vector3.zero;
                 Vector3 offset0 = GetOffset(NearTopRightCorner, (FarTopRightCorner - NearTopRightCorner).normalized);
                 Vector3 offset1 = GetOffset(NearTopLeftCorner, (FarTopLeftCorner - NearTopLeftCorner).normalized);
                 Vector3 offset2 = GetOffset(NearBottomLeftCorner, (FarBottomLeftCorner - NearBottomLeftCorner).normalized);

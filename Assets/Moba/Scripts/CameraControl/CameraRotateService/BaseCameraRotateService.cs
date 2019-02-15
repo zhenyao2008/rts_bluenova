@@ -34,6 +34,18 @@ namespace BlueNoah.CameraControl
             mCamera = camera;
         }
 
+        public float RotateSpeed
+        {
+            get
+            {
+                return mRotateSpeed;
+            }
+            set
+            {
+                mRotateSpeed = value;
+            }
+        }
+
         public bool IsCameraAutoRotate
         {
             get

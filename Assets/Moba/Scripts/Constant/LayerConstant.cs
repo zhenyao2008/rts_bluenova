@@ -21,4 +21,8 @@ public static class LayerConstant {
     public const int LAYER_UNWALKABLE = 17;
 
 
+    public const int LAYER_ROAD = 19;
+    public const int LAYER_ROAD_SIDE = 24;
+    public const int LAYER_BRIDGE = 23;
+
 }

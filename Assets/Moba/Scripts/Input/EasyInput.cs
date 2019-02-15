@@ -51,6 +51,9 @@ namespace BlueNoah.Event
         protected override void Awake()
         {
             base.Awake();
+
+            //DontDestroyOnLoad(this.gameObject);
+
             mEventData = new EventData();
             mLateEventData = new EventData();
             mTouchActionDic = new Dictionary<TouchType, List<UnityAction<EventData>>>();
@@ -349,8 +352,14 @@ namespace BlueNoah.Event
             PointerEventData eventDataCurrentPosition = new PointerEventData(EventSystem.current);
             eventDataCurrentPosition.position = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
             List<RaycastResult> results = new List<RaycastResult>();
-            EventSystem.current.RaycastAll(eventDataCurrentPosition, results);
-            return results.Count > 0;
+            if (EventSystem.current != null) {
+                EventSystem.current.RaycastAll(eventDataCurrentPosition, results);
+                return results.Count > 0;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         bool CheckOverGameObject()

@@ -2,6 +2,7 @@
 using DG.Tweening;
 using UnityEngine.Events;
 using BlueNoah.Event;
+using BlueNoah.Utility;
 
 namespace BlueNoah.CameraControl
 {
@@ -14,7 +15,7 @@ namespace BlueNoah.CameraControl
         Camera mCamera;
         BoxCollider mMoveArea;
         BaseCameraPinchService mBaseCameraPinchService;
-        BaseCameraRotateService mCameraRotateService;
+        BaseCameraRotateService mBaseCameraRotateService;
         BaseCameraMoveService mBaseCameraMoveService;
 
         protected override void Awake()
@@ -24,7 +25,7 @@ namespace BlueNoah.CameraControl
             if (mCamera == null)
                 mCamera = Camera.main;
 
-            mCameraRotateService = new BaseCameraRotateService(mCamera);
+            mBaseCameraRotateService = new BaseCameraRotateService(mCamera);
 
             if (mCamera.orthographic)
             {
@@ -132,11 +133,11 @@ namespace BlueNoah.CameraControl
         {
             get
             {
-                return mCameraRotateService.IsVerticalRotateable;
+                return mBaseCameraRotateService.IsVerticalRotateable;
             }
             set
             {
-                mCameraRotateService.IsVerticalRotateable = value;
+                mBaseCameraRotateService.IsVerticalRotateable = value;
             }
         }
 
@@ -144,11 +145,11 @@ namespace BlueNoah.CameraControl
         {
             get
             {
-                return mCameraRotateService.IsHorizontalRotateable;
+                return mBaseCameraRotateService.IsHorizontalRotateable;
             }
             set
             {
-                mCameraRotateService.IsHorizontalRotateable = value;
+                mBaseCameraRotateService.IsHorizontalRotateable = value;
             }
         }
 
@@ -176,28 +177,43 @@ namespace BlueNoah.CameraControl
             }
         }
 
+        public float RotateSpeed
+        {
+            get
+            {
+                return mBaseCameraRotateService.RotateSpeed;
+            }
+            set
+            {
+                mBaseCameraRotateService.RotateSpeed = value;
+            }
+        }
+
         public void SetCameraMoveArea(BoxCollider boxCollider)
         {
             mBaseCameraMoveService.SetMoveArea(boxCollider);
-            mCameraRotateService.SetMoveArea(boxCollider);
+            mBaseCameraRotateService.SetMoveArea(boxCollider);
         }
 
         void OnTouchBegin(EventData eventData)
         {
-            if (!eventData.isPointerOnGameObject)
+            if (!Input.GetKey(KeyCode.LeftControl))
             {
-                mBaseCameraMoveService.CancelMove();
-                mBaseCameraPinchService.CancelPinch();
-                if (!mCameraRotateService.IsCameraAutoRotate && mIsControllable && IsMoveable && !mBaseCameraPinchService.IsPinching)
+                if (!eventData.isPointerOnGameObject)
                 {
-                    mBaseCameraMoveService.MoveBegin(eventData);
+                    mBaseCameraMoveService.CancelMove();
+                    mBaseCameraPinchService.CancelPinch();
+                    if (!mBaseCameraRotateService.IsCameraAutoRotate && mIsControllable && IsMoveable && !mBaseCameraPinchService.IsPinching)
+                    {
+                        mBaseCameraMoveService.MoveBegin(eventData);
+                    }
                 }
             }
         }
 
         void OnTouch(EventData eventData)
         {
-            if (!mCameraRotateService.IsCameraAutoRotate && mIsControllable && IsMoveable && !mBaseCameraPinchService.IsPinching)
+            if (!mBaseCameraRotateService.IsCameraAutoRotate && mIsControllable && IsMoveable && !mBaseCameraPinchService.IsPinching)
             {
                 mBaseCameraMoveService.Move(eventData);
             }
@@ -205,7 +221,7 @@ namespace BlueNoah.CameraControl
 
         void OnTouchEnd(EventData eventData)
         {
-            if (!mCameraRotateService.IsCameraAutoRotate && mIsControllable && IsMoveable && !mBaseCameraPinchService.IsPinching)
+            if (!mBaseCameraRotateService.IsCameraAutoRotate && mIsControllable && IsMoveable && !mBaseCameraPinchService.IsPinching)
             {
                 mBaseCameraMoveService.MoveEnd(eventData);
             }
@@ -219,11 +235,11 @@ namespace BlueNoah.CameraControl
         void OnRotate(EventData eventData)
         {
             float angle = Vector3.Angle(eventData.touchPos1 - eventData.touchPos0, new Vector3(1, 0, 0));
-            if (mCameraRotateService.IsHorizontalRotateable)
+            if (mBaseCameraRotateService.IsHorizontalRotateable)
             {
-                mCameraRotateService.HorizontalRotate(eventData.deltaAngle * 0.5f);
+                mBaseCameraRotateService.HorizontalRotate(eventData.deltaAngle * 0.5f);
             }
-            if (mCameraRotateService.IsVerticalRotateable)
+            if (mBaseCameraRotateService.IsVerticalRotateable)
             {
                 if (Mathf.Abs(eventData.deltaTouchPos0.x / eventData.deltaTouchPos0.y) < 0.3f && Mathf.Abs(eventData.deltaTouchPos1.x / eventData.deltaTouchPos1.y) < 0.3f)
                 {
@@ -236,7 +252,7 @@ namespace BlueNoah.CameraControl
                     {
                         y = Mathf.Max(eventData.deltaTouchPos0.y, eventData.deltaTouchPos1.y);
                     }
-                    mCameraRotateService.VerticalRotate(y * 0.5f);
+                    mBaseCameraRotateService.VerticalRotate(y * 0.5f);
                 }
             }
         }
@@ -293,19 +309,20 @@ namespace BlueNoah.CameraControl
 
         public void DOVerticalRotate(Vector3 pos, float angle, float rotateDuration, UnityAction onComplete = null)
         {
-            mCameraRotateService.DOVerticalRotate(pos, angle, rotateDuration, onComplete);
+            mBaseCameraRotateService.DOVerticalRotate(pos, angle, rotateDuration, onComplete);
         }
 
         public void DOVerticalRotate(Vector3 pos, Vector3 angle, float rotateDuration, UnityAction onComplete = null)
         {
-            mCameraRotateService.DOVerticalRotate(pos, angle, rotateDuration, onComplete);
+            mBaseCameraRotateService.DOVerticalRotate(pos, angle, rotateDuration, onComplete);
         }
 
         public void DOMove(Vector3 offset, float x, float y, float moveDuration, UnityAction onComplete)
         {
             Vector3 forward = mCamera.transform.forward;
             forward = new Vector3(forward.x, 0, forward.z).normalized;
-            Vector3 targetPos = offset + mCamera.transform.position + forward * x + mCamera.transform.right * y;
+            offset = offset + mCamera.orthographicSize * forward * x + Screen.width / (float)Screen.height * mCamera.orthographicSize * mCamera.transform.right * y;
+            Vector3 targetPos = offset + mCamera.transform.position;
             mCamera.transform.DOMove(targetPos, moveDuration).OnComplete(() =>
             {
                 if (onComplete != null)
@@ -372,7 +389,7 @@ namespace BlueNoah.CameraControl
             return mCamera.transform.position + mCamera.transform.up * y + mCamera.transform.right * x;
         }
 
-        public bool RaycastByOrthographicCamera(out RaycastHit raycastHit, int layer)
+        public bool GetWorldTransFromMousePositionByOrthographicCamera(out RaycastHit raycastHit, int layer)
         {
             Vector3 pos = ScreenPositionToOrthograhicCameraPosition();
             if (Physics.Raycast(pos, mCamera.transform.forward, out raycastHit, Mathf.Infinity, 1 << layer))
@@ -380,6 +397,19 @@ namespace BlueNoah.CameraControl
                 return true;
             }
             return false;
+        }
+
+        public bool GetWorldTransFromMousePositionByPerspectiveCamera(out RaycastHit raycastHit,int layer)
+        {
+            Vector3 mousePosition = Input.mousePosition;
+
+            mousePosition.z = 10;
+
+            Vector3 position = Camera.main.ScreenToWorldPoint(mousePosition);
+
+            Vector3 forward = (position - Camera.main.transform.position).normalized;
+
+            return Physics.Raycast(Camera.main.transform.position, forward, out raycastHit, Mathf.Infinity, 1 << LayerConstant.LAYER_GROUND);
         }
 
         public bool RaycastByOrthographicCamera(out RaycastHit raycastHit)
@@ -425,7 +455,7 @@ namespace BlueNoah.CameraControl
             if (IsMoveable)
                 mBaseCameraMoveService.OnUpdate();
             mBaseCameraPinchService.OnUpdate();
-            mCameraRotateService.OnUpdate();
+            mBaseCameraRotateService.OnUpdate();
         }
 
         void LateUpdate()
@@ -433,7 +463,7 @@ namespace BlueNoah.CameraControl
             if (IsMoveable)
                 mBaseCameraMoveService.OnLateUpdate();
             mBaseCameraPinchService.OnLateUpdate();
-            mCameraRotateService.OnLateUpdate();
+            mBaseCameraRotateService.OnLateUpdate();
         }
 
         void OnDrawGizmos()
