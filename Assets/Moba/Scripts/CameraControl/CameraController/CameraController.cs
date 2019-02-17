@@ -389,7 +389,19 @@ namespace BlueNoah.CameraControl
             return mCamera.transform.position + mCamera.transform.up * y + mCamera.transform.right * x;
         }
 
-        public bool GetWorldTransFromMousePositionByOrthographicCamera(out RaycastHit raycastHit, int layer)
+        public bool GetWorldTransFromMousePosition(out RaycastHit raycastHit, int layer)
+        {
+            if (mCamera.orthographic)
+            {
+                return GetWorldTransFromMousePositionByOrthographicCamera(out raycastHit, layer);
+            }
+            else
+            {
+                return GetWorldTransFromMousePositionByPerspectiveCamera(out raycastHit, layer);
+            }
+        }
+
+        bool GetWorldTransFromMousePositionByOrthographicCamera(out RaycastHit raycastHit, int layer)
         {
             Vector3 pos = ScreenPositionToOrthograhicCameraPosition();
             if (Physics.Raycast(pos, mCamera.transform.forward, out raycastHit, Mathf.Infinity, 1 << layer))
@@ -399,7 +411,7 @@ namespace BlueNoah.CameraControl
             return false;
         }
 
-        public bool GetWorldTransFromMousePositionByPerspectiveCamera(out RaycastHit raycastHit,int layer)
+        bool GetWorldTransFromMousePositionByPerspectiveCamera(out RaycastHit raycastHit,int layer)
         {
             Vector3 mousePosition = Input.mousePosition;
 

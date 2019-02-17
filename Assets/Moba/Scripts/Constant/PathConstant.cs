@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.IO;
+using BlueNoah.IO;
 
 #if UNITY_EDITOR
 using UnityEditor;

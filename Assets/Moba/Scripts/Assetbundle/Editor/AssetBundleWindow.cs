@@ -4,7 +4,7 @@ using UnityEditor;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
-
+using BlueNoah.IO;
 
 public class AssetBundleWindow : EditorWindow
 {
@@ -58,13 +58,13 @@ public class AssetBundleWindow : EditorWindow
 		InitBuild ();
 		styleRed = new GUIStyle ();
 		styleRed.active.textColor = Color.red;
-		if (!FileManager.DirectoryExists (tempResourceAssetPath)) {
+		if (!FileManager.DirectoryExisting (tempResourceAssetPath)) {
 			FileManager.CreateDirectory (tempResourceAssetPath);
 		}
-		if (!FileManager.DirectoryExists (fullTmpOutputPath)) {
+		if (!FileManager.DirectoryExisting(fullTmpOutputPath)) {
 			FileManager.CreateDirectory (fullTmpOutputPath);
 		}
-		if (!FileManager.DirectoryExists (fullTmpVersionOutputPath)) {
+		if (!FileManager.DirectoryExisting(fullTmpVersionOutputPath)) {
 			FileManager.CreateDirectory (fullTmpVersionOutputPath);
 		}
 	}

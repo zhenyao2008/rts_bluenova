@@ -4,6 +4,7 @@ using UnityEngine;
 using System.IO;
 using CSV;
 using UnityEngine.Events;
+using BlueNoah.IO;
 
 public class DownloadManager : SingleMonoBehaviour<DownloadManager>
 {

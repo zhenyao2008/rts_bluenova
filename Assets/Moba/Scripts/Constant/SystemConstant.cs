@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System;
 using System.Collections.Generic;
+using BlueNoah.IO;
 
 #if UNITY_EDITOR
 using UnityEditor;
@@ -116,7 +117,7 @@ public class SystemConstant
 
     public static void ClearDeviceID()
     {
-		if (FileManager.DirectoryExists (PathConstant.CLIENT_DEVICEID_DIRECTORY)) 
+		if (FileManager.DirectoryExisting (PathConstant.CLIENT_DEVICEID_DIRECTORY)) 
 		{	
 			try
 			{
