@@ -54,6 +54,15 @@ namespace BlueNoah.Event
 
             //DontDestroyOnLoad(this.gameObject);
 
+            if (mTouchActionDic == null)
+            {
+                Init();
+            }
+
+        }
+
+       void Init()
+        {
             mEventData = new EventData();
             mLateEventData = new EventData();
             mTouchActionDic = new Dictionary<TouchType, List<UnityAction<EventData>>>();
@@ -79,7 +88,6 @@ namespace BlueNoah.Event
             mLateTouchActionDic.Add(TouchType.DoubleClick, new List<UnityAction<EventData>>());
 
             SceneManager.sceneUnloaded += OnUnloaded;
-
         }
 
         void OnUnloaded(Scene scene)
@@ -105,11 +113,19 @@ namespace BlueNoah.Event
 
         public void AddListener(TouchType touchType, UnityAction<EventData> unityAction)
         {
+            if (mTouchActionDic == null)
+            {
+                Init();
+            }
             mTouchActionDic[touchType].Add(unityAction);
         }
 
         public void AddLateUpdateListener(TouchType touchType, UnityAction<EventData> unityAction)
         {
+            if (mLateTouchActionDic == null)
+            {
+                Init();
+            }
             mLateTouchActionDic[touchType].Add(unityAction);
         }
 
