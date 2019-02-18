@@ -32,8 +32,8 @@ namespace BlueNoah.PathFinding.FixedPoint
             gridSetting.nodeWidth = 0.5f;
             gridSetting.diagonalPlus = 1.4f;
             gridSetting.startPos = new FixedPointVector3(0, 0, 0);
-            gridSetting.xCount = 100;
-            gridSetting.zCount = 100;
+            gridSetting.xCount = 150;
+            gridSetting.zCount = 80;
             mGrid.Init(gridSetting);
             mPathAgent = new FixedPointPathAgent(mGrid);
             //CreateCharacter();
@@ -87,9 +87,9 @@ namespace BlueNoah.PathFinding.FixedPoint
 
                 if (CameraControl.CameraController.Instance.GetWorldTransFromMousePosition(out raycastHit, LayerConstant.LAYER_GROUND))
                 {
-                    GameObject GO = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-                    GO.transform.position = raycastHit.point;
-                    Debug.Log(raycastHit.point);
+                    //GameObject GO = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+                    //GO.transform.position = raycastHit.point;
+                    //Debug.Log(raycastHit.point);
                 }
 
             }

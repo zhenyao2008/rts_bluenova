@@ -1,12 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using RTS;
+using BlueNoah.Math.FixedPoint;
 
 namespace BlueNoah.SceneControl
 {
     public class RTSSceneController : BaseSceneController<RTSSceneController>
     {
-        ScreenSelectService mScreenSelectService;
+
+        RTSPlayerController mRTSPlayerController;
+
+        RTSActorSpawnService mRTSActorSpawnService;
 
         protected override void InitBuildingGrid()
         {
@@ -30,8 +35,10 @@ namespace BlueNoah.SceneControl
 
         protected override void InitInput()
         {
-            //throw new System.NotImplementedException();
-            mScreenSelectService = new ScreenSelectService();
+            mRTSPlayerController = new RTSPlayerController();
+
+            mRTSActorSpawnService = new RTSActorSpawnService();
+
         }
 
         protected override void InitSmallObjects()
@@ -54,9 +61,20 @@ namespace BlueNoah.SceneControl
             //throw new System.NotImplementedException();
         }
 
+        public void SpawnActor(int playerId,int actorId,FixedPointVector3 targetPosition)
+        {
+            GameObject go = mRTSActorSpawnService.SpawnActor(actorId);
+            go.transform.position = targetPosition.ToVector3();
+        }
+
         private void OnGUI()
         {
-            mScreenSelectService.OnGUI();
+            mRTSPlayerController.OnGUI();
+        }
+
+        private void Update()
+        {
+            mRTSPlayerController.OnUpdate();
         }
     }
 
