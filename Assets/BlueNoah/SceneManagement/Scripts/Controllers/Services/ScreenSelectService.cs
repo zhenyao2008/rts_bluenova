@@ -8,15 +8,10 @@ namespace BlueNoah.SceneControl
     {
 
         Vector3 mStartPos;
-
         Vector3 mCurrentPos;
-
         bool mIsSelecting;
-
         bool mIsSelectable;
-
         Texture2D texture2D;
-
         public UnityAction<Rect> onSelected;
 
         public ScreenSelectService()
@@ -40,8 +35,10 @@ namespace BlueNoah.SceneControl
                 float yMin = Mathf.Min(mStartPos.y, mCurrentPos.y);
                 float xMax = Mathf.Max(mStartPos.x, mCurrentPos.x);
                 float yMax = Mathf.Max(mStartPos.y, mCurrentPos.y);
+                //the Rect for GUI position.
                 Rect rect = new Rect(xMin, Screen.height - yMax, xMax - xMin, yMax - yMin);
-                Graphics.DrawTexture(rect, texture2D, 1, 1, 1, 1);
+                if (UnityEngine.Event.current.type.Equals(EventType.Repaint))
+                    Graphics.DrawTexture(rect, texture2D, 2, 2, 2, 2);
             }
         }
 
@@ -81,7 +78,7 @@ namespace BlueNoah.SceneControl
         {
             if (!Input.GetKey(KeyCode.LeftControl))
             {
-                mIsSelecting = false;
+                // mIsSelecting = false;
             }
             mCurrentPos = eventData.touchPos0;
         }
@@ -95,10 +92,23 @@ namespace BlueNoah.SceneControl
                 float yMin = Mathf.Min(mStartPos.y, mCurrentPos.y);
                 float xMax = Mathf.Max(mStartPos.x, mCurrentPos.x);
                 float yMax = Mathf.Max(mStartPos.y, mCurrentPos.y);
+                //the Rect for Input position.
                 Rect rect = new Rect(xMin, yMin, xMax - xMin, yMax - yMin);
                 if (onSelected != null)
                     onSelected(rect);
             }
+        }
+
+        public bool IsInSelectRect(Rect rect, float x, float y)
+        {
+            if (x > rect.x && x < rect.x + rect.width)
+            {
+                if (y > rect.y && y < rect.y + rect.height)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
 
         public bool IsSelectable
