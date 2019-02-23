@@ -1,70 +1,105 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿/*
+ *　2019.2.23 午後７時６分、横浜青葉台
+ *　應　彧剛(yingyugang@gmail.com)
+*/
+
 using RTS;
 using BlueNoah.Math.FixedPoint;
+using BlueNoah.SceneControl.View;
+using UnityEngine;
+using System.Collections.Generic;
+using BlueNoah.AI.View.RTS;
 
 namespace BlueNoah.SceneControl
 {
-    public class RTSSceneController : BaseSceneController<RTSSceneController>
+    public class RTSSceneController : SimpleSingleMonoBehaviour<RTSSceneController>
     {
 
         RTSPlayerController mRTSPlayerController;
 
-        RTSActorSpawnService mRTSActorSpawnService;
+        SceneCore mSceneCore;
 
-        protected override void InitBuildingGrid()
+        SceneViewer mSceneViewer;
+
+        protected override void Awake()
+        {
+            base.Awake();
+            Init();
+        }
+
+        void FixedUpdate()
+        {
+            mSceneCore.OnUpdate();
+        }
+
+        void Init()
+        {
+            mSceneCore = new SceneCore();
+            mSceneViewer = gameObject.GetOrAddComponent<SceneViewer>();
+            mSceneCore.SetActorOnSpawn(mSceneViewer.SpawnActorView);
+            mSceneCore.SetActorOnRemove(mSceneViewer.RemoveActorView);
+            //mSceneCore.SetActorOnSpawn(mSceneViewer.S);
+            InitInput();
+        }
+
+        public Dictionary<long, ActorViewer> GetActorViewers(int playerId)
+        {
+            if (mSceneViewer.GetActors().ContainsKey(playerId))
+            {
+                return mSceneViewer.GetActors()[playerId];
+            }
+            return null;
+        }
+
+        void InitBuildingGrid()
         {
             //throw new System.NotImplementedException();
         }
 
-        protected override void InitBuildings()
+        void InitBuildings()
         {
             //throw new System.NotImplementedException();
         }
 
-        protected override void InitCamera()
+        void InitCamera()
         {
             //throw new System.NotImplementedException();
         }
 
-        protected override void InitEnviroment()
+        void InitEnviroment()
         {
             //throw new System.NotImplementedException();
         }
 
-        protected override void InitInput()
+        void InitInput()
         {
             mRTSPlayerController = new RTSPlayerController();
-
-            mRTSActorSpawnService = new RTSActorSpawnService();
-
+            mRTSPlayerController.onCreateActor = SpawnActor;
         }
 
-        protected override void InitSmallObjects()
+        void InitSmallObjects()
         {
             //throw new System.NotImplementedException();
         }
 
-        protected override void InitUI()
+        void InitUI()
         {
             //throw new System.NotImplementedException();
         }
 
-        protected override void InitUnitGrid()
+        void InitUnitGrid()
         {
             //throw new System.NotImplementedException();
         }
 
-        protected override void InitUnits()
+        void InitUnits()
         {
             //throw new System.NotImplementedException();
         }
 
-        public void SpawnActor(int playerId,int actorId,FixedPointVector3 targetPosition)
+        public void SpawnActor(int playerId, int actorId, Vector3 targetPosition, Vector3 eulerAngle)
         {
-            GameObject go = mRTSActorSpawnService.SpawnActor(actorId);
-            go.transform.position = targetPosition.ToVector3();
+            mSceneCore.SpawnActor(playerId, actorId, targetPosition.ToFixedPointVector3(), eulerAngle.ToFixedPointVector3());
         }
 
         private void OnGUI()

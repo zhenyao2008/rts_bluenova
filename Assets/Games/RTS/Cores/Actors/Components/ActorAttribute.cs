@@ -1,0 +1,67 @@
+﻿using BlueNoah.Math.FixedPoint;
+
+namespace BlueNoah.AI.RTS
+{
+
+    public enum MoveSpeed
+    {
+        Run, Walk
+    }
+    public class ActorAttribute
+    {
+        static long index = 0;
+        #region 1.Basic Attribute.
+        public int playerId;
+        public int actorTypeId;
+        public long actorId;
+        public FixedPoint64 currentHealth;
+        public FixedPoint64 maxHealth;
+        public FixedPoint64 currentAttack;
+        public FixedPoint64 maxAttack;
+        public FixedPoint64 currentDefence;
+        public FixedPoint64 maxDefence;
+        #endregion
+
+        #region 2.Plus Attribute.
+        public FixedPoint64 runSpeed;
+        public FixedPoint64 walkSpeed;
+        public FixedPoint64 CurrentSpeed(MoveSpeed moveSpeed)
+        {
+            FixedPoint64 currentSpeed;
+            switch (moveSpeed)
+            {
+                case MoveSpeed.Run:
+                    currentSpeed = runSpeed;
+                    break;
+                case MoveSpeed.Walk:
+                    currentSpeed = walkSpeed;
+                    break;
+                default:
+                    currentSpeed = walkSpeed;
+                    break;
+            }
+            return currentSpeed * 0.5f + currentSpeed * 0.5f * FixedPointMath.Max(currentStrength, 1) / FixedPointMath.Max(maxStrength, 1);
+        }
+        public FixedPoint64 currentStrength;
+        public FixedPoint64 maxStrength;
+        public void OnRun()
+        {
+            currentStrength -= 0.005f;
+        }
+        public void OnAction()
+        {
+            currentStrength -= 0.01f;
+        }
+        #endregion
+
+        #region 3.Addition Attribute
+        //TODO Base system type;
+        #endregion
+
+        public ActorAttribute()
+        {
+            actorId = index;
+            index++;
+        }
+    }
+}

@@ -33,10 +33,11 @@ namespace BlueNoah.PathFinding
             }
         }
 
-        public static void NewInstance()
+        public static PathFindingMananger NewInstance()
         {
             mInstance = new PathFindingMananger();
             mInstance.InitAStarPathFinding();
+            return mInstance;
         }
 
         private PathFindingMananger()
@@ -75,11 +76,16 @@ namespace BlueNoah.PathFinding
             mMaterial = Resources.Load<Material>("Materials/node");
             mGrid = new FixedPoint.FixedPointGrid();
             FixedPointGridSetting gridSetting = new FixedPointGridSetting();
+            //gridSetting.nodeWidth = 0.5f;
+            //gridSetting.diagonalPlus = 1f;
+            //gridSetting.startPos = new FixedPointVector3(0, 0, 0);
+            //gridSetting.xCount = 120;
+            //gridSetting.zCount = 120;
             gridSetting.nodeWidth = 0.5f;
-            gridSetting.diagonalPlus = 1f;
+            gridSetting.diagonalPlus = 1.4f;
             gridSetting.startPos = new FixedPointVector3(0, 0, 0);
-            gridSetting.xCount = 120;
-            gridSetting.zCount = 120;
+            gridSetting.xCount = 150;
+            gridSetting.zCount = 80;
             mGrid.Init(gridSetting);
             mPathAgent = new FixedPointPathAgent(mGrid);
 
