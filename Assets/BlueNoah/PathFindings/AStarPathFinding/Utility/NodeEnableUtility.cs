@@ -34,6 +34,7 @@ namespace BlueNoah.PathFinding.FixedPoint
         {
             for (int i = 0; i < fixedPointGrid.NodeList.Count; i++)
             {
+                fixedPointGrid.NodeList[i].Enable = true;
                 if (Physics.CheckBox(fixedPointGrid.NodeList[i].pos.ToVector3(), Vector3.one * (fixedPointGrid.GridSetting.nodeWidth.AsFloat() * 0.4f), Quaternion.identity, ~(1 << LayerConstant.LAYER_GROUND)))
                 {
                     fixedPointGrid.NodeList[i].IsBlock = true;

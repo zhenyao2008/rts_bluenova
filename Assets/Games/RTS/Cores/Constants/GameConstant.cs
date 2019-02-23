@@ -4,6 +4,6 @@
     public static class GameConstant
     {
 
-        public const int ACTOR_SPEED = 2;
+        public const int ACTOR_SPEED = 10;
     }
 }

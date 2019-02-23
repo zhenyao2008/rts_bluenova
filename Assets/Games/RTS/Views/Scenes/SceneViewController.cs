@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using BlueNoah.AI.RTS;
 using BlueNoah.AI.Spawn.View;
 using BlueNoah.AI.View.RTS;
+using BlueNoah.PathFinding;
+using BlueNoah.PathFinding.FixedPoint;
 using UnityEngine;
 
 namespace BlueNoah.SceneControl.View
@@ -12,9 +14,13 @@ namespace BlueNoah.SceneControl.View
 
         ActorViewSpawnService mActorViewSpawnService;
 
+        FixedPointGridDebuger mFixedPointGridDebuger;
+
         public SceneViewer()
         {
             mActorViewSpawnService = new ActorViewSpawnService();
+
+            mFixedPointGridDebuger = new FixedPointGridDebuger(PathFindingMananger.Single.Grid);
         }
 
         public void SpawnActorView(ActorCore actorCore)
@@ -32,6 +38,12 @@ namespace BlueNoah.SceneControl.View
         public Dictionary<int, Dictionary<long, ActorViewer>> GetActors()
         {
             return mActorViewSpawnService.PlayerActors;
+        }
+
+        private void OnDrawGizmos()
+        {
+            if (mFixedPointGridDebuger != null)
+                mFixedPointGridDebuger.OnDrawGizmos();
         }
 
     }

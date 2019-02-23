@@ -1,66 +1,79 @@
+/*
+ MoveAgent for town.
+ Has avoid.Cost is high.
+ 應　彧剛（yingyugang@gmail.com）
+ */
 using BlueNoah.Math.FixedPoint;
-using UnityEngine;
+// using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace BlueNoah.PathFinding.FixedPoint
 {
-
     public delegate void PathMoveAction();
+
+    public delegate void PathMoveAction<T0>(T0 t);
 
     [System.Serializable]
     public class FixedPointMoveAgent
     {
-        //prepare trigge other character.
-        public event PathMoveAction preTrigger;
-
-        PathMoveAction mOnMoveDone;
 
         public PathMoveAction onMove;
-
         public PathMoveAction onStop;
-
-        bool mIsMoving = false;
-
-        FixedPoint64 MIN_STOP_DISTANCE = 0.1f;
-
-        List<FixedPointNode> mTargetPosList;
-
+        public PathMoveAction<FixedPointTransform> onPositionChange;
+        public PathMoveAction<FixedPointTransform> onNodeChange;
+        public PathMoveAction onMoveDone;
+        List<FixedPointNode> mPath;
         public FixedPointNode currentNode;
-
         FixedPointNode mTargetNode;
-
+        bool mIsMoving = false;
         int mCurrentIndex = 0;
-
         public int priority = 0;
-
         public FixedPointTransform transform;
-
-        public UnityEngine.Transform viewTransform;
-        //Per frame,not per second.
-        public FixedPoint64 deltaDistancePerFrame;
-
+        //Per frame distance,not per second.
+        FixedPoint64 mSpeed;
         int mUnitCountWhenEnterNode;
-
         FixedPointVector3 mTargetPos;
-
         bool mIsBlocked;
-
+        FixedPointMoveAgent mWaitingMoveAgent;
         bool mIsWaitBridge;
-
         bool mIsWaitForOther;
-
         int mWaitTime = 40;
-
-        int mExitTime;
-
+        long mNextMoveTime;
         bool mIgnoreMode = false;
-
-        FixedPointNode mWaitingNode;
+        long mNextAvoid;
+        const int AVOID_INTERVAL = 20;
+        const int WAIT_MOVE_NODE_COUNT = 6;
 
         //need call it when gameobject destory or moveagent disabled;
         public void Disable()
         {
 
+        }
+        public FixedPoint64 Speed
+        {
+            get
+            {
+                return mSpeed;
+            }
+            set
+            {
+                mSpeed = value / 60;
+            }
+        }
+        public void Block(FixedPointMoveAgent waitMoveAgent)
+        {
+
+            mWaitingMoveAgent = waitMoveAgent;
+
+            mNextMoveTime = SceneControl.Framer.Instance.CurrentFrame + mWaitTime;
+
+            mIsBlocked = true;
+
+            if (onStop != null)
+            {
+                onStop();
+            }
         }
 
         public void OnUpdate()
@@ -73,46 +86,37 @@ namespace BlueNoah.PathFinding.FixedPoint
             {
                 if (mIsBlocked)
                 {
-                    mExitTime++;
-                    if (mExitTime >= mWaitTime)
+                    if (mWaitingMoveAgent != null)
                     {
-                        mIgnoreMode = true;
-                        mIsBlocked = false;
-                        if (onMove != null)
+                        FixedPoint64 distance = FixedPointVector3.Distance(mWaitingMoveAgent.transform.position, transform.position);
+
+                        if (mNextMoveTime < SceneControl.Framer.Instance.CurrentFrame && distance > 2)
                         {
-                            onMove();
-                        }
-                    }
-                    if (mWaitingNode.unitCount == 0)
-                    {
-                        mIsBlocked = false;
-                        currentNode.IsBlock = false;
-                        if (onMove != null)
-                        {
-                            onMove();
+
+                            mIsBlocked = false;
+
+                            currentNode.IsBlock = false;
+
+                            if (onMove != null)
+                            {
+                                onMove();
+                            }
                         }
                     }
                 }
-
             }
             if (mIsMoving)
             {
                 if (WaitForOther())
                 {
-                    DoMoveWithWhile();
+                    DoMove();
                 }
-                //else
-                //{
-                //    unitCore.GetComponent<UnitAnimation>().UnRun();
-                //}
             }
         }
-
         public void ReDestination()
         {
-            SetDestination(this.mTargetPos, mOnMoveDone);
+            SetDestination(this.mTargetPos, onMoveDone);
         }
-
         public void SetDestination(List<FixedPointVector3> targetPosList, PathMoveAction onMoveDone = null)
         {
             List<FixedPointNode> allTargetMovePointList = new List<FixedPointNode>();
@@ -137,29 +141,35 @@ namespace BlueNoah.PathFinding.FixedPoint
                     }
                 }
             }
-            //Debug.LogError("Search Time : " + (Time.realtimeSinceStartup -time));
-            StartMove(allTargetMovePointList, onMoveDone);
+            SetPath(allTargetMovePointList, onMoveDone);
         }
-
         public void SetDestination(FixedPointVector3 targetPos, PathMoveAction onMoveDone = null)
         {
             List<FixedPointNode> targetPosList = PathFindingMananger.Single.Find(transform.position, targetPos);
 
+            if (targetPosList == null || targetPosList.Count == 0)
+            {
+                return;
+            }
+
             mTargetPos = targetPos;
 
-            StartMove(targetPosList, onMoveDone);
+            SetPath(targetPosList, onMoveDone);
         }
 
-        public void StartMove(List<FixedPointNode> targetPosList, PathMoveAction onMoveDone)
+        public void SetPath(List<FixedPointNode> targetPosList, PathMoveAction onMoveDone)
         {
-            mOnMoveDone = onMoveDone;
-
-            mTargetPosList = targetPosList;
-
+            this.onMoveDone = onMoveDone;
+            mPath = targetPosList;
             mCurrentIndex = 0;
-
             mIsMoving = true;
-
+            if (targetPosList != null && targetPosList.Count > 0)
+            {
+                if (onMove != null)
+                {
+                    onMove();
+                }
+            }
             MoveToNextPoint();
         }
 
@@ -167,7 +177,7 @@ namespace BlueNoah.PathFinding.FixedPoint
         {
             if (currentNode != null)
             {
-                currentNode.unitCount--;
+                // currentNode.unitCount--;
                 currentNode.moveAgent = null;
             }
             currentNode = null;
@@ -175,124 +185,129 @@ namespace BlueNoah.PathFinding.FixedPoint
             if (node != null)
             {
                 currentNode = node;
-                currentNode.unitCount++;
-                mUnitCountWhenEnterNode = currentNode.unitCount;
+                // currentNode.unitCount++;
                 currentNode.moveAgent = this;
             }
         }
 
-        //スムース、毎フラームの移動距離が同じくない。
-        void DoMoveWithoutWhile()
+        int mCount = 0;
+        bool mMoved = false;
+        const int MAX_MOVE_COUNT = 3;
+        //もっとスムース、毎フラーム移動距離を同じい。
+        void DoMove()
         {
-            FixedPoint64 distance = FixedPointVector3.Distance(mTargetNode.pos, transform.position);
-
-            if (distance > MIN_STOP_DISTANCE)
+            FixedPoint64 deltaDistance = Speed / FixedPointMath.Max(1, mUnitCountWhenEnterNode);
+            mCount = 0;
+            mMoved = false;
+            while (deltaDistance > 0 && mCount < MAX_MOVE_COUNT && mIsMoving && !mIsBlocked && !mIsWaitBridge && !mIsWaitForOther)
             {
-                FixedPoint64 detalDistance = FixedPointMath.Min(distance, deltaDistancePerFrame);
+                if (AvoidChecking())
+                {
+                    mMoved = true;
 
-                transform.position += detalDistance * transform.forward;
+                    FixedPoint64 currentTargetNodeDistance = FixedPointVector3.Distance(mTargetNode.pos, transform.position);
 
-                viewTransform.position = transform.position.ToVector3();
+                    if (deltaDistance < currentTargetNodeDistance)
+                    {
+                        transform.position += deltaDistance * transform.forward;
 
-                viewTransform.forward = transform.forward.ToVector3();
+                        // viewTransform.position = transform.position.ToVector3();
+
+                        // viewTransform.forward = transform.forward.ToVector3();
+
+                        deltaDistance = 0;
+                    }
+                    else
+                    {
+                        transform.position += currentTargetNodeDistance * transform.forward;
+
+                        // viewTransform.position = transform.position.ToVector3();
+
+                        // viewTransform.forward = transform.forward.ToVector3();
+
+                        deltaDistance = deltaDistance - currentTargetNodeDistance;
+
+                        MoveToNextPoint();
+                    }
+
+                    UpdateCurrentNode();
+
+                    mCount++;
+                }
             }
-            else
+
+            if (mMoved)
             {
-                //remain distance.
-                MoveToNextPoint();
+                if (onPositionChange != null)
+                {
+                    onPositionChange(transform);
+                }
             }
         }
-        //もっとスムース、毎フラーム移動距離を同じい。
-        void DoMoveWithWhile()
+
+        bool AvoidChecking()
         {
-            FixedPoint64 deltaDistance = deltaDistancePerFrame / FixedPointMath.Max(1, mUnitCountWhenEnterNode);
-
-            int count = 0;
-
-            while (deltaDistance > 0 && count < 3 && mIsMoving && !mIsBlocked && !mIsWaitBridge && !mIsWaitForOther)
+            return true;
+            if (mNextAvoid > SceneControl.Framer.Instance.CurrentFrame)
             {
-                if (!mIgnoreMode && !mTargetPosList[mCurrentIndex].isBridge)
-                {
-                    int countForward = Mathf.Min(2, mTargetPosList.Count - 1 - mCurrentIndex);
+                return true;
+            }
+            if (!mIgnoreMode && !mPath[mCurrentIndex].isBridge)
+            {
+                int countForward = UnityEngine.Mathf.Min(1, mPath.Count - 1 - mCurrentIndex);
 
-                    for (int i = 0; i < countForward; i++)
+                for (int i = 0; i < countForward; i++)
+                {
+                    FixedPointNode node = mPath[mCurrentIndex + 1 + i];
+                    if (node.unitCount > 0)
                     {
-                        FixedPointNode node = mTargetPosList[mCurrentIndex + 1 + i];
-                        if (node.unitCount > 0)
+                        if (node.moveAgent != null)
                         {
-                            if (node.moveAgent != null && node.moveAgent.priority < priority)
+                            if ((node.moveAgent.Speed < Speed || (node.moveAgent.Speed == Speed && node.moveAgent.priority < priority)))
                             {
-                                //mIsBlocked = true;
-                                //mCurrentNode.IsBlock = true;
                                 List<FixedPointNode> checkedList = new List<FixedPointNode>();
 
                                 for (int j = 0; j < countForward; j++)
                                 {
-                                    checkedList.Add(mTargetPosList[mCurrentIndex + 1 + j]);
+                                    checkedList.Add(mPath[mCurrentIndex + 1 + j]);
                                 }
+
                                 for (int j = 0; j < checkedList.Count; j++)
                                 {
                                     checkedList[j].consumeRoadSizePlus += 10;
                                 }
+
+                                node.moveAgent.currentNode.consumeRoadSizePlus += 10;
+
                                 ReDestination();
+
+                                node.moveAgent.currentNode.consumeRoadSizePlus -= 10;
+
                                 for (int j = 0; j < checkedList.Count; j++)
                                 {
                                     checkedList[j].consumeRoadSizePlus -= 10;
                                 }
-                                //mCurrentNode.IsBlock = false;
+                                // Debug.Log("Block Others.");
+                                node.moveAgent.Block(this);
                             }
                             else
                             {
-                                mExitTime = 0;
-                                mIsBlocked = true;
-                                mWaitingNode = node;
-                                if (onStop!=null)
-                                {
-                                    onStop();
-                                }
-                                //unitCore.GetComponent<UnitAnimation>().UnRun();
+                                Block(node.moveAgent);
                             }
-                            return;
+                            mNextAvoid = SceneControl.Framer.Instance.CurrentFrame + AVOID_INTERVAL;
+                            return false;
                         }
                     }
                 }
-
-                FixedPoint64 currentTargetNodeDistance = FixedPointVector3.Distance(mTargetNode.pos, transform.position);
-
-                if (deltaDistance < currentTargetNodeDistance)
-                {
-                    transform.position += deltaDistance * transform.forward;
-
-                    viewTransform.position = transform.position.ToVector3();
-
-                    viewTransform.forward = transform.forward.ToVector3();
-
-                    deltaDistance = 0;
-                }
-                else
-                {
-                    transform.position += currentTargetNodeDistance * transform.forward;
-
-                    viewTransform.position = transform.position.ToVector3();
-
-                    viewTransform.forward = transform.forward.ToVector3();
-
-                    deltaDistance = deltaDistance - currentTargetNodeDistance;
-
-                    MoveToNextPoint();
-                }
-
-                UpdateCurrentNode();
-
-                count++;
             }
+            return true;
         }
 
         void WaitingBridge()
         {
-            FixedPointNode nextNode = mTargetPosList[mCurrentIndex + 1];
+            FixedPointNode nextNode = mPath[mCurrentIndex + 1];
 
-            FixedPointNode currentNode = mTargetPosList[mCurrentIndex];
+            FixedPointNode currentNode = mPath[mCurrentIndex];
 
             if (!nextNode.bridge.isBridgeUsed || (!nextNode.bridge.moveAgents.Contains(this) && nextNode.bridge.forward == (nextNode.pos - currentNode.pos).normalized))
             {
@@ -316,9 +331,9 @@ namespace BlueNoah.PathFinding.FixedPoint
         bool WaitForOther()
         {
             return true;
-            if (mTargetPosList.Count > mCurrentIndex + 1 && !mTargetPosList[mCurrentIndex].isBridge)
+            if (mPath.Count > mCurrentIndex + 1 && !mPath[mCurrentIndex].isBridge)
             {
-                FixedPointNode nextNode = mTargetPosList[mCurrentIndex + 1];
+                FixedPointNode nextNode = mPath[mCurrentIndex + 1];
                 if (nextNode.isTempBlock && nextNode.tempBlockMoveAgent != this)
                 {
                     return false;
@@ -330,12 +345,12 @@ namespace BlueNoah.PathFinding.FixedPoint
         bool CheckUpOnBridge()
         {
             //has next node.
-            if (mTargetPosList.Count > mCurrentIndex + 1)
+            if (mPath.Count > mCurrentIndex + 1)
             {
-                FixedPointNode nextNode = mTargetPosList[mCurrentIndex + 1];
-                FixedPointNode currentNode = mTargetPosList[mCurrentIndex];
+                FixedPointNode nextNode = mPath[mCurrentIndex + 1];
+                FixedPointNode currentNode = mPath[mCurrentIndex];
                 //Check if bridge enterable. 
-                if (nextNode.isBridge && !mTargetPosList[mCurrentIndex].isBridge)
+                if (nextNode.isBridge && !mPath[mCurrentIndex].isBridge)
                 {
                     if (!nextNode.bridge.isBridgeUsed)
                     {
@@ -357,7 +372,6 @@ namespace BlueNoah.PathFinding.FixedPoint
                                 mIsWaitBridge = true;
                                 currentNode.isTempBlock = true;
                                 currentNode.tempBlockMoveAgent = this;
-                                mExitTime = 0;
                                 if (onStop != null)
                                 {
                                     onStop();
@@ -375,28 +389,47 @@ namespace BlueNoah.PathFinding.FixedPoint
             return true;
         }
 
+        FixedPointNode mCurrentBookNode;
+
         void MoveToNextPoint()
         {
             if (CheckUpOnBridge())
             {
                 mIsMoving = true;
                 mCurrentIndex++;
-                if (mCurrentIndex < mTargetPosList.Count)
+
+                if (mCurrentBookNode != null)
+                {
+                    mCurrentBookNode.unitCount--;
+                    mCurrentBookNode = null;
+                }
+
+                if (mCurrentIndex < mPath.Count)
                 {
                     if (mCurrentIndex > 3)
                     {
                         mIgnoreMode = false;
                     }
-                    mTargetNode = mTargetPosList[mCurrentIndex];
+                    mTargetNode = mPath[mCurrentIndex];
                     transform.forward = (mTargetNode.pos - transform.position).normalized;
+                    mCurrentBookNode = mTargetNode;
+                    mCurrentBookNode.unitCount++;
+                    mCurrentBookNode.moveAgent = this;
+                    //ムーブ速度を調整
+                    mUnitCountWhenEnterNode = mCurrentBookNode.unitCount + 1;
+
+                    if (onNodeChange != null)
+                    {
+                        onNodeChange(transform);
+                    }
                 }
                 else
                 {
                     mIsMoving = false;
                     mIgnoreMode = false;
-                    if (mOnMoveDone != null)
+                    if (onMoveDone != null)
                     {
-                        mOnMoveDone();
+                        onMoveDone();
                     }
                 }
             }
@@ -412,7 +445,7 @@ namespace BlueNoah.PathFinding.FixedPoint
 
         public void Stop()
         {
-            mTargetPosList = null;
+            mPath = null;
             mIsMoving = false;
         }
     }

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using BlueNoah.RTS.Constant;
+using UnityEngine;
 
 namespace BlueNoah.AI.View.RTS
 {
@@ -32,6 +33,7 @@ namespace BlueNoah.AI.View.RTS
             //    mStateBehaviourDic = new Dictionary<string, StateBehaviour>();
             //}
             //mUnitMotionLoadService = new UnitMotionLoadService(UnitAnimator);
+            mAnimation = GetComponentInChildren<Animation>();
         }
 
         Animation GetAnimation
@@ -40,6 +42,18 @@ namespace BlueNoah.AI.View.RTS
             {
                 return mAnimation;
             }
+        }
+
+        public void Run()
+        {
+            mAnimation["Run01"].speed = GameConstant.ACTOR_SPEED / 10;
+            mAnimation.Play("Run01");
+            mAnimation.wrapMode = WrapMode.Loop;
+        }
+
+        public void Idle()
+        {
+            mAnimation.Play("Idle01");
         }
 
         //Animator 

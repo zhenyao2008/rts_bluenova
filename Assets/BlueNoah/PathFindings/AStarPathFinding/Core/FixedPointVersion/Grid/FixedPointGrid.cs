@@ -16,6 +16,14 @@ namespace BlueNoah.PathFinding.FixedPoint
 
         List<FixedPointNode> mNodeList;
 
+        public int NeighborCount
+        {
+            get
+            {
+                return mGridSetting.neighborCount;
+            }
+        }
+
         public FixedPoint64 xCount
         {
             get
@@ -279,7 +287,7 @@ namespace BlueNoah.PathFinding.FixedPoint
 
                         //UnityEditor.Handles.color = Color.green;
                         //if (mNodeList[i].F > 0)
-                            //UnityEditor.Handles.Label(mNodeList[i].pos.ToVector3(), mNodeList[i].F.ToString());
+                        //UnityEditor.Handles.Label(mNodeList[i].pos.ToVector3(), mNodeList[i].F.ToString());
 #endif
                         //continue;
                         if (mNodeList[i].IsBlock || !mNodeList[i].Enable)

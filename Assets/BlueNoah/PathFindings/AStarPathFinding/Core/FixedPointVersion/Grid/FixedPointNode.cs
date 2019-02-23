@@ -34,7 +34,7 @@ namespace BlueNoah.PathFinding.FixedPoint
         //このノードから接続ノードまで、移動消費(いどうしょうひ)コスト。
         bool mIsBlock;
         //マースを使えからし。
-        bool mIsEnable ;
+        bool mIsEnable;
         //壁中にいるのかどうか,グリードの辺
         public bool isWallSide;
         public int blockNeighborCount;

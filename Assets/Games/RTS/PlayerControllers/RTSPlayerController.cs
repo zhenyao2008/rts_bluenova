@@ -1,6 +1,9 @@
 ﻿using System.Collections.Generic;
 using BlueNoah.AI.View.RTS;
 using BlueNoah.Event;
+using BlueNoah.Math.FixedPoint;
+using BlueNoah.PathFinding;
+using BlueNoah.PathFinding.FixedPoint;
 using BlueNoah.SceneControl;
 using UnityEngine;
 using UnityEngine.Events;
@@ -74,12 +77,15 @@ namespace RTS
                     RaycastHit raycastHit;
                     if (BlueNoah.CameraControl.CameraController.Instance.GetWorldTransFromMousePosition(out raycastHit, LayerConstant.LAYER_GROUND))
                     {
+                        FixedPointNode fixedPointNode = PathFindingMananger.Single.Grid.GetNode(raycastHit.point.ToFixedPointVector3());
+                        int index = 0;
                         foreach (ActorViewer actorViewer in mSelectedActors.Values)
                         {
                             if (actorViewer != null)
                             {
-                                actorViewer.actorCore.MoveTo(raycastHit.point.ToFixedPointVector3());
+                                actorViewer.actorCore.MoveTo(fixedPointNode.neighbors[index].pos, actorViewer.actorAnimation.Idle);
                             }
+                            index++;
                         }
                     }
                 }

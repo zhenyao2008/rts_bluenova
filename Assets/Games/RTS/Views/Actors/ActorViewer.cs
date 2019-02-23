@@ -4,6 +4,7 @@
 */
 
 using BlueNoah.AI.RTS;
+using BlueNoah.PathFinding.FixedPoint;
 using UnityEngine;
 
 namespace BlueNoah.AI.View.RTS
@@ -33,14 +34,25 @@ namespace BlueNoah.AI.View.RTS
             }
 #endif
             this.actorCore = actorCore;
+            actorCore.fixedPointMoveAgent.onMove = actorAnimation.Run;
+            actorCore.fixedPointMoveAgent.onStop = actorAnimation.Idle;
+            actorCore.fixedPointMoveAgent.onPositionChange = (FixedPointTransform pointTransform) =>
+            {
+                transform.position = pointTransform.position.ToVector3();
+            };
+            actorCore.fixedPointMoveAgent.onNodeChange = (FixedPointTransform pointTransform) =>
+            {
+                transform.position = pointTransform.position.ToVector3();
+                transform.forward = pointTransform.forward.ToVector3();
+            };
             UpdateTransform();
         }
         void Update()
         {
-            UpdateTransform();
+            //UpdateTransform();
         }
 
-       public void UpdateTransform()
+        public void UpdateTransform()
         {
             if (actorCore != null)
             {

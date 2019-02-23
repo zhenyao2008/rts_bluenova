@@ -2,6 +2,7 @@
 using BlueNoah.AI.Spawn;
 using BlueNoah.Math.FixedPoint;
 using BlueNoah.PathFinding;
+using BlueNoah.PathFinding.FixedPoint;
 
 namespace BlueNoah.SceneControl
 {
@@ -17,11 +18,13 @@ namespace BlueNoah.SceneControl
             mActorCoreSpawnService = new ActorCoreSpawnService();
 
             mPathFindingMananger =  PathFindingMananger.NewInstance();
+
         }
         //Core calculation function.
         public void OnUpdate()
         {
             //TODO
+            mPathFindingMananger.OnUpdate();
         }
 
         public void SetActorOnSpawn(ActorSpawnEventAction<ActorCore> onActorCreate)
@@ -37,11 +40,6 @@ namespace BlueNoah.SceneControl
         public void SpawnActor(int playerId, int actorTypeId, FixedPointVector3 position, FixedPointVector3 eulerAngles)
         {
             mActorCoreSpawnService.SpawnActor(playerId, actorTypeId, position, eulerAngles);
-        }
-
-        public void MoveTo(ActorCore actorCore,FixedPointVector3 targetPosition)
-        {
-            actorCore.MoveTo(targetPosition);
         }
     }
 }

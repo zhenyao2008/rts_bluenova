@@ -48,7 +48,7 @@ namespace BlueNoah.PathFinding
         public FixedPointMoveAgent CreateMoveAgent(FixedPointTransform transform, FixedPoint64 speed)
         {
             FixedPointMoveAgent moveAgent = new FixedPointMoveAgent();
-            moveAgent.deltaDistancePerFrame = speed;
+            moveAgent.Speed = speed;
             moveAgent.transform = transform;
             moveAgent.priority = mMoveAgentList.Count;
             mMoveAgentList.Add(moveAgent);
@@ -58,6 +58,14 @@ namespace BlueNoah.PathFinding
         List<FixedPointMoveAgent> mMoveAgentList;
 
         FixedPointGrid mGrid;
+
+        public FixedPointGrid Grid
+        {
+            get
+            {
+                return mGrid;
+            }
+        }
 
         Material mMaterial;
 
@@ -89,9 +97,11 @@ namespace BlueNoah.PathFinding
             mGrid.Init(gridSetting);
             mPathAgent = new FixedPointPathAgent(mGrid);
 
-            NodeEnableUtility.EnableNodes(mGrid);
+            NodeEnableUtility.CheckNodeBlocking(mGrid);
 
-            NodeEnableUtility.CheckBridge(mGrid);
+            //NodeEnableUtility.EnableNodes(mGrid);
+
+            //NodeEnableUtility.CheckBridge(mGrid);
         }
 
         public FixedPointNode GetNode(FixedPointVector3 position)

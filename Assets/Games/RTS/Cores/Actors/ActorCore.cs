@@ -38,9 +38,9 @@ namespace BlueNoah.AI.RTS
 
         }
 
-        public void MoveTo(FixedPointVector3 fixedPointVector3)
+        public void MoveTo(FixedPointVector3 fixedPointVector3, PathMoveAction onComplete)
         {
-            fixedPointMoveAgent.SetDestination(fixedPointVector3);
+            fixedPointMoveAgent.SetDestination(fixedPointVector3, onComplete);
         }
     }
 }
