@@ -77,13 +77,14 @@ namespace RTS
                     RaycastHit raycastHit;
                     if (BlueNoah.CameraControl.CameraController.Instance.GetWorldTransFromMousePosition(out raycastHit, LayerConstant.LAYER_GROUND))
                     {
-                        FixedPointNode fixedPointNode = PathFindingMananger.Single.Grid.GetNode(raycastHit.point.ToFixedPointVector3());
+                        //FixedPointNode fixedPointNode = PathFindingMananger.Single.Grid.GetNode(raycastHit.point.ToFixedPointVector3());
+                        List<FixedPointVector3> fixedPointVectors= GetNearPositions(raycastHit.point.ToFixedPointVector3(), mSelectedActors.Count);
                         int index = 0;
                         foreach (ActorViewer actorViewer in mSelectedActors.Values)
                         {
                             if (actorViewer != null)
                             {
-                                actorViewer.actorCore.MoveTo(fixedPointNode.neighbors[index].pos, actorViewer.actorAnimation.Idle);
+                                actorViewer.actorCore.MoveTo(fixedPointVectors[index], actorViewer.actorAnimation.Idle);
                             }
                             index++;
                         }
@@ -91,5 +92,31 @@ namespace RTS
                 }
             }
         }
+
+        List<FixedPointVector3> GetNearPositions(FixedPointVector3 center, int count)
+        {
+            List<FixedPointVector3> positions = new List<FixedPointVector3>();
+            FixedPointNode fixedPointNode = PathFindingMananger.Single.Grid.GetNode(center);
+
+            int size = Mathf.CeilToInt(Mathf.Pow(count,0.5f));
+            int xStart = size / 2;
+            int yStart = size / 2;
+            int index = 0;
+            for (int i = fixedPointNode.x - xStart; i < fixedPointNode.x - xStart + size; i++)
+            {
+                for (int j = fixedPointNode.z - yStart; j < fixedPointNode.z - yStart + size; j++)
+                {
+                    positions.Add(PathFindingMananger.Single.Grid.GetNode(i,j).pos);
+                    index++;
+                    if (positions.Count == count)
+                    {
+                        return positions;
+                    }
+                }
+            }
+            return positions;
+        }
+
+
     }
 }
