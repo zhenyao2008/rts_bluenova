@@ -29,6 +29,8 @@ namespace RTS
             mScreenSelectService.onSelected = OnSeleced;
 
             EasyInput.Instance.AddListener(BlueNoah.Event.TouchType.Click, OnClick);
+
+            BlueNoah.CameraControl.CameraController.Instance.MoveSpeed = TD.Config.InGameConfig.Single.cameraDragSpeed;
         }
 
         public void OnGUI()
@@ -43,12 +45,11 @@ namespace RTS
                 mSelectedActors.Clear();
             }
             RaycastHit raycastHit;
-            if (BlueNoah.CameraControl.CameraController.Instance.GetWorldTransFromMousePosition(out raycastHit, LayerConstant.LAYER_GROUND))
+            if (BlueNoah.CameraControl.CameraController.Instance.GetWorldPositionByMousePosition(out raycastHit, LayerConstant.LAYER_GROUND))
             {
                 //RTSSceneController.Instance.SpawnActorView(playerId, 1,raycastHit.point.ToFixedPointVector3());
                 if (onCreateActor != null)
                 {
-                    Debug.Log(raycastHit.point);
                     onCreateActor(playerId, 1, raycastHit.point, Vector3.zero);
                 }
             }
@@ -75,7 +76,7 @@ namespace RTS
                 if (mSelectedActors.Count > 0)
                 {
                     RaycastHit raycastHit;
-                    if (BlueNoah.CameraControl.CameraController.Instance.GetWorldTransFromMousePosition(out raycastHit, LayerConstant.LAYER_GROUND))
+                    if (BlueNoah.CameraControl.CameraController.Instance.GetWorldPositionByMousePosition(out raycastHit, LayerConstant.LAYER_GROUND))
                     {
                         //FixedPointNode fixedPointNode = PathFindingMananger.Single.Grid.GetNode(raycastHit.point.ToFixedPointVector3());
                         List<FixedPointVector3> fixedPointVectors= GetNearPositions(raycastHit.point.ToFixedPointVector3(), mSelectedActors.Count);
@@ -97,7 +98,6 @@ namespace RTS
         {
             List<FixedPointVector3> positions = new List<FixedPointVector3>();
             FixedPointNode fixedPointNode = PathFindingMananger.Single.Grid.GetNode(center);
-
             int size = Mathf.CeilToInt(Mathf.Pow(count,0.5f));
             int xStart = size / 2;
             int yStart = size / 2;
@@ -116,7 +116,5 @@ namespace RTS
             }
             return positions;
         }
-
-
     }
 }

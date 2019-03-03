@@ -181,11 +181,36 @@ namespace BlueNoah.PathFinding.FixedPoint
 
         public FixedPointNode GetNearestNode(FixedPointVector3 pos)
         {
-            FixedPoint64 xIndex = FixedPointMath.Round((pos.x + mStartPos.x) / mGridSetting.nodeWidth);
-            FixedPoint64 yIndex = FixedPointMath.Round((pos.z + mStartPos.z) / mGridSetting.nodeWidth);
+            FixedPoint64 xIndex = FixedPointMath.Round((pos.x - mStartPos.x) / mGridSetting.nodeWidth);
+            FixedPoint64 yIndex = FixedPointMath.Round((pos.z - mStartPos.z) / mGridSetting.nodeWidth);
             xIndex = FixedPointMath.Clamp(xIndex, 0, mGridSetting.xCount - 1); // Mathf.Clamp(xIndex, 0, mGridSetting.xCount - 1);
             yIndex = FixedPointMath.Clamp(yIndex, 0, mGridSetting.zCount - 1);
             return GetNode(xIndex.AsInt(), yIndex.AsInt());
+        }
+        //加上Offset过后，判断就容易多了，好的算法很重要，哈哈哈。
+        public FixedPointNode GetNearestNode(FixedPointVector3 pos, int xOffset, int yOffset)
+        {
+            FixedPoint64 xIndex = FixedPointMath.Round((pos.x - mStartPos.x) / mGridSetting.nodeWidth);
+            FixedPoint64 yIndex = FixedPointMath.Round((pos.z - mStartPos.z) / mGridSetting.nodeWidth);
+            xIndex = FixedPointMath.Clamp(xIndex, 0, mGridSetting.xCount  - xOffset); // Mathf.Clamp(xIndex, 0, mGridSetting.xCount - 1);
+            yIndex = FixedPointMath.Clamp(yIndex, 0, mGridSetting.zCount  - yOffset);
+            return GetNode(xIndex.AsInt(), yIndex.AsInt());
+        }
+
+        public List<FixedPointNode> GetNearestNodes(FixedPointVector3 pos, int xOffset, int yOffset)
+        {
+            FixedPointNode fixedPointNode = GetNearestNode(pos, xOffset, yOffset);
+
+            List<FixedPointNode> fixedPointNodes = new List<FixedPointNode>();
+
+            for (int i = 0; i < xOffset ; i++)
+            {
+                for (int j = 0; j < yOffset ; j++)
+                {
+                    fixedPointNodes.Add(GetNode(fixedPointNode.x + i,fixedPointNode.z + j));
+                }
+            }
+            return fixedPointNodes;
         }
 
         public FixedPointNode GetNode(FixedPointVector3 pos)

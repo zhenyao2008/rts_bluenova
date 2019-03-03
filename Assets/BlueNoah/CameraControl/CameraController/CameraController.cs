@@ -11,7 +11,6 @@ namespace BlueNoah.CameraControl
     {
         bool mIsControllable = true;
         bool mIsMoveable = true;
-        bool mIsStoryPlaying;
         Camera mCamera;
         BoxCollider mMoveArea;
         BaseCameraPinchService mBaseCameraPinchService;
@@ -231,32 +230,30 @@ namespace BlueNoah.CameraControl
         {
 
         }
-
-        void OnRotate(EventData eventData)
-        {
-            float angle = Vector3.Angle(eventData.touchPos1 - eventData.touchPos0, new Vector3(1, 0, 0));
-            if (mBaseCameraRotateService.IsHorizontalRotateable)
-            {
-                mBaseCameraRotateService.HorizontalRotate(eventData.deltaAngle * 0.5f);
-            }
-            if (mBaseCameraRotateService.IsVerticalRotateable)
-            {
-                if (Mathf.Abs(eventData.deltaTouchPos0.x / eventData.deltaTouchPos0.y) < 0.3f && Mathf.Abs(eventData.deltaTouchPos1.x / eventData.deltaTouchPos1.y) < 0.3f)
-                {
-                    float y = 0;
-                    if (eventData.deltaTouchPos0.y > 0 && eventData.deltaTouchPos1.y > 0)
-                    {
-                        y = Mathf.Min(eventData.deltaTouchPos0.y, eventData.deltaTouchPos1.y);
-                    }
-                    if (eventData.deltaTouchPos0.y < 0 && eventData.deltaTouchPos1.y < 0)
-                    {
-                        y = Mathf.Max(eventData.deltaTouchPos0.y, eventData.deltaTouchPos1.y);
-                    }
-                    mBaseCameraRotateService.VerticalRotate(y * 0.5f);
-                }
-            }
-        }
-
+        // void OnRotate(EventData eventData)
+        // {
+        //     float angle = Vector3.Angle(eventData.touchPos1 - eventData.touchPos0, new Vector3(1, 0, 0));
+        //     if (mBaseCameraRotateService.IsHorizontalRotateable)
+        //     {
+        //         mBaseCameraRotateService.HorizontalRotate(eventData.deltaAngle * 0.5f);
+        //     }
+        //     if (mBaseCameraRotateService.IsVerticalRotateable)
+        //     {
+        //         if (Mathf.Abs(eventData.deltaTouchPos0.x / eventData.deltaTouchPos0.y) < 0.3f && Mathf.Abs(eventData.deltaTouchPos1.x / eventData.deltaTouchPos1.y) < 0.3f)
+        //         {
+        //             float y = 0;
+        //             if (eventData.deltaTouchPos0.y > 0 && eventData.deltaTouchPos1.y > 0)
+        //             {
+        //                 y = Mathf.Min(eventData.deltaTouchPos0.y, eventData.deltaTouchPos1.y);
+        //             }
+        //             if (eventData.deltaTouchPos0.y < 0 && eventData.deltaTouchPos1.y < 0)
+        //             {
+        //                 y = Mathf.Max(eventData.deltaTouchPos0.y, eventData.deltaTouchPos1.y);
+        //             }
+        //             mBaseCameraRotateService.VerticalRotate(y * 0.5f);
+        //         }
+        //     }
+        // }
         void OnPinchBegin(EventData eventData)
         {
             mBaseCameraMoveService.CancelMove();
@@ -389,7 +386,7 @@ namespace BlueNoah.CameraControl
             return mCamera.transform.position + mCamera.transform.up * y + mCamera.transform.right * x;
         }
 
-        public bool GetWorldTransFromMousePosition(out RaycastHit raycastHit, int layer)
+        public bool GetWorldPositionByMousePosition(out RaycastHit raycastHit, int layer)
         {
             if (mCamera.orthographic)
             {
@@ -411,7 +408,7 @@ namespace BlueNoah.CameraControl
             return false;
         }
 
-        bool GetWorldTransFromMousePositionByPerspectiveCamera(out RaycastHit raycastHit,int layer)
+        bool GetWorldTransFromMousePositionByPerspectiveCamera(out RaycastHit raycastHit, int layer)
         {
             Vector3 mousePosition = Input.mousePosition;
 
@@ -421,7 +418,7 @@ namespace BlueNoah.CameraControl
 
             Vector3 forward = (position - Camera.main.transform.position).normalized;
 
-            return Physics.Raycast(Camera.main.transform.position, forward, out raycastHit, Mathf.Infinity, 1 << LayerConstant.LAYER_GROUND);
+            return Physics.Raycast(Camera.main.transform.position, forward, out raycastHit, Mathf.Infinity, 1 << layer);
         }
 
         public bool RaycastByOrthographicCamera(out RaycastHit raycastHit)

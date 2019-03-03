@@ -99,7 +99,7 @@ namespace BlueNoah.SceneControl
 
         public void SpawnActor(int playerId, int actorId, Vector3 targetPosition, Vector3 eulerAngle)
         {
-            mSceneCore.SpawnActor(playerId, actorId, targetPosition.ToFixedPointVector3(), eulerAngle.ToFixedPointVector3());
+            //mSceneCore.SpawnActor(playerId, actorId, targetPosition.ToFixedPointVector3(), eulerAngle.ToFixedPointVector3());
         }
 
         private void OnGUI()

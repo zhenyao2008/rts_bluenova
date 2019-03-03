@@ -16,10 +16,11 @@ namespace BlueNoah.CameraControl
         protected Vector3 mRemainForwardDistance;
         protected BoxCollider mMoveArea;
         protected bool mIsTouching;
+        bool mMoveBackable = false;
         protected bool mKeyboardMoveable = true;
         protected float mKeyboardSpeed = 1000;
-        protected Vector3 planeNormal = new Vector3(0,1,0);
-        protected Vector3 planeNormalPoint = new Vector3(0,0,0);
+        protected Vector3 planeNormal = new Vector3(0, 1, 0);
+        protected Vector3 planeNormalPoint = new Vector3(0, 0, 0);
 
         public void CancelMove()
         {
@@ -113,7 +114,7 @@ namespace BlueNoah.CameraControl
             mCamera.transform.position = targetPos;
 
             //Do move back
-            if (!mIsTouching)
+            if (!mIsTouching && mMoveBackable)
                 MoveBack();
         }
 

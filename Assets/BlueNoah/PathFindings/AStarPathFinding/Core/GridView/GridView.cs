@@ -104,8 +104,8 @@ namespace BlueNoah.PathFinding
 
         public void SetNodeByLocalPosition(ref Color[] colors, Vector3 pos, Color color)
         {
-            int x = Mathf.FloorToInt((pos.x - gridGameObject.transform.localPosition.x / 2f) / mNodeSize);
-            int z = Mathf.FloorToInt((pos.z - gridGameObject.transform.localPosition.z / 2f) / mNodeSize);
+            int x = Mathf.FloorToInt((pos.x - gridGameObject.transform.localPosition.x ) / mNodeSize);
+            int z = Mathf.FloorToInt((pos.z - gridGameObject.transform.localPosition.z ) / mNodeSize);
             int number = x * mYCount + z;
             if (number * 4 < 0 || number * 4 > colors.Length)
             {

@@ -18,11 +18,12 @@ public static class LayerConstant {
     public const int LAYER_GRID = 14;
     public const int LAYER_FURNITURE_GRID = 15;
     public const int LAYER_DRAG_AREA = 16;
-    public const int LAYER_UNWALKABLE = 17;
 
 
     public const int LAYER_ROAD = 19;
-    public const int LAYER_ROAD_SIDE = 24;
     public const int LAYER_BRIDGE = 23;
+    public const int LAYER_ROAD_SIDE = 24;
+    public const int LAYER_BUILDING = 25;
+    public const int LAYER_UNWALKABLE = 26;
 
 }

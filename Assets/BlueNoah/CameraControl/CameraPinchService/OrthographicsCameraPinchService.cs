@@ -1,3 +1,8 @@
+/*
+ 神の見方カメラのコントロール
+ 上帝视角的相机控制
+ 應　彧剛（yingyugang@gmail.com）
+ */
 using UnityEngine;
 using BlueNoah.Event;
 
@@ -11,6 +16,7 @@ namespace BlueNoah.CameraControl
         private float mMaxOrthographicSize = 5f;
         private float mTargetOrthographicSize;
         protected float mSmooth = 20f;
+        private bool mMoveBack = false;
 
         public override float minSize
         {
@@ -51,7 +57,8 @@ namespace BlueNoah.CameraControl
         public override void OnLateUpdate()
         {
             base.OnLateUpdate();
-            MoveBack();
+            if (mMoveBack)
+                MoveBack();
         }
 
         public override void OnPinchBegin()
@@ -86,9 +93,12 @@ namespace BlueNoah.CameraControl
         {
             if (!mIsPinching)
             {
-                float offset = Mathf.Clamp(mCamera.orthographicSize, mMinOrthographicSize, mMaxOrthographicSize);
-                offset = mCamera.orthographicSize - offset;
-                mCamera.orthographicSize -= offset * Time.deltaTime * mSmooth / 2f;
+                //範囲内のサイズ
+                float targetOrthographicSize = Mathf.Clamp(mCamera.orthographicSize, mMinOrthographicSize, mMaxOrthographicSize);
+                //ピンチ必要なサイズ
+                targetOrthographicSize = mCamera.orthographicSize - targetOrthographicSize;
+                //スムース的な戻す
+                mCamera.orthographicSize -= targetOrthographicSize * Time.deltaTime * mSmooth / 2f;
             }
         }
 
