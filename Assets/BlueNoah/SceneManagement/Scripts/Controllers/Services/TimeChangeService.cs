@@ -43,10 +43,10 @@ namespace TD.SceneController
                 mTimeAttributes.Add(new TimeChangeEntity(nightLightingTexture, color));
             }
 
-            BlueNoah.Event.EasyInput.Instance.AddListener(BlueNoah.Event.TouchType.DoubleClick, (BlueNoah.Event.EventData ev) =>
-            {
-                mIsHighSpeed = !mIsHighSpeed;
-            });
+            BlueNoah.Event.EasyInput.Instance.AddListener(BlueNoah.Event.TouchType.DoubleClick, 0, (BlueNoah.Event.EventData ev) =>
+             {
+                 mIsHighSpeed = !mIsHighSpeed;
+             });
         }
 
         float progress = 0;

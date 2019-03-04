@@ -28,7 +28,7 @@ namespace RTS
 
             mScreenSelectService.onSelected = OnSeleced;
 
-            EasyInput.Instance.AddListener(BlueNoah.Event.TouchType.Click, OnClick);
+            EasyInput.Instance.AddListener(BlueNoah.Event.TouchType.Click, 0, OnClick);
 
             BlueNoah.CameraControl.CameraController.Instance.MoveSpeed = TD.Config.InGameConfig.Single.cameraDragSpeed;
         }
@@ -59,12 +59,15 @@ namespace RTS
         {
             Dictionary<long, ActorViewer> actorViewers = RTSSceneController.Instance.GetActorViewers(playerId);
             mSelectedActors.Clear();
-            foreach (ActorViewer actorViewer in actorViewers.Values)
+            if (actorViewers != null)
             {
-                if (mScreenSelectService.IsInSelectRect(rect, actorViewer.screenPosition.x, actorViewer.screenPosition.y))
+                foreach (ActorViewer actorViewer in actorViewers.Values)
                 {
-                    Debug.Log(actorViewer);
-                    mSelectedActors.Add(actorViewer.actorCore.actorAttribute.actorId, actorViewer);
+                    if (mScreenSelectService.IsInSelectRect(rect, actorViewer.screenPosition.x, actorViewer.screenPosition.y))
+                    {
+                        Debug.Log(actorViewer);
+                        mSelectedActors.Add(actorViewer.actorCore.actorAttribute.actorId, actorViewer);
+                    }
                 }
             }
         }
@@ -79,7 +82,7 @@ namespace RTS
                     if (BlueNoah.CameraControl.CameraController.Instance.GetWorldPositionByMousePosition(out raycastHit, LayerConstant.LAYER_GROUND))
                     {
                         //FixedPointNode fixedPointNode = PathFindingMananger.Single.Grid.GetNode(raycastHit.point.ToFixedPointVector3());
-                        List<FixedPointVector3> fixedPointVectors= GetNearPositions(raycastHit.point.ToFixedPointVector3(), mSelectedActors.Count);
+                        List<FixedPointVector3> fixedPointVectors = GetNearPositions(raycastHit.point.ToFixedPointVector3(), mSelectedActors.Count);
                         int index = 0;
                         foreach (ActorViewer actorViewer in mSelectedActors.Values)
                         {
@@ -98,7 +101,7 @@ namespace RTS
         {
             List<FixedPointVector3> positions = new List<FixedPointVector3>();
             FixedPointNode fixedPointNode = PathFindingMananger.Single.Grid.GetNode(center);
-            int size = Mathf.CeilToInt(Mathf.Pow(count,0.5f));
+            int size = Mathf.CeilToInt(Mathf.Pow(count, 0.5f));
             int xStart = size / 2;
             int yStart = size / 2;
             int index = 0;
@@ -106,7 +109,7 @@ namespace RTS
             {
                 for (int j = fixedPointNode.z - yStart; j < fixedPointNode.z - yStart + size; j++)
                 {
-                    positions.Add(PathFindingMananger.Single.Grid.GetNode(i,j).pos);
+                    positions.Add(PathFindingMananger.Single.Grid.GetNode(i, j).pos);
                     index++;
                     if (positions.Count == count)
                     {

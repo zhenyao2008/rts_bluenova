@@ -75,7 +75,7 @@ public class PlayerController_III : NetworkBehaviour, IPlayerController
                 mChatPanel.chatInput.onSubmit.Add(new global::EventDelegate(SendChat));
             }
 
-            EasyInput.Instance.AddListener(BlueNoah.Event.TouchType.Click, OnClick);
+            EasyInput.Instance.AddListener(BlueNoah.Event.TouchType.Click, 0, OnClick);
         }
 
 
@@ -282,40 +282,40 @@ public class PlayerController_III : NetworkBehaviour, IPlayerController
         {
             return;
         }
-//#if UNITY_IOS || UNITY_ANDROID
-//        if (Input.touchCount > 0)
-//        {
-//            if (Input.GetTouch(0).phase == TouchPhase.Began)
-//            {
-//                preTouchPos = Input.GetTouch(0).position;
-//            }
-//            else if (Input.GetTouch(0).phase == TouchPhase.Moved)
-//            {
-//                Vector3 detalPos = Input.GetTouch(0).position - preTouchPos;
-//                preTouchPos = Input.GetTouch(0).position;
-//                Vector3 forward = this.rtsCamera.transform.forward;
-//                Vector3 right = this.rtsCamera.transform.right;
-//                forward.y = 0;
-//                right.y = 0;
-//                this.rtsCamera.LookAt -= (mServerController_III.cameraHandleSpeedForMobile * forward.normalized * detalPos.y * Time.deltaTime);
-//                this.rtsCamera.LookAt -= (mServerController_III.cameraHandleSpeedForMobile * right.normalized * detalPos.x * Time.deltaTime);
-//            }
-//        }
-//#else
-//		if (Input.GetMouseButton (0) ) {
-//			Vector3 forward = this.rtsCamera.transform.forward;
-//			Vector3 right = this.rtsCamera.transform.right;
-//			forward.y = 0;
-//			right.y = 0;
-//			this.rtsCamera.LookAt -= (mServerController_III.cameraHandleSpeed * forward.normalized * Input.GetAxis ("Mouse Y") * Time.deltaTime);
-//			this.rtsCamera.LookAt -= (mServerController_III.cameraHandleSpeed * right.normalized * Input.GetAxis ("Mouse X") * Time.deltaTime);
-//		}
-//#endif
+        //#if UNITY_IOS || UNITY_ANDROID
+        //        if (Input.touchCount > 0)
+        //        {
+        //            if (Input.GetTouch(0).phase == TouchPhase.Began)
+        //            {
+        //                preTouchPos = Input.GetTouch(0).position;
+        //            }
+        //            else if (Input.GetTouch(0).phase == TouchPhase.Moved)
+        //            {
+        //                Vector3 detalPos = Input.GetTouch(0).position - preTouchPos;
+        //                preTouchPos = Input.GetTouch(0).position;
+        //                Vector3 forward = this.rtsCamera.transform.forward;
+        //                Vector3 right = this.rtsCamera.transform.right;
+        //                forward.y = 0;
+        //                right.y = 0;
+        //                this.rtsCamera.LookAt -= (mServerController_III.cameraHandleSpeedForMobile * forward.normalized * detalPos.y * Time.deltaTime);
+        //                this.rtsCamera.LookAt -= (mServerController_III.cameraHandleSpeedForMobile * right.normalized * detalPos.x * Time.deltaTime);
+        //            }
+        //        }
+        //#else
+        //		if (Input.GetMouseButton (0) ) {
+        //			Vector3 forward = this.rtsCamera.transform.forward;
+        //			Vector3 right = this.rtsCamera.transform.right;
+        //			forward.y = 0;
+        //			right.y = 0;
+        //			this.rtsCamera.LookAt -= (mServerController_III.cameraHandleSpeed * forward.normalized * Input.GetAxis ("Mouse Y") * Time.deltaTime);
+        //			this.rtsCamera.LookAt -= (mServerController_III.cameraHandleSpeed * right.normalized * Input.GetAxis ("Mouse X") * Time.deltaTime);
+        //		}
+        //#endif
     }
 
     void OnClick(EventData eventData)
     {
-        if (!eventData.isPointerOnGameObject &&  !UICamera.isOverUI && (EventSystem.current == null || !EventSystem.current.IsPointerOverGameObject()))
+        if (!eventData.currentTouch.isPointerOnGameObject && !UICamera.isOverUI && (EventSystem.current == null || !EventSystem.current.IsPointerOverGameObject()))
         {
             if (selectBuilding != null)
             {
@@ -678,16 +678,16 @@ public class PlayerController_III : NetworkBehaviour, IPlayerController
         //RtsCamera rtsCamera = Camera.main.GetComponent<RtsCamera>();
         //if (rtsCamera != null)
         //{
-            if (index == 0)
-            {
-                this.buildingLayer = LayerConstant.playerLayer0;
-                //				rtsCamera.LookAt = new Vector3 (11, 1.5f, -50);//TODO set to spawn position.
-            }
-            else if (index == 1)
-            {
-                this.buildingLayer = LayerConstant.playerLayer1;
-                //				rtsCamera.LookAt = new Vector3 (11, 1.5f, 50f);//TODO set to spawn position.
-            }
+        if (index == 0)
+        {
+            this.buildingLayer = LayerConstant.playerLayer0;
+            //				rtsCamera.LookAt = new Vector3 (11, 1.5f, -50);//TODO set to spawn position.
+        }
+        else if (index == 1)
+        {
+            this.buildingLayer = LayerConstant.playerLayer1;
+            //				rtsCamera.LookAt = new Vector3 (11, 1.5f, 50f);//TODO set to spawn position.
+        }
         //}
         CmdRequestPlayerInfo();
     }
@@ -743,7 +743,7 @@ public class PlayerController_III : NetworkBehaviour, IPlayerController
             parameters.Add("playerRace0", playerRace0);
             parameters.Add("playerRace1", playerRace1);
             PrePlayCtrl prePlayCtrl = UIManager.Instance.GetController<PrePlayCtrl>();
-            prePlayCtrl.ShowPanel (parameters);
+            prePlayCtrl.ShowPanel(parameters);
             return;
             mServerMsgPanel.root.SetActive(true);
             if (playerIndex == 0)
@@ -843,8 +843,8 @@ public class PlayerController_III : NetworkBehaviour, IPlayerController
         int race = mServerMsgPanel.race0.items.IndexOf(mServerMsgPanel.race0.value);
         this.race = race;
         CmdClientReady(race);
-        if(mCurrentReadyButton!=null)
-         mCurrentReadyButton.isEnabled = false;
+        if (mCurrentReadyButton != null)
+            mCurrentReadyButton.isEnabled = false;
     }
 
     [Command]

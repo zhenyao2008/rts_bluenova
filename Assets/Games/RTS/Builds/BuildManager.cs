@@ -46,13 +46,13 @@ namespace BlueNoah.Build
 
         void InitInput()
         {
-            EasyInput.Instance.AddListener(Event.TouchType.TouchBegin, OnTouchDown);
+            EasyInput.Instance.AddListener(Event.TouchType.TouchBegin, 0, OnTouchDown);
 
-            EasyInput.Instance.AddListener(Event.TouchType.Touch, OnTouch);
+            EasyInput.Instance.AddListener(Event.TouchType.Touch, 0, OnTouch);
 
-            EasyInput.Instance.AddListener(Event.TouchType.Click, OnClick);
+            EasyInput.Instance.AddListener(Event.TouchType.Click, 0, OnClick);
 
-            EasyInput.Instance.AddListener(Event.TouchType.TouchEnd, OnTouchUp);
+            EasyInput.Instance.AddListener(Event.TouchType.TouchEnd, 0, OnTouchUp);
         }
 
         void InitGrid()
@@ -118,9 +118,11 @@ namespace BlueNoah.Build
         {
             if (mSelectBuilding != null && mIsDraging)
             {
-                eventData.touchPos0.z = 10;
+                Vector3 touchPosition = eventData.currentTouch.touch.position;
 
-                Vector3 position = Camera.main.ScreenToWorldPoint(eventData.touchPos0);
+                touchPosition.z = 10;
+
+                Vector3 position = Camera.main.ScreenToWorldPoint(touchPosition);
 
                 Vector3 forward = (position - Camera.main.transform.position).normalized;
 
@@ -133,7 +135,7 @@ namespace BlueNoah.Build
                     Building building = mSelectBuilding.GetComponent<Building>();
 
                     Vector3 gridOffset = new Vector3((building.xSize / 2f - 0.5f) * this.nodeWidth.AsFloat(), 0, (building.ySize / 2f - 0.5f) * this.nodeWidth.AsFloat());
-                    List <FixedPointNode> nodes =  mFixedPointGrid.GetNearestNodes((targetPos - gridOffset) .ToFixedPointVector3() , building.xSize , building.ySize);
+                    List<FixedPointNode> nodes = mFixedPointGrid.GetNearestNodes((targetPos - gridOffset).ToFixedPointVector3(), building.xSize, building.ySize);
                     if (nodes != null && nodes.Count > 0)
                     {
                         //collider的起始点其实是node中心，因为要从原点开始，所以实际位置需要减0.5个node宽度

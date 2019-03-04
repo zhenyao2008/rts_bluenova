@@ -17,9 +17,9 @@ namespace BlueNoah.SceneControl
         public ScreenSelectService()
         {
             texture2D = CreateSelectionTexture2D();
-            EasyInput.Instance.AddListener(Event.TouchType.TouchBegin, OnTouchBegin);
-            EasyInput.Instance.AddListener(Event.TouchType.TouchEnd, OnTouchEnd);
-            EasyInput.Instance.AddListener(Event.TouchType.Touch, OnTouchMove);
+            EasyInput.Instance.AddListener(Event.TouchType.TouchBegin, 0, OnTouchBegin);
+            EasyInput.Instance.AddListener(Event.TouchType.TouchEnd, 0, OnTouchEnd);
+            EasyInput.Instance.AddListener(Event.TouchType.Touch, 0, OnTouchMove);
         }
 
         public void OnGUI()
@@ -71,7 +71,7 @@ namespace BlueNoah.SceneControl
             {
                 mIsSelecting = true;
             }
-            mStartPos = eventData.touchStartPos0;
+            mStartPos = eventData.currentTouch.startTouch.position;
         }
 
         void OnTouchMove(EventData eventData)
@@ -80,7 +80,7 @@ namespace BlueNoah.SceneControl
             {
                 // mIsSelecting = false;
             }
-            mCurrentPos = eventData.touchPos0;
+            mCurrentPos = eventData.currentTouch.touch.position;
         }
 
         void OnTouchEnd(EventData eventData)

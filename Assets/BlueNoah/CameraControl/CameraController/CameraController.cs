@@ -46,17 +46,17 @@ namespace BlueNoah.CameraControl
         void Start()
         {
 
-            EasyInput.Instance.AddLateUpdateListener(Event.TouchType.TouchBegin, OnTouchBegin);
+            EasyInput.Instance.AddLateUpdateListener(Event.TouchType.TouchBegin, 0, OnTouchBegin);
 
-            EasyInput.Instance.AddLateUpdateListener(Event.TouchType.Touch, OnTouch);
+            EasyInput.Instance.AddLateUpdateListener(Event.TouchType.Touch, 0, OnTouch);
 
-            EasyInput.Instance.AddLateUpdateListener(Event.TouchType.TouchEnd, OnTouchEnd);
+            EasyInput.Instance.AddLateUpdateListener(Event.TouchType.TouchEnd, 0, OnTouchEnd);
 
-            EasyInput.Instance.AddLateUpdateListener(Event.TouchType.TwoFingerBegin, OnPinchBegin);
+            EasyInput.Instance.AddGlobalLateUpdateListener(Event.TouchType.TwoFingerBegin, OnPinchBegin);
 
-            EasyInput.Instance.AddLateUpdateListener(Event.TouchType.TwoFinger, OnPinch);
+            EasyInput.Instance.AddGlobalLateUpdateListener(Event.TouchType.TwoFinger, OnPinch);
 
-            EasyInput.Instance.AddLateUpdateListener(Event.TouchType.TwoFingerEnd, OnPinchEnd);
+            EasyInput.Instance.AddGlobalLateUpdateListener(Event.TouchType.TwoFingerEnd, OnPinchEnd);
 
 #if UNITY_EDITOR
             IsVerticalRotateable = true;
@@ -198,7 +198,7 @@ namespace BlueNoah.CameraControl
         {
             if (!Input.GetKey(KeyCode.LeftControl))
             {
-                if (!eventData.isPointerOnGameObject)
+                if (!eventData.currentTouch.isPointerOnGameObject)
                 {
                     mBaseCameraMoveService.CancelMove();
                     mBaseCameraPinchService.CancelPinch();

@@ -68,7 +68,7 @@ namespace BlueNoah.CameraControl
 
         public override void OnPinch(EventData eventData)
         {
-            float detalDistance = eventData.deltaPinchDistance;
+            float detalDistance = eventData.deltaTwoFingerDistance;
 
             float sizeOver = mTargetOrthographicSize - Mathf.Clamp(mTargetOrthographicSize, mMinOrthographicSize, mMaxOrthographicSize);
 
@@ -106,7 +106,7 @@ namespace BlueNoah.CameraControl
         {
             mTargetOrthographicSize = mCamera.orthographicSize;
             EventData eventData = new EventData();
-            eventData.deltaPinchDistance = Input.GetAxis("Mouse ScrollWheel") * 100f;
+            eventData.deltaTwoFingerDistance = Input.GetAxis("Mouse ScrollWheel") * 100f;
             OnPinch(eventData);
         }
     }

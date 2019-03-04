@@ -128,7 +128,7 @@ namespace BlueNoah.CameraControl
         {
             if (mIsTouching)
             {
-                Move(eventData.deltaTouchPos0.x, eventData.deltaTouchPos0.y);
+                Move(eventData.currentTouch.touch.deltaPosition.x, eventData.currentTouch.touch.deltaPosition.y);
             }
         }
 
