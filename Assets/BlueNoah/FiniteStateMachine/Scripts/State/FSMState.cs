@@ -179,6 +179,20 @@ namespace BlueNoah.AI.FSM
                     }
                 }
             }
+            for (int i = 0; i < mFiniteStateMachine.CommonTransitions.Count; i++)
+            {
+                if (mFiniteStateMachine.CommonTransitions[i].IsEnable && mFiniteStateMachine.CommonTransitions[i].toState != state)
+                {
+                    if (mFiniteStateMachine.CommonTransitions[i].OnUpdate())
+                    {
+                        mCurrentTransition = mFiniteStateMachine.CommonTransitions[i];
+                        mCurrentTransition.fromState = state;
+                        OnExit();
+                        mCurrentTransition.OnBeginTransit();
+                        return;
+                    }
+                }
+            }
         }
 
         internal void AddTransitions(List<FSMTransition> transitions)
@@ -194,7 +208,8 @@ namespace BlueNoah.AI.FSM
             transition.fromState = state;
             transitions.Add(transition);
             transition.GO = GO;
-            transition.OnAwake();
+            if (Application.isPlaying)
+                transition.OnAwake();
         }
 
         internal void AddActions(List<FSMAction> actions)
@@ -210,7 +225,8 @@ namespace BlueNoah.AI.FSM
             actions.Add(action);
             action.GO = GO;
             action.finiteStateMachine = mFiniteStateMachine;
-            action.OnAwake();
+            if (Application.isPlaying)
+                action.OnAwake();
         }
     }
 }

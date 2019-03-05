@@ -3,6 +3,8 @@ using UnityEngine;
 
 namespace BlueNoah.AI.FSM
 {
+    public delegate void FSMEventAction();
+
     [System.Serializable]
     public class FSMAction
     {
@@ -36,7 +38,7 @@ namespace BlueNoah.AI.FSM
 
         public virtual void OnUpdate()
         {
-           
+
         }
 
         public virtual void OnExit()
@@ -69,5 +71,5 @@ namespace BlueNoah.AI.FSM
             }
         }
 
-	}
+    }
 }

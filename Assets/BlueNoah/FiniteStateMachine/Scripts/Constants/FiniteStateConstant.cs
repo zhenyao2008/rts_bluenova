@@ -36,7 +36,28 @@ public enum FiniteStateConstant
     ForceSitChair = 26,
     Meet = 27,
     Travel = 28,
-    MoveToMeet = 29
+    MoveToMeet = 29,
+    //from 1001 ,same as town scene prefabs.
+    NormalFun = 1000,
+    SakuraHouse = 1001,
+    PrimarySchool = 1002,
+    MiddleSchool = 1004,
+    PenGuInPark = 1005,
+    TsuKiMiNeShrine = 1006,
+    DaiDouJiHouse = 1007,
+    AKiHoHouse = 1008,
+    YuKiToHouse = 1009,
+    TwinBell = 1010,
+    SuperMarket = 1011,
+    Draper = 1012,
+    HomeCenter = 1013,
+    Museume = 1014,
+    HighSchool = 1015,
+    CherryBlossomsHill = 1016,
+    BusStop = 1018,
+    Library = 1019,
+    GuidePlate = 1020,
+    DolphinSquare = 1021
 }
 
 public enum FiniteConditionConstant
@@ -72,8 +93,29 @@ public enum FiniteConditionConstant
     Skill = 23,
     Avoid = 24,
     Follow = 25,
-    ForceSitChair= 26,
+    ForceSitChair = 26,
     Meet = 27,
     Travel = 28,
-    MoveToMeet = 29
+    MoveToMeet = 29,
+    //from 1001 ,same as town scene prefabs.
+    NormalFun = 1000,
+    SakuraHouse = 1001,
+    PrimarySchool = 1002,
+    MiddleSchool = 1004,
+    PenGuInPark = 1005,
+    TsuKiMiNeShrine = 1006,
+    DaiDouJiHouse = 1007,
+    AKiHoHouse = 1008,
+    YuKiToHouse = 1009,
+    TwinBell = 1010,
+    SuperMarket = 1011,
+    Draper = 1012,
+    HomeCenter = 1013,
+    Museume = 1014,
+    HighSchool = 1015,
+    CherryBlossomsHill = 1016,
+    BusStop = 1018,
+    Library = 1019,
+    GuidePlate = 1020,
+    DolphinSquare = 1021
 }

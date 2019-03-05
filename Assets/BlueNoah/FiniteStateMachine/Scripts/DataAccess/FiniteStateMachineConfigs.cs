@@ -23,6 +23,8 @@ namespace BlueNoah.AI.FSM
         public int subFSMId;
         public string stateId;
         public string[] actions;
+        public ActionWithParams[] actionWithParams;
+        public StringParam[] stringParams;
         public Vector3Int position;
     }
     [System.Serializable]
@@ -71,5 +73,45 @@ namespace BlueNoah.AI.FSM
     {
         public string condtion;
         public bool targetValue;
+    }
+    [System.Serializable]
+    public class StringParam
+    {
+        public string paramName;
+        public string paramValue;
+    }
+    [System.Serializable]
+    public class ActionWithParams
+    {
+        public string action;
+        public StringParam[] stringParams;
+        public IntParam[] intParams;
+        public VectorArrayParam[] vectorArrayParams;
+        public IntArrayParam[] intArrayParams;
+        public StringArrayParam[] stringArrayParams;
+    }
+    [System.Serializable]
+    public class VectorArrayParam
+    {
+        public string paramName;
+        public Vector3[] paramValue;
+    }
+    [System.Serializable]
+    public class IntArrayParam
+    {
+        public string paramName;
+        public int[] paramValue;
+    }
+    [System.Serializable]
+    public class StringArrayParam
+    {
+        public string paramName;
+        public string[] paramValue;
+    }
+    [System.Serializable]
+    public class IntParam
+    {
+        public string paramName;
+        public int paramValue;
     }
 }

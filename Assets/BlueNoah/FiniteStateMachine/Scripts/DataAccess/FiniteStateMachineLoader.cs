@@ -11,6 +11,13 @@ namespace BlueNoah.AI.FSM
 
         public const string M_FSM_CONFIG = "fsms/j_fsm";
 
+        static FiniteStateMachineConfig[] LoadFiniteStateMachineConfig(string configPath)
+        {
+            TextAsset textAsset = Resources.Load<TextAsset>(configPath);
+            FiniteStateMachineConfigs unitConfigs = JsonUtility.FromJson<FiniteStateMachineConfigs>(textAsset.text);
+            return unitConfigs.finiteStateMachineArray;
+        }
+
         public static FiniteStateMachineConfigs unitAIConfig;
 
         public static Dictionary<int, FiniteStateMachineConfig> finiteStateMachineConfigDic;
@@ -18,11 +25,23 @@ namespace BlueNoah.AI.FSM
         public static Dictionary<int, FiniteStateMachineConfig> LoadAIConfig()
         {
             finiteStateMachineConfigDic = new Dictionary<int, FiniteStateMachineConfig>();
-            TextAsset textAsset = Resources.Load<TextAsset>(M_FSM_CONFIG);
-            unitAIConfig = JsonUtility.FromJson<FiniteStateMachineConfigs>(textAsset.text);
-            for (int i = 0; i < unitAIConfig.finiteStateMachineArray.Length; i++)
+            // TextAsset textAsset = Resources.Load<TextAsset>(M_FSM_CONFIG);
+            // unitAIConfig = JsonUtility.FromJson<FiniteStateMachineConfigs>(textAsset.text);
+            List<FiniteStateMachineConfig> fsmConfigs = new List<FiniteStateMachineConfig>();
+            fsmConfigs.AddRange(LoadFiniteStateMachineConfig("configs/fsms/j_fsm"));
+            fsmConfigs.AddRange(LoadFiniteStateMachineConfig("configs/fsms/j_fsm_town_sakura"));
+            fsmConfigs.AddRange(LoadFiniteStateMachineConfig("configs/fsms/j_fsm_town_others"));
+            for (int i = 0; i < fsmConfigs.Count; i++)
             {
-                finiteStateMachineConfigDic.Add(unitAIConfig.finiteStateMachineArray[i].id, unitAIConfig.finiteStateMachineArray[i]);
+                if (!finiteStateMachineConfigDic.ContainsKey(fsmConfigs[i].id))
+                {
+                    // Debug.LogError(fsmConfigs[i].id);
+                    finiteStateMachineConfigDic.Add(fsmConfigs[i].id, fsmConfigs[i]);
+                }
+                else
+                {
+                    Debug.LogError(fsmConfigs[i].id + " is existing.");
+                }
             }
             return finiteStateMachineConfigDic;
         }
@@ -50,10 +69,64 @@ namespace BlueNoah.AI.FSM
             {
                 for (int j = 0; j < finiteStateMachineConfig.states[i].actions.Length; j++)
                 {
-                    
+
                     FSMAction action = assembly.CreateInstance("BlueNoah.AI.FSM." + finiteStateMachineConfig.states[i].actions[j]) as FSMAction;
 
+                    //obj.GetType().GetField(fieldname).SetValue(obj,value);
+
                     finiteStateMachine.AddAction(ParseFiniteStateConstant(finiteStateMachineConfig.states[i].stateId), action);
+                }
+                if (finiteStateMachineConfig.states[i].actionWithParams != null)
+                {
+                    for (int j = 0; j < finiteStateMachineConfig.states[i].actionWithParams.Length; j++)
+                    {
+                        FSMAction action = assembly.CreateInstance("BlueNoah.AI.FSM." + finiteStateMachineConfig.states[i].actionWithParams[j].action) as FSMAction;
+
+                        if (finiteStateMachineConfig.states[i].actionWithParams[j].stringParams != null)
+                        {
+                            for (int z = 0; z < finiteStateMachineConfig.states[i].actionWithParams[j].stringParams.Length; z++)
+                            {
+                                StringParam param = finiteStateMachineConfig.states[i].actionWithParams[j].stringParams[z];
+                                action.GetType().GetField(param.paramName).SetValue(action, param.paramValue);
+                            }
+                        }
+                        if (finiteStateMachineConfig.states[i].actionWithParams[j].intParams != null)
+                        {
+                            for (int z = 0; z < finiteStateMachineConfig.states[i].actionWithParams[j].intParams.Length; z++)
+                            {
+                                IntParam param = finiteStateMachineConfig.states[i].actionWithParams[j].intParams[z];
+                                action.GetType().GetField(param.paramName).SetValue(action, param.paramValue);
+                            }
+                        }
+
+                        if (finiteStateMachineConfig.states[i].actionWithParams[j].vectorArrayParams != null)
+                        {
+                            for (int z = 0; z < finiteStateMachineConfig.states[i].actionWithParams[j].vectorArrayParams.Length; z++)
+                            {
+                                VectorArrayParam param = finiteStateMachineConfig.states[i].actionWithParams[j].vectorArrayParams[z];
+                                action.GetType().GetField(param.paramName).SetValue(action, param.paramValue);
+                            }
+                        }
+
+                        if (finiteStateMachineConfig.states[i].actionWithParams[j].intArrayParams != null)
+                        {
+                            for (int z = 0; z < finiteStateMachineConfig.states[i].actionWithParams[j].intArrayParams.Length; z++)
+                            {
+                                IntArrayParam param = finiteStateMachineConfig.states[i].actionWithParams[j].intArrayParams[z];
+                                action.GetType().GetField(param.paramName).SetValue(action, param.paramValue);
+                            }
+                        }
+
+                        if (finiteStateMachineConfig.states[i].actionWithParams[j].stringArrayParams != null)
+                        {
+                            for (int z = 0; z < finiteStateMachineConfig.states[i].actionWithParams[j].stringArrayParams.Length; z++)
+                            {
+                                StringArrayParam param = finiteStateMachineConfig.states[i].actionWithParams[j].stringArrayParams[z];
+                                action.GetType().GetField(param.paramName).SetValue(action, param.paramValue);
+                            }
+                        }
+                        finiteStateMachine.AddAction(ParseFiniteStateConstant(finiteStateMachineConfig.states[i].stateId), action);
+                    }
                 }
 
                 if (finiteStateMachineConfigDic.ContainsKey(finiteStateMachineConfig.states[i].subFSMId))
@@ -70,8 +143,6 @@ namespace BlueNoah.AI.FSM
             {
                 FSMTransition transition = new FSMTransition(finiteStateMachine);
 
-                transition.fromState = ParseFiniteStateConstant(finiteStateMachineConfig.transitions[i].fromStateId);
-
                 transition.toState = ParseFiniteStateConstant(finiteStateMachineConfig.transitions[i].toStateId);
 
                 for (int j = 0; j < finiteStateMachineConfig.transitions[i].conditionIdValues.Length; j++)
@@ -81,7 +152,16 @@ namespace BlueNoah.AI.FSM
                     transition.AddCondition(boolVar, finiteStateMachineConfig.transitions[i].conditionIdValues[j].conditionValue == 0 ? false : true);
                 }
 
-                finiteStateMachine.AddTransition(transition.fromState, transition);
+                if (!string.IsNullOrEmpty(finiteStateMachineConfig.transitions[i].fromStateId))
+                {
+                    transition.fromState = ParseFiniteStateConstant(finiteStateMachineConfig.transitions[i].fromStateId);
+
+                    finiteStateMachine.AddTransition(transition.fromState, transition);
+                }
+                else
+                {
+                    finiteStateMachine.AddCommonTransition(transition);
+                }
             }
         }
 

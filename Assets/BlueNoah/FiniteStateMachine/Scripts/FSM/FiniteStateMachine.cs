@@ -30,10 +30,20 @@ namespace BlueNoah.AI.FSM
         //汎用のTransition,状態毎に使われる。
         List<FSMTransition> mCommonTransitions;
 
+        public List<FSMTransition> CommonTransitions
+        {
+            get
+            {
+                if (mCommonTransitions == null)
+                    mCommonTransitions = new List<FSMTransition>();
+                return mCommonTransitions;
+            }
+        }
+
         public List<FiniteStateConstant> stateNameList;
 
         Dictionary<FiniteConditionConstant, BoolVar> mConditionDic;
-        //見えるために
+        //見えるために 
         [SerializeField]
         List<BoolVar> mConditionList;
 
@@ -194,6 +204,11 @@ namespace BlueNoah.AI.FSM
                 FSMState finalState = TryAddState(state);
                 finalState.AddTransition(transition);
             }
+        }
+
+        public void AddCommonTransition(FSMTransition transition)
+        {
+            CommonTransitions.Add(transition);
         }
 
         public void EnterDefaultState()

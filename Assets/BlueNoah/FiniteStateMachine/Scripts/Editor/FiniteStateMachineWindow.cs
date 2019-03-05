@@ -323,10 +323,6 @@ namespace BlueNoah.AI.FSM
 
             finiteStateMachineWindowData.index = index;
 
-            //int yOffset = FSM_START_OFFSET;
-
-            //int maxCount = 0;
-
             Dictionary<FiniteConditionConstant, BoolVar> mConditionParameterDic = new Dictionary<FiniteConditionConstant, BoolVar>();
 
             foreach (FiniteConditionConstant condition in finiteStateMachine.ConditionDic.Keys)
