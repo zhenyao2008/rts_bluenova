@@ -164,6 +164,18 @@ namespace BlueNoah.CameraControl
             }
         }
 
+        public bool IsScreenEdgeMoveable
+        {
+            get
+            {
+                return mBaseCameraMoveService.IsScreenEdgeMoveable;
+            }
+            set
+            {
+                mBaseCameraMoveService.IsScreenEdgeMoveable = value;
+            }
+        }
+
         public float MoveSpeed
         {
             get

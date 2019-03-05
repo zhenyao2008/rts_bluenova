@@ -22,6 +22,8 @@ namespace BlueNoah.CameraControl
         protected Vector3 planeNormal = new Vector3(0, 1, 0);
         protected Vector3 planeNormalPoint = new Vector3(0, 0, 0);
 
+        protected bool mIsScreenEdgeMoveable;
+
         public void CancelMove()
         {
             mIsTouching = false;
@@ -51,6 +53,18 @@ namespace BlueNoah.CameraControl
             }
         }
 
+        public bool IsScreenEdgeMoveable
+        {
+            get
+            {
+                return mIsScreenEdgeMoveable;
+            }
+            set
+            {
+                mIsScreenEdgeMoveable = value;
+            }
+        }
+
         public void MoveBegin(EventData eventData)
         {
             mIsTouching = true;
@@ -74,7 +88,7 @@ namespace BlueNoah.CameraControl
 
         public virtual void Init()
         {
-
+            EasyInput.Instance.AddListener(Event.TouchType.Touch, 0, ScreenEdgeMove);
         }
 
         public void OnUpdate()
@@ -212,6 +226,33 @@ namespace BlueNoah.CameraControl
                 y = mKeyboardSpeed * Time.deltaTime;
             }
             Move(x, y);
+        }
+
+        void ScreenEdgeMove(EventData eventData)
+        {
+            if (this.mIsScreenEdgeMoveable)
+            {
+                Vector2 position = eventData.currentTouch.touch.position;
+                float x = 0;
+                float y = 0;
+                if (position.x <= Screen.dpi / 2.54f)
+                {
+                    x = mKeyboardSpeed * Time.deltaTime;
+                }
+                if (position.x >= Screen.width - Screen.dpi / 2.54f)
+                {
+                    x = -mKeyboardSpeed * Time.deltaTime;
+                }
+                if (position.y <= Screen.dpi / 2.54f)
+                {
+                    y = mKeyboardSpeed * Time.deltaTime;
+                }
+                if (position.y >= Screen.height - Screen.dpi / 2.54f)
+                {
+                    y = -mKeyboardSpeed * Time.deltaTime;
+                }
+                Move(x, y);
+            }
         }
 
         protected Vector3 GetCameraForward()
