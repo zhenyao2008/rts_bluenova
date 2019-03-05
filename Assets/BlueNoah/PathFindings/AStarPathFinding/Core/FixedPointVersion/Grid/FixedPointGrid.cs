@@ -179,21 +179,12 @@ namespace BlueNoah.PathFinding.FixedPoint
             return false;
         }
 
-        public FixedPointNode GetNearestNode(FixedPointVector3 pos)
-        {
-            FixedPoint64 xIndex = FixedPointMath.Round((pos.x - mStartPos.x) / mGridSetting.nodeWidth);
-            FixedPoint64 yIndex = FixedPointMath.Round((pos.z - mStartPos.z) / mGridSetting.nodeWidth);
-            xIndex = FixedPointMath.Clamp(xIndex, 0, mGridSetting.xCount - 1); // Mathf.Clamp(xIndex, 0, mGridSetting.xCount - 1);
-            yIndex = FixedPointMath.Clamp(yIndex, 0, mGridSetting.zCount - 1);
-            return GetNode(xIndex.AsInt(), yIndex.AsInt());
-        }
-        //加上Offset过后，判断就容易多了，好的算法很重要，哈哈哈。
         public FixedPointNode GetNearestNode(FixedPointVector3 pos, int xOffset, int yOffset)
         {
             FixedPoint64 xIndex = FixedPointMath.Round((pos.x - mStartPos.x) / mGridSetting.nodeWidth);
             FixedPoint64 yIndex = FixedPointMath.Round((pos.z - mStartPos.z) / mGridSetting.nodeWidth);
-            xIndex = FixedPointMath.Clamp(xIndex, 0, mGridSetting.xCount  - xOffset); // Mathf.Clamp(xIndex, 0, mGridSetting.xCount - 1);
-            yIndex = FixedPointMath.Clamp(yIndex, 0, mGridSetting.zCount  - yOffset);
+            xIndex = FixedPointMath.Clamp(xIndex, 0, mGridSetting.xCount - xOffset); // Mathf.Clamp(xIndex, 0, mGridSetting.xCount - 1);
+            yIndex = FixedPointMath.Clamp(yIndex, 0, mGridSetting.zCount - yOffset);
             return GetNode(xIndex.AsInt(), yIndex.AsInt());
         }
 
@@ -203,14 +194,23 @@ namespace BlueNoah.PathFinding.FixedPoint
 
             List<FixedPointNode> fixedPointNodes = new List<FixedPointNode>();
 
-            for (int i = 0; i < xOffset ; i++)
+            for (int i = 0; i < xOffset; i++)
             {
-                for (int j = 0; j < yOffset ; j++)
+                for (int j = 0; j < yOffset; j++)
                 {
-                    fixedPointNodes.Add(GetNode(fixedPointNode.x + i,fixedPointNode.z + j));
+                    fixedPointNodes.Add(GetNode(fixedPointNode.x + i, fixedPointNode.z + j));
                 }
             }
             return fixedPointNodes;
+        }
+
+        public FixedPointNode GetNearestNode(FixedPointVector3 pos)
+        {
+            FixedPoint64 xIndex = FixedPointMath.Round((pos.x - mStartPos.x) / mGridSetting.nodeWidth);
+            FixedPoint64 yIndex = FixedPointMath.Round((pos.z - mStartPos.z) / mGridSetting.nodeWidth);
+            xIndex = FixedPointMath.Clamp(xIndex, 0, mGridSetting.xCount - 1); // Mathf.Clamp(xIndex, 0, mGridSetting.xCount - 1);
+            yIndex = FixedPointMath.Clamp(yIndex, 0, mGridSetting.zCount - 1);
+            return GetNode(xIndex.AsInt(), yIndex.AsInt());
         }
 
         public FixedPointNode GetNode(FixedPointVector3 pos)
@@ -218,6 +218,70 @@ namespace BlueNoah.PathFinding.FixedPoint
             FixedPoint64 xIndex = (pos.x - mStartPos.x) / mGridSetting.nodeWidth;
             FixedPoint64 zIndex = (pos.z - mStartPos.z) / mGridSetting.nodeWidth;
             return GetNode(FixedPointMath.Round(xIndex).AsInt(), FixedPointMath.Round(zIndex).AsInt());
+        }
+
+        bool CheckValid(int x, int z, out FixedPointNode fixedPointNode)
+        {
+            fixedPointNode = GetNode(x, z);
+            if (fixedPointNode != null && !fixedPointNode.IsBlock && fixedPointNode.Enable)
+            {
+                return true;
+            }
+            return false;
+        }
+        //当たり前なマースを中心として、中空正方形の形に拡散検索
+        public FixedPointNode GetValidNode(FixedPointVector3 pos)
+        {
+            FixedPointNode fixedPointNode = GetNearestNode(pos);
+            int xTarget = xCount.AsInt() - fixedPointNode.x - 1;
+            int xTarget1 = fixedPointNode.x;
+            int zTarget = zCount.AsInt() - fixedPointNode.z - 1;
+            int zTarget1 = fixedPointNode.z;
+            int xMax = Mathf.Max(xTarget, xTarget1);
+            int zMax = Mathf.Max(zTarget, zTarget1);
+            int count = Mathf.Max(xMax, zMax);
+            FixedPointNode validNode;
+            for (int i = 0; i < count; i++)
+            {
+                for (int j = 0; j <= i; j++)
+                {
+                    //手前に検索
+                    if (CheckValid(fixedPointNode.x - i, fixedPointNode.z + j, out validNode))
+                    {
+                        return validNode;
+                    }
+                    if (CheckValid(fixedPointNode.x + i, fixedPointNode.z + j, out validNode))
+                    {
+                        return validNode;
+                    }
+                    if (CheckValid(fixedPointNode.x + j, fixedPointNode.z - i, out validNode))
+                    {
+                        return validNode;
+                    }
+                    if (CheckValid(fixedPointNode.x + j, fixedPointNode.z + i, out validNode))
+                    {
+                        return validNode;
+                    }
+                    //反対に検索
+                    if (CheckValid(fixedPointNode.x - i, fixedPointNode.z - j, out validNode))
+                    {
+                        return validNode;
+                    }
+                    if (CheckValid(fixedPointNode.x + i, fixedPointNode.z - j, out validNode))
+                    {
+                        return validNode;
+                    }
+                    if (CheckValid(fixedPointNode.x - j, fixedPointNode.z - i, out validNode))
+                    {
+                        return validNode;
+                    }
+                    if (CheckValid(fixedPointNode.x - j, fixedPointNode.z + i, out validNode))
+                    {
+                        return validNode;
+                    }
+                }
+            }
+            return null;
         }
 
         public FixedPointNode GetNode(int xIndex, int yIndex)
