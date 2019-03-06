@@ -11,12 +11,12 @@ namespace BlueNoah.CameraControl
         protected Camera mCamera;
         protected float mMoveSpeed = 2f;
         protected float mSmooth = 20f;
-        protected float mMaxOverDistance = 0.5f;
+        protected float mMaxOverDistance = 0.05f;
         protected Vector3 mRemainRightDistance;
         protected Vector3 mRemainForwardDistance;
         protected BoxCollider mMoveArea;
         protected bool mIsTouching;
-        bool mMoveBackable = false;
+        bool mMoveBackable = true;
         protected bool mKeyboardMoveable = true;
         protected float mKeyboardSpeed = 1000;
         protected Vector3 planeNormal = new Vector3(0, 1, 0);
@@ -132,6 +132,7 @@ namespace BlueNoah.CameraControl
                 MoveBack();
         }
 
+        //ズームの時も
         void MoveBack()
         {
             Vector3 offset = GetMoveAreOffset(mCamera.transform.position);
