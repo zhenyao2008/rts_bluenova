@@ -181,15 +181,23 @@ namespace BlueNoah.AI.FSM
             }
             for (int i = 0; i < mFiniteStateMachine.CommonTransitions.Count; i++)
             {
-                if (mFiniteStateMachine.CommonTransitions[i].IsEnable && mFiniteStateMachine.CommonTransitions[i].toState != state)
+                if (mFiniteStateMachine.CommonTransitions[i].IsEnable)
                 {
                     if (mFiniteStateMachine.CommonTransitions[i].OnUpdate())
                     {
-                        mCurrentTransition = mFiniteStateMachine.CommonTransitions[i];
-                        mCurrentTransition.fromState = state;
-                        OnExit();
-                        mCurrentTransition.OnBeginTransit();
-                        return;
+                        if (mFiniteStateMachine.CommonTransitions[i].toState != state)
+                        {
+                            mCurrentTransition = mFiniteStateMachine.CommonTransitions[i];
+                            mCurrentTransition.fromState = state;
+                            OnExit();
+                            mCurrentTransition.OnBeginTransit();
+                            return;
+                        }
+                        else
+                        {
+                            //優先順位に沿って
+                            return;
+                        }
                     }
                 }
             }
