@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using BlueNoah.AI.View;
 using BlueNoah.Event;
 using BlueNoah.Math.FixedPoint;
 using BlueNoah.PathFinding;
@@ -132,7 +133,7 @@ namespace BlueNoah.Build
                 {
                     //得到目标位置，根据这个位置取到对应node的位置。
                     Vector3 targetPos = raycastHit.point - mSelectBuildingOffset; //- new FixedPointVector3(this.nodeWidth / 2, 0, this.nodeWidth / 2).ToVector3();
-                    Building building = mSelectBuilding.GetComponent<Building>();
+                    ActorBuilding building = mSelectBuilding.GetComponent<ActorBuilding>();
 
                     Vector3 gridOffset = new Vector3((building.xSize / 2f - 0.5f) * this.nodeWidth.AsFloat(), 0, (building.ySize / 2f - 0.5f) * this.nodeWidth.AsFloat());
                     List<FixedPointNode> nodes = mFixedPointGrid.GetNearestNodes((targetPos - gridOffset).ToFixedPointVector3(), building.xSize, building.ySize);
@@ -167,17 +168,23 @@ namespace BlueNoah.Build
         {
             if (mSelectBuilding != null)
             {
+                //UnSelect.
+                mSelectBuilding.gameObject.GetOrAddComponent<ActorHighlighter>().HideHighlighter();
+
                 mSelectBuilding = null;
             }
             else
             {
+                //Select.
                 RaycastHit raycastHit;
                 if (CameraControl.CameraController.Instance.GetWorldPositionByMousePosition(out raycastHit, LayerConstant.LAYER_BUILDING))
                 {
 
                     mSelectBuilding = raycastHit.collider.transform.gameObject;
 
-                    mSelectBuilding.GetComponent<Building>().OnSpring();
+                    mSelectBuilding.GetComponent<ActorBuilding>().OnSpring();
+
+                    mSelectBuilding.gameObject.GetOrAddComponent<ActorHighlighter>().ShowHighlighter();
                 }
             }
         }

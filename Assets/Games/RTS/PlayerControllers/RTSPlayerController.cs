@@ -1,4 +1,9 @@
-﻿using System.Collections.Generic;
+﻿/*
+ *　2019.2.29 午後７時４分、横浜青葉台
+ *　應　彧剛(yingyugang@gmail.com)
+*/
+using System.Collections.Generic;
+using BlueNoah.AI.View;
 using BlueNoah.AI.View.RTS;
 using BlueNoah.Event;
 using BlueNoah.Math.FixedPoint;
@@ -40,14 +45,10 @@ namespace RTS
 
         void OnClick(EventData eventData)
         {
-            if (mSelectedActors.Count > 0)
-            {
-                mSelectedActors.Clear();
-            }
+            UnSelectActors();
             RaycastHit raycastHit;
             if (BlueNoah.CameraControl.CameraController.Instance.GetWorldPositionByMousePosition(out raycastHit, LayerConstant.LAYER_GROUND))
             {
-                //RTSSceneController.Instance.SpawnActorView(playerId, 1,raycastHit.point.ToFixedPointVector3());
                 if (onCreateActor != null)
                 {
                     onCreateActor(playerId, 1, raycastHit.point, Vector3.zero);
@@ -58,7 +59,7 @@ namespace RTS
         void OnSeleced(Rect rect)
         {
             Dictionary<long, ActorViewer> actorViewers = RTSSceneController.Instance.GetActorViewers(playerId);
-            mSelectedActors.Clear();
+            UnSelectActors();
             if (actorViewers != null)
             {
                 foreach (ActorViewer actorViewer in actorViewers.Values)
@@ -67,6 +68,7 @@ namespace RTS
                     {
                         Debug.Log(actorViewer);
                         mSelectedActors.Add(actorViewer.actorCore.actorAttribute.actorId, actorViewer);
+                        actorViewer.gameObject.GetOrAddComponent<ActorHighlighter>().ShowHighlighter();
                     }
                 }
             }
@@ -95,6 +97,15 @@ namespace RTS
                     }
                 }
             }
+        }
+
+        void UnSelectActors()
+        {
+            foreach (ActorViewer actorViewer in mSelectedActors.Values)
+            {
+                actorViewer.gameObject.GetOrAddComponent<ActorHighlighter>().HideHighlighter();
+            }
+            mSelectedActors.Clear();
         }
 
         List<FixedPointVector3> GetNearPositions(FixedPointVector3 center, int count)
