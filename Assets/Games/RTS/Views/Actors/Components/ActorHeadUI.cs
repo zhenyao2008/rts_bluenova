@@ -1,4 +1,8 @@
-﻿using System.Collections;
+﻿/*
+ *　2019.2.29 午後７時４分、横浜青葉台
+ *　應　彧剛(yingyugang@gmail.com)
+*/
+using System.Collections;
 using TMPro;
 using UnityEngine;
 
