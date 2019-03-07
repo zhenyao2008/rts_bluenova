@@ -19,6 +19,8 @@ namespace BlueNoah.CSV
         [CsvColumn()]
         public float pos_y;
         [CsvColumn()]
+        public float angle_y;
+        [CsvColumn()]
         public int alignment;
     }
 }

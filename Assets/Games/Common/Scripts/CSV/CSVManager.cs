@@ -81,13 +81,14 @@ namespace BlueNoah.CSV
         {
             monsterTextAssetList = new List<TextAsset>();
             TextAsset[] textAssets = Resources.LoadAll<TextAsset>("CSV/" + CSV_MAP_MONSTER_ROOT);
+            Debug.Log(textAssets.Length);
             for (int i = 0; i < textAssets.Length; i++)
             {
                 monsterTextAssetList.Add(textAssets[i]);
             }
         }
 
-        public void SetMonsterCSV(int index)
+        public List<MapMonster> LoadMonsterCSV(int index)
         {
             if (monsterTextAssetList == null || monsterTextAssetList.Count == 0)
             {
@@ -96,6 +97,7 @@ namespace BlueNoah.CSV
             index = Mathf.Clamp(index, 0, monsterTextAssetList.Count);
             monsterList = CreateCSVList<MapMonster>(monsterTextAssetList[index].text);
             monsterDic = GetDictionary<MapMonster>(monsterList);
+            return monsterList;
         }
 
         public List<T> CreateCSVList<T>(string csvname) where T : BaseCSVStructure, new()

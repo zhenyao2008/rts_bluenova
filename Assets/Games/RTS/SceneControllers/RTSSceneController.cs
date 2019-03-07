@@ -27,19 +27,20 @@ namespace BlueNoah.SceneControl
             Init();
         }
 
-        void FixedUpdate()
-        {
-            mSceneCore.OnUpdate();
-        }
-
         void Init()
         {
             mSceneCore = new SceneCore();
             mSceneViewer = gameObject.GetOrAddComponent<SceneViewer>();
             mSceneCore.SetActorOnSpawn(mSceneViewer.SpawnActorView);
             mSceneCore.SetActorOnRemove(mSceneViewer.RemoveActorView);
+
             //mSceneCore.SetActorOnSpawn(mSceneViewer.S);
             InitInput();
+        }
+
+        void FixedUpdate()
+        {
+            mSceneCore.OnUpdate();
         }
 
         public Dictionary<long, ActorViewer> GetActorViewers(int playerId)

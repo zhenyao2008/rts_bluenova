@@ -1,2 +1,2 @@
-id,name,unit_id,action,pos_x,pos_y,alignment
-1,warrior,14,1,1043,1308,1
+id,name,unit_id,action,pos_x,pos_y,alignment,angle_y
+1,warrior,14,1,1,1,1,0

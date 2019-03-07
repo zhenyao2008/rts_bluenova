@@ -368,7 +368,6 @@ namespace BlueNoah.CameraControl
 
         Vector3 GetOrthographicPositionWithOffset(float x, float y)
         {
-            float height = mCamera.orthographicSize * 2;
             float sizePerPixel = mCamera.orthographicSize * 2 / Screen.height;
             return mCamera.transform.position - mCamera.transform.up * y - mCamera.transform.right * x;
         }

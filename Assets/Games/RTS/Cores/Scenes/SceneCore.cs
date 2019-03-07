@@ -1,5 +1,7 @@
 ﻿using BlueNoah.AI.RTS;
 using BlueNoah.AI.Spawn;
+using BlueNoah.AI.Stage;
+using BlueNoah.CSV;
 using BlueNoah.Math.FixedPoint;
 using BlueNoah.PathFinding;
 using BlueNoah.PathFinding.FixedPoint;
@@ -13,17 +15,24 @@ namespace BlueNoah.SceneControl
 
         PathFindingMananger mPathFindingMananger;
 
+        StageService mStageService;
+
         public SceneCore()
         {
             mActorCoreSpawnService = new ActorCoreSpawnService();
 
-            mPathFindingMananger =  PathFindingMananger.NewInstance();
+            mPathFindingMananger = PathFindingMananger.NewInstance();
+
+            mStageService = new StageService();
+
+            mStageService.onSpawnActor = SpawnStageActor;
+
+            mStageService.LoadStage(0);
 
         }
         //Core calculation function.
         public void OnUpdate()
         {
-            //TODO
             mPathFindingMananger.OnUpdate();
         }
 
@@ -39,6 +48,19 @@ namespace BlueNoah.SceneControl
 
         public void SpawnActor(int playerId, int actorTypeId, FixedPointVector3 position, FixedPointVector3 eulerAngles)
         {
+            mActorCoreSpawnService.SpawnActor(playerId, actorTypeId, position, eulerAngles);
+        }
+
+        void SpawnStageActor(MapMonster mapMonster)
+        {
+            FixedPointVector3 position = new FixedPointVector3();
+
+            FixedPointVector3 eulerAngles = new FixedPointVector3();
+
+            int playerId = mapMonster.alignment;
+
+            int actorTypeId = mapMonster.unit_id;
+
             mActorCoreSpawnService.SpawnActor(playerId, actorTypeId, position, eulerAngles);
         }
     }
