@@ -1,4 +1,8 @@
-﻿using System.Collections;
+﻿/*
+ *　2019.3.6 午後７時４分、東京恵比寿
+ *　應　彧剛(yingyugang@gmail.com)
+*/
+using System.Collections;
 using System.Collections.Generic;
 using HighlightingSystem;
 using UnityEngine;

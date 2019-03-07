@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using BlueNoah.CSV;
 using UnityEngine;
 
 namespace UIFrame
@@ -19,7 +20,8 @@ namespace UIFrame
         public void SetBuildInfo(SpawnPoint sp)
         {
             mBuildingDetailPanelView.btn_sell.onClick.RemoveAllListeners();
-            mBuildingDetailPanelView.btn_sell.onClick.AddListener(()=>{
+            mBuildingDetailPanelView.btn_sell.onClick.AddListener(() =>
+            {
                 PlayerController_III.instance.CmdDeleteBuilding();
                 this.Close();
             });
@@ -34,7 +36,8 @@ namespace UIFrame
                 {
                     mBuildingDetailPanelView.btn_upgrade.onClick.RemoveAllListeners();
                     mBuildingDetailPanelView.btn_upgrade.gameObject.SetActive(true);
-                    mBuildingDetailPanelView.btn_upgrade.onClick.AddListener(()=>{
+                    mBuildingDetailPanelView.btn_upgrade.onClick.AddListener(() =>
+                    {
                         PlayerController_III.instance.ShowUpgrade();
                         this.Close();
                     });
@@ -50,7 +53,8 @@ namespace UIFrame
                 {
                     mBuildingDetailPanelView.btn_upgrade1.onClick.RemoveAllListeners();
                     mBuildingDetailPanelView.btn_upgrade1.gameObject.SetActive(true);
-                    mBuildingDetailPanelView.btn_upgrade1.onClick.AddListener(()=>{
+                    mBuildingDetailPanelView.btn_upgrade1.onClick.AddListener(() =>
+                    {
                         PlayerController_III.instance.ShowUpgrade1();
                         Close();
                     });
