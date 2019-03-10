@@ -35,11 +35,8 @@ namespace BlueNoah.CSV
 
         byte[] GetCSV(string fileName)
         {
-#if UNITY_EDITOR
-            return Resources.Load<TextAsset>("CSV/" + fileName).bytes;
-#else
-		return ResourcesManager.Instance.GetCSV (fileName);
-#endif
+            Debug.Log(fileName);
+		    return ResourcesManager.Instance.GetCSV (fileName);
         }
 
         void StartLoading()
@@ -95,9 +92,17 @@ namespace BlueNoah.CSV
                 LoadAllMonsterConfigs();
             }
             index = Mathf.Clamp(index, 0, monsterTextAssetList.Count);
-            monsterList = CreateCSVList<MapMonster>(monsterTextAssetList[index].text);
+            monsterList = CreateCSVList<MapMonster>(monsterTextAssetList[index].bytes);
             monsterDic = GetDictionary<MapMonster>(monsterList);
             return monsterList;
+        }
+
+        public List<T> CreateCSVList<T>(byte[] bytes) where T : BaseCSVStructure, new()
+        {
+            var stream = new MemoryStream(bytes);
+            var reader = new StreamReader(stream);
+            IEnumerable<T> list = mCsvContext.Read<T>(reader);
+            return new List<T>(list);
         }
 
         public List<T> CreateCSVList<T>(string csvname) where T : BaseCSVStructure, new()
