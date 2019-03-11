@@ -8,13 +8,25 @@ namespace BlueNoah.AI.RTS
     public class AttackAction : FSMAction
     {
 
-        public override void OnAwake() { }
+        public override void OnAwake()
+        {
 
-        public override void OnEnter() { }
+        }
 
-        public override void OnUpdate() { }
+        public override void OnEnter()
+        {
+            this.actorCore.DoAction(ActionMotionConstant.ATTACK);
+        }
 
-        public override void OnExit() { }
+        public override void OnUpdate()
+        {
+
+        }
+
+        public override void OnExit()
+        {
+
+        }
 
     }
 }

@@ -7,6 +7,7 @@ namespace BlueNoah.AI.RTS
 {
     public class StandByAction : FSMAction
     {
+
         public override void OnAwake()
         {
 
@@ -14,7 +15,7 @@ namespace BlueNoah.AI.RTS
 
         public override void OnEnter()
         {
-
+            this.actorCore.DoAction(ActionMotionConstant.STANDBY);
         }
 
         public override void OnUpdate()

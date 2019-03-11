@@ -11,6 +11,11 @@ using BlueNoah.RTS.Constant;
 
 namespace BlueNoah.AI.RTS
 {
+
+    public delegate void ActorAction();
+
+    public delegate void ActorAction<T0>(T0 t);
+
     //main class for actor logic.
     //controlled by FSM.
     public class ActorCore
@@ -19,7 +24,10 @@ namespace BlueNoah.AI.RTS
 
         public FixedPointTransform transform;
 
+        public ActorAction<short> onFSMAction;
+
         ActorAI mActorAI;
+
         ActorMove mActorMove;
 
         int mFSMId;
@@ -73,6 +81,14 @@ namespace BlueNoah.AI.RTS
         public void MoveTo(FixedPointVector3 fixedPointVector3, PathMoveAction onComplete)
         {
             mActorMove.MoveTo(fixedPointVector3, onComplete);
+        }
+
+        public void DoAction(short actionId)
+        {
+            if (onFSMAction != null)
+            {
+                onFSMAction(actionId);
+            }
         }
 
         public void OnUpdate()
