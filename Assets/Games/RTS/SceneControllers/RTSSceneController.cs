@@ -33,8 +33,6 @@ namespace BlueNoah.SceneControl
             mSceneViewer = gameObject.GetOrAddComponent<SceneViewer>();
             mSceneCore.SetActorOnSpawn(mSceneViewer.SpawnActorView);
             mSceneCore.SetActorOnRemove(mSceneViewer.RemoveActorView);
-
-            //mSceneCore.SetActorOnSpawn(mSceneViewer.S);
             InitInput();
         }
 
