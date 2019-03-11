@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using BlueNoah.AI.RTS;
 
 namespace BlueNoah.AI.FSM
 {
@@ -11,6 +12,8 @@ namespace BlueNoah.AI.FSM
     public class FiniteStateMachine
     {
         GameObject GO;
+
+        ActorCore mActorCore;
 
         public bool isActive = false;
 
@@ -132,7 +135,7 @@ namespace BlueNoah.AI.FSM
         {
             if (!mStateDic.ContainsKey(state))
             {
-                mStateDic.Add(state, new FSMState(GO, this, state));
+                mStateDic.Add(state, new FSMState(GO, mActorCore, this, state));
                 stateNameList.Add(state);
             }
             return mStateDic[state];
@@ -146,6 +149,20 @@ namespace BlueNoah.AI.FSM
         void Init(GameObject gameObject)
         {
             GO = gameObject;
+            stateNameList = new List<FiniteStateConstant>();
+            mStateDic = new Dictionary<FiniteStateConstant, FSMState>();
+            mConditionDic = new Dictionary<FiniteConditionConstant, BoolVar>();
+            mConditionList = new List<BoolVar>();
+        }
+
+        public FiniteStateMachine(ActorCore actorCore)
+        {
+            Init(actorCore);
+        }
+
+        void Init(ActorCore actorCore)
+        {
+            this.mActorCore = actorCore;
             stateNameList = new List<FiniteStateConstant>();
             mStateDic = new Dictionary<FiniteStateConstant, FSMState>();
             mConditionDic = new Dictionary<FiniteConditionConstant, BoolVar>();

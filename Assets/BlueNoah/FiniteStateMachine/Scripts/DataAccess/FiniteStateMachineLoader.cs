@@ -9,8 +9,6 @@ namespace BlueNoah.AI.FSM
     public static class FiniteStateMachineLoader
     {
 
-        public const string M_FSM_CONFIG = "fsms/j_fsm";
-
         static FiniteStateMachineConfig[] LoadFiniteStateMachineConfig(string configPath)
         {
             TextAsset textAsset = Resources.Load<TextAsset>(configPath);
@@ -28,14 +26,12 @@ namespace BlueNoah.AI.FSM
             // TextAsset textAsset = Resources.Load<TextAsset>(M_FSM_CONFIG);
             // unitAIConfig = JsonUtility.FromJson<FiniteStateMachineConfigs>(textAsset.text);
             List<FiniteStateMachineConfig> fsmConfigs = new List<FiniteStateMachineConfig>();
-            fsmConfigs.AddRange(LoadFiniteStateMachineConfig("configs/fsms/j_fsm"));
-            fsmConfigs.AddRange(LoadFiniteStateMachineConfig("configs/fsms/j_fsm_town_sakura"));
-            fsmConfigs.AddRange(LoadFiniteStateMachineConfig("configs/fsms/j_fsm_town_others"));
+            // fsmConfigs.AddRange(LoadFiniteStateMachineConfig("configs/fsms/j_fsm"));
+            fsmConfigs.AddRange(LoadFiniteStateMachineConfig("configs/fsms/j_fsm_rts_normal_actor"));
             for (int i = 0; i < fsmConfigs.Count; i++)
             {
                 if (!finiteStateMachineConfigDic.ContainsKey(fsmConfigs[i].id))
                 {
-                    // Debug.LogError(fsmConfigs[i].id);
                     finiteStateMachineConfigDic.Add(fsmConfigs[i].id, fsmConfigs[i]);
                 }
                 else

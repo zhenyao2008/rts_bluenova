@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using BlueNoah.AI.RTS;
 using UnityEngine;
 
 namespace BlueNoah.AI.FSM
@@ -9,6 +10,7 @@ namespace BlueNoah.AI.FSM
     public class FSMAction
     {
         public GameObject GO;
+        public ActorCore actorCore;
         public FSMState state;
         [HideInInspector]
         public FiniteStateMachine finiteStateMachine;

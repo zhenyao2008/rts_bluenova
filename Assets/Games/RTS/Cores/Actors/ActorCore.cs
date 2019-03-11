@@ -3,6 +3,7 @@
  *　應　彧剛(yingyugang@gmail.com)
 */
 
+using BlueNoah.AI.FSM;
 using BlueNoah.Math.FixedPoint;
 using BlueNoah.PathFinding;
 using BlueNoah.PathFinding.FixedPoint;
@@ -16,11 +17,38 @@ namespace BlueNoah.AI.RTS
     {
         public ActorAttribute actorAttribute;
 
-        public FixedPointMoveAgent fixedPointMoveAgent;
-
         public FixedPointTransform transform;
 
-        public ActorCore(int playerId, int actorTypeId, FixedPointVector3 position, FixedPointVector3 eulerAngles)
+        ActorAI mActorAI;
+        ActorMove mActorMove;
+
+        int mFSMId;
+
+        public int FSMId
+        {
+            get
+            {
+                return mFSMId;
+            }
+        }
+
+        public ActorAI ActorAI
+        {
+            get
+            {
+                return mActorAI;
+            }
+        }
+
+        public ActorMove ActorMove
+        {
+            get
+            {
+                return mActorMove;
+            }
+        }
+
+        public ActorCore(int playerId, int actorTypeId, int FSMId, FixedPointVector3 position, FixedPointVector3 eulerAngles)
         {
             actorAttribute = new ActorAttribute();
 
@@ -33,14 +61,24 @@ namespace BlueNoah.AI.RTS
             transform.position = position;
 
             transform.eulerAngles = eulerAngles;
-            //TODO Create move agent.
-            fixedPointMoveAgent = PathFindingMananger.Single.CreateMoveAgent(transform,GameConstant.ACTOR_SPEED);
+
+            mFSMId = FSMId;
+
+            mActorAI = new ActorAI(this);
+
+            mActorMove = new ActorMove(this);
 
         }
 
         public void MoveTo(FixedPointVector3 fixedPointVector3, PathMoveAction onComplete)
         {
-            fixedPointMoveAgent.SetDestination(fixedPointVector3, onComplete);
+            mActorMove.MoveTo(fixedPointVector3, onComplete);
+        }
+
+        public void OnUpdate()
+        {
+            mActorAI.OnUpdate();
+            mActorMove.OnUpdate();
         }
     }
 }

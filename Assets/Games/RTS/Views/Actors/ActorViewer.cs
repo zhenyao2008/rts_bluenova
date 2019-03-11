@@ -34,13 +34,13 @@ namespace BlueNoah.AI.View.RTS
             }
 #endif
             this.actorCore = actorCore;
-            actorCore.fixedPointMoveAgent.onMove = actorAnimation.Run;
-            actorCore.fixedPointMoveAgent.onStop = actorAnimation.Idle;
-            actorCore.fixedPointMoveAgent.onPositionChange = (FixedPointTransform pointTransform) =>
+            actorCore.ActorMove.FixedPointMoveAgent.onMove = actorAnimation.Run;
+            actorCore.ActorMove.FixedPointMoveAgent.onStop = actorAnimation.Idle;
+            actorCore.ActorMove.FixedPointMoveAgent.onPositionChange = (FixedPointTransform pointTransform) =>
             {
                 transform.position = pointTransform.position.ToVector3();
             };
-            actorCore.fixedPointMoveAgent.onNodeChange = (FixedPointTransform pointTransform) =>
+            actorCore.ActorMove.FixedPointMoveAgent.onNodeChange = (FixedPointTransform pointTransform) =>
             {
                 transform.position = pointTransform.position.ToVector3();
                 transform.forward = pointTransform.forward.ToVector3();

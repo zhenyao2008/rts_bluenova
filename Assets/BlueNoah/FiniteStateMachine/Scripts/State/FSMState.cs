@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using BlueNoah.AI.RTS;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -21,6 +22,7 @@ namespace BlueNoah.AI.FSM
         FSMTransition mCurrentTransition;
 
         GameObject GO;
+        ActorCore mActorCore;
 
         FiniteStateMachine mFiniteStateMachine;
 
@@ -32,13 +34,14 @@ namespace BlueNoah.AI.FSM
 
         public UnityAction<FSMState> onExit;
 
-        public FSMState(GameObject gameObject, FiniteStateMachine finiteStateMachine, FiniteStateConstant state)
+        public FSMState(GameObject gameObject, ActorCore actorCore, FiniteStateMachine finiteStateMachine, FiniteStateConstant state)
         {
             this.state = state;
-            GO = gameObject;
-            mFiniteStateMachine = finiteStateMachine;
-            actions = new List<FSMAction>();
-            transitions = new List<FSMTransition>();
+            this.GO = gameObject;
+            this.mActorCore = actorCore;
+            this.mFiniteStateMachine = finiteStateMachine;
+            this.actions = new List<FSMAction>();
+            this.transitions = new List<FSMTransition>();
             InitSubFiniteStateMachine(gameObject);
         }
 
