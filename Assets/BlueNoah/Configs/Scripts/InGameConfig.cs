@@ -8,6 +8,12 @@ namespace TD.Config
 
         public float cameraDragSpeed;
 
+        public int scanRadius;
+
+        public int scanInterval;
+
+        public int actorSpeed;
+
         static InGameConfig mInstance;
 
         public static InGameConfig Single

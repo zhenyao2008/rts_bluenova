@@ -1,3 +1,6 @@
 {
-  "cameraDragSpeed": 10
+  "cameraDragSpeed": 10,
+  "scanRadius": 10,
+  "scanInterval": 10,
+  "actorSpeed": 10000
 }

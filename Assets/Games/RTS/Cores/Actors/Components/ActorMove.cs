@@ -4,6 +4,7 @@ using BlueNoah.Math.FixedPoint;
 using BlueNoah.PathFinding;
 using BlueNoah.PathFinding.FixedPoint;
 using BlueNoah.RTS.Constant;
+using TD.Config;
 using UnityEngine;
 
 
@@ -28,7 +29,7 @@ namespace BlueNoah.AI.RTS
         public ActorMove(ActorCore actorCore)
         {
             this.mActorCore = actorCore;
-            mFixedPointMoveAgent = PathFindingMananger.Single.CreateMoveAgent(mActorCore.transform, GameConstant.ACTOR_SPEED);
+            mFixedPointMoveAgent = PathFindingMananger.Single.CreateMoveAgent(mActorCore.transform, InGameConfig.Single.actorSpeed / 100);
         }
 
         public void MoveTo(FixedPointVector3 fixedPointVector3, PathMoveAction onComplete)

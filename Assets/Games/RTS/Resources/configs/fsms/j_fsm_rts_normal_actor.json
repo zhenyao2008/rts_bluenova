@@ -16,7 +16,7 @@
                     "stateId": "StandBy",
                     "actions": [
                         "StandByAction",
-                        "ScaleAction"
+                        "ScanAction"
                     ],
                     "position": {
                         "x": 662,
@@ -29,7 +29,7 @@
                     "stateId": "Walk",
                     "actions": [
                         "WalkAction",
-                        "ScaleAction"
+                        "ScanAction"
                     ],
                     "position": {
                         "x": 430,
@@ -42,7 +42,7 @@
                     "stateId": "Run",
                     "actions": [
                         "RunAction",
-                        "ScaleAction"
+                        "ScanAction"
                     ],
                     "position": {
                         "x": 657,

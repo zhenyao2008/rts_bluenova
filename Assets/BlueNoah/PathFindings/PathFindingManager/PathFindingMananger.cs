@@ -73,7 +73,8 @@ namespace BlueNoah.PathFinding
 
         public FixedPointPathAgent PathAgent
         {
-            get {
+            get
+            {
                 return mPathAgent;
             }
         }

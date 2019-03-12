@@ -1,4 +1,5 @@
 ﻿using BlueNoah.RTS.Constant;
+using TD.Config;
 using UnityEngine;
 
 namespace BlueNoah.AI.View.RTS
@@ -57,7 +58,7 @@ namespace BlueNoah.AI.View.RTS
 
         public void Run()
         {
-            mAnimation["Run01"].speed = GameConstant.ACTOR_SPEED / 10;
+            mAnimation["Run01"].speed = InGameConfig.Single.actorSpeed / 100f;
             mAnimation.Play("Run01");
             mAnimation.wrapMode = WrapMode.Loop;
         }
