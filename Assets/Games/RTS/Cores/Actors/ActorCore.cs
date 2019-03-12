@@ -3,6 +3,7 @@
  *　應　彧剛(yingyugang@gmail.com)
 */
 
+using System;
 using BlueNoah.AI.FSM;
 using BlueNoah.Math.FixedPoint;
 using BlueNoah.PathFinding;
@@ -93,8 +94,15 @@ namespace BlueNoah.AI.RTS
 
         public void OnUpdate()
         {
-            mActorAI.OnUpdate();
-            mActorMove.OnUpdate();
+            try
+            {
+                mActorAI.OnUpdate();
+                mActorMove.OnUpdate();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
     }
 }

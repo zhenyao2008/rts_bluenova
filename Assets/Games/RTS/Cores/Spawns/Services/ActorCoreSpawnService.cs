@@ -67,5 +67,16 @@ namespace BlueNoah.AI.Spawn
                     onActorRemove(actorCore);
             }
         }
+
+        public void OnUpdate()
+        {
+            foreach (List<ActorCore> actors in mPlayerActors.Values)
+            {
+                for (int i = 0; i < actors.Count; i++)
+                {
+                    actors[i].OnUpdate();
+                }
+            }
+        }
     }
 }

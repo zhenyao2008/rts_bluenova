@@ -33,6 +33,7 @@ namespace BlueNoah.SceneControl
         //Core calculation function.
         public void OnUpdate()
         {
+            mActorCoreSpawnService.OnUpdate();
             mPathFindingMananger.OnUpdate();
         }
 
