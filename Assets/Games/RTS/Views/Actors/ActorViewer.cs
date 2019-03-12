@@ -9,8 +9,10 @@ using UnityEngine;
 
 namespace BlueNoah.AI.View.RTS
 {
-    //main class for actor view. 
-    //don't control the core class.
+    //Main class for actor view. 
+    //Don't control the core class.
+    //Controlled by actorCore.
+    //For act, not calculation.
     public class ActorViewer : MonoBehaviour
     {
         ActorCore mActorCore;

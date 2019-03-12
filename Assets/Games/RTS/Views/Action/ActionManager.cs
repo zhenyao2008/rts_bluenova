@@ -13,16 +13,16 @@ namespace BlueNoah.AI.View.RTS
         {
             //TODO get actor view by actorId;
 
-            ActorViewer actorViewer = null;
+            // ActorViewer actorViewer = null;
 
-            RTSSceneController.Instance.GetActorViewer(playerId, actorId);
+            // RTSSceneController.Instance.GetActorViewer(playerId, actorId);
 
-            switch (motionId)
-            {
-                case ActionMotionConstant.STANDBY:
-                    actorViewer.actorAnimation.Play("");
-                    break;
-            }
+            // switch (motionId)
+            // {
+            //     case ActionMotionConstant.STANDBY:
+            //         actorViewer.actorAnimation.Play("");
+            //         break;
+            // }
         }
 
     }
