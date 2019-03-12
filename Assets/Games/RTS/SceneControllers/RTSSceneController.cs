@@ -50,6 +50,18 @@ namespace BlueNoah.SceneControl
             return null;
         }
 
+        public ActorViewer GetActorViewer(int playerId, long actorId)
+        {
+            if (mSceneViewer.GetActors().ContainsKey(playerId))
+            {
+                if (mSceneViewer.GetActors()[playerId].ContainsKey(actorId))
+                {
+                    return mSceneViewer.GetActors()[playerId][actorId];
+                }
+            }
+            return null;
+        }
+
         void InitBuildingGrid()
         {
             //throw new System.NotImplementedException();

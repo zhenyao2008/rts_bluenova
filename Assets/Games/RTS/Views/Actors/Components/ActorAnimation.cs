@@ -24,6 +24,31 @@ namespace BlueNoah.AI.View.RTS
             }
         }
 
+        public void DoMotionAction(short actionId)
+        {
+            switch (actionId)
+            {
+                case ActionMotionConstant.STANDBY:
+                    Play(AnimationConstant.STANDBY);
+                    break;
+                case ActionMotionConstant.WALK:
+                    Play(AnimationConstant.WALK);
+                    break;
+                case ActionMotionConstant.RUN:
+                    Play(AnimationConstant.RUN);
+                    break;
+                case ActionMotionConstant.ATTACK:
+                    Play(AnimationConstant.ATTACK);
+                    break;
+                case ActionMotionConstant.DEATH:
+                    Play(AnimationConstant.DEATH);
+                    break;
+                default:
+                    Play(AnimationConstant.STANDBY);
+                    break;
+            }
+        }
+
         public void Play(string stateName, float speed = 1)
         {
             mAnimation[stateName].speed = speed;

@@ -13,6 +13,8 @@ namespace BlueNoah.AI.Spawn.View
     public class ActorViewSpawnService : ActorViewBaseSpawnService
     {
 
+        //int: playerId;
+        //long: actorCore.actorId;
         Dictionary<int, Dictionary<long, ActorViewer>> mPlayerActors;
 
         public Dictionary<int, Dictionary<long, ActorViewer>> PlayerActors
@@ -29,11 +31,11 @@ namespace BlueNoah.AI.Spawn.View
 
         void AddActor(ActorViewer actorViewer)
         {
-            if (!PlayerActors.ContainsKey(actorViewer.actorCore.actorAttribute.playerId))
+            if (!PlayerActors.ContainsKey(actorViewer.ActorCore.actorAttribute.playerId))
             {
-                PlayerActors.Add(actorViewer.actorCore.actorAttribute.playerId, new Dictionary<long, ActorViewer>());
+                PlayerActors.Add(actorViewer.ActorCore.actorAttribute.playerId, new Dictionary<long, ActorViewer>());
             }
-            PlayerActors[actorViewer.actorCore.actorAttribute.playerId].Add(actorViewer.actorCore.actorAttribute.actorId,actorViewer);
+            PlayerActors[actorViewer.ActorCore.actorAttribute.playerId].Add(actorViewer.ActorCore.actorAttribute.actorId, actorViewer);
         }
 
         public ActorViewSpawnService()
@@ -56,7 +58,7 @@ namespace BlueNoah.AI.Spawn.View
             ActorViewer actorViewer = go.GetOrAddComponent<ActorViewer>();
             actorViewer.Init(actorCore);
             AddActor(actorViewer);
-            return go; 
+            return go;
         }
 
         public void RemoveActor(ActorCore actorCore)

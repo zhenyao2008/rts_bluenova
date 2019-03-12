@@ -7,15 +7,17 @@ namespace BlueNoah.AI.View.RTS
     public static class AnimationConstant
     {
 
-        public const string STANDBY = "";
+        public const string STANDBY = "StandBy01";
 
-        public const string WALK = "";
+        public const string WALK = "Walk01";
 
-        public const string RUN = "";
+        public const string RUN = "Run01";
 
-        public const string ATTACK = "";
+        public const string ATTACK = "Attack01";
 
-        public const string DEATH = "";
+        public const string SKILL = "Skill01";
+
+        public const string DEATH = "Death01";
 
     }
 }

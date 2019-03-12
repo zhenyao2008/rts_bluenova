@@ -14,4 +14,6 @@ public static class ActionMotionConstant
 
     public const short DEATH = 5;
 
+    public const short SKILL = 6;
+
 }

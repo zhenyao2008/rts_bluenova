@@ -13,9 +13,17 @@ namespace BlueNoah.AI.View.RTS
     //don't control the core class.
     public class ActorViewer : MonoBehaviour
     {
-        public ActorCore actorCore;
+        ActorCore mActorCore;
+        public ActorCore ActorCore
+        {
+            get
+            {
+                return mActorCore;
+            }
+        }
         public ActorAnimation actorAnimation;
         public ActorAsset actorAsset;
+        public ActorEffect actorEffect;
         public ActorHeadUI actorHeadUI;
         public Vector3 screenPosition;
 
@@ -24,6 +32,8 @@ namespace BlueNoah.AI.View.RTS
             actorAnimation = gameObject.GetOrAddComponent<ActorAnimation>();
 
             actorAsset = gameObject.GetOrAddComponent<ActorAsset>();
+
+            actorEffect = gameObject.GetOrAddComponent<ActorEffect>();
         }
         public void Init(ActorCore actorCore)
         {
@@ -33,7 +43,7 @@ namespace BlueNoah.AI.View.RTS
                 Debug.LogError("UnitCore is Null.");
             }
 #endif
-            this.actorCore = actorCore;
+            this.mActorCore = actorCore;
             actorCore.ActorMove.FixedPointMoveAgent.onMove = actorAnimation.Run;
             actorCore.ActorMove.FixedPointMoveAgent.onStop = actorAnimation.Idle;
             actorCore.ActorMove.FixedPointMoveAgent.onPositionChange = (FixedPointTransform pointTransform) =>
@@ -45,6 +55,7 @@ namespace BlueNoah.AI.View.RTS
                 transform.position = pointTransform.position.ToVector3();
                 transform.forward = pointTransform.forward.ToVector3();
             };
+            actorCore.onFSMAction = DoFSMAction;
             UpdateTransform();
         }
         void Update()
@@ -54,16 +65,16 @@ namespace BlueNoah.AI.View.RTS
 
         public void UpdateTransform()
         {
-            if (actorCore != null)
+            if (mActorCore != null)
             {
-                transform.position = actorCore.transform.position.ToVector3();
-                transform.eulerAngles = actorCore.transform.eulerAngles.ToVector3();
+                transform.position = mActorCore.transform.position.ToVector3();
+                transform.eulerAngles = mActorCore.transform.eulerAngles.ToVector3();
             }
         }
         //Selection condition.
         void LateUpdate()
         {
-            if (actorCore != null)
+            if (mActorCore != null)
             {
                 screenPosition = Camera.main.WorldToScreenPoint(transform.position);
             }
@@ -71,6 +82,11 @@ namespace BlueNoah.AI.View.RTS
         public bool IsInScreen()
         {
             return screenPosition.z > 0 && screenPosition.x > 0 && screenPosition.x < 1 && screenPosition.y > 0 && screenPosition.y < 1;
+        }
+
+        public void DoFSMAction(short actionId)
+        {
+            actorAnimation.DoMotionAction(actionId);
         }
     }
 }
