@@ -15,8 +15,8 @@
                     "subFSMId": -1,
                     "stateId": "StandBy",
                     "actions": [
-                        "StandByAction",
-                        "ScanAction"
+                        "BlueNoah.AI.RTS.StandByAction",
+                        "BlueNoah.AI.RTS.ScanAction"
                     ],
                     "position": {
                         "x": 662,
@@ -28,8 +28,8 @@
                     "subFSMId": -1,
                     "stateId": "Walk",
                     "actions": [
-                        "WalkAction",
-                        "ScanAction"
+                        "BlueNoah.AI.RTS.WalkAction",
+                        "BlueNoah.AI.RTS.ScanAction"
                     ],
                     "position": {
                         "x": 430,
@@ -41,8 +41,8 @@
                     "subFSMId": -1,
                     "stateId": "Run",
                     "actions": [
-                        "RunAction",
-                        "ScanAction"
+                        "BlueNoah.AI.RTS.RunAction",
+                        "BlueNoah.AI.RTS.ScanAction"
                     ],
                     "position": {
                         "x": 657,
@@ -54,7 +54,7 @@
                     "subFSMId": -1,
                     "stateId": "Attack",
                     "actions": [
-                        "AttackAction"
+                        "BlueNoah.AI.RTS.AttackAction"
                     ],
                     "position": {
                         "x": 886,
@@ -66,7 +66,7 @@
                     "subFSMId": -1,
                     "stateId": "Death",
                     "actions": [
-                        "DeathAction"
+                        "BlueNoah.AI.RTS.DeathAction"
                     ],
                     "position": {
                         "x": 210,

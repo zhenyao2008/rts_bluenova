@@ -437,7 +437,7 @@ namespace BlueNoah.AI.FSM
             for (int i = 0; i < actions.Count; i++)
             {
                 Rect rect = new Rect(10, 30 + 20 * (i), 170, 20);
-                GUI.Box(rect, actions[i].ToString().Substring(actions[i].ToString().LastIndexOf(".",StringComparison.CurrentCulture) + 1));
+                GUI.Box(rect, actions[i].ToString().Substring(actions[i].ToString().LastIndexOf(".", StringComparison.CurrentCulture) + 1));
             }
         }
 

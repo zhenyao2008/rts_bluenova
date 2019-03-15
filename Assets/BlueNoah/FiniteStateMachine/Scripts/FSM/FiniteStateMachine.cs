@@ -184,7 +184,10 @@ namespace BlueNoah.AI.FSM
         public void AddActions(FiniteStateConstant state, List<FSMAction> actions)
         {
             if (actions == null)
+            {
+                Debug.LogError(state + " is Null.");
                 return;
+            }
             FSMState finalState = TryAddState(state);
             finalState.AddActions(actions);
         }
@@ -192,7 +195,10 @@ namespace BlueNoah.AI.FSM
         public void AddAction(FiniteStateConstant state, FSMAction action)
         {
             if (action == null)
+            {
+                Debug.LogError(state + " is Null.");
                 return;
+            }
             FSMState finalState = TryAddState(state);
             finalState.AddAction(action);
         }
@@ -200,7 +206,10 @@ namespace BlueNoah.AI.FSM
         public void AddTransitions(FiniteStateConstant state, List<FSMTransition> transitions)
         {
             if (transitions == null)
+            {
+                Debug.LogError(state + " is Null.");
                 return;
+            }
             FSMState finalState = TryAddState(state);
             finalState.AddTransitions(transitions);
         }

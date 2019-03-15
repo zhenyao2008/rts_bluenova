@@ -12,6 +12,7 @@ namespace BlueNoah.AI.FSM
         static FiniteStateMachineConfig[] LoadFiniteStateMachineConfig(string configPath)
         {
             TextAsset textAsset = Resources.Load<TextAsset>(configPath);
+            Debug.Log(textAsset.text);
             FiniteStateMachineConfigs unitConfigs = JsonUtility.FromJson<FiniteStateMachineConfigs>(textAsset.text);
             return unitConfigs.finiteStateMachineArray;
         }
@@ -55,6 +56,10 @@ namespace BlueNoah.AI.FSM
 
             finiteStateMachine.finiteStateMachineConfig = finiteStateMachineConfig;
 
+            Debug.Log(finiteStateMachineConfigDic.Count);
+
+            Debug.Log(finiteStateMachine.finiteStateMachineConfig.states.Length);
+
             Assembly assembly = Assembly.GetExecutingAssembly();
 
             for (int i = 0; i < finiteStateMachineConfig.conditions.Length; i++)
@@ -66,7 +71,7 @@ namespace BlueNoah.AI.FSM
                 for (int j = 0; j < finiteStateMachineConfig.states[i].actions.Length; j++)
                 {
 
-                    FSMAction action = assembly.CreateInstance("BlueNoah.AI.FSM." + finiteStateMachineConfig.states[i].actions[j]) as FSMAction;
+                    FSMAction action = assembly.CreateInstance(finiteStateMachineConfig.states[i].actions[j]) as FSMAction;
 
                     //obj.GetType().GetField(fieldname).SetValue(obj,value);
 
@@ -76,7 +81,7 @@ namespace BlueNoah.AI.FSM
                 {
                     for (int j = 0; j < finiteStateMachineConfig.states[i].actionWithParams.Length; j++)
                     {
-                        FSMAction action = assembly.CreateInstance("BlueNoah.AI.FSM." + finiteStateMachineConfig.states[i].actionWithParams[j].action) as FSMAction;
+                        FSMAction action = assembly.CreateInstance(finiteStateMachineConfig.states[i].actionWithParams[j].action) as FSMAction;
 
                         if (finiteStateMachineConfig.states[i].actionWithParams[j].stringParams != null)
                         {
