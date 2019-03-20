@@ -235,6 +235,7 @@ namespace BlueNoah.AI.FSM
         {
             actions.Add(action);
             action.GO = GO;
+            action.ActorCore = this.mActorCore;
             action.finiteStateMachine = mFiniteStateMachine;
             if (Application.isPlaying)
                 action.OnAwake();

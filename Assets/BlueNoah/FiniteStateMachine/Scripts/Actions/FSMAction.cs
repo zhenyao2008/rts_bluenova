@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using BlueNoah.AI.RTS;
+using BlueNoah.SceneControl;
 using UnityEngine;
 
 namespace BlueNoah.AI.FSM
@@ -10,7 +11,15 @@ namespace BlueNoah.AI.FSM
     public class FSMAction
     {
         public GameObject GO;
-        public ActorCore actorCore;
+        protected ActorCore mActorCore;
+
+        public ActorCore ActorCore
+        {
+            set
+            {
+                mActorCore = value;
+            }
+        }
         public FSMState state;
         [HideInInspector]
         public FiniteStateMachine finiteStateMachine;
@@ -21,9 +30,11 @@ namespace BlueNoah.AI.FSM
         bool mIsExcute;
         protected FiniteStateMachine mSubFinalStateMachine;
 
+        protected List<ExcuteInterval> mExcuteList;
+
         public virtual void OnAwake()
         {
-
+            mExcuteList = new List<ExcuteInterval>();
         }
 
         public void OnSubFinalStateMachineUpdate()
@@ -49,6 +60,11 @@ namespace BlueNoah.AI.FSM
             //Debug.Log("-----> OnExit:" + GO + "¥¥" + this);
         }
 
+        protected void AddExcute(ExcuteInterval ExcuteInterval)
+        {
+            mExcuteList.Add(ExcuteInterval);
+        }
+
         public bool IsEnable
         {
             get
@@ -72,6 +88,50 @@ namespace BlueNoah.AI.FSM
                 return mIsExcute;
             }
         }
+    }
 
+    public class ExcuteInterval
+    {
+        int mInterval;
+
+        bool mLoop;
+
+        long mNextExcuteFrame;
+
+        bool mExcuteable;
+
+        FSMEventAction mOnExcute;
+
+        public ExcuteInterval(int interval, bool loop, FSMEventAction onExcute)
+        {
+            mInterval = interval;
+            mLoop = loop;
+            mOnExcute = onExcute;
+        }
+
+        public void OnEnter()
+        {
+            mNextExcuteFrame = Framer.Instance.CurrentFrame + mInterval;
+            mExcuteable = true;
+        }
+
+        public void OnUpdate()
+        {
+            if (mExcuteable && Framer.Instance.CurrentFrame > mNextExcuteFrame)
+            {
+                if (mOnExcute != null)
+                {
+                    mOnExcute();
+                }
+                if (mLoop)
+                {
+                    mNextExcuteFrame = Framer.Instance.CurrentFrame + mInterval;
+                }
+                else
+                {
+                    mExcuteable = false;
+                }
+            }
+        }
     }
 }

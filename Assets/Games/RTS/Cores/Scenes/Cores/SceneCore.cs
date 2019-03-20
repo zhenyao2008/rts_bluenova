@@ -5,10 +5,11 @@ using BlueNoah.CSV;
 using BlueNoah.Math.FixedPoint;
 using BlueNoah.PathFinding;
 using BlueNoah.PathFinding.FixedPoint;
+using UnityEngine;
 
 namespace BlueNoah.SceneControl
 {
-    public class SceneCore
+    public class SceneCore : SimpleSingleTon<SceneCore>
     {
 
         ActorCoreSpawnService mActorCoreSpawnService;
@@ -27,9 +28,17 @@ namespace BlueNoah.SceneControl
 
             mStageService.onSpawnActor = SpawnStageActor;
 
-            mStageService.LoadStage(0);
+        }
+        public void OnAwake()
+        {
 
         }
+
+        public void OnStart()
+        {
+            mStageService.LoadStage(0);
+        }
+
         //Core calculation function.
         public void OnUpdate()
         {
@@ -61,6 +70,8 @@ namespace BlueNoah.SceneControl
             int playerId = mapMonster.alignment;
 
             int actorTypeId = mapMonster.unit_id;
+
+            Debug.Log("SpawnStageActor");
 
             mActorCoreSpawnService.SpawnActor(playerId, actorTypeId, position, eulerAngles);
         }

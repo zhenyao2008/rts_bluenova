@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using BlueNoah.AI.FSM;
+using BlueNoah.SceneControl;
 
 namespace BlueNoah.AI.RTS
 {

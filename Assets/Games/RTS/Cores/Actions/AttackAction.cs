@@ -15,7 +15,7 @@ namespace BlueNoah.AI.RTS
 
         public override void OnEnter()
         {
-            this.actorCore.DoAction(ActionMotionConstant.ATTACK);
+            this.mActorCore.DoAction(ActionMotionConstant.ATTACK);
         }
 
         public override void OnUpdate()

@@ -13,7 +13,7 @@ namespace BlueNoah.AI.RTS
 
         public override void OnEnter()
         {
-            this.actorCore.DoAction(ActionMotionConstant.DEATH);
+            this.mActorCore.DoAction(ActionMotionConstant.DEATH);
         }
 
         public override void OnUpdate()

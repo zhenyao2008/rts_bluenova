@@ -19,6 +19,8 @@ namespace BlueNoah.AI.Stage
 
             mMonsterDataList = CSVManager.Instance.LoadMonsterCSV(stageId);
 
+            Debug.Log("mMonsterDataList:" + mMonsterDataList.Count);
+
             for (int i = 0; i < mMonsterDataList.Count; i++)
             {
                 if (onSpawnActor != null)
