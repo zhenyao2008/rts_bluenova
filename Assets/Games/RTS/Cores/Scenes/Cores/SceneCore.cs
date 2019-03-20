@@ -63,18 +63,15 @@ namespace BlueNoah.SceneControl
 
         void SpawnStageActor(MapMonster mapMonster)
         {
-            FixedPointVector3 position = new FixedPointVector3();
+            FixedPointVector3 position = new FixedPointVector3(mapMonster.pos_x, 0, mapMonster.pos_y);
 
-            FixedPointVector3 eulerAngles = new FixedPointVector3();
+            FixedPointVector3 eulerAngles = new FixedPointVector3(0, mapMonster.angle_y, 0);
 
             int playerId = mapMonster.alignment;
 
             int actorTypeId = mapMonster.unit_id;
 
-            Debug.Log("SpawnStageActor");
-
             mActorCoreSpawnService.SpawnActor(playerId, actorTypeId, position, eulerAngles);
         }
     }
 }
-

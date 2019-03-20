@@ -1,2 +1,5 @@
 id,name,unit_id,action,pos_x,pos_y,alignment,angle_y
-1,warrior,14,1,1,1,1,0
+1,warrior,14,1,-5,1,1,0
+2,warrior,14,1,5,1,2,0
+3,warrior,14,1,-5,2,1,0
+4,warrior,14,1,-5,3,1,0

@@ -8,23 +8,33 @@ namespace BlueNoah.SceneControl
 {
     public class AreaService
     {
-        public int xCount;
-        public int zCount;
+        public int xCount = 10;
+        public int zCount = 10;
         public int AreaSize = 10;
-        Area[,] areas;
-        List<ActorCore> mActorCore;
+        Area[,] mAreas;
+        List<ActorCore> mActorCores;
 
         public void Init(List<ActorCore> actorCores)
         {
-            areas = new Area[xCount, zCount];
-            mActorCore = actorCores;
+            mAreas = new Area[xCount, zCount];
+            mActorCores = actorCores;
         }
 
         public void OnUpdate()
         {
-            for (int i = 0; i < mActorCore.Count; i++)
+            for (int i = 0; i < mActorCores.Count; i++)
             {
-
+                ActorCore actorCore = mActorCores[i];
+                FixedPointVector3 position = actorCore.transform.position;
+                int x = FixedPointMath.Floor(position.x / AreaSize).AsInt();
+                int z = FixedPointMath.Floor(position.z / AreaSize).AsInt();
+                if (actorCore.x != x || actorCore.z != z)
+                {
+                    mAreas[x, z].actors.Remove(actorCore);
+                    actorCore.x = x;
+                    actorCore.z = z;
+                    mAreas[x, z].actors.Add(actorCore);
+                }
             }
         }
 

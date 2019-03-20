@@ -9,6 +9,7 @@ using BlueNoah.Math.FixedPoint;
 using BlueNoah.PathFinding;
 using BlueNoah.PathFinding.FixedPoint;
 using BlueNoah.RTS.Constant;
+using BlueNoah.SceneControl;
 
 namespace BlueNoah.AI.RTS
 {
@@ -26,6 +27,10 @@ namespace BlueNoah.AI.RTS
         public FixedPointTransform transform;
 
         public ActorAction<short> onFSMAction;
+
+        public int x;
+
+        public int z;
 
         ActorAI mActorAI;
 
