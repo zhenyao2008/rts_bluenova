@@ -13,10 +13,9 @@ namespace BlueNoah.SceneControl
     {
 
         ActorCoreSpawnService mActorCoreSpawnService;
-
         PathFindingMananger mPathFindingMananger;
-
         StageService mStageService;
+        AreaService mAreaService;
 
         public SceneCore()
         {

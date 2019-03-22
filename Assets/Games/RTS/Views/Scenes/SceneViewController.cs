@@ -21,6 +21,7 @@ namespace BlueNoah.SceneControl.View
             mActorViewSpawnService = new ActorViewSpawnService();
 
             mFixedPointGridDebuger = new FixedPointGridDebuger(PathFindingMananger.Single.Grid);
+
         }
 
         public void SpawnActorView(ActorCore actorCore)
