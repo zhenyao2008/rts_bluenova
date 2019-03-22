@@ -28,21 +28,32 @@ namespace BlueNoah.SceneControl
             mStageService.onSpawnActor = SpawnStageActor;
 
         }
+
         public void OnAwake()
         {
-
+            mAreaService.OnAwake();
         }
 
         public void OnStart()
         {
+            mAreaService.OnStart();
+
             mStageService.LoadStage(0);
         }
 
         //Core calculation function.
         public void OnUpdate()
         {
+            mAreaService.OnUpdate();
+
             mActorCoreSpawnService.OnUpdate();
+
             mPathFindingMananger.OnUpdate();
+        }
+
+        public void OnDestory()
+        {
+            mAreaService.OnDestory();
         }
 
         public void SetActorOnSpawn(ActorSpawnEventAction<ActorCore> onActorCreate)

@@ -7,7 +7,8 @@ using UnityEngine;
 
 namespace BlueNoah.SceneControl
 {
-    public class AreaService : ServiceInterface
+    //TODO 地理网格系统。
+    public class AreaService : SimpleSingleTon<AreaService>, ServiceInterface
     {
         public int xCount = 5;
         public int zCount = 5;
@@ -58,24 +59,38 @@ namespace BlueNoah.SceneControl
             }
         }
 
-        public List<ActorCore> ScaneActors(FixedPointVector3 position, FixedPoint64 radius)
+        public List<ActorCore> ScanActors(FixedPointVector3 position, FixedPoint64 radius)
         {
             List<ActorCore> actorCores = new List<ActorCore>();
-
             int x = FixedPointMath.Floor(position.x / AreaSize).AsInt();
             int z = FixedPointMath.Floor(position.z / AreaSize).AsInt();
-
-            int minX = Mathf.Max(x - xCount, x);
-            int maxX = Mathf.Min(x + xCount, x);
-
-            int minZ = Mathf.Max(z - zCount, z);
-            int maxZ = Mathf.Min(z + zCount, z);
-
+            int count = FixedPointMath.Ceiling(radius / AreaSize).AsInt();
+            int minX = Mathf.Max(x - count, -xCount);
+            int maxX = Mathf.Min(x + count, xCount);
+            int minZ = Mathf.Max(z - count, -zCount);
+            int maxZ = Mathf.Min(z + count, zCount);
+            FixedPoint64 disX;
+            FixedPoint64 disY;
+            FixedPoint64 disZ;
+            for (int i = minX; i < maxX; i++)
+            {
+                for (int j = minZ; j < maxZ; j++)
+                {
+                    for (int n = 0; n < mAreas[i, j].actors.Count; n++)
+                    {
+                        disX = mAreas[i, j].actors[n].transform.position.x - position.x;
+                        disY = mAreas[i, j].actors[n].transform.position.y - position.y;
+                        disZ = mAreas[i, j].actors[n].transform.position.z - position.z;
+                        if (disX * disX + disY * disY + disZ * disZ < radius * radius)
+                        {
+                            actorCores.Add(mAreas[i, j].actors[n]);
+                        }
+                    }
+                }
+            }
             return actorCores;
         }
-
     }
-
 
     public class Area
     {

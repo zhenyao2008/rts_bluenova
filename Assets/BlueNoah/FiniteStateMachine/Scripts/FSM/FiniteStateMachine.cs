@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 using BlueNoah.AI.RTS;
+using System.Collections;
 
 namespace BlueNoah.AI.FSM
 {
@@ -8,6 +9,10 @@ namespace BlueNoah.AI.FSM
     //Current Action --- Transition --- 
     //Actions Exit --- Transition Exit --- 
     //State Enter
+
+    //TODO Condition不用enum的理由，enum不能运行时动态添加，所以用short类型能更加灵活，可以通过json来动态增加状态机
+    //TODO 同理Status也不用enum，用short，状态是不大可能超过。
+    //TODO 缺点配置大时候condition参数名和status参数名为short，不可视，这需要用Editor来实现。
     [System.Serializable]
     public class FiniteStateMachine
     {
@@ -19,7 +24,7 @@ namespace BlueNoah.AI.FSM
 
         public FiniteStateMachineConfig finiteStateMachineConfig;
 
-        FiniteStateConstant mCurrentStateName;
+        short mCurrentStateName;
 
         FSMState mCurrentState;
 
@@ -33,6 +38,8 @@ namespace BlueNoah.AI.FSM
         //汎用のTransition,状態毎に使われる。
         List<FSMTransition> mCommonTransitions;
 
+        Hashtable mParameters;
+
         public List<FSMTransition> CommonTransitions
         {
             get
@@ -45,14 +52,43 @@ namespace BlueNoah.AI.FSM
 
         public List<FiniteStateConstant> stateNameList;
 
-        Dictionary<FiniteConditionConstant, BoolVar> mConditionDic;
+        Dictionary<short, BoolVar> mConditionDic;
         //見えるために 
         [SerializeField]
         List<BoolVar> mConditionList;
 
         Dictionary<FiniteStateConstant, FSMState> mStateDic;
 
-        public BoolVar AddCondition(FiniteConditionConstant key, bool value = false)
+        public object GetParameter(object key)
+        {
+            if (mParameters.ContainsKey(key))
+            {
+                return mParameters[key];
+            }
+            return null;
+        }
+
+        public void SetParameter(object key, object value)
+        {
+            if (!mParameters.ContainsKey(key))
+            {
+                mParameters.Add(key, value);
+            }
+            else
+            {
+                mParameters[key] = value;
+            }
+        }
+
+        public void RemoveParameter(object key)
+        {
+            if (mParameters.ContainsKey(key))
+            {
+                mParameters.Remove(key);
+            }
+        }
+
+        public BoolVar AddCondition(short key, bool value = false)
         {
             if (!mConditionDic.ContainsKey(key))
             {
@@ -63,12 +99,12 @@ namespace BlueNoah.AI.FSM
             return mConditionDic[key];
         }
 
-        public bool TryGetCondition(FiniteConditionConstant key, out BoolVar boolVar)
+        public bool TryGetCondition(short key, out BoolVar boolVar)
         {
             return mConditionDic.TryGetValue(key, out boolVar);
         }
 
-        public BoolVar GetCondition(FiniteConditionConstant key)
+        public BoolVar GetCondition(short key)
         {
             BoolVar boolVar;
             if (mConditionDic.TryGetValue(key, out boolVar))
@@ -78,7 +114,7 @@ namespace BlueNoah.AI.FSM
             return null;
         }
 
-        public void SetCondition(FiniteConditionConstant key, bool value)
+        public void SetCondition(short key, bool value)
         {
             BoolVar boolVar = GetCondition(key);
             if (boolVar != null)
@@ -95,7 +131,7 @@ namespace BlueNoah.AI.FSM
             }
         }
 
-        public Dictionary<FiniteConditionConstant, BoolVar> ConditionDic
+        public Dictionary<short, BoolVar> ConditionDic
         {
             get
             {
@@ -149,9 +185,10 @@ namespace BlueNoah.AI.FSM
         void Init(GameObject gameObject)
         {
             GO = gameObject;
+            mParameters = new Hashtable();
             stateNameList = new List<FiniteStateConstant>();
             mStateDic = new Dictionary<FiniteStateConstant, FSMState>();
-            mConditionDic = new Dictionary<FiniteConditionConstant, BoolVar>();
+            mConditionDic = new Dictionary<short, BoolVar>();
             mConditionList = new List<BoolVar>();
         }
 
@@ -165,7 +202,7 @@ namespace BlueNoah.AI.FSM
             this.mActorCore = actorCore;
             stateNameList = new List<FiniteStateConstant>();
             mStateDic = new Dictionary<FiniteStateConstant, FSMState>();
-            mConditionDic = new Dictionary<FiniteConditionConstant, BoolVar>();
+            mConditionDic = new Dictionary<short, BoolVar>();
             mConditionList = new List<BoolVar>();
         }
 

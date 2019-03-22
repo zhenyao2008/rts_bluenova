@@ -13,7 +13,7 @@ namespace BlueNoah.AI.FSM
     {
         public int id;
         public string name;
-        public string[] conditions;
+        public short[] conditions;
         public StateConfig[] states;
         public TransitionConfig[] transitions;
     }
