@@ -12,7 +12,7 @@ namespace BlueNoah.AI.FSM
 
         public List<DragableState> dragableStateList;
 
-        public Dictionary<FiniteStateConstant, DragableState> dragableStateDic;
+        public Dictionary<short, DragableState> dragableStateDic;
 
         public int index;
 
@@ -26,7 +26,7 @@ namespace BlueNoah.AI.FSM
         {
             this.finiteStateMachine = finiteStateMachine;
             dragableStateList = new List<DragableState>();
-            dragableStateDic = new Dictionary<FiniteStateConstant, DragableState>();
+            dragableStateDic = new Dictionary<short, DragableState>();
         }
     }
 
@@ -56,25 +56,15 @@ namespace BlueNoah.AI.FSM
 
         const int FSM_PARAMETER_START_Y = 10;
 
-        const int FSM_PARAMETER_AREA_WIDTH = 200;
-
         const int FSM_PARAMETER_WIDTH = 180;
-
-        const int FSM_WINDOW_START_X = 210;
-
-        const int FSM_WINDOW_START_Y = 10;
 
         const int FSM_DEFAULT_BUTTON_WIDTH = 100;
 
         const int FSM_DEFAULT_BUTTON_HEIGHT = 30;
 
-        const int STATE_WINDOW_WIDTH = 200;
-
         const int STATE_WINDOW_HEIGHT = 30;
 
         const int FSM_BOX_HEIGHT = 20;
-
-        const int FSM_START_OFFSET = 10;
 
         GameObject mCurrentGO;
 
@@ -82,7 +72,7 @@ namespace BlueNoah.AI.FSM
 
         FiniteStateMachineWindowData mMainFiniteStateMachineWindowData;
 
-        List<Dictionary<FiniteConditionConstant, BoolVar>> mConditionParameterList;
+        List<Dictionary<short, BoolVar>> mConditionParameterList;
 
         DragableState mDragableState;
 
@@ -97,14 +87,6 @@ namespace BlueNoah.AI.FSM
         int mCurrentIndex = 0;
 
         int mFSMCount = 0;
-
-        int mMaxHeight;
-
-        int mMaxWidth;
-
-        Vector2 mParameterScrollPos;
-
-        List<Dictionary<FiniteConditionConstant, BoolVar>> mBoolVarGroupList;
 
         Dictionary<int, FiniteStateMachineConfig> mFiniteStateMachineDic;
 
@@ -135,7 +117,7 @@ namespace BlueNoah.AI.FSM
 
             mFiniteStateMachineSaveService = new FiniteStateMachineSaveService();
 
-            mConditionParameterList = new List<Dictionary<FiniteConditionConstant, BoolVar>>();
+            mConditionParameterList = new List<Dictionary<short, BoolVar>>();
         }
 
         void OnGUI()
@@ -227,7 +209,7 @@ namespace BlueNoah.AI.FSM
             mFSMCount = 0;
             mDragableStateList = new List<DragableState>();
             mDragableStateDic = new Dictionary<int, DragableState>();
-            mConditionParameterList = new List<Dictionary<FiniteConditionConstant, BoolVar>>();
+            mConditionParameterList = new List<Dictionary<short, BoolVar>>();
             mMainFiniteStateMachineWindowData = null;
             mFiniteStateMachineSaveService = new FiniteStateMachineSaveService();
         }
@@ -323,9 +305,9 @@ namespace BlueNoah.AI.FSM
 
             finiteStateMachineWindowData.index = index;
 
-            Dictionary<FiniteConditionConstant, BoolVar> mConditionParameterDic = new Dictionary<FiniteConditionConstant, BoolVar>();
+            Dictionary<short, BoolVar> mConditionParameterDic = new Dictionary<short, BoolVar>();
 
-            foreach (FiniteConditionConstant condition in finiteStateMachine.ConditionDic.Keys)
+            foreach (short condition in finiteStateMachine.ConditionDic.Keys)
             {
                 if (!mConditionParameterDic.ContainsKey(condition))
                 {
@@ -335,12 +317,12 @@ namespace BlueNoah.AI.FSM
 
             mConditionParameterList.Add(mConditionParameterDic);
 
-            for (int i = 0; i < finiteStateMachineWindowData.finiteStateMachine.stateNameList.Count; i++)
+            for (int i = 0; i < finiteStateMachineWindowData.finiteStateMachine.stateList.Count; i++)
             {
 
                 mCurrentIndex++;
 
-                FSMState state = finiteStateMachineWindowData.finiteStateMachine.GetState(finiteStateMachineWindowData.finiteStateMachine.stateNameList[i]);
+                FSMState state = finiteStateMachineWindowData.finiteStateMachine.GetState(finiteStateMachineWindowData.finiteStateMachine.stateList[i]);
 
                 DragableState dragableState;
 
@@ -549,13 +531,13 @@ namespace BlueNoah.AI.FSM
             count += (mConditionParameterList.Count);
             for (int i = 0; i < mConditionParameterList.Count; i++)
             {
-                Dictionary<FiniteConditionConstant, BoolVar> mConditionParameterDic = mConditionParameterList[i];
+                Dictionary<short, BoolVar> mConditionParameterDic = mConditionParameterList[i];
                 if (i > 0)
                 {
                     GUI.Label(new Rect(FSM_PARAMETER_START_X, 30 + FSM_BOX_HEIGHT * (1 + mYOffset), FSM_PARAMETER_WIDTH, FSM_BOX_HEIGHT), "-------------------------");
                     mYOffset++;
                 }
-                foreach (FiniteConditionConstant finiteConditionConstant in mConditionParameterDic.Keys)
+                foreach (short finiteConditionConstant in mConditionParameterDic.Keys)
                 {
                     DrawBoolVar(new Rect(FSM_PARAMETER_START_X, 30 + FSM_BOX_HEIGHT * (1 + mYOffset), FSM_PARAMETER_WIDTH, FSM_BOX_HEIGHT), finiteConditionConstant, mConditionParameterDic[finiteConditionConstant]);
                     mYOffset++;
@@ -563,7 +545,7 @@ namespace BlueNoah.AI.FSM
             }
         }
 
-        void DrawBoolVar(Rect rect, FiniteConditionConstant finiteConditionConstant, BoolVar boolVar)
+        void DrawBoolVar(Rect rect, short finiteConditionConstant, BoolVar boolVar)
         {
             boolVar.value = GUI.Toggle(rect, boolVar.value, finiteConditionConstant.ToString());
         }

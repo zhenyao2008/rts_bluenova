@@ -14,9 +14,9 @@ namespace BlueNoah.AI.FSM
 
     public class FSMTransition
     {
-        public FiniteStateConstant fromState;
+        public short fromState;
 
-        public FiniteStateConstant toState;
+        public short toState;
 
         public bool useUnFixedTime;
 
@@ -59,7 +59,7 @@ namespace BlueNoah.AI.FSM
             Init(finiteStateMachine);
         }
 
-        public FSMTransition(FiniteStateMachine finiteStateMachine, FiniteConditionConstant condition, bool targetConditionValue, FiniteStateConstant toState)
+        public FSMTransition(FiniteStateMachine finiteStateMachine, short condition, bool targetConditionValue, short toState)
         {
             Init(finiteStateMachine);
             AddCondition(finiteStateMachine.GetCondition(condition), targetConditionValue);
@@ -74,7 +74,7 @@ namespace BlueNoah.AI.FSM
 
         public void AddCondition(BoolVar boolVar, bool targetValue)
         {
-            conditions.Add(new ConditionKeyValue(boolVar,targetValue));
+            conditions.Add(new ConditionKeyValue(boolVar, targetValue));
         }
 
         public void OnAwake()

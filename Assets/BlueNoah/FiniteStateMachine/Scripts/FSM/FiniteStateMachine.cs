@@ -24,7 +24,7 @@ namespace BlueNoah.AI.FSM
 
         public FiniteStateMachineConfig finiteStateMachineConfig;
 
-        short mCurrentStateName;
+        short mCurrentStateId;
 
         FSMState mCurrentState;
 
@@ -50,14 +50,14 @@ namespace BlueNoah.AI.FSM
             }
         }
 
-        public List<FiniteStateConstant> stateNameList;
+        public List<short> stateList;
 
         Dictionary<short, BoolVar> mConditionDic;
         //見えるために 
         [SerializeField]
         List<BoolVar> mConditionList;
 
-        Dictionary<FiniteStateConstant, FSMState> mStateDic;
+        Dictionary<short, FSMState> mStateDic;
 
         public object GetParameter(object key)
         {
@@ -152,7 +152,7 @@ namespace BlueNoah.AI.FSM
             }
         }
 
-        public FSMState GetState(FiniteStateConstant stateConstant)
+        public FSMState GetState(short stateConstant)
         {
             FSMState state;
             if (!mStateDic.TryGetValue(stateConstant, out state))
@@ -162,17 +162,17 @@ namespace BlueNoah.AI.FSM
             return state;
         }
 
-        public void SetDefaultState(FiniteStateConstant state)
+        public void SetDefaultState(short state)
         {
             mDefaultState = GetState(state);
         }
 
-        public FSMState TryAddState(FiniteStateConstant state)
+        public FSMState TryAddState(short state)
         {
             if (!mStateDic.ContainsKey(state))
             {
                 mStateDic.Add(state, new FSMState(GO, mActorCore, this, state));
-                stateNameList.Add(state);
+                stateList.Add(state);
             }
             return mStateDic[state];
         }
@@ -186,8 +186,8 @@ namespace BlueNoah.AI.FSM
         {
             GO = gameObject;
             mParameters = new Hashtable();
-            stateNameList = new List<FiniteStateConstant>();
-            mStateDic = new Dictionary<FiniteStateConstant, FSMState>();
+            stateList = new List<short>();
+            mStateDic = new Dictionary<short, FSMState>();
             mConditionDic = new Dictionary<short, BoolVar>();
             mConditionList = new List<BoolVar>();
         }
@@ -200,13 +200,13 @@ namespace BlueNoah.AI.FSM
         void Init(ActorCore actorCore)
         {
             this.mActorCore = actorCore;
-            stateNameList = new List<FiniteStateConstant>();
-            mStateDic = new Dictionary<FiniteStateConstant, FSMState>();
+            stateList = new List<short>();
+            mStateDic = new Dictionary<short, FSMState>();
             mConditionDic = new Dictionary<short, BoolVar>();
             mConditionList = new List<BoolVar>();
         }
 
-        public void AddState(FiniteStateConstant state, List<FSMAction> actions, List<FSMTransition> transitions)
+        public void AddState(short state, List<FSMAction> actions, List<FSMTransition> transitions)
         {
             if (actions != null && actions.Count > 0)
             {
@@ -218,7 +218,7 @@ namespace BlueNoah.AI.FSM
             }
         }
 
-        public void AddActions(FiniteStateConstant state, List<FSMAction> actions)
+        public void AddActions(short state, List<FSMAction> actions)
         {
             if (actions == null)
             {
@@ -229,7 +229,7 @@ namespace BlueNoah.AI.FSM
             finalState.AddActions(actions);
         }
 
-        public void AddAction(FiniteStateConstant state, FSMAction action)
+        public void AddAction(short state, FSMAction action)
         {
             if (action == null)
             {
@@ -240,7 +240,7 @@ namespace BlueNoah.AI.FSM
             finalState.AddAction(action);
         }
 
-        public void AddTransitions(FiniteStateConstant state, List<FSMTransition> transitions)
+        public void AddTransitions(short state, List<FSMTransition> transitions)
         {
             if (transitions == null)
             {
@@ -251,7 +251,7 @@ namespace BlueNoah.AI.FSM
             finalState.AddTransitions(transitions);
         }
 
-        public void AddTransition(FiniteStateConstant state, FSMTransition transition)
+        public void AddTransition(short state, FSMTransition transition)
         {
             if (transition == null)
             {
@@ -276,18 +276,18 @@ namespace BlueNoah.AI.FSM
 
         public void EnterDefaultState()
         {
-            if (stateNameList.Count > 0)
+            if (stateList.Count > 0)
             {
-                EnterState(stateNameList[0]);
+                EnterState(stateList[0]);
             }
         }
 
-        public void EnterState(FiniteStateConstant state)
+        public void EnterState(short state)
         {
             if (mStateDic.ContainsKey(state))
             {
 
-                mCurrentStateName = state;
+                mCurrentStateId = state;
 
                 if (mPreState != null)
                 {
@@ -320,11 +320,11 @@ namespace BlueNoah.AI.FSM
             //}
         }
 
-        public FiniteStateConstant CurrentState
+        public short CurrentState
         {
             get
             {
-                return mCurrentStateName;
+                return mCurrentStateId;
             }
         }
 

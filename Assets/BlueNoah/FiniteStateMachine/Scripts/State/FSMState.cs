@@ -7,7 +7,7 @@ namespace BlueNoah.AI.FSM
 {
     public class FSMState
     {
-        public FiniteStateConstant state;
+        public short state;
 
         public bool isLoop;
 
@@ -34,7 +34,7 @@ namespace BlueNoah.AI.FSM
 
         public UnityAction<FSMState> onExit;
 
-        public FSMState(GameObject gameObject, ActorCore actorCore, FiniteStateMachine finiteStateMachine, FiniteStateConstant state)
+        public FSMState(GameObject gameObject, ActorCore actorCore, FiniteStateMachine finiteStateMachine, short state)
         {
             this.state = state;
             this.GO = gameObject;
@@ -54,7 +54,7 @@ namespace BlueNoah.AI.FSM
 
         public bool HasSubState()
         {
-            return mSubFiniteStateMachine.stateNameList.Count > 0;
+            return mSubFiniteStateMachine.stateList.Count > 0;
         }
 
         internal void OnEnter()

@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
-
+//Flame Synchonisition
 namespace BlueNoah.AI.FSM
 {
     [System.Serializable]
@@ -8,36 +8,41 @@ namespace BlueNoah.AI.FSM
     {
         public FiniteStateMachineConfig[] finiteStateMachineArray;
     }
+
     [System.Serializable]
     public class FiniteStateMachineConfig
     {
         public int id;
         public string name;
-        public short[] conditions;
+        public BoolParam[] boolParam;
+        public ShortParam[] shortParam;
+        public IntParam[] intParams;
+        public StringParam[] stringParams;
         public StateConfig[] states;
         public TransitionConfig[] transitions;
     }
+
     [System.Serializable]
     public class StateConfig
     {
         public int subFSMId;
-        public string stateId;
+        public short stateId;
         public string[] actions;
-        public ActionWithParams[] actionWithParams;
-        public StringParam[] stringParams;
-        public Vector3Int position;
+        public Vector3 position;
     }
     [System.Serializable]
     public class TransitionConfig
     {
         public ConditionIdValue[] conditionIdValues;
-        public string fromStateId;
-        public string toStateId;
+        public short fromStateId;
+        public short toStateId;
     }
     [System.Serializable]
     public class ConditionIdValue
     {
-        public string conditionId;
+        //唯一のキー
+        public short conditionId;
+        public string conditionName;
         public int conditionValue;
     }
     [System.Serializable]
@@ -58,60 +63,88 @@ namespace BlueNoah.AI.FSM
     public class TransitionData
     {
         public List<TransitionConditionData> keyValueDatas;
-        public string fromState;
-        public string toState;
+        public short fromState;
+        public short toState;
     }
     [System.Serializable]
     public class ConditionData
     {
-        public string condition;
+        public short conditionId;
         public bool value;
         public bool defaultValue;
     }
     [System.Serializable]
     public class TransitionConditionData
     {
-        public string condtion;
+        public short condition;
         public bool targetValue;
     }
+
     [System.Serializable]
     public class StringParam
     {
         public string paramName;
         public string paramValue;
     }
+
     [System.Serializable]
-    public class ActionWithParams
-    {
-        public string action;
-        public StringParam[] stringParams;
-        public IntParam[] intParams;
-        public VectorArrayParam[] vectorArrayParams;
-        public IntArrayParam[] intArrayParams;
-        public StringArrayParam[] stringArrayParams;
-    }
-    [System.Serializable]
-    public class VectorArrayParam
+    public class ShortParam
     {
         public string paramName;
-        public Vector3[] paramValue;
+        public short paramValue;
     }
-    [System.Serializable]
-    public class IntArrayParam
-    {
-        public string paramName;
-        public int[] paramValue;
-    }
-    [System.Serializable]
-    public class StringArrayParam
-    {
-        public string paramName;
-        public string[] paramValue;
-    }
+
     [System.Serializable]
     public class IntParam
     {
         public string paramName;
         public int paramValue;
     }
+
+    [System.Serializable]
+    public class BoolParam
+    {
+        public string paramName;
+        public bool paramValue;
+    }
+
+    // [System.Serializable]
+    // public class VectorIntArrayParam
+    // {
+    //     public string paramName;
+    //     public List<Vector3Int> paramValue;
+    // }
+
+    // [System.Serializable]
+    // public class IntArrayParam
+    // {
+    //     public string paramName;
+    //     public int[] paramValue;
+    // }
+
+    // [System.Serializable]
+    // public class StringArrayParam
+    // {
+    //     public string paramName;
+    //     public string[] paramValue;
+    // }
+
+    // [System.Serializable]
+    // public class Vector3IntParam
+    // {
+    //     public string paramName;
+    //     public Vector3Int paramValue;
+    // }
+
+    // [System.Serializable]
+    // public class ActionWithParams
+    // {
+    //     //Action class name , full path , include namespace.
+    //     public string action;
+    //     public StringParam[] stringParams;
+    //     public IntParam[] intParams;
+    //     public VectorIntArrayParam[] vectorArrayParams;
+    //     public IntArrayParam[] intArrayParams;
+    //     public StringArrayParam[] stringArrayParams;
+    // }
 }

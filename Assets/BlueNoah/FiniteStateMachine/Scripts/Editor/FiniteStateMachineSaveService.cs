@@ -44,7 +44,7 @@ namespace BlueNoah.AI.FSM
 
             finiteStateMachineConfigs.finiteStateMachineArray = finiteStateMachineConfigList.ToArray();
 
-            string fsmConfig = JsonUtility.ToJson(finiteStateMachineConfigs,true);
+            string fsmConfig = JsonUtility.ToJson(finiteStateMachineConfigs, true);
 
             FileManager.WriteString(path, fsmConfig);
         }
@@ -58,7 +58,7 @@ namespace BlueNoah.AI.FSM
 
                 StateConfig stateConfig = finiteStateMachineConfig.states[i];
 
-                DragableState dragableState = finiteStateMachineWindowData.dragableStateDic[FiniteStateMachineLoader.ParseFiniteStateConstant(stateConfig.stateId)];
+                DragableState dragableState = finiteStateMachineWindowData.dragableStateDic[stateConfig.stateId];
 
                 Rect rect = dragableState.rect;
 
