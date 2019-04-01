@@ -84,7 +84,8 @@ namespace BlueNoah.Math.FixedPoint
         }
         #endregion
 
-        public static FixedPointVector3 Abs(FixedPointVector3 other) {
+        public static FixedPointVector3 Abs(FixedPointVector3 other)
+        {
             return new FixedPointVector3(FixedPoint64.Abs(other.x), FixedPoint64.Abs(other.y), FixedPoint64.Abs(other.z));
         }
 
@@ -92,8 +93,10 @@ namespace BlueNoah.Math.FixedPoint
         /// Gets the squared length of the vector.
         /// </summary>
         /// <returns>Returns the squared length of the vector.</returns>
-        public FixedPoint64 sqrMagnitude {
-            get { 
+        public FixedPoint64 sqrMagnitude
+        {
+            get
+            {
                 return (((this.x * this.x) + (this.y * this.y)) + (this.z * this.z));
             }
         }
@@ -102,14 +105,17 @@ namespace BlueNoah.Math.FixedPoint
         /// Gets the length of the vector.
         /// </summary>
         /// <returns>Returns the length of the vector.</returns>
-        public FixedPoint64 magnitude {
-            get {
+        public FixedPoint64 magnitude
+        {
+            get
+            {
                 FixedPoint64 num = ((this.x * this.x) + (this.y * this.y)) + (this.z * this.z);
                 return FixedPoint64.Sqrt(num);
             }
         }
 
-        public static FixedPointVector3 ClampMagnitude(FixedPointVector3 vector, FixedPoint64 maxLength) {
+        public static FixedPointVector3 ClampMagnitude(FixedPointVector3 vector, FixedPoint64 maxLength)
+        {
             return Normalize(vector) * maxLength;
         }
 
@@ -117,8 +123,10 @@ namespace BlueNoah.Math.FixedPoint
         /// Gets a normalized version of the vector.
         /// </summary>
         /// <returns>Returns a normalized version of the vector.</returns>
-        public FixedPointVector3 normalized {
-            get {
+        public FixedPointVector3 normalized
+        {
+            get
+            {
                 FixedPointVector3 result = new FixedPointVector3(this.x, this.y, this.z);
                 result.Normalize();
 
@@ -133,14 +141,14 @@ namespace BlueNoah.Math.FixedPoint
         /// <param name="y">The Y component of the vector.</param>
         /// <param name="z">The Z component of the vector.</param>
 
-        public FixedPointVector3(int x,int y,int z)
-		{
-			this.x = (FixedPoint64)x;
-			this.y = (FixedPoint64)y;
-			this.z = (FixedPoint64)z;
-		}
+        public FixedPointVector3(int x, int y, int z)
+        {
+            this.x = (FixedPoint64)x;
+            this.y = (FixedPoint64)y;
+            this.z = (FixedPoint64)z;
+        }
 
-		public FixedPointVector3(FixedPoint64 x, FixedPoint64 y, FixedPoint64 z)
+        public FixedPointVector3(FixedPoint64 x, FixedPoint64 y, FixedPoint64 z)
         {
             this.x = x;
             this.y = y;
@@ -150,7 +158,8 @@ namespace BlueNoah.Math.FixedPoint
         /// <summary>
         /// Multiplies each component of the vector by the same components of the provided vector.
         /// </summary>
-        public void Scale(FixedPointVector3 other) {
+        public void Scale(FixedPointVector3 other)
+        {
             this.x = x * other.x;
             this.y = y * other.y;
             this.z = z * other.z;
@@ -180,16 +189,18 @@ namespace BlueNoah.Math.FixedPoint
             this.z = xyz;
         }
 
-		public static FixedPointVector3 Lerp(FixedPointVector3 from, FixedPointVector3 to, FixedPoint64 percent) {
-			return from + (to - from) * percent;
-		}
+        public static FixedPointVector3 Lerp(FixedPointVector3 from, FixedPointVector3 to, FixedPoint64 percent)
+        {
+            return from + (to - from) * percent;
+        }
 
         /// <summary>
         /// Builds a string from the JVector.
         /// </summary>
         /// <returns>A string containing all three components.</returns>
         #region public override string ToString()
-        public override string ToString() {
+        public override string ToString()
+        {
             return string.Format("({0:f1}, {1:f1}, {2:f1})", x.AsFloat(), y.AsFloat(), z.AsFloat());
         }
         #endregion
@@ -212,7 +223,8 @@ namespace BlueNoah.Math.FixedPoint
         /// <summary>
         /// Multiplies each component of the vector by the same components of the provided vector.
         /// </summary>
-        public static FixedPointVector3 Scale(FixedPointVector3 vecA, FixedPointVector3 vecB) {
+        public static FixedPointVector3 Scale(FixedPointVector3 vecA, FixedPointVector3 vecB)
+        {
             FixedPointVector3 result;
             result.x = vecA.x * vecB.x;
             result.y = vecA.y * vecB.y;
@@ -293,10 +305,11 @@ namespace BlueNoah.Math.FixedPoint
             FixedPointVector3.Max(ref value1, ref value2, out result);
             return result;
         }
-		
-		public static FixedPoint64 Distance(FixedPointVector3 v1, FixedPointVector3 v2) {
-			return FixedPoint64.Sqrt ((v1.x - v2.x) * (v1.x - v2.x) + (v1.y - v2.y) * (v1.y - v2.y) + (v1.z - v2.z) * (v1.z - v2.z));
-		}
+
+        public static FixedPoint64 Distance(FixedPointVector3 v1, FixedPointVector3 v2)
+        {
+            return FixedPoint64.Sqrt((v1.x - v2.x) * (v1.x - v2.x) + (v1.y - v2.y) * (v1.y - v2.y) + (v1.z - v2.z) * (v1.z - v2.z));
+        }
 
         /// <summary>
         /// Gets a vector with the maximum x,y and z values of both vectors.
@@ -456,7 +469,8 @@ namespace BlueNoah.Math.FixedPoint
         /// <param name="value1">The vector to divide.</param>
         /// <param name="scaleFactor">The scale factor.</param>
         /// <returns>Returns the scaled vector.</returns>
-        public static FixedPointVector3 Divide(FixedPointVector3 value1, FixedPoint64 scaleFactor) {
+        public static FixedPointVector3 Divide(FixedPointVector3 value1, FixedPoint64 scaleFactor)
+        {
             FixedPointVector3 result;
             FixedPointVector3.Divide(ref value1, scaleFactor, out result);
             return result;
@@ -468,7 +482,8 @@ namespace BlueNoah.Math.FixedPoint
         /// <param name="value1">The vector to divide.</param>
         /// <param name="scaleFactor">The scale factor.</param>
         /// <param name="result">Returns the scaled vector.</param>
-        public static void Divide(ref FixedPointVector3 value1, FixedPoint64 scaleFactor, out FixedPointVector3 result) {
+        public static void Divide(ref FixedPointVector3 value1, FixedPoint64 scaleFactor, out FixedPointVector3 result)
+        {
             result.x = value1.x / scaleFactor;
             result.y = value1.y / scaleFactor;
             result.z = value1.z / scaleFactor;
@@ -567,7 +582,7 @@ namespace BlueNoah.Math.FixedPoint
         public static FixedPointVector3 Negate(FixedPointVector3 value)
         {
             FixedPointVector3 result;
-            FixedPointVector3.Negate(ref value,out result);
+            FixedPointVector3.Negate(ref value, out result);
             return result;
         }
 
@@ -718,7 +733,7 @@ namespace BlueNoah.Math.FixedPoint
         public static FixedPointVector3 operator *(FixedPointVector3 value1, FixedPoint64 value2)
         {
             FixedPointVector3 result;
-            FixedPointVector3.Multiply(ref value1, value2,out result);
+            FixedPointVector3.Multiply(ref value1, value2, out result);
             return result;
         }
         #endregion
@@ -772,23 +787,26 @@ namespace BlueNoah.Math.FixedPoint
         /// <param name="value1">The vector to divide.</param>
         /// <param name="scaleFactor">The scale factor.</param>
         /// <returns>Returns the scaled vector.</returns>
-        public static FixedPointVector3 operator /(FixedPointVector3 value1, FixedPoint64 value2) {
+        public static FixedPointVector3 operator /(FixedPointVector3 value1, FixedPoint64 value2)
+        {
             FixedPointVector3 result;
             FixedPointVector3.Divide(ref value1, value2, out result);
             return result;
         }
 
-        public static FixedPoint64 Angle(FixedPointVector3 a, FixedPointVector3 b) {
+        public static FixedPoint64 Angle(FixedPointVector3 a, FixedPointVector3 b)
+        {
             return FixedPoint64.Acos(a.normalized * b.normalized) * FixedPoint64.Rad2Deg;
         }
 
-        public FixedPointVector2 ToTSVector2() {
+        public FixedPointVector2 ToTSVector2()
+        {
             return new FixedPointVector2(this.x, this.y);
         }
 
         public Vector3 ToVector3()
         {
-            return new Vector3(x.AsFloat(),y.AsFloat(),z.AsFloat());
+            return new Vector3(x.AsFloat(), y.AsFloat(), z.AsFloat());
         }
 
     }
