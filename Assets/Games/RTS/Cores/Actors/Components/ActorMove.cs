@@ -29,7 +29,7 @@ namespace BlueNoah.AI.RTS
         public ActorMove(ActorCore actorCore)
         {
             this.mActorCore = actorCore;
-            mFixedPointMoveAgent = PathFindingMananger.Single.CreateMoveAgent(mActorCore.transform, InGameConfig.Single.actorSpeed / 100);
+            mFixedPointMoveAgent = PathFindingMananger.Single.CreateMoveAgent(mActorCore.transform, InGameConfig.Single.actorSpeed / new FixedPoint64(InGameConfig.Single.frameRate) /new FixedPoint64(InGameConfig.Single.actorSpeedScale));
         }
 
         public void MoveTo(FixedPointVector3 fixedPointVector3, PathMoveAction onComplete)

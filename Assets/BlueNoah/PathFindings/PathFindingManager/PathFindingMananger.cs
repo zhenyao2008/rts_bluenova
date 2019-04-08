@@ -48,7 +48,8 @@ namespace BlueNoah.PathFinding
         public FixedPointMoveAgent CreateMoveAgent(FixedPointTransform transform, FixedPoint64 speed)
         {
             FixedPointMoveAgent moveAgent = new FixedPointMoveAgent();
-            moveAgent.Speed = speed;
+            moveAgent.Speed = speed ;
+            Debug.Log(moveAgent.Speed);
             moveAgent.transform = transform;
             moveAgent.priority = mMoveAgentList.Count;
             mMoveAgentList.Add(moveAgent);

@@ -14,6 +14,10 @@ namespace TD.Config
 
         public int actorSpeed;
 
+        public int actorSpeedScale;
+
+        public int frameRate;
+
         static InGameConfig mInstance;
 
         public static InGameConfig Single

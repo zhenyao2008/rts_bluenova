@@ -4,12 +4,8 @@
 */
 
 using System;
-using BlueNoah.AI.FSM;
 using BlueNoah.Math.FixedPoint;
-using BlueNoah.PathFinding;
 using BlueNoah.PathFinding.FixedPoint;
-using BlueNoah.RTS.Constant;
-using BlueNoah.SceneControl;
 
 namespace BlueNoah.AI.RTS
 {

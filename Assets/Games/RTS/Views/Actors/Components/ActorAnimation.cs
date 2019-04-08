@@ -58,8 +58,7 @@ namespace BlueNoah.AI.View.RTS
 
         public void Run()
         {
-            mAnimation["Run01"].speed = InGameConfig.Single.actorSpeed / 100f;
-            mAnimation.Play("Run01");
+            mAnimation["Run01"].speed = InGameConfig.Single.actorSpeed / (float)InGameConfig.Single.actorSpeedScale;
             mAnimation.wrapMode = WrapMode.Loop;
         }
 

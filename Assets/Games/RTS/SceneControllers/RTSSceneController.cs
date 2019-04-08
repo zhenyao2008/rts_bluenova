@@ -9,6 +9,7 @@ using BlueNoah.SceneControl.View;
 using UnityEngine;
 using System.Collections.Generic;
 using BlueNoah.AI.View.RTS;
+using TD.Config;
 
 namespace BlueNoah.SceneControl
 {
@@ -30,6 +31,7 @@ namespace BlueNoah.SceneControl
         void Init()
         {
             mSceneCore = new SceneCore();
+            Time.fixedDeltaTime = 1f / InGameConfig.Single.frameRate;
             mSceneViewer = gameObject.GetOrAddComponent<SceneViewer>();
             mSceneCore.SetActorOnSpawn(mSceneViewer.SpawnActorView);
             mSceneCore.SetActorOnRemove(mSceneViewer.RemoveActorView);

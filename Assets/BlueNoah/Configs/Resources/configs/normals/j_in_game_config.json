@@ -2,5 +2,7 @@
   "cameraDragSpeed": 10,
   "scanRadius": 10,
   "scanInterval": 10,
-  "actorSpeed": 10000
+  "actorSpeed": 200,
+  "actorSpeedScale": 100,
+  "frameRate": 60
 }
