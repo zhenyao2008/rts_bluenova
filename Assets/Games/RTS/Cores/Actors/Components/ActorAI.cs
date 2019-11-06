@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using BlueNoah.AI.FSM;
+using BlueNoah.Math.FixedPoint;
 using UnityEngine;
 
 namespace BlueNoah.AI.RTS
@@ -28,5 +29,19 @@ namespace BlueNoah.AI.RTS
             mFiniteStateMachine.OnUpdate();
         }
 
+        //Control from outside
+        public void MoveTo(ActorCore targetActor, FixedPointVector3 targetPos, bool isForceMove, bool isScanMove)
+        {
+            mActorCore.targetActor = targetActor;
+            mActorCore.targetPos = targetPos;
+            mActorCore.isForceMove = isForceMove;
+            mActorCore.isScanMove = isScanMove;
+            mFiniteStateMachine.SetCondition(FiniteConditionConstant.Run, true);
+        }
+
+        public void ChangeCondition(FiniteConditionConstant condition,bool value)
+        {
+            mFiniteStateMachine.SetCondition(condition, value);
+        }
     }
 }

@@ -63,5 +63,19 @@ namespace BlueNoah.AI.RTS
             actorId = index;
             index++;
         }
+
+        public bool IsDead
+        {
+            get{ return currentHealth <= 0; }
+        }
+
+        public void OnDamage(FixedPoint64 damage)
+        {
+            currentHealth -= damage;
+            if (currentHealth < 0)
+            {
+                currentHealth = 0;
+            }
+        }
     }
 }

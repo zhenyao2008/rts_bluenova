@@ -32,6 +32,22 @@ namespace BlueNoah.AI.RTS
 
         public int z;
 
+        public FixedPoint64 scanRange = 20;
+
+        public FixedPoint64 attackRange = 10;
+
+        public int scanInterval = 10;
+
+        public int attackInterval = 10;
+
+        public ActorCore targetActor;
+
+        public FixedPointVector3 targetPos;
+        //强制移动，类似星际的直接点鼠标。
+        public bool isForceMove;
+        //移动中可以查找敌人，类似星际的A加鼠标。
+        public bool isScanMove;
+
         ActorAI mActorAI;
 
         ActorMove mActorMove;
@@ -94,6 +110,16 @@ namespace BlueNoah.AI.RTS
             if (onFSMAction != null)
             {
                 onFSMAction(actionId);
+            }
+        }
+
+        public void OnDamage(FixedPoint64 damage)
+        {
+            if (!actorAttribute.IsDead)
+            {
+                actorAttribute.OnDamage(damage);
+                if(actorAttribute.IsDead)
+                    ActorAI.ChangeCondition(FiniteConditionConstant.Death,true);
             }
         }
 

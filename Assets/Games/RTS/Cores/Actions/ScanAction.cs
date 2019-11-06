@@ -12,10 +12,6 @@ namespace BlueNoah.AI.RTS
     public class ScanAction : FSMAction
     {
 
-        FixedPoint64 mScanRange = 20;
-
-        int mScanInterval = 10;
-
         int mNextScanFrame;
 
         public override void OnAwake()
@@ -25,19 +21,16 @@ namespace BlueNoah.AI.RTS
 
         public override void OnEnter()
         {
-            mNextScanFrame = Time.frameCount + mScanInterval;
+            mNextScanFrame = Time.frameCount + mActorCore.scanInterval;
         }
 
         public override void OnUpdate()
         {
             if (mNextScanFrame <= Time.frameCount)
             {
-                ActorCore actorCore = Scan();
-                if (actorCore != null)
-                {
-
-                }
-                mNextScanFrame = Time.frameCount + mScanInterval;
+                if(mActorCore.targetActor!=null)
+                    Scan();
+                mNextScanFrame = Time.frameCount + mActorCore.scanInterval;
             }
         }
 
@@ -46,28 +39,21 @@ namespace BlueNoah.AI.RTS
 
         }
 
-        ActorCore Scan()
+        void Scan()
         {
-            int playerId = mActorCore.actorAttribute.playerId;
-            List<ActorCore> targetActors = SceneCore.Instance.GetActors(playerId);
-            if (playerId == 0)
-            {
-                targetActors = SceneCore.Instance.GetActors(1);
-            }
-            else
-            {
-                targetActors = SceneCore.Instance.GetActors(0);
-            }
-            for (int i=0;i<targetActors.Count;i++)
-            {
-                FixedPointVector3 distance = mActorCore.transform.position - targetActors[i].transform.position;
-                if(distance.sqrMagnitude <= mScanRange * mScanRange)
-                {
-                    return targetActors[i];
-                }
-            }
-            return null;
-        }
+            ActorCore nearestTargetActor = ScanUtility.Scan(mActorCore);
 
+            if (ScanUtility.IsInAttackRange(mActorCore,nearestTargetActor))
+            {
+                //Attack
+                mActorCore.targetActor = nearestTargetActor;
+                finiteStateMachine.SetCondition(FiniteConditionConstant.Attack, true);
+            }else if (ScanUtility.IsInScanRange(mActorCore, nearestTargetActor))
+            {
+                //Move
+                mActorCore.targetActor = nearestTargetActor;
+                finiteStateMachine.SetCondition(FiniteConditionConstant.Run, true);
+            }
+        }
     }
 }
