@@ -42,7 +42,7 @@ namespace BlueNoah.AI.RTS
             if (mNextScanFrame <= Time.frameCount)
             {
                 mNextScanFrame = Time.frameCount + mScanInterval;
-                if (mActorCore.isScaneMove)
+                if (mActorCore.isScanMove)
                 {
                     ActorCore nearestTargetActor = ScanUtility.Scan(mActorCore);
 
@@ -53,7 +53,7 @@ namespace BlueNoah.AI.RTS
                         //Attack
                         mActorCore.targetActor = nearestTargetActor;
                         finiteStateMachine.SetCondition(FiniteConditionConstant.Attack, true);
-                        mActorCore.isScaneMove = false;
+                        mActorCore.isScanMove = false;
                     }
                     else if (minDistance <= mActorCore.scanRange * mActorCore.scanRange)
                     {
@@ -62,7 +62,7 @@ namespace BlueNoah.AI.RTS
                         mActorCore.MoveTo(mActorCore.targetActor.transform.position, () => {
                             this.finiteStateMachine.SetCondition(FiniteConditionConstant.Run, false);
                         });
-                        mActorCore.isScaneMove = false;
+                        mActorCore.isScanMove = false;
                     }
                 }
                 else if (mActorCore.targetActor != null)
