@@ -12,7 +12,7 @@ namespace BlueNoah.AI.FSM
         static FiniteStateMachineConfig[] LoadFiniteStateMachineConfig(string configPath)
         {
             TextAsset textAsset = Resources.Load<TextAsset>(configPath);
-            Debug.Log(textAsset.text);
+            Debug.Log("<color=yellow>Load FSM from:" + configPath + "</color>");
             FiniteStateMachineConfigs unitConfigs = JsonUtility.FromJson<FiniteStateMachineConfigs>(textAsset.text);
             return unitConfigs.finiteStateMachineArray;
         }

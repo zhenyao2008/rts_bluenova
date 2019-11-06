@@ -78,7 +78,7 @@ namespace BlueNoah.CSV
         {
             monsterTextAssetList = new List<TextAsset>();
             TextAsset[] textAssets = Resources.LoadAll<TextAsset>("CSV/" + CSV_MAP_MONSTER_ROOT);
-            Debug.Log(textAssets.Length);
+            Debug.Log("<color=yellow>Load stages from:" + "CSV/" + CSV_MAP_MONSTER_ROOT + "</color>");
             for (int i = 0; i < textAssets.Length; i++)
             {
                 monsterTextAssetList.Add(textAssets[i]);

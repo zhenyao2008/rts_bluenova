@@ -138,9 +138,8 @@ namespace BlueNoah.PathFinding
         {
             if (mGrid != null)
                 mGrid.OnDrawGizmos();
-
-            if (mPathAgent != null)
-                mPathAgent.OnDrawGizmos();
+            //if (mPathAgent != null)
+            //    mPathAgent.OnDrawGizmos();
         }
     }
 }

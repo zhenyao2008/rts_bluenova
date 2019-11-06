@@ -1,4 +1,4 @@
-/*
+﻿/*
  MoveAgent for town.
  Has avoid.Cost is high.
  應　彧剛（yingyugang@gmail.com）

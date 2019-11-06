@@ -34,7 +34,7 @@ namespace BlueNoah.PathFinding.FixedPoint
 
         public void OnUpdate()
         {
-            while (pathAgentList.Count > 0 && FixedPointPathAgent.nodeCountSearched < maxSearchNodePerFrame)
+            while (pathAgentList.Count > 0 )
             {
                 PathAgentQueueItem item = pathAgentList[0];
                 pathAgentList.RemoveAt(0);
@@ -42,7 +42,6 @@ namespace BlueNoah.PathFinding.FixedPoint
                 if (item.onComplete != null)
                     item.onComplete(path);
             }
-            FixedPointPathAgent.nodeCountSearched = 0;
         }
 
     }

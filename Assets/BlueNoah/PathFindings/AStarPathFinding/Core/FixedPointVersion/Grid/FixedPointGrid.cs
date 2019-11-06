@@ -8,6 +8,8 @@ namespace BlueNoah.PathFinding.FixedPoint
     public class FixedPointGrid
     {
 
+        public Identity SearchIndentity;
+
         FixedPointVector3 mStartPos = new FixedPointVector3(0, 0, 0);
 
         FixedPointGridSetting mGridSetting;
@@ -72,6 +74,8 @@ namespace BlueNoah.PathFinding.FixedPoint
 
         void Init()
         {
+            SearchIndentity = new Identity(ResetSearchIndex);
+
             mNodeArray = new FixedPointNode[mGridSetting.xCount, mGridSetting.zCount];
 
             mNodeList = new List<FixedPointNode>();
@@ -295,6 +299,18 @@ namespace BlueNoah.PathFinding.FixedPoint
                 return mNodeArray[xIndex, yIndex];
             }
         }
+        void ResetSearchIndex(int index)
+        {
+            for (int i = 0; i < mGridSetting.xCount; i++)
+            {
+                for (int j = 0; j < mGridSetting.zCount; j++)
+                {
+                    mNodeArray[i, j].isClose = index;
+                    mNodeArray[i, j].isOpen = index;
+                }
+            }
+        }
+
         //自動的に節点をブロックする
         //public void BlockNodes()
         //{
