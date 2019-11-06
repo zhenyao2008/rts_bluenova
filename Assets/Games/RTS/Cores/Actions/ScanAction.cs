@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using BlueNoah.AI.FSM;
+using BlueNoah.Math.FixedPoint;
 using BlueNoah.SceneControl;
+using UnityEngine;
 
 namespace BlueNoah.AI.RTS
 {
@@ -10,6 +12,11 @@ namespace BlueNoah.AI.RTS
     public class ScanAction : FSMAction
     {
 
+        FixedPoint64 mScanRange = 20;
+
+        int mScanInterval = 10;
+
+        int mNextScanFrame;
 
         public override void OnAwake()
         {
@@ -18,12 +25,20 @@ namespace BlueNoah.AI.RTS
 
         public override void OnEnter()
         {
-
+            mNextScanFrame = Time.frameCount + mScanInterval;
         }
 
         public override void OnUpdate()
         {
+            if (mNextScanFrame <= Time.frameCount)
+            {
+                ActorCore actorCore = Scan();
+                if (actorCore != null)
+                {
 
+                }
+                mNextScanFrame = Time.frameCount + mScanInterval;
+            }
         }
 
         public override void OnExit()
@@ -33,6 +48,24 @@ namespace BlueNoah.AI.RTS
 
         ActorCore Scan()
         {
+            int playerId = mActorCore.actorAttribute.playerId;
+            List<ActorCore> targetActors = SceneCore.Instance.GetActors(playerId);
+            if (playerId == 0)
+            {
+                targetActors = SceneCore.Instance.GetActors(1);
+            }
+            else
+            {
+                targetActors = SceneCore.Instance.GetActors(0);
+            }
+            for (int i=0;i<targetActors.Count;i++)
+            {
+                FixedPointVector3 distance = mActorCore.transform.position - targetActors[i].transform.position;
+                if(distance.sqrMagnitude <= mScanRange * mScanRange)
+                {
+                    return targetActors[i];
+                }
+            }
             return null;
         }
 

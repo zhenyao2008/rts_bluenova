@@ -5,6 +5,7 @@ using BlueNoah.CSV;
 using BlueNoah.Math.FixedPoint;
 using BlueNoah.PathFinding;
 using BlueNoah.PathFinding.FixedPoint;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace BlueNoah.SceneControl
@@ -71,6 +72,14 @@ namespace BlueNoah.SceneControl
             int actorTypeId = mapMonster.unit_id;
 
             mActorCoreSpawnService.SpawnActor(playerId, actorTypeId, position, eulerAngles);
+        }
+
+        public List<ActorCore> GetActors(int playerId)
+        {
+            if (mActorCoreSpawnService.PlayerActors.ContainsKey(playerId))
+                return mActorCoreSpawnService.PlayerActors[playerId];
+            else
+                return null;
         }
     }
 }

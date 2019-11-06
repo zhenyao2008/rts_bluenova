@@ -16,7 +16,7 @@ namespace BlueNoah.AI.RTS
 
         public ActorAI(ActorCore actorCore)
         {
-            this.mActorCore = actorCore;
+            mActorCore = actorCore;
             mFiniteStateMachine = new FiniteStateMachine(actorCore);
             FiniteStateMachineLoader.InitFSM(mFiniteStateMachine, actorCore.FSMId);
             mFiniteStateMachine.SetDefaultState(FiniteStateConstant.StandBy);
