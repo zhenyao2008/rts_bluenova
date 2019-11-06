@@ -91,6 +91,14 @@ namespace RTS
                             if (actorViewer != null)
                             {
                                 actorViewer.ActorCore.MoveTo(fixedPointVectors[index], actorViewer.actorAnimation.Idle);
+                                if (Input.GetKey(KeyCode.A))
+                                {
+                                    actorViewer.ActorCore.ActorAI.MoveTo(null, fixedPointVectors[index], true, true);
+                                }
+                                else
+                                {
+                                    actorViewer.ActorCore.ActorAI.MoveTo(null, fixedPointVectors[index], true, false);
+                                }
                             }
                             index++;
                         }
