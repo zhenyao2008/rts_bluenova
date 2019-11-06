@@ -18,6 +18,8 @@ namespace BlueNoah.PathFinding.FixedPoint
 
         List<FixedPointNode> mNodeList;
 
+        FixedPointGridDebuger mFixedPointGridDebuger;
+
         public int NeighborCount
         {
             get
@@ -64,14 +66,6 @@ namespace BlueNoah.PathFinding.FixedPoint
             Init();
         }
 
-        public void Reset()
-        {
-            for (int i = 0; i < mNodeList.Count; i++)
-            {
-                mNodeList[i].previous = null;
-            }
-        }
-
         void Init()
         {
             SearchIndentity = new Identity(ResetSearchIndex);
@@ -99,6 +93,7 @@ namespace BlueNoah.PathFinding.FixedPoint
                 }
             }
             CalculateNeighbors();
+            mFixedPointGridDebuger = new FixedPointGridDebuger(this);
         }
 
         void CalculateNeighbors()
@@ -311,59 +306,6 @@ namespace BlueNoah.PathFinding.FixedPoint
             }
         }
 
-        //自動的に節点をブロックする
-        //public void BlockNodes()
-        //{
-        //    for (int i = 0; i < mNodeList.Count; i++)
-        //    {
-        //        if (Physics.CheckBox(mNodeList[i].pos.ToVector3(), Vector3.one * (mGridSetting.nodeWidth.AsFloat() * 0.4f), Quaternion.identity, ~(1 << LayerConstant.LAYER_GROUND)))
-        //        {
-        //            mNodeList[i].IsBlock = true;
-        //        }
-        //        else
-        //        {
-        //            mNodeList[i].IsBlock = false;
-        //        }
-        //    }
-        //}
-
-        //public void EnableNodes()
-        //{
-        //    for (int i = 0; i < mNodeList.Count; i++)
-        //    {
-        //        if (Physics.CheckBox(mNodeList[i].pos.ToVector3(), Vector3.one * (mGridSetting.nodeWidth.AsFloat() * 0.4f), Quaternion.identity, 1 << LayerConstant.LAYER_ROAD))
-        //        {
-        //            mNodeList[i].Enable = true;
-        //        }
-        //        else
-        //        {
-        //            mNodeList[i].Enable = false;
-        //        }
-        //    }
-        //    for (int i = 0; i < mNodeList.Count; i++)
-        //    {
-        //        if (Physics.CheckBox(mNodeList[i].pos.ToVector3(), Vector3.one * (mGridSetting.nodeWidth.AsFloat() * 0.4f), Quaternion.identity, 1 << LayerConstant.LAYER_ROAD_SIDE))
-        //        {
-        //            mNodeList[i].Enable = true;
-        //            mNodeList[i].consumeRoadSizePlus = 4;
-        //        }
-        //    }
-        //}
-
-        //public void CheckBridge()
-        //{
-        //    for (int i = 0; i < mNodeList.Count; i++)
-        //    {
-        //        Collider[] colliders = Physics.OverlapBox(mNodeList[i].pos.ToVector3(), Vector3.one * (mGridSetting.nodeWidth.AsFloat() * 0.4f), Quaternion.identity, 1 << LayerConstant.LAYER_BRIDGE);
-        //        if (colliders.Length > 0)
-        //        {
-        //            Collider collider = colliders[0];
-        //            FixedPointBridge bridge = collider.gameObject.GetOrAddComponent<FixedPointBridge>();
-        //            bridge.AddNode(mNodeList[i]);
-        //        }
-        //    }
-        //}
-
         public List<FixedPointNode> NodeList
         {
             get
@@ -372,61 +314,11 @@ namespace BlueNoah.PathFinding.FixedPoint
             }
         }
 
-        GUIStyle mGUIStyle;
-
         public void OnDrawGizmos()
         {
-            if (mNodeList != null)
+            if (mFixedPointGridDebuger!=null)
             {
-                for (int i = 0; i < mNodeList.Count; i++)
-                {
-                    if (mNodeList[i] != null)
-                    {
-
-#if UNITY_EDITOR
-                        if (mGUIStyle == null)
-                        {
-                            mGUIStyle = new GUIStyle();
-                            mGUIStyle.active.textColor = Color.green;
-                        }
-
-                        //UnityEditor.Handles.color = Color.green;
-                        //if (mNodeList[i].F > 0)
-                        //UnityEditor.Handles.Label(mNodeList[i].pos.ToVector3(), mNodeList[i].F.ToString());
-#endif
-                        //continue;
-                        if (mNodeList[i].IsBlock || !mNodeList[i].Enable)
-                        {
-                            Gizmos.color = Color.red;
-                        }
-                        else
-                        {
-                            if ((mGridSetting.neighborCount == 4 && mNodeList[i].neighbors.Count < 4) || (mGridSetting.neighborCount == 8 && mNodeList[i].neighbors.Count < 8) || mNodeList[i].blockNeighborCount > 0)
-                            {
-                                Gizmos.color = Color.blue;
-                            }
-                            else
-                            {
-                                Gizmos.color = Color.green;
-                            }
-                        }
-                        if (mNodeList[i].consumeRoadSizePlus > 0)
-                        {
-                            Gizmos.color = Color.yellow;
-                        }
-
-                        //if (mNodeList[i].unitCount > 0)
-                        //{
-                        //    Gizmos.color = Color.yellow;
-                        //}
-
-                        if (mNodeList[i].isBridge)
-                        {
-                            Gizmos.color = Color.white;
-                        }
-                        Gizmos.DrawCube(mNodeList[i].pos.ToVector3(), Vector3.one * mGridSetting.nodeWidth.AsFloat() * 0.3f);
-                    }
-                }
+                mFixedPointGridDebuger.DrawNodeInfos();
             }
         }
     }

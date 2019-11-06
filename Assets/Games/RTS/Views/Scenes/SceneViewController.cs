@@ -43,8 +43,7 @@ namespace BlueNoah.SceneControl.View
 
         private void OnDrawGizmos()
         {
-            if (mFixedPointGridDebuger != null)
-                mFixedPointGridDebuger.OnDrawGizmos();
+            PathFindingMananger.Single.Grid.OnDrawGizmos();
         }
 
     }

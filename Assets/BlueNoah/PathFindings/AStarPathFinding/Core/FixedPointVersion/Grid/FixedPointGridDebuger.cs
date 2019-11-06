@@ -1,53 +1,35 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using BlueNoah.Math.FixedPoint;
 using UnityEngine;
-
 
 namespace BlueNoah.PathFinding.FixedPoint
 {
-    public class FixedPointGridDebuger
+    public class FixedPointGridDebuger : FixedPointGridBaseService
     {
-        FixedPointGrid mFixedPointGrid;
-        public FixedPointGridDebuger(FixedPointGrid fixedPointGrid)
-        {
-            this.mFixedPointGrid = fixedPointGrid;
-        }
-        public void OnDrawGizmos()
-        {
-            if (mFixedPointGrid.NodeList != null)
-            {
-                for (int i = 0; i < mFixedPointGrid.NodeList.Count; i++)
-                {
-                    if (mFixedPointGrid.NodeList[i] != null)
-                    {
-                        if (mFixedPointGrid.NodeList[i].IsBlock || !mFixedPointGrid.NodeList[i].Enable)
-                        {
-                            Gizmos.color = Color.red;
-                        }
-                        else
-                        {
-                            if ((mFixedPointGrid.NeighborCount == 4 && mFixedPointGrid.NodeList[i].neighbors.Count < 4) || (mFixedPointGrid.NeighborCount == 8 && mFixedPointGrid.NodeList[i].neighbors.Count < 8))
-                            {
-                                Gizmos.color = Color.blue;
-                            }
-                            else
-                            {
-                                Gizmos.color = Color.green;
-                            }
-                        }
-                        if (mFixedPointGrid.NodeList[i].consumeRoadSizePlus > 0)
-                        {
-                            Gizmos.color = Color.yellow;
-                        }
+        public FixedPointGridDebuger(FixedPointGrid grid) : base(grid) { }
 
-                        if (mFixedPointGrid.NodeList[i].isBridge)
-                        {
-                            Gizmos.color = Color.white;
-                        }
-                        Gizmos.DrawCube(mFixedPointGrid.NodeList[i].pos.ToVector3(), Vector3.one * mFixedPointGrid.NodeSize.AsFloat() * 0.3f);
+        public void DrawNodeInfos()
+        {
+#if UNITY_EDITOR
+            float viewDistance = 100f;
+            GUIStyle style = new GUIStyle();
+            style.alignment = TextAnchor.MiddleCenter;
+            style.fontStyle = FontStyle.BoldAndItalic;
+            style.fontSize = 10;
+            style.normal.textColor = Color.green;
+            for (int i = 0; i < mFixedPointGrid.xCount; i++)
+            {
+                for (int j = 0; j < mFixedPointGrid.zCount; j++)
+                {
+                    FixedPointNode node = mFixedPointGrid.GetNode(i, j);
+                    FixedPoint64 distance = FixedPointVector3.Distance(node.pos, UnityEditor.SceneView.currentDrawingSceneView.camera.transform.position.ToFixedPointVector3());
+                    if (distance < viewDistance)
+                    {
+                        UnityEditor.Handles.Label(node.pos.ToVector3(), node.ToString(), style);
                     }
                 }
             }
+#endif
         }
+
     }
 }
