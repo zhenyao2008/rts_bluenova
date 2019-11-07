@@ -1,7 +1,5 @@
 ﻿using UnityEngine;
 using DG.Tweening;
-using System.Collections.Generic;
-using BlueNoah.Utility;
 
 namespace BlueNoah.PathFinding
 {
@@ -28,20 +26,16 @@ namespace BlueNoah.PathFinding
 
         Transform mTrans;
 
-        int layer;
+        int mLayer;
 
-        public Color normalColor = new Color(0, 1, 0, 0.5f);
+        public MeshCollider meshCollider;
 
-        public Color blockColor = new Color(1, 0, 0, 0.5f);
+        RectInt mRectInt;
 
-        public Color hoverColor = new Color(0, 0, 1, 0.5f);
-
-        public Color disableColor = new Color(1, 1, 1, 0.5f);
-
-        public BoxCollider boxCollider;
+        public RectInt VeiwRect { get { return mRectInt; } }
 
         //notice: padding is persentage.
-        public void InitGridView(int xCount, int yCount, float gridSize, float padding, Material material, int layer)
+        public void InitGridView(int xCount, int yCount, float gridSize, float padding, Material material, int layer,RectInt rectInt)
         {
             if (gridGameObject != null)
             {
@@ -53,25 +47,45 @@ namespace BlueNoah.PathFinding
             mNodeSize = gridSize;
             mPadding = padding;
             mTrans = transform;
-            this.layer = layer;
+            mRectInt = rectInt;
+            mLayer = layer;
             InitGridView();
         }
 
         void InitGridView()
         {
-            GameObject go = MeshUtility.DrawGridGameObject(mMaterial, Color.white, mNodeSize, mXCount, mYCount, mPadding * mNodeSize);
+            GameObject go = MeshUtility.DrawGridGameObject(mMaterial, Color.white, mNodeSize, mXCount, mYCount, mPadding * mNodeSize, mRectInt);
             mMesh = go.GetComponent<MeshFilter>().mesh;
             mColors = mMesh.colors;
             go.transform.SetParent(mTrans);
             go.transform.localPosition = new Vector3(-mNodeSize * mXCount / 2f, 0, -mNodeSize * mYCount / 2f);
-            //go.transform.localPosition = Vector3.zero;
             go.name = "Grid";
             gridGameObject = go;
-            boxCollider = go.GetOrAddComponent<BoxCollider>();
-            boxCollider.size = new Vector3(mXCount * mNodeSize * 1.2f, 0.05f, mYCount * mNodeSize * 2f);
-            go.layer = layer;
-            Debug.Log("mXCount:" + mXCount + ";mYCount:" + mYCount);
+            meshCollider = go.GetOrAddComponent<MeshCollider>();
+            go.layer = mLayer;
             HideGrid();
+        }
+
+        bool GetNodeStartIndex( int x, int z, out int number)
+        {
+            number = (x - mRectInt.x) * mRectInt.height + (z - mRectInt.y);
+            if (number * 4 < 0 || number * 4 >= mColors.Length)
+            {
+                return false;
+            }
+            return true;
+        }
+
+        public void SetNodeColor(int x,int z, Color color)
+        {
+            int number = 0;
+            if(GetNodeStartIndex(x,z,out number))
+            {
+                mColors[number * 4] = color;
+                mColors[number * 4 + 1] = color;
+                mColors[number * 4 + 2] = color;
+                mColors[number * 4 + 3] = color;
+            }
         }
 
         public void DOShowGrid()
@@ -96,129 +110,9 @@ namespace BlueNoah.PathFinding
             gridGameObject.GetComponent<MeshRenderer>().material.DOFade(0, 0.5f);
         }
 
-        public void SetNodeByWorldPosition(ref Color[] colors, Vector3 pos, Color color)
-        {
-            pos = mTrans.InverseTransformPoint(pos);
-            SetNodeByLocalPosition(ref colors, pos, color);
-        }
-
-        public void SetNodeByLocalPosition(ref Color[] colors, Vector3 pos, Color color)
-        {
-            int x = Mathf.FloorToInt((pos.x - gridGameObject.transform.localPosition.x ) / mNodeSize);
-            int z = Mathf.FloorToInt((pos.z - gridGameObject.transform.localPosition.z ) / mNodeSize);
-            int number = x * mYCount + z;
-            if (number * 4 < 0 || number * 4 > colors.Length)
-            {
-                return;
-            }
-            colors[number * 4] = color;
-            colors[number * 4 + 1] = color;
-            colors[number * 4 + 2] = color;
-            colors[number * 4 + 3] = color;
-        }
-
-        void SetNodeListColorByWorldPosition(List<Vector3> positions, Color color)
-        {
-            for (int i = 0; i < positions.Count; i++)
-            {
-                SetNodeByWorldPosition(ref mColors, positions[i], color);
-            }
-            ApplyColors();
-        }
-
-        public void ResetNodeColorByWorldPosition(Vector3 position)
-        {
-            SetNodeByWorldPosition(ref mColors, position, normalColor);
-        }
-
-        public void ResetNodeColorByLocalPosition(Vector3 position)
-        {
-            SetNodeByLocalPosition(ref mColors, position, normalColor);
-        }
-
-        public void HoverNodeColorByWorldPosition(Vector3 position)
-        {
-            SetNodeByWorldPosition(ref mColors, position, hoverColor);
-        }
-
-        public void HoverNodeColorByLocalPosition(Vector3 position)
-        {
-            SetNodeByLocalPosition(ref mColors, position, hoverColor);
-        }
-
-        public void BlockNodeColorByWorldPosition(Vector3 position)
-        {
-            SetNodeByWorldPosition(ref mColors, position, blockColor);
-        }
-
-        public void BlockNodeColorByLocalPosition(Vector3 position)
-        {
-            SetNodeByLocalPosition(ref mColors, position, blockColor);
-        }
-
-        public void DisableNodeColorByWorldPosition(Vector3 position)
-        {
-            SetNodeByWorldPosition(ref mColors, position, disableColor);
-        }
-
-        public void DisableNodeColorByLocalPosition(Vector3 position)
-        {
-            SetNodeByLocalPosition(ref mColors, position, disableColor);
-        }
-
-        public void EnableNodeColorByWorldPosition(Vector3 position)
-        {
-            SetNodeByWorldPosition(ref mColors, position, normalColor);
-        }
-        //TODO
-        public void EnableNodeColorByLocalPosition(Vector3 position)
-        {
-            SetNodeByLocalPosition(ref mColors, position, normalColor);
-        }
-
-        public void ResetNodeColors(List<Vector3> positions)
-        {
-            for (int i = 0; i < positions.Count; i++)
-            {
-                SetNodeByWorldPosition(ref mColors, positions[i], normalColor);
-            }
-            ApplyColors();
-        }
-
-        public void HoverNodes(List<Vector3> positions)
-        {
-            for (int i = 0; i < positions.Count; i++)
-            {
-                SetNodeByWorldPosition(ref mColors, positions[i], hoverColor);
-            }
-            ApplyColors();
-        }
-
-        public void BlockNodes(List<Vector3> positions)
-        {
-            for (int i = 0; i < positions.Count; i++)
-            {
-                SetNodeByWorldPosition(ref mColors, positions[i], blockColor);
-            }
-            ApplyColors();
-        }
-
-        public void ResetNodeColors()
-        {
-            for (int i = 0; i < mColors.Length; i++)
-            {
-                mColors[i] = normalColor;
-            }
-            ApplyColors();
-        }
-
         public void ApplyColors()
         {
             mMesh.colors = mColors;
-        }
-
-        public Bounds GetBounds(){
-            return boxCollider.bounds;
         }
     }
 }

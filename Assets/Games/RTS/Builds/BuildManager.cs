@@ -18,8 +18,7 @@ namespace BlueNoah.Build
         Material mMaterial;
         FixedPointGrid mFixedPointGrid;
         GameObject mSelectedBuilding;
-        bool mIsControllable;
-        GridView mGridView;
+        GridViewGroup mGridViewGroup;
         public FixedPoint64 nodeWidth = 1f;
         public FixedPoint64 diagonalPlus = 1f;
         public FixedPointVector3 startPos = FixedPointVector3.zero;
@@ -33,6 +32,7 @@ namespace BlueNoah.Build
         Vector3 mSelectBuildingOffset;
 
         bool mIsDraging;
+        bool mIsControllable;
 
         protected override void Awake()
         {
@@ -84,11 +84,11 @@ namespace BlueNoah.Build
 
             gridViewLayer = LayerConstant.LAYER_GROUND;
 
-            mGridView = gameObject.GetOrAddComponent<GridView>();
+            mGridViewGroup = new GridViewGroup();
 
-            mGridView.InitGridView(xCount, zCount, nodeWidth.AsFloat(), padding, mMaterial, gridViewLayer);
+            mGridViewGroup.InitGridViewGroup(xCount, zCount, nodeWidth.AsFloat(), mMaterial, gridViewLayer, transform);
 
-            mGridView.ShowGrid();
+            mGridViewGroup.ShowGrid();
         }
 
         void OnTouchDown(EventData eventData)
@@ -134,7 +134,6 @@ namespace BlueNoah.Build
                     //得到目标位置，根据这个位置取到对应node的位置。
                     Vector3 targetPos = raycastHit.point - mSelectBuildingOffset; //- new FixedPointVector3(this.nodeWidth / 2, 0, this.nodeWidth / 2).ToVector3();
                     ActorBuilding building = mSelectBuilding.GetComponent<ActorBuilding>();
-
                     Vector3 gridOffset = new Vector3((building.xSize / 2f - 0.5f) * this.nodeWidth.AsFloat(), 0, (building.ySize / 2f - 0.5f) * this.nodeWidth.AsFloat());
                     List<FixedPointNode> nodes = mFixedPointGrid.GetNearestNodes((targetPos - gridOffset).ToFixedPointVector3(), building.xSize, building.ySize);
                     if (nodes != null && nodes.Count > 0)
@@ -146,7 +145,7 @@ namespace BlueNoah.Build
                             for (int i = 0; i < building.currentNodes.Count; i++)
                             {
                                 building.currentNodes[i].IsBlock = false;
-                                mGridView.ResetNodeColorByWorldPosition(building.currentNodes[i].pos.ToVector3());
+                                mGridViewGroup.SetNodeColor(building.currentNodes[i].x, building.currentNodes[i].z,Color.green);
                             }
                         }
                         building.currentNodes = nodes;
@@ -155,10 +154,10 @@ namespace BlueNoah.Build
                             for (int i = 0; i < building.currentNodes.Count; i++)
                             {
                                 building.currentNodes[i].IsBlock = true;
-                                mGridView.BlockNodeColorByWorldPosition(building.currentNodes[i].pos.ToVector3());
+                                mGridViewGroup.SetNodeColor(building.currentNodes[i].x, building.currentNodes[i].z, Color.red);
                             }
                         }
-                        mGridView.ApplyColors();
+                        mGridViewGroup.ApplyColors();
                     }
                 }
             }

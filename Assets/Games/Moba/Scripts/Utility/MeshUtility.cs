@@ -452,7 +452,7 @@ public static class MeshUtility {
         return mesh;
     }
 
-    public static Mesh DrawGridMesh(float gridSize, int xCount, int yCount,float padding){
+    public static Mesh DrawGridMesh(float gridSize, int xCount, int yCount,float padding,RectInt rectInt){
         Mesh mesh = new Mesh();
         List<Mesh> meshList = new List<Mesh>();
         List<Vector3> vertics = new List<Vector3>();
@@ -460,8 +460,8 @@ public static class MeshUtility {
         List<Vector2> uvs = new List<Vector2>();
         List<Color> colors = new List<Color>();
         int count = 0;
-        for (int i = 0; i < xCount;i++){
-            for (int j = 0; j < yCount;j++){
+        for (int i = rectInt.x; i < rectInt.x + rectInt.width; i++){
+            for (int j = rectInt.y; j < rectInt.y + rectInt.height; j++){
                 Mesh subMesh = DrawNodeMesh(gridSize,i,j,padding);
                 vertics.AddRange(subMesh.vertices);
                 for (int i0 = 0; i0 < subMesh.triangles.Length;i0++){
@@ -480,10 +480,10 @@ public static class MeshUtility {
         return mesh;
     }
 
-    public static GameObject DrawGridGameObject(Material meshMaterial, Color color,float gridSize, int x, int y,float padding){
+    public static GameObject DrawGridGameObject(Material meshMaterial, Color color,float gridSize, int x, int y,float padding,RectInt rectInt){
         padding = Mathf.Min(padding,gridSize / 2);
         GameObject go = GetMeshGameObject( meshMaterial,  color);
-        Mesh mesh = DrawGridMesh(gridSize,x,y,padding);
+        Mesh mesh = DrawGridMesh(gridSize,x,y,padding,rectInt);
         go.GetComponent<MeshFilter>().mesh = mesh;
         return go;
     }

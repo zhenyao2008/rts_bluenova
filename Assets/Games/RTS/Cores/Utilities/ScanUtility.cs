@@ -11,13 +11,13 @@ namespace BlueNoah.AI.RTS
         {
             int playerId = actor.actorAttribute.playerId;
             List<ActorCore> targetActors = SceneCore.Instance.GetActors(playerId);
-            if (playerId == 0)
+            if (playerId == 1)
             {
-                targetActors = SceneCore.Instance.GetActors(1);
+                targetActors = SceneCore.Instance.GetActors(2);
             }
             else
             {
-                targetActors = SceneCore.Instance.GetActors(0);
+                targetActors = SceneCore.Instance.GetActors(1);
             }
             //TODO Need to amend performance.
             FixedPoint64 minDistance = FixedPoint64.MaxValue;

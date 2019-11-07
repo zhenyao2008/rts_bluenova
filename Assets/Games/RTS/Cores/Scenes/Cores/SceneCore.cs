@@ -79,7 +79,7 @@ namespace BlueNoah.SceneControl
             if (mActorCoreSpawnService.PlayerActors.ContainsKey(playerId))
                 return mActorCoreSpawnService.PlayerActors[playerId];
             else
-                return null;
+                return new List<ActorCore>();
         }
     }
 }
