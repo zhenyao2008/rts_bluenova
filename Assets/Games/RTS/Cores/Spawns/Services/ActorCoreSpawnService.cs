@@ -45,10 +45,10 @@ namespace BlueNoah.AI.Spawn
             PlayerActors[actorCore.actorAttribute.playerId].Add(actorCore);
         }
 
-        public ActorCore SpawnActor(int playerId, int actorTypeId, FixedPointVector3 position, FixedPointVector3 eulerAngle)
+        public ActorCore SpawnActor(int playerId, int actorTypeId,int[] layers,int actionId, FixedPointVector3 position, FixedPointVector3 eulerAngle)
         {
             //TODO
-            ActorCore actorCore = new ActorCore(playerId, actorTypeId, 1, position, eulerAngle);
+            ActorCore actorCore = new ActorCore(playerId, actorTypeId, layers, actionId, position, eulerAngle);
 
             AddActor(actorCore);
 

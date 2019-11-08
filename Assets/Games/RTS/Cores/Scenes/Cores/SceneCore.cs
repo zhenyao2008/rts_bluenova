@@ -4,9 +4,7 @@ using BlueNoah.AI.Stage;
 using BlueNoah.CSV;
 using BlueNoah.Math.FixedPoint;
 using BlueNoah.PathFinding;
-using BlueNoah.PathFinding.FixedPoint;
 using System.Collections.Generic;
-using UnityEngine;
 
 namespace BlueNoah.SceneControl
 {
@@ -56,11 +54,6 @@ namespace BlueNoah.SceneControl
             mActorCoreSpawnService.onActorRemove = onActorRemove;
         }
 
-        public void SpawnActor(int playerId, int actorTypeId, FixedPointVector3 position, FixedPointVector3 eulerAngles)
-        {
-            mActorCoreSpawnService.SpawnActor(playerId, actorTypeId, position, eulerAngles);
-        }
-
         void SpawnStageActor(MapMonster mapMonster)
         {
             FixedPointVector3 position = new FixedPointVector3(mapMonster.pos_x, 0, mapMonster.pos_y);
@@ -71,7 +64,7 @@ namespace BlueNoah.SceneControl
 
             int actorTypeId = mapMonster.unit_id;
 
-            mActorCoreSpawnService.SpawnActor(playerId, actorTypeId, position, eulerAngles);
+            mActorCoreSpawnService.SpawnActor(playerId, actorTypeId, mapMonster.LayerInt, mapMonster.action, position, eulerAngles);
         }
 
         public List<ActorCore> GetActors(int playerId)

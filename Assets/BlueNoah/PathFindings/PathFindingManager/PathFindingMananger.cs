@@ -110,14 +110,14 @@ namespace BlueNoah.PathFinding
             return mGrid.GetNode(position);
         }
 
-        public List<FixedPointNode> Find(FixedPointVector3 startPos, FixedPointVector3 endPos)
+        public List<FixedPointNode> Find(FixedPointVector3 startPos, FixedPointVector3 endPos,FixedPointMoveAgent fixedPointMoveAgent)
         {
-            return mPathAgent.StartFind(startPos, endPos);
+            return mPathAgent.StartFind(startPos, endPos, fixedPointMoveAgent);
         }
 
-        public List<FixedPointNode> Find(Vector3 startPos, Vector3 endPos)
+        public List<FixedPointNode> Find(Vector3 startPos, Vector3 endPos, FixedPointMoveAgent fixedPointMoveAgent)
         {
-            return mPathAgent.StartFind(startPos.ToFixedPointVector3(), endPos.ToFixedPointVector3());
+            return mPathAgent.StartFind(startPos.ToFixedPointVector3(), endPos.ToFixedPointVector3(), fixedPointMoveAgent);
         }
         //外部統一制御している。
         public void OnUpdate()

@@ -1,8 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 using BlueNoah.Math.FixedPoint;
-using System.Collections;
-using UnityEngine.Events;
+using BlueNoah.Common;
 
 namespace BlueNoah.PathFinding.FixedPoint
 {
@@ -10,9 +9,7 @@ namespace BlueNoah.PathFinding.FixedPoint
     {
         Identity mSearchIndentity;
         FixedPointGrid mGrid;
-        FixedPointNode mTargetNode;
         public bool isSmooth = true;
-        //public PathFinding.PathModifier pathModifier;
         List<FixedPointNode> mOpenList = new List<FixedPointNode>(1000);
 #if UNITY_EDITOR
         List<FixedPointNode> mCloseList = new List<FixedPointNode>(1000);
@@ -22,7 +19,7 @@ namespace BlueNoah.PathFinding.FixedPoint
 
         public FixedPointPathAgent(FixedPointGrid grid)
         {
-            this.mGrid = grid;
+            mGrid = grid;
             mSearchIndentity = grid.SearchIndentity;
         }
 
@@ -33,7 +30,7 @@ namespace BlueNoah.PathFinding.FixedPoint
 #endif
         }
 
-        public List<FixedPointNode> StartFind(FixedPointVector3 startPos, FixedPointVector3 targetPos)
+        public List<FixedPointNode> StartFind(FixedPointVector3 startPos, FixedPointVector3 targetPos,FixedPointMoveAgent fixedPointMoveAgent)
         {
 
             FixedPointNode startNode = mGrid.GetNode(startPos);
@@ -49,10 +46,10 @@ namespace BlueNoah.PathFinding.FixedPoint
                 Debug.Log(targetPos);
             }
 #endif
-            return StartFind(startNode, targetNode);
+            return StartFind(startNode, targetNode, fixedPointMoveAgent);
         }
         //同期
-        public List<FixedPointNode> StartFind(FixedPointNode currentNode, FixedPointNode targetNode)
+        public List<FixedPointNode> StartFind(FixedPointNode currentNode, FixedPointNode targetNode, FixedPointMoveAgent fixedPointMoveAgent)
         {
             if (currentNode == null || targetNode == null)
             {
@@ -79,44 +76,47 @@ namespace BlueNoah.PathFinding.FixedPoint
                 if (node != targetNode)
                 {
                     AddToCloseList(node);
+                    FixedPointNode neighbor;
                     for (int i = 0; i < node.neighbors.Count; i++)
                     {
-                        if (node.neighbors[i].isClose != mSearchIndentity && !node.neighbors[i].IsBlock && node.Enable)
+                        neighbor = node.neighbors[i];
+                        if (neighbor.isClose == mSearchIndentity)
                         {
-
-                            FixedPoint64 G = node.G + node.consumes[i] + node.neighbors[i].consumeRoadSizePlus;
-
-                            FixedPoint64 H = GetH(node.neighbors[i], targetNode);
-
-                            FixedPoint64 F = G + H;
-
-                            if (node.neighbors[i].isOpen == mSearchIndentity)
-                            {
-                                if (node.neighbors[i].F > F)
-                                {
-                                    node.neighbors[i].G = G;
-
-                                    node.neighbors[i].H = H;
-
-                                    node.neighbors[i].F = F;
-
-                                    node.neighbors[i].previous = node;
-
-                                    orderedNodeSearchList.Add(node.neighbors[i], mSearchIndentity);
-                                }
-                            }
-                            else
+                            continue;
+                        }
+                        if (neighbor.Enable)
+                        {
+                            continue;
+                        }
+                        if (neighbor.IsBlock || neighbor.isTempBlock)
+                        {
+                            continue;
+                        }
+                        if (!IsMaskValid(neighbor, fixedPointMoveAgent.layerMask, fixedPointMoveAgent.subLayerMask))
+                        {
+                            continue;
+                        }
+                        FixedPoint64 G = node.G + node.consumes[i] + node.neighbors[i].consumeRoadSizePlus;
+                        FixedPoint64 H = GetH(node.neighbors[i], targetNode);
+                        FixedPoint64 F = G + H;
+                        if (node.neighbors[i].isOpen == mSearchIndentity)
+                        {
+                            if (node.neighbors[i].F > F)
                             {
                                 node.neighbors[i].G = G;
-
                                 node.neighbors[i].H = H;
-
                                 node.neighbors[i].F = F;
-
                                 node.neighbors[i].previous = node;
-
                                 orderedNodeSearchList.Add(node.neighbors[i], mSearchIndentity);
                             }
+                        }
+                        else
+                        {
+                            node.neighbors[i].G = G;
+                            node.neighbors[i].H = H;
+                            node.neighbors[i].F = F;
+                            node.neighbors[i].previous = node;
+                            orderedNodeSearchList.Add(node.neighbors[i], mSearchIndentity);
                         }
                     }
                 }
@@ -145,24 +145,22 @@ namespace BlueNoah.PathFinding.FixedPoint
             resultPath.Clear();
             FixedPointNode currentNode = node;
             resultPath.Insert(0, currentNode);
-            //Debug.Log(currentNode);
             while (currentNode.previous != null && currentNode.isOpen == mSearchIndentity)
             {
                 resultPath.Insert(0, currentNode.previous);
                 currentNode = currentNode.previous;
             }
             return resultPath;
-            //TODO 
-            //pathModifier;
-            //if (isSmooth)
-            //    return pathModifier.SmoothPath(resultPath);
-            //else
-            //return resultPath;
         }
 
         FixedPoint64 GetH(FixedPointNode node, FixedPointNode targetNode)
         {
             return Mathf.Abs(targetNode.x - node.x) * mGrid.NodeSize + Mathf.Abs(targetNode.z - node.z) * mGrid.NodeSize;
+        }
+
+        public bool IsMaskValid(FixedPointNode node, GridLayerMask mask, GridLayerMask subMask)
+        {
+            return mask.ContainLayer(1 << node.layer) || subMask.ContainLayer(1 << node.subLayer);
         }
 
         /*

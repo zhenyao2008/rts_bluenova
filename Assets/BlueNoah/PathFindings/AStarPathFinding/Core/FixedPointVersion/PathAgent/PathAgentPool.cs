@@ -38,7 +38,7 @@ namespace BlueNoah.PathFinding.FixedPoint
             {
                 PathAgentQueueItem item = pathAgentList[0];
                 pathAgentList.RemoveAt(0);
-                List<FixedPointNode> path = item.pathAgent.StartFind(item.startNode, item.endNode);
+                List<FixedPointNode> path = item.pathAgent.StartFind(item.startNode, item.endNode,null);
                 if (item.onComplete != null)
                     item.onComplete(path);
             }

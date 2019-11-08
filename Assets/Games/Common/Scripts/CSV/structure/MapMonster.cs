@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using CSV;
+﻿using CSV;
 
 namespace BlueNoah.CSV
 {
@@ -15,12 +12,37 @@ namespace BlueNoah.CSV
         [CsvColumn()]
         public int action;
         [CsvColumn()]
-        public float pos_x;
+        public int pos_x;
         [CsvColumn()]
-        public float pos_y;
+        public int pos_y;
         [CsvColumn()]
-        public float angle_y;
+        public int angle_y;
         [CsvColumn()]
         public int alignment;
+        [CsvColumn()]
+        public int size_x;
+        [CsvColumn()]
+        public int size_y;
+        [CsvColumn()]
+        public int is_building;
+        [CsvColumn()]
+        public string layers;
+
+        public int[] LayerInt {
+            get
+            {
+                string[] subLayers = layers.Split('|');
+                int[] subLayerInts = new int[subLayers.Length];
+                for (int i=0;i<subLayers.Length;i++)
+                {
+                    int layer;
+                    if (int.TryParse(subLayers[i],out layer))
+                    {
+                        subLayerInts[i] = layer;
+                    }
+                }
+                return subLayerInts;
+            }
+        }
     }
 }

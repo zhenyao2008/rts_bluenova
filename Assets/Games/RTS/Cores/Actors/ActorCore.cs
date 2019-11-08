@@ -4,12 +4,8 @@
 */
 
 using System;
-using BlueNoah.AI.FSM;
 using BlueNoah.Math.FixedPoint;
-using BlueNoah.PathFinding;
 using BlueNoah.PathFinding.FixedPoint;
-using BlueNoah.RTS.Constant;
-using BlueNoah.SceneControl;
 
 namespace BlueNoah.AI.RTS
 {
@@ -78,7 +74,7 @@ namespace BlueNoah.AI.RTS
             }
         }
 
-        public ActorCore(int playerId, int actorTypeId, int FSMId, FixedPointVector3 position, FixedPointVector3 eulerAngles)
+        public ActorCore(int playerId, int actorTypeId,int[] layers,int FSMId, FixedPointVector3 position, FixedPointVector3 eulerAngles)
         {
             actorAttribute = new ActorAttribute();
 
@@ -91,6 +87,13 @@ namespace BlueNoah.AI.RTS
             transform.position = position;
 
             transform.eulerAngles = eulerAngles;
+
+            transform.layerMask = 0;
+
+            for (int i=0 ; i< layers.Length ; i++)
+            {
+                transform.layerMask.AddLayer((uint)layers[i]);
+            }
 
             mFSMId = FSMId;
 

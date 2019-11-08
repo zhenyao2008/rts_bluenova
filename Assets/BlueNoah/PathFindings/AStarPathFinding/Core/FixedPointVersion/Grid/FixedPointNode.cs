@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Text;
 using BlueNoah.Math.FixedPoint;
 namespace BlueNoah.PathFinding.FixedPoint
 {
@@ -12,6 +13,10 @@ namespace BlueNoah.PathFinding.FixedPoint
         public FixedPointGrid grid;
 
         public int index;
+
+        public int layer;
+
+        public int subLayer;
 
         public int x;
         //ノードの位置
@@ -46,12 +51,6 @@ namespace BlueNoah.PathFinding.FixedPoint
         //用int自增，这样就不用在第二次开始的时候reset这两个值了
         public long isOpen;
         public long isClose;
-
-        public long isOpenFront;
-        public long isOpenBack;
-
-        public long isCloseFront;
-        public long isCloseBack;
 
         public bool isBridge;
         //当前不能通过，但是路径检查不受影响。
@@ -89,5 +88,26 @@ namespace BlueNoah.PathFinding.FixedPoint
             }
         }
 
+        public override string ToString()
+        {
+            StringBuilder stringBuilder = new StringBuilder();
+            stringBuilder.Append(string.Format("X:{0};Z:{1};\n", x, z));
+            stringBuilder.Append(string.Format("G:{0};H:{1};F:{2};\n", G, H, F));
+            //stringBuilder.Append(string.Format("LayerMask:{0};\n", LayerMask));
+            stringBuilder.Append(string.Format("unitCount:{0};\n", unitCount));
+            stringBuilder.Append(string.Format("IsBlock:{0};\n", GetBoolString(IsBlock, true)));
+            stringBuilder.Append(string.Format("IsTempBlock:{0};\n", GetBoolString(isTempBlock, true)));
+            return stringBuilder.ToString();
+        }
+
+        string GetBoolString(bool v, bool target)
+        {
+            return v == target ? "<color=red>" + v + "</color>" : v.ToString();
+        }
+
+        string GetFloatString(float v, float target)
+        {
+            return v > target ? "<color=red>" + v + "</color>" : v.ToString();
+        }
     }
 }

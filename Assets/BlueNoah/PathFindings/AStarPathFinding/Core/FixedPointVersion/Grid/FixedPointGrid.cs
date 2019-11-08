@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using BlueNoah.Common;
 using BlueNoah.Math.FixedPoint;
 using UnityEngine;
 
@@ -19,6 +20,8 @@ namespace BlueNoah.PathFinding.FixedPoint
         List<FixedPointNode> mNodeList;
 
         FixedPointGridDebuger mFixedPointGridDebuger;
+
+        GridLayerMask mGridLayerMask;
 
         public int NeighborCount
         {

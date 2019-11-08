@@ -1,4 +1,5 @@
-﻿using BlueNoah.Math.FixedPoint;
+﻿using BlueNoah.Common;
+using BlueNoah.Math.FixedPoint;
 
 namespace BlueNoah.PathFinding.FixedPoint
 {
@@ -10,5 +11,6 @@ namespace BlueNoah.PathFinding.FixedPoint
 
         public FixedPointVector3 forward;
 
+        public GridLayerMask layerMask;
     }
 }
