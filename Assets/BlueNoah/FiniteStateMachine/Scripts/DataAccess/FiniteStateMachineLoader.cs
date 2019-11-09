@@ -56,10 +56,6 @@ namespace BlueNoah.AI.FSM
 
             finiteStateMachine.finiteStateMachineConfig = finiteStateMachineConfig;
 
-            Debug.Log(finiteStateMachineConfigDic.Count);
-
-            Debug.Log(finiteStateMachine.finiteStateMachineConfig.states.Length);
-
             Assembly assembly = Assembly.GetExecutingAssembly();
 
             for (int i = 0; i < finiteStateMachineConfig.conditions.Length; i++)

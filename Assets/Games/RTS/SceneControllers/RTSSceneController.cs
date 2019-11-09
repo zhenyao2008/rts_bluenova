@@ -29,7 +29,7 @@ namespace BlueNoah.SceneControl
 
         void Init()
         {
-            mSceneCore = new SceneCore();
+            mSceneCore = SceneCore.Instance;
             mSceneViewer = gameObject.GetOrAddComponent<SceneViewer>();
             mSceneCore.SetActorOnSpawn(mSceneViewer.SpawnActorView);
             mSceneCore.SetActorOnRemove(mSceneViewer.RemoveActorView);

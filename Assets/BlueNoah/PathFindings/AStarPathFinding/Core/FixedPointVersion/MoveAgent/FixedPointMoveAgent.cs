@@ -98,6 +98,11 @@ namespace BlueNoah.PathFinding.FixedPoint
             SetPath(allTargetMovePointList, onMoveDone);
         }
 
+        public void Stop()
+        {
+            mIsMoving = false;
+        }
+
         public void SetDestination(FixedPointVector3 targetPos, PathMoveAction onMoveDone = null)
         {
             List<FixedPointNode> targetPosList = PathFindingMananger.Single.Find(transform.position, targetPos,this);
@@ -213,6 +218,7 @@ namespace BlueNoah.PathFinding.FixedPoint
                 mIsMoving = false;
                 if (onMoveDone != null)
                 {
+                    Debug.Log("MoveDone");
                     onMoveDone();
                 }
             }

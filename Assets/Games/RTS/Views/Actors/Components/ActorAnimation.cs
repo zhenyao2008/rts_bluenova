@@ -25,35 +25,18 @@ namespace BlueNoah.AI.View.RTS
             }
         }
 
-        public void DoMotionAction(short actionId)
+        public void Play(string stateName, float speed = 1,bool isLoop = true,bool isNormalSpeed = false)
         {
-            switch (actionId)
-            {
-                case ActionMotionConstant.STANDBY:
-                    Play(AnimationConstant.STANDBY);
-                    break;
-                case ActionMotionConstant.WALK:
-                    Play(AnimationConstant.WALK);
-                    break;
-                case ActionMotionConstant.RUN:
-                    Play(AnimationConstant.RUN);
-                    break;
-                case ActionMotionConstant.ATTACK:
-                    Play(AnimationConstant.ATTACK);
-                    break;
-                case ActionMotionConstant.DEATH:
-                    Play(AnimationConstant.DEATH);
-                    break;
-                default:
-                    Play(AnimationConstant.STANDBY);
-                    break;
-            }
-        }
-
-        public void Play(string stateName, float speed = 1)
-        {
-            mAnimation[stateName].speed = speed;
-            mAnimation.Play(stateName);
+            if (isNormalSpeed)
+                mAnimation[stateName].speed = 1;
+            else
+                mAnimation[stateName].speed = mAnimation[stateName].length / speed;
+            if(isLoop)
+                mAnimation.wrapMode = WrapMode.Loop;
+            else
+                mAnimation.wrapMode = WrapMode.Once; ;
+            mAnimation.Stop();
+            mAnimation.Play(stateName, PlayMode.StopAll);
         }
 
         public void Run()

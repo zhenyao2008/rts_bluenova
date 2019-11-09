@@ -5,7 +5,9 @@
 
 using System.Collections.Generic;
 using BlueNoah.AI.RTS;
+using BlueNoah.CSV;
 using BlueNoah.Math.FixedPoint;
+using UnityEngine;
 
 namespace BlueNoah.AI.Spawn
 {
@@ -18,11 +20,6 @@ namespace BlueNoah.AI.Spawn
         public ActorSpawnEventAction<ActorCore> onActorRemove;
 
         Dictionary<int, List<ActorCore>> mPlayerActors;
-
-        public ActorCoreSpawnService()
-        {
-            mPlayerActors = new Dictionary<int, List<ActorCore>>();
-        }
 
         public Dictionary<int, List<ActorCore>> PlayerActors
         {
@@ -45,10 +42,10 @@ namespace BlueNoah.AI.Spawn
             PlayerActors[actorCore.actorAttribute.playerId].Add(actorCore);
         }
 
-        public ActorCore SpawnActor(int playerId, int actorTypeId,int[] layers,int actionId, FixedPointVector3 position, FixedPointVector3 eulerAngle)
+
+        public ActorCore SpawnActor(MapMonster mapMonster)
         {
-            //TODO
-            ActorCore actorCore = new ActorCore(playerId, actorTypeId, layers, actionId, position, eulerAngle);
+            ActorCore actorCore = new ActorCore(mapMonster);
 
             AddActor(actorCore);
 

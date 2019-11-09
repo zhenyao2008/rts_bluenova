@@ -1,6 +1,7 @@
 ﻿using BlueNoah.Math.FixedPoint;
 using BlueNoah.SceneControl;
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace BlueNoah.AI.RTS
 {
@@ -24,6 +25,8 @@ namespace BlueNoah.AI.RTS
             ActorCore nearestTargetActor = null;
             for (int i = 0; i < targetActors.Count; i++)
             {
+                if (targetActors[i].actorAttribute.IsDead)
+                    continue;
                 FixedPointVector3 distance = actor.transform.position - targetActors[i].transform.position;
                 if (distance.sqrMagnitude <= minDistance)
                 {
@@ -37,7 +40,7 @@ namespace BlueNoah.AI.RTS
         public static bool IsInAttackRange(ActorCore attacker,ActorCore target)
         {
             FixedPoint64 minDistance = (target.transform.position - attacker.transform.position).sqrMagnitude;
-
+            Debug.Log(minDistance + "===" + attacker.attackRange * attacker.attackRange);
             return (minDistance <= attacker.attackRange * attacker.attackRange);
         }
 

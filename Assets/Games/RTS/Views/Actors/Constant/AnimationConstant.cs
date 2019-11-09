@@ -1,13 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-namespace BlueNoah.AI.View.RTS
+﻿namespace BlueNoah.AI.View.RTS
 {
     public static class AnimationConstant
     {
 
-        public const string STANDBY = "StandBy01";
+        public const string STANDBY = "Idle01";
 
         public const string WALK = "Walk01";
 

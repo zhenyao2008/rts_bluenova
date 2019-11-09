@@ -27,6 +27,8 @@ namespace BlueNoah.CSV
         public int is_building;
         [CsvColumn()]
         public string layers;
+        [CsvColumn()]
+        public int move_speed;
 
         public int[] LayerInt {
             get

@@ -67,7 +67,7 @@ namespace RTS
                     if (mScreenSelectService.IsInSelectRect(rect, actorViewer.screenPosition.x, actorViewer.screenPosition.y))
                     {
                         Debug.Log(actorViewer);
-                        mSelectedActors.Add(actorViewer.ActorCore.actorAttribute.actorId, actorViewer);
+                        mSelectedActors.Add(actorViewer.actorCore.actorAttribute.actorId, actorViewer);
                         actorViewer.gameObject.GetOrAddComponent<ActorHighlighter>().ShowHighlighter();
                     }
                 }
@@ -90,14 +90,13 @@ namespace RTS
                         {
                             if (actorViewer != null)
                             {
-                                actorViewer.ActorCore.MoveTo(fixedPointVectors[index], actorViewer.actorAnimation.Idle);
                                 if (Input.GetKey(KeyCode.A))
                                 {
-                                    actorViewer.ActorCore.ActorAI.MoveTo(null, fixedPointVectors[index], true, true);
+                                    actorViewer.actorCore.ActorAI.MoveTo(null, fixedPointVectors[index], true, true);
                                 }
                                 else
                                 {
-                                    actorViewer.ActorCore.ActorAI.MoveTo(null, fixedPointVectors[index], true, false);
+                                    actorViewer.actorCore.ActorAI.MoveTo(null, fixedPointVectors[index], true, false);
                                 }
                             }
                             index++;

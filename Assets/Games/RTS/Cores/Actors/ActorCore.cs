@@ -4,8 +4,10 @@
 */
 
 using System;
+using BlueNoah.CSV;
 using BlueNoah.Math.FixedPoint;
 using BlueNoah.PathFinding.FixedPoint;
+using UnityEngine;
 
 namespace BlueNoah.AI.RTS
 {
@@ -74,13 +76,25 @@ namespace BlueNoah.AI.RTS
             }
         }
 
-        public ActorCore(int playerId, int actorTypeId,int[] layers,int FSMId, FixedPointVector3 position, FixedPointVector3 eulerAngles)
+        public ActorCore(MapMonster mapMonster)
         {
+            FixedPointVector3 position = new FixedPointVector3(mapMonster.pos_x, 0, mapMonster.pos_y);
+
+            FixedPointVector3 eulerAngles = new FixedPointVector3(0, mapMonster.angle_y, 0);
+
+            int playerId = mapMonster.alignment;
+
+            int actorTypeId = mapMonster.unit_id;
+
+            int[] layers = mapMonster.LayerInt;
+
             actorAttribute = new ActorAttribute();
 
             actorAttribute.playerId = playerId;
 
             actorAttribute.actorTypeId = actorTypeId;
+
+            actorAttribute.runSpeed = mapMonster.move_speed;
 
             transform = new FixedPointTransform();
 
@@ -95,17 +109,11 @@ namespace BlueNoah.AI.RTS
                 transform.layerMask.AddLayer((uint)layers[i]);
             }
 
-            mFSMId = FSMId;
+            mFSMId = mapMonster.action;
 
             mActorAI = new ActorAI(this);
 
             mActorMove = new ActorMove(this);
-
-        }
-
-        public void MoveTo(FixedPointVector3 fixedPointVector3, PathMoveAction onComplete)
-        {
-            mActorMove.MoveTo(fixedPointVector3, onComplete);
         }
 
         public void DoAction(short actionId)

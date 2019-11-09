@@ -14,12 +14,12 @@ namespace BlueNoah.AI.RTS
         public int playerId;
         public int actorTypeId;
         public long actorId;
-        public FixedPoint64 currentHealth;
-        public FixedPoint64 maxHealth;
-        public FixedPoint64 currentAttack;
-        public FixedPoint64 maxAttack;
-        public FixedPoint64 currentDefence;
-        public FixedPoint64 maxDefence;
+        public FixedPoint64 currentHealth = 200;
+        public FixedPoint64 maxHealth = 200;
+        public FixedPoint64 currentAttack = 10;
+        public FixedPoint64 maxAttack = 10;
+        public FixedPoint64 currentDefence = 1;
+        public FixedPoint64 maxDefence = 1;
         #endregion
 
         #region 2.Plus Attribute.

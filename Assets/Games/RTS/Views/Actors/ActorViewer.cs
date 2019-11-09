@@ -15,14 +15,7 @@ namespace BlueNoah.AI.View.RTS
     //For act, not calculation.
     public class ActorViewer : MonoBehaviour
     {
-        ActorCore mActorCore;
-        public ActorCore ActorCore
-        {
-            get
-            {
-                return mActorCore;
-            }
-        }
+        public ActorCore actorCore;
         public ActorAnimation actorAnimation;
         public ActorAsset actorAsset;
         public ActorEffect actorEffect;
@@ -45,9 +38,9 @@ namespace BlueNoah.AI.View.RTS
                 Debug.LogError("UnitCore is Null.");
             }
 #endif
-            this.mActorCore = actorCore;
-            actorCore.ActorMove.FixedPointMoveAgent.onMove = actorAnimation.Run;
-            actorCore.ActorMove.FixedPointMoveAgent.onStop = actorAnimation.Idle;
+            this.actorCore = actorCore;
+            //actorCore.ActorMove.FixedPointMoveAgent.onMove = actorAnimation.Run;
+            //actorCore.ActorMove.FixedPointMoveAgent.onStop = actorAnimation.Idle;
             actorCore.ActorMove.FixedPointMoveAgent.onPositionChange = (FixedPointTransform pointTransform) =>
             {
                 transform.position = pointTransform.position.ToVector3();
@@ -67,16 +60,16 @@ namespace BlueNoah.AI.View.RTS
 
         public void UpdateTransform()
         {
-            if (mActorCore != null)
+            if (actorCore != null)
             {
-                transform.position = mActorCore.transform.position.ToVector3();
-                transform.eulerAngles = mActorCore.transform.eulerAngles.ToVector3();
+                transform.position = actorCore.transform.position.ToVector3();
+                transform.eulerAngles = actorCore.transform.eulerAngles.ToVector3();
             }
         }
         //Selection condition.
         void LateUpdate()
         {
-            if (mActorCore != null)
+            if (actorCore != null)
             {
                 screenPosition = Camera.main.WorldToScreenPoint(transform.position);
             }
@@ -88,7 +81,27 @@ namespace BlueNoah.AI.View.RTS
 
         public void DoFSMAction(short actionId)
         {
-            actorAnimation.DoMotionAction(actionId);
+            switch (actionId)
+            {
+                case ActionMotionConstant.STANDBY:
+                actorAnimation.Play(AnimationConstant.STANDBY,1, true, true);
+                    break;
+                case ActionMotionConstant.WALK:
+                actorAnimation.Play(AnimationConstant.WALK);
+                    break;
+                case ActionMotionConstant.RUN:
+                actorAnimation.Play(AnimationConstant.RUN, this.actorCore.ActorMove.FixedPointMoveAgent.Speed.AsFloat() * 2, true);
+                    break;
+                case ActionMotionConstant.ATTACK:
+                actorAnimation.Play(AnimationConstant.ATTACK, this.actorCore.attackInterval / 60f, false);
+                    break;
+                case ActionMotionConstant.DEATH:
+                actorAnimation.Play(AnimationConstant.DEATH,1,false,true);
+                    break;
+                default:
+                actorAnimation.Play(AnimationConstant.STANDBY, 1, true, true);
+                    break;
+            }
         }
     }
 }

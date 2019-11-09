@@ -15,7 +15,9 @@ namespace BlueNoah.AI.RTS
 
         public override void OnEnter()
         {
-            mActorCore.DoAction(ActionMotionConstant.ATTACK);
+            Debug.Log("AttackAction");
+            mActorCore.ActorMove.FixedPointMoveAgent.Stop();
+            mActorCore.DoAction(ActionMotionConstant.STANDBY);
             mNextAttackFrame = Time.frameCount + mActorCore.attackInterval;
         }
 
@@ -24,6 +26,7 @@ namespace BlueNoah.AI.RTS
             if (mNextAttackFrame <= Time.frameCount)
             {
                 mNextAttackFrame = Time.frameCount + mActorCore.attackInterval;
+                mActorCore.DoAction(ActionMotionConstant.ATTACK);
                 if (mActorCore.targetActor!=null)
                 {
                     mActorCore.targetActor.OnDamage(mActorCore.actorAttribute.currentAttack);
@@ -36,6 +39,7 @@ namespace BlueNoah.AI.RTS
                 if (mActorCore.targetActor == null)
                 {
                     this.finiteStateMachine.SetCondition(FiniteConditionConstant.Attack, false);
+                    this.finiteStateMachine.SetCondition(FiniteConditionConstant.Run, false);
                 }
             }
         }

@@ -31,11 +31,11 @@ namespace BlueNoah.AI.Spawn.View
 
         void AddActor(ActorViewer actorViewer)
         {
-            if (!PlayerActors.ContainsKey(actorViewer.ActorCore.actorAttribute.playerId))
+            if (!PlayerActors.ContainsKey(actorViewer.actorCore.actorAttribute.playerId))
             {
-                PlayerActors.Add(actorViewer.ActorCore.actorAttribute.playerId, new Dictionary<long, ActorViewer>());
+                PlayerActors.Add(actorViewer.actorCore.actorAttribute.playerId, new Dictionary<long, ActorViewer>());
             }
-            PlayerActors[actorViewer.ActorCore.actorAttribute.playerId].Add(actorViewer.ActorCore.actorAttribute.actorId, actorViewer);
+            PlayerActors[actorViewer.actorCore.actorAttribute.playerId].Add(actorViewer.actorCore.actorAttribute.actorId, actorViewer);
         }
 
         public ActorViewSpawnService()
@@ -50,11 +50,18 @@ namespace BlueNoah.AI.Spawn.View
 
         public override GameObject SpawnActor(ActorCore actorCore)
         {
-            if (!mCachedActor.ContainsKey(actorCore.actorAttribute.actorTypeId))
+            if (!mCachedActor.ContainsKey(actorCore.actorAttribute.playerId))
             {
-                mCachedActor.Add(actorCore.actorAttribute.actorTypeId, GetPrefab("Prefabs/Actors/Footman/Soldier_Militia"));
+                if (actorCore.actorAttribute.playerId == 1)
+                {
+                    mCachedActor.Add(actorCore.actorAttribute.playerId, GetPrefab("Prefabs/Actors/Footman/Soldier_Militia"));
+                }
+                else
+                {
+                    mCachedActor.Add(actorCore.actorAttribute.playerId, GetPrefab("Prefabs/Actors/Footman/Soldier_Militia_Red"));
+                }
             }
-            GameObject go = GameObject.Instantiate(this.mCachedActor[actorCore.actorAttribute.actorTypeId]);
+            GameObject go = GameObject.Instantiate(this.mCachedActor[actorCore.actorAttribute.playerId]);
             ActorViewer actorViewer = go.GetOrAddComponent<ActorViewer>();
             actorViewer.Init(actorCore);
             AddActor(actorViewer);

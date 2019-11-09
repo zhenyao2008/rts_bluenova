@@ -28,8 +28,8 @@ namespace BlueNoah.AI.RTS
         {
             if (mNextScanFrame <= Time.frameCount)
             {
-                if(mActorCore.targetActor!=null)
-                    Scan();
+                //if(mActorCore.targetActor==null)
+                    //Scan();
                 mNextScanFrame = Time.frameCount + mActorCore.scanInterval;
             }
         }
@@ -42,17 +42,21 @@ namespace BlueNoah.AI.RTS
         void Scan()
         {
             ActorCore nearestTargetActor = ScanUtility.Scan(mActorCore);
-
-            if (ScanUtility.IsInAttackRange(mActorCore,nearestTargetActor))
+            if (nearestTargetActor != null)
             {
-                //Attack
-                mActorCore.targetActor = nearestTargetActor;
-                finiteStateMachine.SetCondition(FiniteConditionConstant.Attack, true);
-            }else if (ScanUtility.IsInScanRange(mActorCore, nearestTargetActor))
-            {
-                //Move
-                mActorCore.targetActor = nearestTargetActor;
-                finiteStateMachine.SetCondition(FiniteConditionConstant.Run, true);
+                if (ScanUtility.IsInAttackRange(mActorCore, nearestTargetActor))
+                {
+                    //Attack
+                    Debug.Log("Find:" + nearestTargetActor.actorAttribute.actorId);
+                    mActorCore.targetActor = nearestTargetActor;
+                    finiteStateMachine.SetCondition(FiniteConditionConstant.Attack, true);
+                }
+                else if (ScanUtility.IsInScanRange(mActorCore, nearestTargetActor))
+                {
+                    Debug.Log("Find:"+ nearestTargetActor.actorAttribute.actorId);
+                    //Move
+                    mActorCore.ActorAI.MoveTo(nearestTargetActor, FixedPointVector3.zero, false, false);
+                }
             }
         }
     }

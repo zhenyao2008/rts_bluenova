@@ -84,7 +84,7 @@ namespace BlueNoah.PathFinding.FixedPoint
                         {
                             continue;
                         }
-                        if (neighbor.Enable)
+                        if (!neighbor.Enable)
                         {
                             continue;
                         }
@@ -125,7 +125,6 @@ namespace BlueNoah.PathFinding.FixedPoint
                     searched = true;
                 }
             }
-            List<FixedPointNode> resultPath = new List<FixedPointNode>();
             if (searched)
             {
                 resultPath = GetMovePath(targetNode);
@@ -135,6 +134,7 @@ namespace BlueNoah.PathFinding.FixedPoint
                 Debug.Log("target can't be reached!");
             }
             List<FixedPointNode> realPath = new List<FixedPointNode>(resultPath);
+            //Debug.Log(realPath.Count);
             return realPath;
         }
 
@@ -160,6 +160,10 @@ namespace BlueNoah.PathFinding.FixedPoint
 
         public bool IsMaskValid(FixedPointNode node, GridLayerMask mask, GridLayerMask subMask)
         {
+            if (mask == null || subMask == null)
+            {
+                return true;
+            }
             return mask.ContainLayer(1 << node.layer) || subMask.ContainLayer(1 << node.subLayer);
         }
 

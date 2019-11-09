@@ -18,7 +18,7 @@ namespace BlueNoah.AI.FSM
         public bool isActive = false;
 
         public FiniteStateMachineConfig finiteStateMachineConfig;
-
+        [SerializeField]
         FiniteStateConstant mCurrentStateName;
 
         FSMState mCurrentState;

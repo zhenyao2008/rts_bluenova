@@ -1,11 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using System;
+﻿using UnityEngine;
 
 public class SimpleSingleTon<T> where T : new()
 {
-    private static T t = default(T);
+    private static T t ;
 
     public static T Instance
     {
