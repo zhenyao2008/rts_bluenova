@@ -18,7 +18,7 @@ namespace BlueNoah.RPG
         public ActorAI(ActorCore actorCore)
         {
             mActorCore = actorCore;
-            //mFiniteStateMachine = new FiniteStateMachine(actorCore);
+            mFiniteStateMachine = new FiniteStateMachine(actorCore);
             FiniteStateMachineLoader.InitFSM(mFiniteStateMachine, actorCore.FSMId);
             mFiniteStateMachine.SetDefaultState(FiniteStateConstant.StandBy);
             mFiniteStateMachine.EnterDefaultState();

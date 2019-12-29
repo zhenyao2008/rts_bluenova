@@ -10,9 +10,10 @@ namespace BlueNoah.AI.RTS
     {
         int mNextScanFrame;
         int mScanInterval = 10;
+        ActorCore mActorCore;
         public override void OnAwake()
         {
-
+            mActorCore = (ActorCore)mActorCoreObj;
         }
 
         public override void OnEnter()

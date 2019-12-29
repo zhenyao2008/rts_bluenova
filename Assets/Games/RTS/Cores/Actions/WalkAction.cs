@@ -7,9 +7,11 @@ namespace BlueNoah.AI.RTS
 {
     public class WalkAction : FSMAction
     {
+        ActorCore mActorCore;
+
         public override void OnAwake()
         {
-
+            mActorCore = (ActorCore)mActorCoreObj;
         }
 
         public override void OnEnter()

@@ -22,7 +22,7 @@ namespace BlueNoah.AI.FSM
         FSMTransition mCurrentTransition;
 
         GameObject GO;
-        ActorCore mActorCore;
+        System.Object mActorCore;
 
         FiniteStateMachine mFiniteStateMachine;
 
@@ -34,7 +34,7 @@ namespace BlueNoah.AI.FSM
 
         public UnityAction<FSMState> onExit;
 
-        public FSMState(GameObject gameObject, ActorCore actorCore, FiniteStateMachine finiteStateMachine, FiniteStateConstant state)
+        public FSMState(GameObject gameObject, System.Object actorCore, FiniteStateMachine finiteStateMachine, FiniteStateConstant state)
         {
             this.state = state;
             this.GO = gameObject;

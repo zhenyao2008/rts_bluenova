@@ -8,9 +8,11 @@ namespace BlueNoah.AI.RTS
 
         int mNextAttackFrame;
 
+        ActorCore mActorCore;
+
         public override void OnAwake()
         {
-
+            mActorCore = (ActorCore)mActorCoreObj;
         }
 
         public override void OnEnter()

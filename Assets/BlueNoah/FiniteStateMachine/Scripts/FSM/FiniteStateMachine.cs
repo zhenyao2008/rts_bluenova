@@ -13,7 +13,7 @@ namespace BlueNoah.AI.FSM
     {
         GameObject GO;
 
-        ActorCore mActorCore;
+        System.Object mActorCore;
 
         public bool isActive = false;
 
@@ -155,12 +155,12 @@ namespace BlueNoah.AI.FSM
             mConditionList = new List<BoolVar>();
         }
 
-        public FiniteStateMachine(ActorCore actorCore)
+        public FiniteStateMachine(System.Object actorCore)
         {
             Init(actorCore);
         }
 
-        void Init(ActorCore actorCore)
+        void Init(System.Object actorCore)
         {
             this.mActorCore = actorCore;
             stateNameList = new List<FiniteStateConstant>();

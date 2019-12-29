@@ -11,13 +11,13 @@ namespace BlueNoah.AI.FSM
     public class FSMAction
     {
         public GameObject GO;
-        protected ActorCore mActorCore;
+        protected object mActorCoreObj;
 
-        public ActorCore ActorCore
+        public object ActorCore
         {
             set
             {
-                mActorCore = value;
+                mActorCoreObj = value;
             }
         }
         public FSMState state;
