@@ -17,8 +17,6 @@ namespace BlueNoah.AI.Spawn.View
         {
             mCachedActor = new Dictionary<int, GameObject>();
         }
-
-        public abstract GameObject SpawnActor(ActorCore actorCore);
     }
 }
 

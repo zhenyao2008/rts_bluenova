@@ -1,0 +1,22 @@
+﻿///
+/// @file  BaseTargetDetermineAction.cs
+/// @author Ying YuGang
+/// @date   
+/// @brief 
+/// Copyright 2019 Grounding Inc. All Rights Reserved.
+///
+
+namespace GStar.AI
+{
+    public abstract class BaseTargetDetermineAction : BaseAction
+    {
+
+        public BaseTargetDetermineAction(UnitModel unitModel) : base(unitModel) {}
+
+        public abstract bool DetermineIntercept(UnitAI unitAI);
+
+        public abstract bool DetermineActionTarget(out UnitSkillModel unitSkillModel,out UnitModel unitModel);
+
+    }
+}
+

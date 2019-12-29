@@ -10,11 +10,11 @@ namespace BlueNoah.PathFinding.FixedPoint
         public void DrawNodeInfos()
         {
 #if UNITY_EDITOR
-            float viewDistance = 100f;
+            float viewDistance = 10;
             GUIStyle style = new GUIStyle();
             style.alignment = TextAnchor.MiddleCenter;
             style.fontStyle = FontStyle.BoldAndItalic;
-            style.fontSize = 10;
+            style.fontSize = 9;
             style.normal.textColor = Color.green;
             for (int i = 0; i < mFixedPointGrid.xCount; i++)
             {
@@ -24,7 +24,7 @@ namespace BlueNoah.PathFinding.FixedPoint
                     FixedPoint64 distance = FixedPointVector3.Distance(node.pos, UnityEditor.SceneView.currentDrawingSceneView.camera.transform.position.ToFixedPointVector3());
                     if (distance < viewDistance)
                     {
-                        UnityEditor.Handles.Label(node.pos.ToVector3(), node.ToString(), style);
+                        //UnityEditor.Handles.Label(node.pos.ToVector3(), node.ToString(), style);
                     }
                 }
             }

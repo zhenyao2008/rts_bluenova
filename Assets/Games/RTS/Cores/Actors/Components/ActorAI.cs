@@ -19,7 +19,6 @@ namespace BlueNoah.AI.RTS
         {
             mActorCore = actorCore;
             mFiniteStateMachine = new FiniteStateMachine(actorCore);
-            Debug.Log(actorCore.FSMId);
             FiniteStateMachineLoader.InitFSM(mFiniteStateMachine, actorCore.FSMId);
             mFiniteStateMachine.SetDefaultState(FiniteStateConstant.StandBy);
             mFiniteStateMachine.EnterDefaultState();
@@ -38,6 +37,14 @@ namespace BlueNoah.AI.RTS
             mActorCore.isForceMove = isForceMove;
             mActorCore.isScanMove = isScanMove;
             mFiniteStateMachine.SetCondition(FiniteConditionConstant.Run, true);
+            if (isForceMove)
+            {
+                mActorCore.ActorMove.MoveTo(mActorCore.targetPos, () => {
+                    Debug.Log("ActionMotionConstant Done");
+                    this.mFiniteStateMachine.SetCondition(FiniteConditionConstant.Run, false);
+                    mActorCore.isForceMove = false;
+                });
+            }
         }
 
         public void ChangeCondition(FiniteConditionConstant condition,bool value)

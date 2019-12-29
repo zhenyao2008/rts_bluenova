@@ -7,7 +7,7 @@ using BlueNoah.PathFinding.FixedPoint;
 using DG.Tweening;
 using UnityEngine;
 
-namespace BlueNoah.AI.View
+namespace BlueNoah.RPG.View
 {
     public class ActorBuilding : MonoBehaviour
     {

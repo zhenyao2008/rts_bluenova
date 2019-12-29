@@ -6,7 +6,7 @@ using System.Collections;
 using TMPro;
 using UnityEngine;
 
-namespace BlueNoah.AI.View.RTS
+namespace BlueNoah.RPG.View
 {
     public class ActorHeadUI : MonoBehaviour
     {

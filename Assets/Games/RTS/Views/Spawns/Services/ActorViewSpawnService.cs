@@ -48,7 +48,7 @@ namespace BlueNoah.AI.Spawn.View
             return Resources.Load<GameObject>(path);
         }
 
-        public override GameObject SpawnActor(ActorCore actorCore)
+        public GameObject SpawnActor(ActorCore actorCore)
         {
             if (!mCachedActor.ContainsKey(actorCore.actorAttribute.playerId))
             {

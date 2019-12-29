@@ -1,0 +1,205 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+///
+/// @file  GStarNodeMoveAgent.cs
+/// @author Ying YuGang
+/// @date   
+/// @brief 
+/// Copyright 2019 Grounding Inc. All Rights Reserved.
+///
+namespace GStar.PathFinding
+{
+    public class GStarNodeMoveAgent : GStarMoveAgentBase
+    {
+#if false
+        //手動の場合
+        public IEnumerator Move()
+        {
+            var routes = UnitModel.ActionStatus.RoutePoints;
+
+            UnitModel actionTarget = UnitModel.ActionStatus.ActionTarget;
+
+            if (actionTarget != null)
+            {
+                Vector3Int targetPos = actionTarget.BattleStatus.CenterPosition;
+
+                yield return Move(targetPos , UnitModel.RegularAttack.TargetRange);
+            }
+            else if (routes.Count > 0)
+            {
+                Vector3Int targetPos = routes[routes.Count - 1];
+
+                yield return Move(targetPos);
+            }
+            yield return null;
+        }
+
+        //普通移動
+        public IEnumerator Move(Vector3Int targetPos)
+        {
+            yield return Move(targetPos,0);
+        }
+        Node MovingToNode;
+
+        List<GameObject> pathList = new List<GameObject>();
+
+        public IEnumerator Move(Vector3Int targetPos, int range)
+        {
+
+            List<Node> path = FindPath(targetPos, range);
+
+            SkillTargetNodeDisplayUtility.ShowPathNodes(path);
+
+            foreach (GameObject go0 in pathList)
+            {
+                GameObject.Destroy(go0);
+            }
+
+            pathList.Clear();
+
+            List<Vector3> smoothPath = Grid.BarrierService.SmoothPath(path,GridLayerMask);
+
+            for (int i = 0; i < smoothPath.Count; i++)
+            {
+                GameObject go = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+                go.transform.position = smoothPath[i];
+                pathList.Add(go);
+            }
+            //ノードを減少
+            path = Grid.BarrierService.FilterPath(path, GridLayerMask);
+
+            //UnitModel.ActionStatus.Nodes = path;
+
+            _CurrentIndex = 0;
+
+            bool isMove = true;
+
+            if (path.Count > 0)
+            {
+                OnNextNode();
+
+                while (isMove)
+                {
+                    isMove = UpdateMove(Time.deltaTime);
+                    yield return null;
+                }
+                ReplaceHaltBlock(path[path.Count - 1]);
+            }
+            yield return null;
+        }
+
+        bool UpdateMove(float deltaTime)
+        {
+            
+            float deltaDistance = deltaTime * UnitSpeed * UnitModel.Battle.Configs.MoveSpeedScale;
+
+            float remainDistance = 0;
+
+            int count = 0;
+
+            Vector3 direction = Vector3.zero;
+
+            while (count < 10)
+            {
+               
+                if (IsFlyingUnit)
+                {
+                    remainDistance = (MovingToNode.Pos + new Vector3(0, UnitModel.BattleStatus.FlyingAltitude, 0) - UnitModel.BattleStatus.Position).magnitude;
+                    direction = (MovingToNode.Pos + new Vector3(0, UnitModel.BattleStatus.FlyingAltitude, 0) - UnitModel.BattleStatus.Position).normalized;
+                }
+                else
+                {
+                    remainDistance = (MovingToNode.Pos - UnitModel.BattleStatus.Position).magnitude;
+                    direction = (MovingToNode.Pos - UnitModel.BattleStatus.Position).normalized;
+                }
+
+                if (remainDistance < deltaDistance)
+                {
+                    deltaDistance -= remainDistance;
+                    UnitModel.HackPos(UnitModel.BattleStatus.Position + remainDistance * direction);
+
+                    if (!OnNextNode())
+                    {
+                        return false;
+                    }
+                }
+                else
+                {
+                    UnitModel.HackPos(UnitModel.BattleStatus.Position + deltaDistance * direction);
+                    return true;
+                }
+                count++;
+            }
+            return true;
+        }
+
+        public override bool OnNextNode(bool nextAble = true)
+        {
+            /*
+            if (_CurrentIndex >= UnitModel.ActionStatus.Nodes.Count - 1)
+            {
+                return false;
+            }
+
+            Vector3 Orientation = (NextNode.Pos - CurrentNode.Pos).normalized;
+
+            MovingToNode = NextNode;
+
+            UnitModel.HackRot(Quaternion.LookRotation(new Vector3(Orientation.x, 0, Orientation.z)));
+            
+            _CurrentIndex++;
+            */
+            return true;
+        }
+
+        public override List<Node> FindPath(Vector3Int destination,int skillRange)
+        {
+            int nodeCount = GetSkillRangeNodeCount(skillRange);
+            ReplaceHaltBlock(null);
+            List<Node> nodes = BattlePath.CalcNodePath(UnitModel.BattleStatus.CenterPosition, destination, float.MaxValue, nodeCount, this, UnitModel.Battle);
+            ReplaceHaltBlock(MainNode);
+            List<Node> results = new List<Node>();
+            float maxCost = this.UnitSpeed;
+            for (int i = 0; i < nodes.Count; i++)
+            {
+                if (nodes[i].G <= maxCost)
+                {
+                    results.Add(nodes[i]);
+                }
+            }
+            int index = 0;
+            for (int i = results.Count - 1 ; i >= 0 ; i--)
+            {
+                if (results[i].HaltReserveAgent == null)
+                {
+                    index = i;
+                    break;
+                }
+            }
+            if (results.Count == 0)
+                return results;
+            return results.GetRange(0, index + 1);
+        }
+
+        public List<Node> GetMoveableNodes()
+        {
+            PathAgent pathAgent = PathFindingManager.Single.PathAgent;
+            List<Node> nodes = pathAgent.FindNodes(MainNode, UnitSpeed, this, UnitModel.Battle);
+            /*　ビッグユニット用
+            List<Node> impactNodes = pathAgent.FindImpactNodes(nodes, XSize);
+            if (impactNodes!=null && impactNodes.Count > 0)
+            {
+                nodes.AddRange(impactNodes);
+            }*/
+            return nodes;
+        }
+
+        public int GetSkillRangeNodeCount(float skillRange)
+        {
+            int rangeIndex = Mathf.RoundToInt((skillRange - (UnitModel.XSize / 2f)) / Grid.EdgeLength);
+            return Mathf.Max(rangeIndex, 0);
+        }
+#endif
+    }
+}

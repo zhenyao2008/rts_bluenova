@@ -65,12 +65,11 @@ namespace BlueNoah.PathFinding.FixedPoint
                 DoMove();
             }
         }
-
+        /*
         public void ReDestination()
         {
             SetDestination(this.mTargetPos, onMoveDone);
         }
-
         public void SetDestination(List<FixedPointVector3> targetPosList, PathMoveAction onMoveDone = null)
         {
             List<FixedPointNode> allTargetMovePointList = new List<FixedPointNode>();
@@ -96,7 +95,7 @@ namespace BlueNoah.PathFinding.FixedPoint
                 }
             }
             SetPath(allTargetMovePointList, onMoveDone);
-        }
+        }*/
 
         public void Stop()
         {
@@ -117,7 +116,7 @@ namespace BlueNoah.PathFinding.FixedPoint
             SetPath(targetPosList, onMoveDone);
         }
 
-        public void SetPath(List<FixedPointNode> targetPosList, PathMoveAction onMoveDone)
+        void SetPath(List<FixedPointNode> targetPosList, PathMoveAction onMoveDone)
         {
             this.onMoveDone = onMoveDone;
             mPath = targetPosList;
@@ -133,7 +132,7 @@ namespace BlueNoah.PathFinding.FixedPoint
             MoveToNextPoint();
         }
 
-        public void UpdateCurrentNode()
+        void UpdateCurrentNode()
         {
             if (currentNode != null)
             {
@@ -218,7 +217,6 @@ namespace BlueNoah.PathFinding.FixedPoint
                 mIsMoving = false;
                 if (onMoveDone != null)
                 {
-                    Debug.Log("MoveDone");
                     onMoveDone();
                 }
             }

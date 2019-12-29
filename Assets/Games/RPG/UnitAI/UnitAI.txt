@@ -1,0 +1,174 @@
+﻿using GStar.PathFinding;
+using System.Collections.Generic;
+using UnityEngine;
+///
+/// @file  UnitAI.cs
+/// @author Ying YuGang
+/// @date   
+/// @brief 
+/// Copyright 2019 Grounding Inc. All Rights Reserved.
+///
+namespace GStar.AI
+{
+
+    public enum UnitAIActionType
+    {
+        None = 0,
+        Move = 1,
+        Skill = 2,
+        MoveToSkill = 3
+    }
+
+    public class PredictActionResult
+    {
+        public UnitSkillModel ActionSkill;
+        public UnitModel ActionUnit;
+    }
+
+    public class UnitAI
+    {
+
+        UnitModel UnitModel;
+
+        bool IsInited = false;
+        //迎撃AI最初ポジション。
+        Vector3Int OrigionPos;
+
+        bool IsIntercept = false;
+        public int ScanDistance { get { return UnitModel.StyleData.AI.ScanRange; } }
+
+        public BaseTargetDetermineAction BaseTargetDetermineAction { get; private set; }
+        public BaseTargetDetermineAction AbnormalDetermineAction { get; private set; }
+
+        public PredictActionResult PredictActionResult;
+
+        public UnitAI(UnitModel unitModel)
+        {
+            UnitModel = unitModel;
+
+            BaseTargetDetermineAction = new IndependentTargetDetermineAction(unitModel);
+            AbnormalDetermineAction = new AbnormalDetermineAction(unitModel);
+        }
+
+        void Init()
+        {
+            IsInited = true;
+
+            OrigionPos = UnitModel.BattleStatus.MinGridPosition;
+
+            if (UnitModel.TeamId == TeamId.PlayerTwo && UnitModel.IsMovable)
+            {
+                IsIntercept = true;
+            }
+        }
+        TurnCommand MoveToOrigionPosition(TurnCommand command)
+        {
+            command.IsMoveCommand = true;
+
+            command.MoveDest = OrigionPos;
+
+            return command;
+        }
+
+        TurnCommand Waiting(TurnCommand command)
+        {
+            command.IsWaitCommand = true;
+
+            return command;
+        }
+
+        public void ClearPredictAction()
+        {
+            PredictActionResult = null;
+        }
+
+        public TurnCommand Execute(bool canMove, bool canAction)
+        {
+            var determineAction = (BaseTargetDetermineAction)null;
+            if (!UnitModel.BattleStatus.IsRestricted(StatusEffectRestrictFlags.Command)) {
+                determineAction = BaseTargetDetermineAction;
+            }
+            else {
+                determineAction = AbnormalDetermineAction;
+            }
+
+            var command = new TurnCommand();
+
+            if (!IsInited) { Init(); }
+
+            if (IsIntercept)
+            {
+                if (!determineAction.DetermineIntercept(this))
+                {
+                    if (IsIntercept && OrigionPos != UnitModel.BattleStatus.MinGridPosition && canMove)
+                    {
+                        command = MoveToOrigionPosition(command);
+                    }
+                    else
+                    {
+                        command = Waiting(command);
+                    }
+                    return command;
+                }
+            }
+
+            if (PredictActionResult == null)
+            {
+                PredictActionResult = new PredictActionResult();
+                UnitModel moveTarget = null;
+                UnitSkillModel unitSkillModel;
+                if (determineAction.DetermineActionTarget(out unitSkillModel, out moveTarget))
+                {
+                    PredictActionResult.ActionSkill = unitSkillModel;
+                    PredictActionResult.ActionUnit = moveTarget;
+                }
+            }
+
+            if (PredictActionResult != null && PredictActionResult.ActionSkill != null && PredictActionResult.ActionUnit != null)
+            {
+                command.ActionSkill = PredictActionResult.ActionSkill;
+                command.Target = PredictActionResult.ActionUnit;
+                if (canAction)
+                {
+                    List<Node> nodes = PathFindingManager.Single.Grid.SeekerService.GetNodesByRange(UnitModel.BattleStatus.MinGridPosition, UnitModel.MoveAgent.XSize, UnitModel.MoveAgent.ZSize, command.ActionSkill.TargetRangeNear, command.ActionSkill.TargetRangeFar);
+
+                    for (int i = 0; i < nodes.Count; i++)
+                    {
+                        if (nodes[i].HaltReserveAgent != null && nodes[i].HaltReserveAgent.UnitModel == PredictActionResult.ActionUnit)
+                        {
+                            command.IsActionCommand = true;
+                            return command;
+                        }
+                    }
+                }
+                if (canMove)
+                {
+                    if (command.ActionSkill != null && PredictActionResult.ActionUnit != null)
+                    {
+                        command.IsMoveCommand = true;
+                        Node node = NodeObtainUtils.ObtainMoveToSkillableNode(UnitModel, PredictActionResult.ActionUnit, command.ActionSkill.TargetRangeNear, command.ActionSkill.TargetRangeFar);
+                        if (node != null)
+                        {
+                            command.MoveDest = new Vector3Int(node.X, 0, node.Z);
+                            command.ActionSkill = null;
+                        }
+                        else
+                        {
+                            command.MoveDest = BattleUtils.InvalidGridPosition;
+                        }
+                    }
+                }
+                else
+                {
+                    command.IsWaitCommand = true;
+                }
+            }
+            else
+            {
+                command.IsWaitCommand = true;
+            }
+            return command;
+        }
+    }
+}
+

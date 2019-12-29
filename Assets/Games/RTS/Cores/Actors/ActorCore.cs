@@ -7,7 +7,6 @@ using System;
 using BlueNoah.CSV;
 using BlueNoah.Math.FixedPoint;
 using BlueNoah.PathFinding.FixedPoint;
-using UnityEngine;
 
 namespace BlueNoah.AI.RTS
 {
@@ -51,6 +50,7 @@ namespace BlueNoah.AI.RTS
         ActorMove mActorMove;
 
         int mFSMId;
+
 
         public int FSMId
         {

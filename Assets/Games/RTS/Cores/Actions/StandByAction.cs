@@ -17,7 +17,6 @@ namespace BlueNoah.AI.RTS
 
         public override void OnEnter()
         {
-            Debug.Log("StandByAction");
             this.mActorCore.DoAction(ActionMotionConstant.STANDBY);
             mNextScanFrame = Time.frameCount + mScanInterval;
         }

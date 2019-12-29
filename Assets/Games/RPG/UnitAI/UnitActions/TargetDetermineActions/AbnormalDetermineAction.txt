@@ -1,0 +1,70 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+namespace GStar.AI {
+    /// <summary>異常思考状態時の行動決定(挑発・混乱・誘惑など)</summary>
+    public class AbnormalDetermineAction : BaseTargetDetermineAction {
+        public AbnormalDetermineAction(UnitModel unitModel) : base(unitModel) { }
+
+        public override bool DetermineActionTarget(out UnitSkillModel skill, out UnitModel target) {
+            // 思考を制限している状態効果を取得
+            var restrictingStatusEffect = UnitModel.BattleStatus.GetRestrictingStatusEffect(StatusEffectRestrictFlags.Command);
+
+            // 事前チェック ここに入ることはあり得ない想定
+            if (restrictingStatusEffect == null) {
+                Debug.LogAssertion("思考を制限する状態異常がありません");
+                target = null;
+                skill = null;
+                return false;
+            }
+
+            // 状態効果ごとに処理
+            switch (restrictingStatusEffect.StatusEffectType) {
+                case StatusEffectTypes.Provoke:
+                case StatusEffectTypes.Angry:
+                    {
+                        // 使用者を選択
+                        target = restrictingStatusEffect.User;
+                        // 通常攻撃を採用
+                        skill = UnitModel.RegularAttack;
+                    }
+                    return true;
+
+                case StatusEffectTypes.Confused:
+                case StatusEffectTypes.Berserk:
+                    {
+                        // 最も近い敵ユニットを選択
+                        var teamId = BattleModel.GetEnemyTeamId(UnitModel.TeamId);
+                        var gridPos = UnitModel.BattleStatus.GridPosition;
+                        target = BattleModel.FindNearestPlayersUnit(teamId, gridPos);
+                        // 通常攻撃を採用
+                        skill = UnitModel.RegularAttack;
+                    }
+                    return true;
+
+                case StatusEffectTypes.Charmed:
+                case StatusEffectTypes.Seduced:
+                    {
+                        // 最も近い味方ユニットを選択
+                        var teamId = UnitModel.TeamId;
+                        var gridPos = UnitModel.BattleStatus.GridPosition;
+                        target = BattleModel.FindNearestPlayersUnit(teamId, gridPos, UnitModel);
+                        // 通常攻撃を採用
+                        skill = UnitModel.RegularAttack;
+                    }
+                    return true;
+
+                default:
+                    Debug.LogAssertion("異常思考AIが実装されていません");
+                    target = null;
+                    skill = null;
+                    return false;
+            }
+        }
+
+        public override bool DetermineIntercept(UnitAI unitAI) {
+            return true;
+        }
+    }
+}

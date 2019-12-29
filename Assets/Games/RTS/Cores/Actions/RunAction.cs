@@ -20,15 +20,7 @@ namespace BlueNoah.AI.RTS
         {
             Debug.Log("RunAction");
             mActorCore.DoAction(ActionMotionConstant.RUN);
-            if (mActorCore.isForceMove)
-            {
-                Debug.Log("ActionMotionConstant");
-                mActorCore.ActorMove.MoveTo(mActorCore.targetPos,()=> {
-                    Debug.Log("ActionMotionConstant Done");
-                    this.finiteStateMachine.SetCondition(FiniteConditionConstant.Run,false);
-                });
-            }
-            else
+            if (!mActorCore.isForceMove)
             {
                 Debug.Log("ActionMotionConstant");
                 if (mActorCore.targetActor != null)

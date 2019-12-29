@@ -1,0 +1,350 @@
+﻿///
+/// @file   AreaUpdater.cs
+/// @author Ying YuGang
+/// @date   
+/// @brief  
+/// Copyright 2019 Grounding Inc. All Rights Reserved.
+///
+
+using System.Collections;
+using System.Collections.Generic;
+using System.Threading;
+using System.Threading.Tasks;
+using UnityEngine;
+
+namespace GStar.PathFinding
+{
+
+    /*
+     * 機能：発起点からゴールに経路があるかどうか、事前に判断する機能。
+     * 
+     * AStarアルゴリズムの弱点の一つは、スタートからゴールに接続かどうか判断が、基本はこの判断と経路探索の実行と同じコストだ。
+     * しかも、ゴールに接続していない場合、スタートに接続しているノードをすべてチェックしないと分からない、要するにこ
+     * のコストがかなり高い。そして、グリッドを構造する時、すべてのノードをチェックして、接続しているノードを一つのエリアに設定し
+     * て、経路探索の際は、二つノード所属エリアを比較して、その間が経路がかあるかどうか、経路探索しなくても分かる。
+     * ただ、一つの注意点がある、これはリアルタイムで地形を変化する場合、ノードらの間接続状態を変わるかもしれない、
+     * で、地形変化すると、接続状態事前に判断できなくなる。判断できるに戻りたいの場合は、も一回チェックし
+     * て、新しいの接続状態を更新して、判断できるになる。普段ノードの数多いので、ゲームスムースに影響されないように、経路探索の
+     * 暇な時複数のフレームで行う。
+     */
+    public class AreaUpdater : GStarGridBaseService
+    {
+
+        const int MaxCountPerAreaUpdate = 1000;
+
+        public bool IsNeedAreaUpdate = false;
+
+        public bool IsAreaUpdating = false;
+
+        int AreaIndex;
+
+        int AreaUpdateIndex;
+
+        [SerializeField]
+        //Only can be modify by Editor,can't be modified at real machine.
+        private bool IsUseEnumerator = false;
+
+        //Whether Enumerator is Updating.
+        bool IsEnumeratorUpdating = false;
+
+        bool IsUpdating = false;
+        //C# Queueのパフォーマンズ低い、時間あれば、このロジックに最適なQueueを作る
+        Queue<Node> OpenQueue = new Queue<Node>(1000);
+
+        public AreaUpdater(GStarGrid grid) : base(grid)
+        {
+            Grid = grid;
+        }
+
+        //基本はスレッドは使わなくて、コントロールできる同期を使いたい、今後フレーム同期を使う場合、スレッドは計算再現面倒ので、同期の場合はフレー同期の接続は楽になる。
+        public void StartThread()
+        {
+            //Task task = new Task();
+            Task task = Task.Run(() => {
+                int i = 0;
+                while (true)
+                {
+                    Thread.Sleep(1000);
+                    Debug.Log("1");
+                    i++;
+                }
+            });
+            task.Dispose();
+        }
+
+        void RefreshEdges()
+        {
+            for (int i = 0; i < Grid.XCount; i++)
+            {
+                for (int j = 0; j < Grid.ZCount; j++)
+                {
+                    int index = 0;
+                    Node node = Grid.Nodes[i, j];
+                    if (!node.IsBlock)
+                    {
+                        //up
+                        if (j < Grid.ZCount - 1)
+                        {
+                            if (Grid.Nodes[i, j + 1].LayerMask != node.LayerMask || Grid.Nodes[i, j + 1].IsBlock)
+                            {
+                                index += 1;
+                            }
+                        }
+                        else
+                        {
+                            index += 1;
+                        }
+
+                        //right
+                        if (i < Grid.XCount - 1)
+                        {
+                            if (Grid.Nodes[i + 1, j].LayerMask != node.LayerMask || Grid.Nodes[i + 1, j].IsBlock)
+                            {
+                                index += 2;
+                            }
+                        }
+                        else
+                        {
+                            index += 2;
+                        }
+
+                        //down
+                        if (j > 0)
+                        {
+                            if (Grid.Nodes[i, j - 1].LayerMask != node.LayerMask || Grid.Nodes[i, j - 1].IsBlock)
+                            {
+                                index += 4;
+                            }
+                        }
+                        else
+                        {
+                            index += 4;
+                        }
+                        //left
+                        if (i > 0)
+                        {
+                            if (Grid.Nodes[i - 1, j].LayerMask != node.LayerMask || Grid.Nodes[i - 1, j].IsBlock)
+                            {
+                                index += 8;
+                            }
+                        }
+                        else
+                        {
+                            index += 8;
+                        }
+                    }
+
+                    if (index == 0)
+                    {
+                        index = 16;
+                    }
+                    //Vector2 uv = TextureUtility.GetUV(index);
+                    //GridView.SetNodeUVByWorldPosition(node.Pos, uv);
+                    //GridView.SetNodeColorByWorldPosition(node.Pos, Color.yellow);
+                }
+            }
+            //Grid.GridView.ApplyUVs();
+            Grid.GridView.ApplyColors();
+        }
+
+        #region 1.Update the Area with Coroutine,simple and have GC.
+        IEnumerator _OnUpdate()
+        {
+#if UNITY_EDITOR
+            Debug.Log("On Start Update Grid Area.");
+#endif
+            IsEnumeratorUpdating = true;
+            AreaIndex = 0;
+            CalculateAreaUpdateIndex();
+            int count = 0;
+            for (int i = 0; i < Grid.XCount; i++)
+            {
+                for (int j = 0; j < Grid.ZCount; j++)
+                {
+                    //計算の前にしなければならない。計算に最後にすれば、無限ループの可能性がある。
+                    //if (CurrentLoopCount >= MaxCountPerAreaUpdate)
+                    //{
+                    //   return;
+                    //}
+                    if (!Grid.Nodes[i, j].IsBlock && Grid.Nodes[i, j].AreaUpdateIndex != AreaUpdateIndex)
+                    {
+                        Node node = Grid.Nodes[i, j];
+                        AreaIndex++;
+                        Debug.Log(string.Format("New AreIndex is :{0}", AreaIndex));
+                        OpenQueue = new Queue<Node>(1000);
+                        AddToOpenQueue(node);
+#if UNITY_EDITOR
+                        int count1 = 0;
+                        Color color = new Color(Random.Range(0f,1f),Random.Range(0f,1f),Random.Range(0f,1f),1);
+#endif
+                        while (OpenQueue.Count > 0)
+                        {
+                            node = RemoveFirsetFromOpenQueue();
+                            node.AreaId = AreaIndex;
+#if UNITY_EDITOR
+                            if (Grid.GridView!=null)
+                            {
+                                Grid.GridView.SetNodeColor(node,color);
+                            }
+#endif
+                            for (int z = 0; z < node.Neighbors.Count; z++)
+                            {
+                                if (!node.Neighbors[z].IsBlock && node.Neighbors[z].AreaUpdateIndex != AreaUpdateIndex)
+                                {
+                                    AddToOpenQueue(node.Neighbors[z]);
+                                }
+                            }
+                            count++;
+                            if (count > MaxCountPerAreaUpdate)
+                            {
+                                count = 0;
+                                //Debug.Log("Break1");
+                                yield return null;
+                            }
+#if UNITY_EDITOR
+                            count1++;
+#endif
+                        }
+#if UNITY_EDITOR
+                        if (Grid.GridView != null)
+                        {
+                            Grid.GridView.ApplyColors();
+                        }
+                        Debug.Log("count1:"+count1);
+#endif
+                    }
+                    count++;
+                    if (count > MaxCountPerAreaUpdate)
+                    {
+                        count = 0;
+                        //Debug.Log("Break2");
+                        yield return null;
+                    }
+                }
+            }
+            yield return null;
+            IsEnumeratorUpdating = false;
+            Debug.Log("更新終了");
+        }
+        #endregion
+
+        #region 2.Update the Area with Update,complexed and no GC.It looks like Coroutine method is pretty.
+        void CalculateAreaUpdateIndex()
+        {
+            if (AreaUpdateIndex == int.MaxValue)
+            {
+                AreaUpdateIndex = 0;
+            }
+            AreaUpdateIndex++;
+        }
+
+        Node RemoveFirsetFromOpenQueue()
+        {
+            return OpenQueue.Dequeue();
+        }
+
+        void AddToOpenQueue(Node node)
+        {
+            node.AreaUpdateIndex = AreaUpdateIndex;
+            CurrentUpdateNodeCount++;
+            OpenQueue.Enqueue(node);
+        }
+
+        public void OnUpdate()
+        {
+            if (!IsUseEnumerator && IsUpdating)
+            {
+                if (CurrentNode == null)
+                {
+                    MoveToNextNode();
+                }
+                else
+                {
+                    OnUpdateCurrentNodeArea();
+                }
+            }
+        }
+
+        public void StartUpdate()
+        {
+            CurrentXCount = 0;
+            CurrentZCount = 0;
+            CurrentNode = null;
+        }
+
+        public void StartUpdateWithCoroutine()
+        {
+            if (IsEnumeratorUpdating)
+            {
+                Grid.StopCoroutine("_OnUpdate");
+            }
+            Grid.StartCoroutine(_OnUpdate());
+        }
+
+        int CurrentUpdateNodeCount = 0;
+
+        int CurrentXCount = 0;
+
+        int CurrentZCount = 0;
+
+        Node CurrentNode;
+
+        //ノード（マス）のIsBlock状態がかわられる時そしてPathAgentが暇な時が行う。
+        //フレームの毎に平均1000ノード（マス）をロープする。
+
+        void MoveToNextNode()
+        {
+            for (;CurrentXCount<Grid.XCount;CurrentXCount++)
+            {
+                for (;CurrentZCount<Grid.ZCount;)
+                {
+                    CurrentZCount++;
+                    Node node = Grid.Nodes[CurrentXCount, CurrentZCount];
+                    if (!node.IsBlock && node.AreaUpdateIndex != AreaUpdateIndex)
+                    {
+                        OnStartUpdateCurrentNodeArea(node);
+                        return;
+                    }
+                }
+            }
+        }
+
+        void OnStartUpdateCurrentNodeArea(Node node)
+        {
+            AreaIndex++;
+            OpenQueue.Clear();
+            CurrentNode = node;
+            AddToOpenQueue(node);
+        }
+
+        void OnUpdateCurrentNodeArea()
+        {
+            Node node = CurrentNode;
+            while (OpenQueue.Count > 0 && CurrentUpdateNodeCount < MaxCountPerAreaUpdate)
+            {
+                node = RemoveFirsetFromOpenQueue();
+                node.AreaUpdateIndex = AreaUpdateIndex;
+                node.AreaId = AreaIndex;
+                for (int i = 0; i < node.Neighbors.Count; i++)
+                {
+                    if (node.Neighbors[i].AreaUpdateIndex != AreaUpdateIndex)
+                    {
+                        AddToOpenQueue(node.Neighbors[i]);
+                    }
+                }
+            }
+            if (OpenQueue.Count == 0)
+            {
+                OnEndUpdateCurrentNodeArea();
+            }
+            Debug.Log("AreaIndex:" + AreaIndex);
+        }
+
+        void OnEndUpdateCurrentNodeArea()
+        {
+            Debug.Log("Loop finish");
+            CurrentNode = null;
+        }
+        #endregion
+    }
+}

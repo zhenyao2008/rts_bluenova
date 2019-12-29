@@ -1,0 +1,108 @@
+﻿using GStar.PathFinding;
+using GStar.SkillScriptUtils;
+using System.Collections.Generic;
+using UnityEngine;
+///
+/// @file  IndependentTargetDetermineAction.cs
+/// @author Ying YuGang
+/// @date   
+/// @brief 
+/// Copyright 2019 Grounding Inc. All Rights Reserved.
+///
+namespace GStar.AI
+{
+    public class IndependentTargetDetermineAction : BaseTargetDetermineAction
+    {
+        public IndependentTargetDetermineAction(UnitModel unitModel) : base(unitModel) { }
+
+        public override bool DetermineIntercept(UnitAI unitAI)
+        {
+
+            UnitSkillModel regularSkill = UnitModel.RegularAttack;
+
+            List<Node> nodes = NodeObtainUtils.ObtainSkillOnlyNodes(UnitModel, 0,unitAI.ScanDistance + UnitModel.RegularAttack.TargetRangeFar);
+
+            for (int i = 0; i < nodes.Count; i++)
+            {
+                if (nodes[i].HaltReserveAgent != null && SkillTargetFilterUtility.IsTargetAvailable(UnitModel, nodes[i].HaltReserveAgent.UnitModel, regularSkill))
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+
+        public override bool DetermineActionTarget(out UnitSkillModel unitSkillModel, out UnitModel unitModel)
+        {
+            unitSkillModel = null;
+            unitModel = null;
+            UnitModel target;
+            {
+                if (UnitModel.StyleData.AI.SkillCastPercent > Random.Range(0, 100))
+                {
+                    for (int i = 0; i < UnitModel.CommandSkills.Count; i++)
+                    {
+                        if (UnitModel.CanCastSkill(UnitModel.CommandSkills[i]))
+                        {
+                            target = GetSkillTarget(UnitModel.CommandSkills[i]);
+
+                            if (target != null)
+                            {
+                                unitModel = target;
+                                unitSkillModel = UnitModel.CommandSkills[i];
+                                return true;
+                            }
+                        }
+                    }
+                }
+            }
+            if (UnitModel.CanCastSkill(UnitModel.RegularAttack))
+            {
+                target = GetSkillTarget(UnitModel.RegularAttack);
+                if (target != null)
+                {
+                    unitModel = target;
+                    unitSkillModel = UnitModel.RegularAttack;
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        //シングルターゲットを獲得。
+        UnitModel GetSkillTarget(UnitSkillModel unitSkillModel)
+        {
+            List<UnitModel> targets = SkillTargetFilterUtility.GetSkillTargets(UnitModel, BattleModel, unitSkillModel);
+
+            int distance = int.MaxValue;
+
+            UnitModel target = null;
+
+            if (targets != null && targets.Count > 0)
+            {
+                for (int i = 0; i < targets.Count; i++)
+                {
+                    int currentDistance = NodeObtainUtils.GetDistanceWithPathFind(this.UnitModel, targets[i], unitSkillModel.TargetRangeFar);
+
+                    if (distance >= currentDistance)
+                    {
+                        target = targets[i];
+                        distance = currentDistance;
+                    }
+                }
+                if (target != null)
+                {
+                    return target;
+                }
+            }
+
+            if (targets.Count > 0)
+            {
+                return targets[0];
+            }
+            return null;
+        }
+    }
+}
