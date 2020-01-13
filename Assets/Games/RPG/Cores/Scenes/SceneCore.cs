@@ -31,12 +31,11 @@ namespace BlueNoah.RPG.SceneControl
 
             mStageService = new StageService();
 
-            mStageService.onSpawnActor = SpawnStageActor;
-
+            //mStageService.onSpawnActor = SpawnStageActor;
         }
         public void OnAwake()
         {
-
+            InitPathFinding();
         }
 
         public void OnStart()
@@ -58,6 +57,7 @@ namespace BlueNoah.RPG.SceneControl
             battleFieldDataSO.TileMapHeight = 100;
             battleFieldDataSO.TileMapWidth = 100;
             battleFieldDataSO.TileMap = new BattleTileInfo[10000];
+            //TODO need to load from file.
             for (int i = 0; i < 100 * 100; i++)
             {
                 battleFieldDataSO.TileMap[i] = new BattleTileInfo();

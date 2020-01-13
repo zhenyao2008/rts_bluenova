@@ -32,9 +32,11 @@ namespace BlueNoah.RPG.PathFinding
         //各頂点
         Vector3[] Vertex;
         //通常のノードの色
+        //TODO Move to colorchange.cs
         public Color NormalColor = new Color(1, 1, 1, 0.9f);
         //ブロックされたノードの色
-        public Color BlockColor = new Color(1, 0, 0, 0.0f);
+        //TODO Move to colorchange.cs
+        public Color BlockColor = new Color(1, 0, 0, 0f);
 
         public bool IsShowGrid;
 
@@ -156,6 +158,7 @@ namespace BlueNoah.RPG.PathFinding
         //Memeory allocate.
         public void ApplyColors()
         {
+            Debug.Log("ApplyColors");
             Mesh.colors = Colors;
         }
         #endregion

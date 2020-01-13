@@ -65,6 +65,8 @@ namespace BlueNoah.RPG.Spawn
 
         public void OnUpdate()
         {
+            if (mPlayerActors == null)
+                return;
             foreach (List<ActorCore> actors in mPlayerActors.Values)
             {
                 for (int i = 0; i < actors.Count; i++)

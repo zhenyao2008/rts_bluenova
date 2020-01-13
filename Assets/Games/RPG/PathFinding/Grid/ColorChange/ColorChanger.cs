@@ -145,7 +145,7 @@ namespace BlueNoah.RPG.PathFinding
         
         public static Color WalkbableWaterColor = new Color(0.5f, 0.5f, 1, 0f);
 
-        public static Color NormalColor = new Color(1, 1, 1, 0f);
+        public static Color NormalColor = new Color(1, 1, 1, 1f);
 
         public void UpdateAllNodesColor()
         {

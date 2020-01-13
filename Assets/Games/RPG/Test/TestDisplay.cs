@@ -13,6 +13,8 @@ using UnityEngine;
 public class TestDisplay : MonoBehaviour
 {
     public enum RangeDisplayType {
+        ShowGridView,
+        HideGridView,
         SkillRange,
         BigGimmickRange,
         MoveRange,
@@ -26,6 +28,26 @@ public class TestDisplay : MonoBehaviour
     };
 
     public RangeDisplayType DisplayType;
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.U))
+        {
+
+            switch (DisplayType)
+            {
+                case RangeDisplayType.ShowGridView:
+                        PathFindingManager.Single.Grid.GridView.ShowGrid();
+                    Debug.Log(DisplayType);
+                    break;
+                case RangeDisplayType.HideGridView:
+                    PathFindingManager.Single.Grid.GridView.HideGrid();
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
     /*
     public UnitModel GetCurrentUnit()
     {
@@ -66,7 +88,7 @@ public class TestDisplay : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.U))
         {
 
-            
+
 
             switch (DisplayType)
             {
