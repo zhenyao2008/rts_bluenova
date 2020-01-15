@@ -1,0 +1,214 @@
+{
+    "finiteStateMachineArray": [
+        {
+            "id": 1,
+            "name": "NormalRPGActor",
+            "conditions": [
+                "StandBy",
+                "Walk",
+                "Run",
+                "Attack",
+                "Death"
+            ],
+            "states": [
+                {
+                    "subFSMId": -1,
+                    "stateId": "StandBy",
+                    "actions": [
+                        "BlueNoah.RPG.StandByAction",
+                        "BlueNoah.RPG.ScanAction"
+                    ],
+                    "position": {
+                        "x": 662,
+                        "y": 354,
+                        "z": 0
+                    }
+                },
+                {
+                    "subFSMId": -1,
+                    "stateId": "Walk",
+                    "actions": [
+                      "BlueNoah.RPG.WalkAction",
+                      "BlueNoah.RPG.ScanAction"
+                    ],
+                    "position": {
+                        "x": 430,
+                        "y": 97,
+                        "z": 0
+                    }
+                },
+                {
+                    "subFSMId": -1,
+                    "stateId": "Run",
+                    "actions": [
+                        "BlueNoah.RPG.RunAction",
+                        "BlueNoah.RPG.ScanAction"
+                    ],
+                    "position": {
+                        "x": 657,
+                        "y": 100,
+                        "z": 0
+                    }
+                },
+                {
+                    "subFSMId": -1,
+                    "stateId": "Attack",
+                    "actions": [
+                        "BlueNoah.RPG.AttackAction"
+                    ],
+                    "position": {
+                        "x": 886,
+                        "y": 354,
+                        "z": 0
+                    }
+                },
+                {
+                    "subFSMId": -1,
+                    "stateId": "Death",
+                    "actions": [
+                        "BlueNoah.RPG.DeathAction"
+                    ],
+                    "position": {
+                        "x": 210,
+                        "y": 190,
+                        "z": 0
+                    }
+                }
+            ],
+            "transitions": [
+                {
+                    "conditionIdValues": [
+                        {
+                            "conditionId": "Death",
+                            "conditionValue": 1
+                        }
+                    ],
+                    "fromStateId": "",
+                    "toStateId": "Death"
+                },
+                {
+                    "conditionIdValues": [
+                        {
+                            "conditionId": "Death",
+                            "conditionValue": 0
+                        }
+                    ],
+                    "fromStateId": "Death",
+                    "toStateId": "StandBy"
+                },
+                {
+                    "conditionIdValues": [
+                        {
+                            "conditionId": "Attack",
+                            "conditionValue": 1
+                        }
+                    ],
+                    "fromStateId": "StandBy",
+                    "toStateId": "Attack"
+                },
+                {
+                    "conditionIdValues": [
+                        {
+                            "conditionId": "Run",
+                            "conditionValue": 1
+                        }
+                    ],
+                    "fromStateId": "StandBy",
+                    "toStateId": "Run"
+                },
+                {
+                    "conditionIdValues": [
+                        {
+                            "conditionId": "Walk",
+                            "conditionValue": 1
+                        }
+                    ],
+                    "fromStateId": "StandBy",
+                    "toStateId": "Walk"
+                },
+                {
+                    "conditionIdValues": [
+                        {
+                            "conditionId": "Attack",
+                            "conditionValue": 1
+                        }
+                    ],
+                    "fromStateId": "Walk",
+                    "toStateId": "Attack"
+                },
+                {
+                    "conditionIdValues": [
+                        {
+                            "conditionId": "Walk",
+                            "conditionValue": 0
+                        },
+                        {
+                            "conditionId": "Run",
+                            "conditionValue": 0
+                        }
+                    ],
+                    "fromStateId": "Walk",
+                    "toStateId": "StandBy"
+                },
+                {
+                    "conditionIdValues": [
+                        {
+                            "conditionId": "Run",
+                            "conditionValue": 1
+                        }
+                    ],
+                    "fromStateId": "Walk",
+                    "toStateId": "Run"
+                },
+                {
+                    "conditionIdValues": [
+                        {
+                            "conditionId": "Attack",
+                            "conditionValue": 1
+                        }
+                    ],
+                    "fromStateId": "Run",
+                    "toStateId": "Attack"
+                },
+                {
+                    "conditionIdValues": [
+                        {
+                            "conditionId": "Run",
+                            "conditionValue": 0
+                        },
+                        {
+                            "conditionId": "Walk",
+                            "conditionValue": 0
+                        }
+                    ],
+                    "fromStateId": "Run",
+                    "toStateId": "StandBy"
+                },
+                {
+                    "conditionIdValues": [
+                        {
+                            "conditionId": "Run",
+                            "conditionValue": 0
+                        },
+                        {
+                            "conditionId": "Walk",
+                            "conditionValue": 1
+                        }
+                    ],
+                    "fromStateId": "Run",
+                    "toStateId": "Walk"
+                },
+                {
+                    "conditionIdValues": [
+                        {
+                            "conditionId": "Attack",
+                            "conditionValue": 0
+                        }
+                    ],
+                    "fromStateId": "Attack",
+                    "toStateId": "StandBy"
+                }
+            ]
+        }
+    ]
+}
