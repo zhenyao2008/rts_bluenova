@@ -1,13 +1,12 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 using BlueNoah.RPG.View;
-using RTS;
 
 namespace BlueNoah.RPG.SceneControl
 {
     public class RPGSceneController : SimpleSingleMonoBehaviour<RPGSceneController> {
 
-        RTSPlayerController mRTSPlayerController;
+        RPGPlayerController mRPGPlayerController;
 
         SceneCore mSceneCore;
 
@@ -31,18 +30,17 @@ namespace BlueNoah.RPG.SceneControl
 
         private void Update()
         {
-            mRTSPlayerController.OnUpdate();
+            mRPGPlayerController.OnUpdate();
         }
 
         private void OnGUI()
         {
-            mRTSPlayerController.OnGUI();
+           
         }
 
         void InitInput()
         {
-            mRTSPlayerController = new RTSPlayerController();
-            mRTSPlayerController.onCreateActor = SpawnActor;
+            mRPGPlayerController = new RPGPlayerController();
         }
 
         public Dictionary<long, ActorViewer> GetActorViewers(int playerId)
