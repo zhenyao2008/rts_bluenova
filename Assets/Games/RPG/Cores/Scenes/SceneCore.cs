@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using BlueNoah.AI.FSM;
 using BlueNoah.AI.Stage;
 using BlueNoah.CSV;
 using BlueNoah.RPG.PathFinding;
@@ -25,6 +26,8 @@ namespace BlueNoah.RPG.SceneControl
 
         public SceneCore()
         {
+            FiniteStateMachineLoader.LoadAIConfig("configs/fsms/j_fsm_rpg_normal_actor");
+
             mActorCoreSpawnService = new ActorCoreSpawnService();
 
             mPathFindingManager = PathFindingManager.NewInstance();

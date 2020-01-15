@@ -1,4 +1,5 @@
-﻿using BlueNoah.AI.RTS;
+﻿using BlueNoah.AI.FSM;
+using BlueNoah.AI.RTS;
 using BlueNoah.AI.Spawn;
 using BlueNoah.AI.Stage;
 using BlueNoah.CSV;
@@ -19,6 +20,8 @@ namespace BlueNoah.SceneControl
 
         public SceneCore()
         {
+            FiniteStateMachineLoader.LoadAIConfig("configs/fsms/j_fsm_rts_normal_actor");
+
             mActorCoreSpawnService = new ActorCoreSpawnService();
 
             mPathFindingMananger = PathFindingMananger.NewInstance();

@@ -164,7 +164,7 @@ namespace BlueNoah.AI.FSM
             {
                 if (GUI.Button(new Rect(FSM_PARAMETER_START_X, FSM_PARAMETER_START_Y, FSM_DEFAULT_BUTTON_WIDTH, FSM_DEFAULT_BUTTON_HEIGHT), "Load Configs"))
                 {
-                    mFiniteStateMachineDic = FiniteStateMachineLoader.LoadAIConfig();
+                    mFiniteStateMachineDic = FiniteStateMachineLoader.LoadAIConfig("configs/fsms/j_fsm_rts_normal_actor");
                     Reset();
                 }
                 if (mFiniteStateMachineDic != null)

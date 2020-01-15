@@ -21,14 +21,14 @@ namespace BlueNoah.AI.FSM
 
         public static Dictionary<int, FiniteStateMachineConfig> finiteStateMachineConfigDic;
 
-        public static Dictionary<int, FiniteStateMachineConfig> LoadAIConfig()
+        public static Dictionary<int, FiniteStateMachineConfig> LoadAIConfig(string fsmConfigPath)
         {
             finiteStateMachineConfigDic = new Dictionary<int, FiniteStateMachineConfig>();
             // TextAsset textAsset = Resources.Load<TextAsset>(M_FSM_CONFIG);
             // unitAIConfig = JsonUtility.FromJson<FiniteStateMachineConfigs>(textAsset.text);
             List<FiniteStateMachineConfig> fsmConfigs = new List<FiniteStateMachineConfig>();
             // fsmConfigs.AddRange(LoadFiniteStateMachineConfig("configs/fsms/j_fsm"));
-            fsmConfigs.AddRange(LoadFiniteStateMachineConfig("configs/fsms/j_fsm_rts_normal_actor"));
+            fsmConfigs.AddRange(LoadFiniteStateMachineConfig(fsmConfigPath));
             for (int i = 0; i < fsmConfigs.Count; i++)
             {
                 if (!finiteStateMachineConfigDic.ContainsKey(fsmConfigs[i].id))
@@ -45,11 +45,7 @@ namespace BlueNoah.AI.FSM
 
         public static void InitFSM(FiniteStateMachine finiteStateMachine, int configId)
         {
-            if (finiteStateMachineConfigDic == null)
-            {
-                LoadAIConfig();
-            }
-
+          
             FiniteStateMachineConfig finiteStateMachineConfig = finiteStateMachineConfigDic[configId];
 
             finiteStateMachine.FSMId = configId;
