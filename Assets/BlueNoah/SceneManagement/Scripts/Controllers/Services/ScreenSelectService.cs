@@ -4,6 +4,7 @@ using UnityEngine.Events;
 
 namespace BlueNoah.SceneControl
 {
+    //Use to select multiple actors by mouse.
     public class ScreenSelectService
     {
 

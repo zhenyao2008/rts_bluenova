@@ -2,7 +2,6 @@
 using BlueNoah.Math.FixedPoint;
 using BlueNoah.PathFinding.FixedPoint;
 using UnityEngine;
-using UnityEngine.Events;
 using FixedPointGrid = BlueNoah.PathFinding.FixedPoint.FixedPointGrid;
 
 namespace BlueNoah.PathFinding
