@@ -1,0 +1,2351 @@
+fileFormatVersion: 2
+guid: c55498c535d17974caa78e7ddcd4fe77
+timeCreated: 1440903950
+licenseType: Pro
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: _M3_Anim_Data
+    100002: 'bone Griff B Left Ankle '
+    100004: 'bone Griff B R Ankle '
+    100006: 'Bone Griff Back L Foot '
+    100008: Bone Griff Back L Leg
+    100010: Bone Griff Back L Thigh
+    100012: 'Bone Griff Back R Foot '
+    100014: Bone Griff Back R Leg
+    100016: Bone Griff Back R Thigh
+    100018: Bone Griff Front L Thigh
+    100020: 'bone Griff Front Left Ankle '
+    100022: 'Bone Griff Front Left Foot '
+    100024: Bone Griff Front Left Leg
+    100026: 'bone Griff Front R Ankle '
+    100028: 'Bone Griff Front R Foot '
+    100030: Bone Griff Front R Leg
+    100032: Bone Griff R F Thigh
+    100034: Bone Griffon Body
+    100036: Bone Griffon Butt
+    100038: Bone Griffon Front
+    100040: Bone Griffon Head
+    100042: Bone Griffon Neck
+    100044: Bone HeroGriffonRider
+    100046: Bone18
+    100048: Bone19
+    100050: Bone20
+    100052: Bone21
+    100054: Bone22
+    100056: Bone23
+    100058: Bone_Arm1_L
+    100060: Bone_Arm1_R
+    100062: Bone_Arm2_L
+    100064: Bone_Arm2_R
+    100066: Bone_Chest
+    100068: Bone_Hand_L
+    100070: Bone_Hand_R
+    100072: Bone_Head
+    100074: Box01
+    100076: Box02
+    100078: Box03
+    100080: Box04
+    100082: Box05
+    100084: Box06
+    100086: Box07
+    100088: Chest Mount Left Ref
+    100090: Chest Mount Rear Ref
+    100092: Chest Mount Ref
+    100094: Chest Mount Right Ref
+    100096: Chest Ref
+    100098: Dummy01
+    100100: Dummy02
+    100102: DwarfHead
+    100104: Dwf 4Arm L
+    100106: Dwf 4Arm R
+    100108: Dwf Arm L
+    100110: Dwf Arm R
+    100112: Dwf Body
+    100114: Dwf Hair
+    100116: Dwf Hand L
+    100118: Dwf Hand R
+    100120: DwfBeard
+    100122: FadeHammer
+    100124: FadePonyTail C
+    100126: Feathers A2
+    100128: Feathers B1
+    100130: Feathers B2
+    100132: Foot Left Rear Ref
+    100134: 'Foot Left Ref '
+    100136: Foot Right Rear Ref
+    100138: 'Foot Right Ref '
+    100140: 'Griff B Left Ankle '
+    100142: 'Griff Back L Foot '
+    100144: Griff Back L Leg
+    100146: Griff Back L Thigh
+    100148: 'Griff Back R Foot '
+    100150: Griff Back R Leg
+    100152: Griff Back R Thigh
+    100154: Griff Beak
+    100156: Griff Butt
+    100158: Griff Front L Thigh
+    100160: 'Griff Front Left Ankle '
+    100162: 'Griff Front Left Foot '
+    100164: Griff Front Left Leg
+    100166: 'Griff Front R Ankle '
+    100168: 'Griff Front R Foot '
+    100170: Griff Front R Leg
+    100172: Griff Front R Thigh
+    100174: Griff Head Piece A
+    100176: Griff Head Piece B
+    100178: Griff Head Piece C
+    100180: Griff Head Piece D
+    100182: GriffNeck
+    100184: Griffon Body
+    100186: Griffon Chest
+    100188: Griffon Head
+    100190: Griffon Jaw
+    100192: GriffTailA
+    100194: GriffTailB
+    100196: GriffTailC
+    100198: //RootNode
+    100200: GryphonRider1
+    100202: GryphonRider10
+    100204: GryphonRider11
+    100206: GryphonRider12
+    100208: GryphonRider2
+    100210: GryphonRider3
+    100212: GryphonRider4
+    100214: GryphonRider5
+    100216: GryphonRider9
+    100218: Hammer
+    100220: 'Hand Left Ref '
+    100222: Hand Right Ref
+    100224: Head - Ref
+    100226: Head Mount Ref
+    100228: m3bone_root
+    100230: 'Origin Ref '
+    100232: 'OverHead Ref '
+    100234: Paw R Back
+    100236: Plane01
+    100238: Plane05
+    100240: Plane06
+    100242: Plane07
+    100244: Plane07 Death
+    100246: Plane08
+    100248: Plane08 Death
+    100250: Plane09
+    100252: Plane09 Death
+    100254: Plane10
+    100256: Plane11
+    100258: PonyTail A
+    100260: PonyTail B
+    100262: PonyTail C
+    100264: 'Weapon Ref '
+    100266: Wing L A
+    100268: Wing L B
+    100270: Wing L C
+    100272: Wing R A
+    100274: Wing R B
+    100276: Wing R C
+    400000: _M3_Anim_Data
+    400002: 'bone Griff B Left Ankle '
+    400004: 'bone Griff B R Ankle '
+    400006: 'Bone Griff Back L Foot '
+    400008: Bone Griff Back L Leg
+    400010: Bone Griff Back L Thigh
+    400012: 'Bone Griff Back R Foot '
+    400014: Bone Griff Back R Leg
+    400016: Bone Griff Back R Thigh
+    400018: Bone Griff Front L Thigh
+    400020: 'bone Griff Front Left Ankle '
+    400022: 'Bone Griff Front Left Foot '
+    400024: Bone Griff Front Left Leg
+    400026: 'bone Griff Front R Ankle '
+    400028: 'Bone Griff Front R Foot '
+    400030: Bone Griff Front R Leg
+    400032: Bone Griff R F Thigh
+    400034: Bone Griffon Body
+    400036: Bone Griffon Butt
+    400038: Bone Griffon Front
+    400040: Bone Griffon Head
+    400042: Bone Griffon Neck
+    400044: Bone HeroGriffonRider
+    400046: Bone18
+    400048: Bone19
+    400050: Bone20
+    400052: Bone21
+    400054: Bone22
+    400056: Bone23
+    400058: Bone_Arm1_L
+    400060: Bone_Arm1_R
+    400062: Bone_Arm2_L
+    400064: Bone_Arm2_R
+    400066: Bone_Chest
+    400068: Bone_Hand_L
+    400070: Bone_Hand_R
+    400072: Bone_Head
+    400074: Box01
+    400076: Box02
+    400078: Box03
+    400080: Box04
+    400082: Box05
+    400084: Box06
+    400086: Box07
+    400088: Chest Mount Left Ref
+    400090: Chest Mount Rear Ref
+    400092: Chest Mount Ref
+    400094: Chest Mount Right Ref
+    400096: Chest Ref
+    400098: Dummy01
+    400100: Dummy02
+    400102: DwarfHead
+    400104: Dwf 4Arm L
+    400106: Dwf 4Arm R
+    400108: Dwf Arm L
+    400110: Dwf Arm R
+    400112: Dwf Body
+    400114: Dwf Hair
+    400116: Dwf Hand L
+    400118: Dwf Hand R
+    400120: DwfBeard
+    400122: FadeHammer
+    400124: FadePonyTail C
+    400126: Feathers A2
+    400128: Feathers B1
+    400130: Feathers B2
+    400132: Foot Left Rear Ref
+    400134: 'Foot Left Ref '
+    400136: Foot Right Rear Ref
+    400138: 'Foot Right Ref '
+    400140: 'Griff B Left Ankle '
+    400142: 'Griff Back L Foot '
+    400144: Griff Back L Leg
+    400146: Griff Back L Thigh
+    400148: 'Griff Back R Foot '
+    400150: Griff Back R Leg
+    400152: Griff Back R Thigh
+    400154: Griff Beak
+    400156: Griff Butt
+    400158: Griff Front L Thigh
+    400160: 'Griff Front Left Ankle '
+    400162: 'Griff Front Left Foot '
+    400164: Griff Front Left Leg
+    400166: 'Griff Front R Ankle '
+    400168: 'Griff Front R Foot '
+    400170: Griff Front R Leg
+    400172: Griff Front R Thigh
+    400174: Griff Head Piece A
+    400176: Griff Head Piece B
+    400178: Griff Head Piece C
+    400180: Griff Head Piece D
+    400182: GriffNeck
+    400184: Griffon Body
+    400186: Griffon Chest
+    400188: Griffon Head
+    400190: Griffon Jaw
+    400192: GriffTailA
+    400194: GriffTailB
+    400196: GriffTailC
+    400198: //RootNode
+    400200: GryphonRider1
+    400202: GryphonRider10
+    400204: GryphonRider11
+    400206: GryphonRider12
+    400208: GryphonRider2
+    400210: GryphonRider3
+    400212: GryphonRider4
+    400214: GryphonRider5
+    400216: GryphonRider9
+    400218: Hammer
+    400220: 'Hand Left Ref '
+    400222: Hand Right Ref
+    400224: Head - Ref
+    400226: Head Mount Ref
+    400228: m3bone_root
+    400230: 'Origin Ref '
+    400232: 'OverHead Ref '
+    400234: Paw R Back
+    400236: Plane01
+    400238: Plane05
+    400240: Plane06
+    400242: Plane07
+    400244: Plane07 Death
+    400246: Plane08
+    400248: Plane08 Death
+    400250: Plane09
+    400252: Plane09 Death
+    400254: Plane10
+    400256: Plane11
+    400258: PonyTail A
+    400260: PonyTail B
+    400262: PonyTail C
+    400264: 'Weapon Ref '
+    400266: Wing L A
+    400268: Wing L B
+    400270: Wing L C
+    400272: Wing R A
+    400274: Wing R B
+    400276: Wing R C
+    2300000: GryphonRider10
+    2300002: GryphonRider3
+    2300004: GryphonRider4
+    2300006: GryphonRider9
+    3300000: GryphonRider10
+    3300002: GryphonRider3
+    3300004: GryphonRider4
+    3300006: GryphonRider9
+    4300000: GryphonRider1
+    4300002: GryphonRider2
+    4300004: GryphonRider5
+    4300006: GryphonRider11
+    4300008: GryphonRider12
+    4300010: GryphonRider4
+    4300012: GryphonRider3
+    4300014: GryphonRider9
+    4300016: GryphonRider10
+    7400000: Attack01
+    7400002: Idle01
+    7400004: Skill01
+    7400006: Run01
+    7400008: Death01
+    9500000: //RootNode
+    11100000: //RootNode
+    13700000: GryphonRider1
+    13700002: GryphonRider11
+    13700004: GryphonRider12
+    13700006: GryphonRider2
+    13700008: GryphonRider5
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Attack01
+      takeName: Take 001
+      firstFrame: 390
+      lastFrame: 444
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: _M3_Anim_Data
+        weight: 1
+      - path: GryphonRider1
+        weight: 1
+      - path: GryphonRider2
+        weight: 1
+      - path: GryphonRider5
+        weight: 1
+      - path: GryphonRider11
+        weight: 1
+      - path: GryphonRider12
+        weight: 1
+      - path: m3bone_root
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Butt
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Butt/Bone
+          Griff Back L Thigh
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Butt/Bone
+          Griff Back L Thigh/Bone Griff Back L Leg
+        weight: 1
+      - path: 'm3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Butt/Bone
+          Griff Back L Thigh/Bone Griff Back L Leg/Bone Griff Back L Foot '
+        weight: 1
+      - path: 'm3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Butt/Bone
+          Griff Back L Thigh/Bone Griff Back L Leg/Bone Griff Back L Foot /bone Griff
+          B Left Ankle '
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Butt/Bone
+          Griff Back L Thigh/Bone Griff Back L Leg/Bone Griff Back L Foot /bone Griff
+          B Left Ankle /Foot Left Rear Ref
+        weight: 1
+      - path: 'm3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Butt/Bone
+          Griff Back L Thigh/Bone Griff Back L Leg/Bone Griff Back L Foot /bone Griff
+          B Left Ankle /Griff B Left Ankle '
+        weight: 1
+      - path: 'm3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Butt/Bone
+          Griff Back L Thigh/Bone Griff Back L Leg/Bone Griff Back L Foot /Griff Back
+          L Foot '
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Butt/Bone
+          Griff Back L Thigh/Bone Griff Back L Leg/Griff Back L Leg
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Butt/Bone
+          Griff Back L Thigh/Griff Back L Thigh
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Butt/Bone
+          Griff Back R Thigh
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Butt/Bone
+          Griff Back R Thigh/Bone Griff Back R Leg
+        weight: 1
+      - path: 'm3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Butt/Bone
+          Griff Back R Thigh/Bone Griff Back R Leg/Bone Griff Back R Foot '
+        weight: 1
+      - path: 'm3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Butt/Bone
+          Griff Back R Thigh/Bone Griff Back R Leg/Bone Griff Back R Foot /bone Griff
+          B R Ankle '
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Butt/Bone
+          Griff Back R Thigh/Bone Griff Back R Leg/Bone Griff Back R Foot /bone Griff
+          B R Ankle /Foot Right Rear Ref
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Butt/Bone
+          Griff Back R Thigh/Bone Griff Back R Leg/Bone Griff Back R Foot /bone Griff
+          B R Ankle /Paw R Back
+        weight: 1
+      - path: 'm3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Butt/Bone
+          Griff Back R Thigh/Bone Griff Back R Leg/Bone Griff Back R Foot /Griff Back
+          R Foot '
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Butt/Bone
+          Griff Back R Thigh/Bone Griff Back R Leg/Griff Back R Leg
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Butt/Bone
+          Griff Back R Thigh/Griff Back R Thigh
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Butt/Chest
+          Mount Rear Ref
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Butt/Griff
+          Butt
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Butt/GriffTailA
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Butt/GriffTailA/GriffTailB
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Butt/GriffTailA/GriffTailB/GriffTailC
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griff Front L Thigh
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griff Front L Thigh/Bone Griff Front Left Leg
+        weight: 1
+      - path: 'm3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griff Front L Thigh/Bone Griff Front Left Leg/Bone Griff Front Left Foot '
+        weight: 1
+      - path: 'm3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griff Front L Thigh/Bone Griff Front Left Leg/Bone Griff Front Left Foot
+          /bone Griff Front Left Ankle '
+        weight: 1
+      - path: 'm3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griff Front L Thigh/Bone Griff Front Left Leg/Bone Griff Front Left Foot
+          /bone Griff Front Left Ankle /Foot Left Ref '
+        weight: 1
+      - path: 'm3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griff Front L Thigh/Bone Griff Front Left Leg/Bone Griff Front Left Foot
+          /bone Griff Front Left Ankle /Griff Front Left Ankle '
+        weight: 1
+      - path: 'm3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griff Front L Thigh/Bone Griff Front Left Leg/Bone Griff Front Left Foot
+          /Griff Front Left Foot '
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griff Front L Thigh/Bone Griff Front Left Leg/Griff Front Left Leg
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griff Front L Thigh/Griff Front L Thigh
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griff R F Thigh
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griff R F Thigh/Bone Griff Front R Leg
+        weight: 1
+      - path: 'm3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griff R F Thigh/Bone Griff Front R Leg/Bone Griff Front R Foot '
+        weight: 1
+      - path: 'm3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griff R F Thigh/Bone Griff Front R Leg/Bone Griff Front R Foot /bone Griff
+          Front R Ankle '
+        weight: 1
+      - path: 'm3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griff R F Thigh/Bone Griff Front R Leg/Bone Griff Front R Foot /bone Griff
+          Front R Ankle /Foot Right Ref '
+        weight: 1
+      - path: 'm3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griff R F Thigh/Bone Griff Front R Leg/Bone Griff Front R Foot /bone Griff
+          Front R Ankle /Griff Front R Ankle '
+        weight: 1
+      - path: 'm3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griff R F Thigh/Bone Griff Front R Leg/Bone Griff Front R Foot /Griff Front
+          R Foot '
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griff R F Thigh/Bone Griff Front R Leg/Griff Front R Leg
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griff R F Thigh/Griff Front R Thigh
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griffon Neck
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griffon Neck/Bone Griffon Head
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griffon Neck/Bone Griffon Head/Griff Beak
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griffon Neck/Bone Griffon Head/Griff Beak/Griff Head Piece A
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griffon Neck/Bone Griffon Head/Griff Beak/Griff Head Piece B
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griffon Neck/Bone Griffon Head/Griff Beak/Griff Head Piece C
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griffon Neck/Bone Griffon Head/Griff Beak/Griff Head Piece D
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griffon Neck/Bone Griffon Head/Griffon Head
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griffon Neck/Bone Griffon Head/Griffon Jaw
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griffon Neck/Bone Griffon Head/Head Mount Ref
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griffon Neck/Feathers A2
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griffon Neck/GriffNeck
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Chest
+          Mount Ref
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Feathers
+          B1
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Feathers
+          B1/Feathers B2
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Griffon
+          Chest
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone18
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone18/Bone19
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone18/Bone19/Bone20
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone18/Bone19/Bone20/Wing
+          L C
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone18/Bone19/Wing
+          L B
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone18/Wing L A
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone21
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone21/Bone22
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone21/Bone22/Bone23
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone21/Bone22/Bone23/Wing
+          R C
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone21/Bone22/Wing
+          R B
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone21/Wing R A
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Arm1_L
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Arm1_L/Bone_Arm2_L
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Arm1_L/Bone_Arm2_L/Bone_Hand_L
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Arm1_L/Bone_Arm2_L/Bone_Hand_L/Dwf
+          Hand L
+        weight: 1
+      - path: 'm3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Arm1_L/Bone_Arm2_L/Bone_Hand_L/Hand
+          Left Ref '
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Arm1_L/Bone_Arm2_L/Dwf
+          4Arm L
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Arm1_L/Dwf
+          Arm L
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Arm1_R
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Arm1_R/Bone_Arm2_R
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Arm1_R/Bone_Arm2_R/Bone_Hand_R
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Arm1_R/Bone_Arm2_R/Bone_Hand_R/Dwf
+          Hand R
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Arm1_R/Bone_Arm2_R/Bone_Hand_R/FadeHammer
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Arm1_R/Bone_Arm2_R/Bone_Hand_R/FadeHammer/FadePonyTail
+          C
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Arm1_R/Bone_Arm2_R/Bone_Hand_R/FadeHammer/FadePonyTail
+          C/GryphonRider4
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Arm1_R/Bone_Arm2_R/Bone_Hand_R/FadeHammer/GryphonRider3
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Arm1_R/Bone_Arm2_R/Bone_Hand_R/Hammer
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Arm1_R/Bone_Arm2_R/Bone_Hand_R/Hammer/Plane01
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Arm1_R/Bone_Arm2_R/Bone_Hand_R/Hammer/PonyTail
+          C
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Arm1_R/Bone_Arm2_R/Bone_Hand_R/Hand
+          Right Ref
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Arm1_R/Bone_Arm2_R/Bone_Hand_R/Plane09
+        weight: 1
+      - path: 'm3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Arm1_R/Bone_Arm2_R/Bone_Hand_R/Weapon
+          Ref '
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Arm1_R/Bone_Arm2_R/Dwf
+          4Arm R
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Arm1_R/Dwf
+          Arm R
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Head
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Head/DwarfHead
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Head/DwarfHead/Dwf
+          Hair
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Head/DwarfHead/Dwf
+          Hair/PonyTail B
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Head/DwarfHead/DwfBeard
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Head/DwarfHead/PonyTail
+          A
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Head/Head
+          - Ref
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Chest
+          Ref
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Dwf Body
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Griffon Body
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Chest Mount Left Ref
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Chest Mount Right Ref
+        weight: 1
+      - path: m3bone_root/Box01
+        weight: 1
+      - path: m3bone_root/Box02
+        weight: 1
+      - path: m3bone_root/Box03
+        weight: 1
+      - path: m3bone_root/Box04
+        weight: 1
+      - path: m3bone_root/Box05
+        weight: 1
+      - path: m3bone_root/Box06
+        weight: 1
+      - path: m3bone_root/Box07
+        weight: 1
+      - path: m3bone_root/Dummy01
+        weight: 1
+      - path: m3bone_root/Dummy01/Plane05
+        weight: 1
+      - path: m3bone_root/Dummy01/Plane06
+        weight: 1
+      - path: m3bone_root/Dummy01/Plane07
+        weight: 1
+      - path: m3bone_root/Dummy01/Plane08
+        weight: 1
+      - path: m3bone_root/Dummy01/Plane08/GryphonRider9
+        weight: 1
+      - path: m3bone_root/Dummy02
+        weight: 1
+      - path: m3bone_root/Dummy02/Plane07 Death
+        weight: 1
+      - path: m3bone_root/Dummy02/Plane07 Death/GryphonRider10
+        weight: 1
+      - path: m3bone_root/Dummy02/Plane08 Death
+        weight: 1
+      - path: m3bone_root/Dummy02/Plane09 Death
+        weight: 1
+      - path: m3bone_root/Dummy02/Plane10
+        weight: 1
+      - path: m3bone_root/Dummy02/Plane11
+        weight: 1
+      - path: 'm3bone_root/Origin Ref '
+        weight: 1
+      - path: 'm3bone_root/OverHead Ref '
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Idle01
+      takeName: Take 001
+      firstFrame: 22
+      lastFrame: 45
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: _M3_Anim_Data
+        weight: 1
+      - path: GryphonRider1
+        weight: 1
+      - path: GryphonRider2
+        weight: 1
+      - path: GryphonRider5
+        weight: 1
+      - path: GryphonRider11
+        weight: 1
+      - path: GryphonRider12
+        weight: 1
+      - path: m3bone_root
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Butt
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Butt/Bone
+          Griff Back L Thigh
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Butt/Bone
+          Griff Back L Thigh/Bone Griff Back L Leg
+        weight: 1
+      - path: 'm3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Butt/Bone
+          Griff Back L Thigh/Bone Griff Back L Leg/Bone Griff Back L Foot '
+        weight: 1
+      - path: 'm3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Butt/Bone
+          Griff Back L Thigh/Bone Griff Back L Leg/Bone Griff Back L Foot /bone Griff
+          B Left Ankle '
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Butt/Bone
+          Griff Back L Thigh/Bone Griff Back L Leg/Bone Griff Back L Foot /bone Griff
+          B Left Ankle /Foot Left Rear Ref
+        weight: 1
+      - path: 'm3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Butt/Bone
+          Griff Back L Thigh/Bone Griff Back L Leg/Bone Griff Back L Foot /bone Griff
+          B Left Ankle /Griff B Left Ankle '
+        weight: 1
+      - path: 'm3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Butt/Bone
+          Griff Back L Thigh/Bone Griff Back L Leg/Bone Griff Back L Foot /Griff Back
+          L Foot '
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Butt/Bone
+          Griff Back L Thigh/Bone Griff Back L Leg/Griff Back L Leg
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Butt/Bone
+          Griff Back L Thigh/Griff Back L Thigh
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Butt/Bone
+          Griff Back R Thigh
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Butt/Bone
+          Griff Back R Thigh/Bone Griff Back R Leg
+        weight: 1
+      - path: 'm3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Butt/Bone
+          Griff Back R Thigh/Bone Griff Back R Leg/Bone Griff Back R Foot '
+        weight: 1
+      - path: 'm3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Butt/Bone
+          Griff Back R Thigh/Bone Griff Back R Leg/Bone Griff Back R Foot /bone Griff
+          B R Ankle '
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Butt/Bone
+          Griff Back R Thigh/Bone Griff Back R Leg/Bone Griff Back R Foot /bone Griff
+          B R Ankle /Foot Right Rear Ref
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Butt/Bone
+          Griff Back R Thigh/Bone Griff Back R Leg/Bone Griff Back R Foot /bone Griff
+          B R Ankle /Paw R Back
+        weight: 1
+      - path: 'm3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Butt/Bone
+          Griff Back R Thigh/Bone Griff Back R Leg/Bone Griff Back R Foot /Griff Back
+          R Foot '
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Butt/Bone
+          Griff Back R Thigh/Bone Griff Back R Leg/Griff Back R Leg
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Butt/Bone
+          Griff Back R Thigh/Griff Back R Thigh
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Butt/Chest
+          Mount Rear Ref
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Butt/Griff
+          Butt
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Butt/GriffTailA
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Butt/GriffTailA/GriffTailB
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Butt/GriffTailA/GriffTailB/GriffTailC
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griff Front L Thigh
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griff Front L Thigh/Bone Griff Front Left Leg
+        weight: 1
+      - path: 'm3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griff Front L Thigh/Bone Griff Front Left Leg/Bone Griff Front Left Foot '
+        weight: 1
+      - path: 'm3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griff Front L Thigh/Bone Griff Front Left Leg/Bone Griff Front Left Foot
+          /bone Griff Front Left Ankle '
+        weight: 1
+      - path: 'm3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griff Front L Thigh/Bone Griff Front Left Leg/Bone Griff Front Left Foot
+          /bone Griff Front Left Ankle /Foot Left Ref '
+        weight: 1
+      - path: 'm3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griff Front L Thigh/Bone Griff Front Left Leg/Bone Griff Front Left Foot
+          /bone Griff Front Left Ankle /Griff Front Left Ankle '
+        weight: 1
+      - path: 'm3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griff Front L Thigh/Bone Griff Front Left Leg/Bone Griff Front Left Foot
+          /Griff Front Left Foot '
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griff Front L Thigh/Bone Griff Front Left Leg/Griff Front Left Leg
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griff Front L Thigh/Griff Front L Thigh
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griff R F Thigh
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griff R F Thigh/Bone Griff Front R Leg
+        weight: 1
+      - path: 'm3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griff R F Thigh/Bone Griff Front R Leg/Bone Griff Front R Foot '
+        weight: 1
+      - path: 'm3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griff R F Thigh/Bone Griff Front R Leg/Bone Griff Front R Foot /bone Griff
+          Front R Ankle '
+        weight: 1
+      - path: 'm3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griff R F Thigh/Bone Griff Front R Leg/Bone Griff Front R Foot /bone Griff
+          Front R Ankle /Foot Right Ref '
+        weight: 1
+      - path: 'm3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griff R F Thigh/Bone Griff Front R Leg/Bone Griff Front R Foot /bone Griff
+          Front R Ankle /Griff Front R Ankle '
+        weight: 1
+      - path: 'm3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griff R F Thigh/Bone Griff Front R Leg/Bone Griff Front R Foot /Griff Front
+          R Foot '
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griff R F Thigh/Bone Griff Front R Leg/Griff Front R Leg
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griff R F Thigh/Griff Front R Thigh
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griffon Neck
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griffon Neck/Bone Griffon Head
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griffon Neck/Bone Griffon Head/Griff Beak
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griffon Neck/Bone Griffon Head/Griff Beak/Griff Head Piece A
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griffon Neck/Bone Griffon Head/Griff Beak/Griff Head Piece B
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griffon Neck/Bone Griffon Head/Griff Beak/Griff Head Piece C
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griffon Neck/Bone Griffon Head/Griff Beak/Griff Head Piece D
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griffon Neck/Bone Griffon Head/Griffon Head
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griffon Neck/Bone Griffon Head/Griffon Jaw
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griffon Neck/Bone Griffon Head/Head Mount Ref
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griffon Neck/Feathers A2
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griffon Neck/GriffNeck
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Chest
+          Mount Ref
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Feathers
+          B1
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Feathers
+          B1/Feathers B2
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Griffon
+          Chest
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone18
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone18/Bone19
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone18/Bone19/Bone20
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone18/Bone19/Bone20/Wing
+          L C
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone18/Bone19/Wing
+          L B
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone18/Wing L A
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone21
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone21/Bone22
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone21/Bone22/Bone23
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone21/Bone22/Bone23/Wing
+          R C
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone21/Bone22/Wing
+          R B
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone21/Wing R A
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Arm1_L
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Arm1_L/Bone_Arm2_L
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Arm1_L/Bone_Arm2_L/Bone_Hand_L
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Arm1_L/Bone_Arm2_L/Bone_Hand_L/Dwf
+          Hand L
+        weight: 1
+      - path: 'm3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Arm1_L/Bone_Arm2_L/Bone_Hand_L/Hand
+          Left Ref '
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Arm1_L/Bone_Arm2_L/Dwf
+          4Arm L
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Arm1_L/Dwf
+          Arm L
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Arm1_R
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Arm1_R/Bone_Arm2_R
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Arm1_R/Bone_Arm2_R/Bone_Hand_R
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Arm1_R/Bone_Arm2_R/Bone_Hand_R/Dwf
+          Hand R
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Arm1_R/Bone_Arm2_R/Bone_Hand_R/FadeHammer
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Arm1_R/Bone_Arm2_R/Bone_Hand_R/FadeHammer/FadePonyTail
+          C
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Arm1_R/Bone_Arm2_R/Bone_Hand_R/FadeHammer/FadePonyTail
+          C/GryphonRider4
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Arm1_R/Bone_Arm2_R/Bone_Hand_R/FadeHammer/GryphonRider3
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Arm1_R/Bone_Arm2_R/Bone_Hand_R/Hammer
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Arm1_R/Bone_Arm2_R/Bone_Hand_R/Hammer/Plane01
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Arm1_R/Bone_Arm2_R/Bone_Hand_R/Hammer/PonyTail
+          C
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Arm1_R/Bone_Arm2_R/Bone_Hand_R/Hand
+          Right Ref
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Arm1_R/Bone_Arm2_R/Bone_Hand_R/Plane09
+        weight: 1
+      - path: 'm3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Arm1_R/Bone_Arm2_R/Bone_Hand_R/Weapon
+          Ref '
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Arm1_R/Bone_Arm2_R/Dwf
+          4Arm R
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Arm1_R/Dwf
+          Arm R
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Head
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Head/DwarfHead
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Head/DwarfHead/Dwf
+          Hair
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Head/DwarfHead/Dwf
+          Hair/PonyTail B
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Head/DwarfHead/DwfBeard
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Head/DwarfHead/PonyTail
+          A
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Head/Head
+          - Ref
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Chest
+          Ref
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Dwf Body
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Griffon Body
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Chest Mount Left Ref
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Chest Mount Right Ref
+        weight: 1
+      - path: m3bone_root/Box01
+        weight: 1
+      - path: m3bone_root/Box02
+        weight: 1
+      - path: m3bone_root/Box03
+        weight: 1
+      - path: m3bone_root/Box04
+        weight: 1
+      - path: m3bone_root/Box05
+        weight: 1
+      - path: m3bone_root/Box06
+        weight: 1
+      - path: m3bone_root/Box07
+        weight: 1
+      - path: m3bone_root/Dummy01
+        weight: 1
+      - path: m3bone_root/Dummy01/Plane05
+        weight: 1
+      - path: m3bone_root/Dummy01/Plane06
+        weight: 1
+      - path: m3bone_root/Dummy01/Plane07
+        weight: 1
+      - path: m3bone_root/Dummy01/Plane08
+        weight: 1
+      - path: m3bone_root/Dummy01/Plane08/GryphonRider9
+        weight: 1
+      - path: m3bone_root/Dummy02
+        weight: 1
+      - path: m3bone_root/Dummy02/Plane07 Death
+        weight: 1
+      - path: m3bone_root/Dummy02/Plane07 Death/GryphonRider10
+        weight: 1
+      - path: m3bone_root/Dummy02/Plane08 Death
+        weight: 1
+      - path: m3bone_root/Dummy02/Plane09 Death
+        weight: 1
+      - path: m3bone_root/Dummy02/Plane10
+        weight: 1
+      - path: m3bone_root/Dummy02/Plane11
+        weight: 1
+      - path: 'm3bone_root/Origin Ref '
+        weight: 1
+      - path: 'm3bone_root/OverHead Ref '
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Skill01
+      takeName: Take 001
+      firstFrame: 73
+      lastFrame: 121
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: _M3_Anim_Data
+        weight: 1
+      - path: GryphonRider1
+        weight: 1
+      - path: GryphonRider2
+        weight: 1
+      - path: GryphonRider5
+        weight: 1
+      - path: GryphonRider11
+        weight: 1
+      - path: GryphonRider12
+        weight: 1
+      - path: m3bone_root
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Butt
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Butt/Bone
+          Griff Back L Thigh
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Butt/Bone
+          Griff Back L Thigh/Bone Griff Back L Leg
+        weight: 1
+      - path: 'm3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Butt/Bone
+          Griff Back L Thigh/Bone Griff Back L Leg/Bone Griff Back L Foot '
+        weight: 1
+      - path: 'm3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Butt/Bone
+          Griff Back L Thigh/Bone Griff Back L Leg/Bone Griff Back L Foot /bone Griff
+          B Left Ankle '
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Butt/Bone
+          Griff Back L Thigh/Bone Griff Back L Leg/Bone Griff Back L Foot /bone Griff
+          B Left Ankle /Foot Left Rear Ref
+        weight: 1
+      - path: 'm3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Butt/Bone
+          Griff Back L Thigh/Bone Griff Back L Leg/Bone Griff Back L Foot /bone Griff
+          B Left Ankle /Griff B Left Ankle '
+        weight: 1
+      - path: 'm3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Butt/Bone
+          Griff Back L Thigh/Bone Griff Back L Leg/Bone Griff Back L Foot /Griff Back
+          L Foot '
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Butt/Bone
+          Griff Back L Thigh/Bone Griff Back L Leg/Griff Back L Leg
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Butt/Bone
+          Griff Back L Thigh/Griff Back L Thigh
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Butt/Bone
+          Griff Back R Thigh
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Butt/Bone
+          Griff Back R Thigh/Bone Griff Back R Leg
+        weight: 1
+      - path: 'm3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Butt/Bone
+          Griff Back R Thigh/Bone Griff Back R Leg/Bone Griff Back R Foot '
+        weight: 1
+      - path: 'm3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Butt/Bone
+          Griff Back R Thigh/Bone Griff Back R Leg/Bone Griff Back R Foot /bone Griff
+          B R Ankle '
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Butt/Bone
+          Griff Back R Thigh/Bone Griff Back R Leg/Bone Griff Back R Foot /bone Griff
+          B R Ankle /Foot Right Rear Ref
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Butt/Bone
+          Griff Back R Thigh/Bone Griff Back R Leg/Bone Griff Back R Foot /bone Griff
+          B R Ankle /Paw R Back
+        weight: 1
+      - path: 'm3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Butt/Bone
+          Griff Back R Thigh/Bone Griff Back R Leg/Bone Griff Back R Foot /Griff Back
+          R Foot '
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Butt/Bone
+          Griff Back R Thigh/Bone Griff Back R Leg/Griff Back R Leg
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Butt/Bone
+          Griff Back R Thigh/Griff Back R Thigh
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Butt/Chest
+          Mount Rear Ref
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Butt/Griff
+          Butt
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Butt/GriffTailA
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Butt/GriffTailA/GriffTailB
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Butt/GriffTailA/GriffTailB/GriffTailC
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griff Front L Thigh
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griff Front L Thigh/Bone Griff Front Left Leg
+        weight: 1
+      - path: 'm3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griff Front L Thigh/Bone Griff Front Left Leg/Bone Griff Front Left Foot '
+        weight: 1
+      - path: 'm3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griff Front L Thigh/Bone Griff Front Left Leg/Bone Griff Front Left Foot
+          /bone Griff Front Left Ankle '
+        weight: 1
+      - path: 'm3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griff Front L Thigh/Bone Griff Front Left Leg/Bone Griff Front Left Foot
+          /bone Griff Front Left Ankle /Foot Left Ref '
+        weight: 1
+      - path: 'm3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griff Front L Thigh/Bone Griff Front Left Leg/Bone Griff Front Left Foot
+          /bone Griff Front Left Ankle /Griff Front Left Ankle '
+        weight: 1
+      - path: 'm3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griff Front L Thigh/Bone Griff Front Left Leg/Bone Griff Front Left Foot
+          /Griff Front Left Foot '
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griff Front L Thigh/Bone Griff Front Left Leg/Griff Front Left Leg
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griff Front L Thigh/Griff Front L Thigh
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griff R F Thigh
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griff R F Thigh/Bone Griff Front R Leg
+        weight: 1
+      - path: 'm3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griff R F Thigh/Bone Griff Front R Leg/Bone Griff Front R Foot '
+        weight: 1
+      - path: 'm3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griff R F Thigh/Bone Griff Front R Leg/Bone Griff Front R Foot /bone Griff
+          Front R Ankle '
+        weight: 1
+      - path: 'm3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griff R F Thigh/Bone Griff Front R Leg/Bone Griff Front R Foot /bone Griff
+          Front R Ankle /Foot Right Ref '
+        weight: 1
+      - path: 'm3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griff R F Thigh/Bone Griff Front R Leg/Bone Griff Front R Foot /bone Griff
+          Front R Ankle /Griff Front R Ankle '
+        weight: 1
+      - path: 'm3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griff R F Thigh/Bone Griff Front R Leg/Bone Griff Front R Foot /Griff Front
+          R Foot '
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griff R F Thigh/Bone Griff Front R Leg/Griff Front R Leg
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griff R F Thigh/Griff Front R Thigh
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griffon Neck
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griffon Neck/Bone Griffon Head
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griffon Neck/Bone Griffon Head/Griff Beak
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griffon Neck/Bone Griffon Head/Griff Beak/Griff Head Piece A
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griffon Neck/Bone Griffon Head/Griff Beak/Griff Head Piece B
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griffon Neck/Bone Griffon Head/Griff Beak/Griff Head Piece C
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griffon Neck/Bone Griffon Head/Griff Beak/Griff Head Piece D
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griffon Neck/Bone Griffon Head/Griffon Head
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griffon Neck/Bone Griffon Head/Griffon Jaw
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griffon Neck/Bone Griffon Head/Head Mount Ref
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griffon Neck/Feathers A2
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griffon Neck/GriffNeck
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Chest
+          Mount Ref
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Feathers
+          B1
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Feathers
+          B1/Feathers B2
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Griffon
+          Chest
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone18
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone18/Bone19
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone18/Bone19/Bone20
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone18/Bone19/Bone20/Wing
+          L C
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone18/Bone19/Wing
+          L B
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone18/Wing L A
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone21
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone21/Bone22
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone21/Bone22/Bone23
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone21/Bone22/Bone23/Wing
+          R C
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone21/Bone22/Wing
+          R B
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone21/Wing R A
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Arm1_L
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Arm1_L/Bone_Arm2_L
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Arm1_L/Bone_Arm2_L/Bone_Hand_L
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Arm1_L/Bone_Arm2_L/Bone_Hand_L/Dwf
+          Hand L
+        weight: 1
+      - path: 'm3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Arm1_L/Bone_Arm2_L/Bone_Hand_L/Hand
+          Left Ref '
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Arm1_L/Bone_Arm2_L/Dwf
+          4Arm L
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Arm1_L/Dwf
+          Arm L
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Arm1_R
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Arm1_R/Bone_Arm2_R
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Arm1_R/Bone_Arm2_R/Bone_Hand_R
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Arm1_R/Bone_Arm2_R/Bone_Hand_R/Dwf
+          Hand R
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Arm1_R/Bone_Arm2_R/Bone_Hand_R/FadeHammer
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Arm1_R/Bone_Arm2_R/Bone_Hand_R/FadeHammer/FadePonyTail
+          C
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Arm1_R/Bone_Arm2_R/Bone_Hand_R/FadeHammer/FadePonyTail
+          C/GryphonRider4
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Arm1_R/Bone_Arm2_R/Bone_Hand_R/FadeHammer/GryphonRider3
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Arm1_R/Bone_Arm2_R/Bone_Hand_R/Hammer
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Arm1_R/Bone_Arm2_R/Bone_Hand_R/Hammer/Plane01
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Arm1_R/Bone_Arm2_R/Bone_Hand_R/Hammer/PonyTail
+          C
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Arm1_R/Bone_Arm2_R/Bone_Hand_R/Hand
+          Right Ref
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Arm1_R/Bone_Arm2_R/Bone_Hand_R/Plane09
+        weight: 1
+      - path: 'm3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Arm1_R/Bone_Arm2_R/Bone_Hand_R/Weapon
+          Ref '
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Arm1_R/Bone_Arm2_R/Dwf
+          4Arm R
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Arm1_R/Dwf
+          Arm R
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Head
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Head/DwarfHead
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Head/DwarfHead/Dwf
+          Hair
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Head/DwarfHead/Dwf
+          Hair/PonyTail B
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Head/DwarfHead/DwfBeard
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Head/DwarfHead/PonyTail
+          A
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Head/Head
+          - Ref
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Chest
+          Ref
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Dwf Body
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Griffon Body
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Chest Mount Left Ref
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Chest Mount Right Ref
+        weight: 1
+      - path: m3bone_root/Box01
+        weight: 1
+      - path: m3bone_root/Box02
+        weight: 1
+      - path: m3bone_root/Box03
+        weight: 1
+      - path: m3bone_root/Box04
+        weight: 1
+      - path: m3bone_root/Box05
+        weight: 1
+      - path: m3bone_root/Box06
+        weight: 1
+      - path: m3bone_root/Box07
+        weight: 1
+      - path: m3bone_root/Dummy01
+        weight: 1
+      - path: m3bone_root/Dummy01/Plane05
+        weight: 1
+      - path: m3bone_root/Dummy01/Plane06
+        weight: 1
+      - path: m3bone_root/Dummy01/Plane07
+        weight: 1
+      - path: m3bone_root/Dummy01/Plane08
+        weight: 1
+      - path: m3bone_root/Dummy01/Plane08/GryphonRider9
+        weight: 1
+      - path: m3bone_root/Dummy02
+        weight: 1
+      - path: m3bone_root/Dummy02/Plane07 Death
+        weight: 1
+      - path: m3bone_root/Dummy02/Plane07 Death/GryphonRider10
+        weight: 1
+      - path: m3bone_root/Dummy02/Plane08 Death
+        weight: 1
+      - path: m3bone_root/Dummy02/Plane09 Death
+        weight: 1
+      - path: m3bone_root/Dummy02/Plane10
+        weight: 1
+      - path: m3bone_root/Dummy02/Plane11
+        weight: 1
+      - path: 'm3bone_root/Origin Ref '
+        weight: 1
+      - path: 'm3bone_root/OverHead Ref '
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Run01
+      takeName: Take 001
+      firstFrame: 136
+      lastFrame: 239
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: _M3_Anim_Data
+        weight: 1
+      - path: GryphonRider1
+        weight: 1
+      - path: GryphonRider2
+        weight: 1
+      - path: GryphonRider5
+        weight: 1
+      - path: GryphonRider11
+        weight: 1
+      - path: GryphonRider12
+        weight: 1
+      - path: m3bone_root
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Butt
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Butt/Bone
+          Griff Back L Thigh
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Butt/Bone
+          Griff Back L Thigh/Bone Griff Back L Leg
+        weight: 1
+      - path: 'm3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Butt/Bone
+          Griff Back L Thigh/Bone Griff Back L Leg/Bone Griff Back L Foot '
+        weight: 1
+      - path: 'm3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Butt/Bone
+          Griff Back L Thigh/Bone Griff Back L Leg/Bone Griff Back L Foot /bone Griff
+          B Left Ankle '
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Butt/Bone
+          Griff Back L Thigh/Bone Griff Back L Leg/Bone Griff Back L Foot /bone Griff
+          B Left Ankle /Foot Left Rear Ref
+        weight: 1
+      - path: 'm3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Butt/Bone
+          Griff Back L Thigh/Bone Griff Back L Leg/Bone Griff Back L Foot /bone Griff
+          B Left Ankle /Griff B Left Ankle '
+        weight: 1
+      - path: 'm3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Butt/Bone
+          Griff Back L Thigh/Bone Griff Back L Leg/Bone Griff Back L Foot /Griff Back
+          L Foot '
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Butt/Bone
+          Griff Back L Thigh/Bone Griff Back L Leg/Griff Back L Leg
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Butt/Bone
+          Griff Back L Thigh/Griff Back L Thigh
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Butt/Bone
+          Griff Back R Thigh
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Butt/Bone
+          Griff Back R Thigh/Bone Griff Back R Leg
+        weight: 1
+      - path: 'm3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Butt/Bone
+          Griff Back R Thigh/Bone Griff Back R Leg/Bone Griff Back R Foot '
+        weight: 1
+      - path: 'm3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Butt/Bone
+          Griff Back R Thigh/Bone Griff Back R Leg/Bone Griff Back R Foot /bone Griff
+          B R Ankle '
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Butt/Bone
+          Griff Back R Thigh/Bone Griff Back R Leg/Bone Griff Back R Foot /bone Griff
+          B R Ankle /Foot Right Rear Ref
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Butt/Bone
+          Griff Back R Thigh/Bone Griff Back R Leg/Bone Griff Back R Foot /bone Griff
+          B R Ankle /Paw R Back
+        weight: 1
+      - path: 'm3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Butt/Bone
+          Griff Back R Thigh/Bone Griff Back R Leg/Bone Griff Back R Foot /Griff Back
+          R Foot '
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Butt/Bone
+          Griff Back R Thigh/Bone Griff Back R Leg/Griff Back R Leg
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Butt/Bone
+          Griff Back R Thigh/Griff Back R Thigh
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Butt/Chest
+          Mount Rear Ref
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Butt/Griff
+          Butt
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Butt/GriffTailA
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Butt/GriffTailA/GriffTailB
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Butt/GriffTailA/GriffTailB/GriffTailC
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griff Front L Thigh
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griff Front L Thigh/Bone Griff Front Left Leg
+        weight: 1
+      - path: 'm3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griff Front L Thigh/Bone Griff Front Left Leg/Bone Griff Front Left Foot '
+        weight: 1
+      - path: 'm3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griff Front L Thigh/Bone Griff Front Left Leg/Bone Griff Front Left Foot
+          /bone Griff Front Left Ankle '
+        weight: 1
+      - path: 'm3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griff Front L Thigh/Bone Griff Front Left Leg/Bone Griff Front Left Foot
+          /bone Griff Front Left Ankle /Foot Left Ref '
+        weight: 1
+      - path: 'm3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griff Front L Thigh/Bone Griff Front Left Leg/Bone Griff Front Left Foot
+          /bone Griff Front Left Ankle /Griff Front Left Ankle '
+        weight: 1
+      - path: 'm3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griff Front L Thigh/Bone Griff Front Left Leg/Bone Griff Front Left Foot
+          /Griff Front Left Foot '
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griff Front L Thigh/Bone Griff Front Left Leg/Griff Front Left Leg
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griff Front L Thigh/Griff Front L Thigh
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griff R F Thigh
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griff R F Thigh/Bone Griff Front R Leg
+        weight: 1
+      - path: 'm3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griff R F Thigh/Bone Griff Front R Leg/Bone Griff Front R Foot '
+        weight: 1
+      - path: 'm3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griff R F Thigh/Bone Griff Front R Leg/Bone Griff Front R Foot /bone Griff
+          Front R Ankle '
+        weight: 1
+      - path: 'm3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griff R F Thigh/Bone Griff Front R Leg/Bone Griff Front R Foot /bone Griff
+          Front R Ankle /Foot Right Ref '
+        weight: 1
+      - path: 'm3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griff R F Thigh/Bone Griff Front R Leg/Bone Griff Front R Foot /bone Griff
+          Front R Ankle /Griff Front R Ankle '
+        weight: 1
+      - path: 'm3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griff R F Thigh/Bone Griff Front R Leg/Bone Griff Front R Foot /Griff Front
+          R Foot '
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griff R F Thigh/Bone Griff Front R Leg/Griff Front R Leg
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griff R F Thigh/Griff Front R Thigh
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griffon Neck
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griffon Neck/Bone Griffon Head
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griffon Neck/Bone Griffon Head/Griff Beak
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griffon Neck/Bone Griffon Head/Griff Beak/Griff Head Piece A
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griffon Neck/Bone Griffon Head/Griff Beak/Griff Head Piece B
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griffon Neck/Bone Griffon Head/Griff Beak/Griff Head Piece C
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griffon Neck/Bone Griffon Head/Griff Beak/Griff Head Piece D
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griffon Neck/Bone Griffon Head/Griffon Head
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griffon Neck/Bone Griffon Head/Griffon Jaw
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griffon Neck/Bone Griffon Head/Head Mount Ref
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griffon Neck/Feathers A2
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griffon Neck/GriffNeck
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Chest
+          Mount Ref
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Feathers
+          B1
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Feathers
+          B1/Feathers B2
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Griffon
+          Chest
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone18
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone18/Bone19
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone18/Bone19/Bone20
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone18/Bone19/Bone20/Wing
+          L C
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone18/Bone19/Wing
+          L B
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone18/Wing L A
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone21
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone21/Bone22
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone21/Bone22/Bone23
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone21/Bone22/Bone23/Wing
+          R C
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone21/Bone22/Wing
+          R B
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone21/Wing R A
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Arm1_L
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Arm1_L/Bone_Arm2_L
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Arm1_L/Bone_Arm2_L/Bone_Hand_L
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Arm1_L/Bone_Arm2_L/Bone_Hand_L/Dwf
+          Hand L
+        weight: 1
+      - path: 'm3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Arm1_L/Bone_Arm2_L/Bone_Hand_L/Hand
+          Left Ref '
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Arm1_L/Bone_Arm2_L/Dwf
+          4Arm L
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Arm1_L/Dwf
+          Arm L
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Arm1_R
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Arm1_R/Bone_Arm2_R
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Arm1_R/Bone_Arm2_R/Bone_Hand_R
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Arm1_R/Bone_Arm2_R/Bone_Hand_R/Dwf
+          Hand R
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Arm1_R/Bone_Arm2_R/Bone_Hand_R/FadeHammer
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Arm1_R/Bone_Arm2_R/Bone_Hand_R/FadeHammer/FadePonyTail
+          C
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Arm1_R/Bone_Arm2_R/Bone_Hand_R/FadeHammer/FadePonyTail
+          C/GryphonRider4
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Arm1_R/Bone_Arm2_R/Bone_Hand_R/FadeHammer/GryphonRider3
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Arm1_R/Bone_Arm2_R/Bone_Hand_R/Hammer
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Arm1_R/Bone_Arm2_R/Bone_Hand_R/Hammer/Plane01
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Arm1_R/Bone_Arm2_R/Bone_Hand_R/Hammer/PonyTail
+          C
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Arm1_R/Bone_Arm2_R/Bone_Hand_R/Hand
+          Right Ref
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Arm1_R/Bone_Arm2_R/Bone_Hand_R/Plane09
+        weight: 1
+      - path: 'm3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Arm1_R/Bone_Arm2_R/Bone_Hand_R/Weapon
+          Ref '
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Arm1_R/Bone_Arm2_R/Dwf
+          4Arm R
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Arm1_R/Dwf
+          Arm R
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Head
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Head/DwarfHead
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Head/DwarfHead/Dwf
+          Hair
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Head/DwarfHead/Dwf
+          Hair/PonyTail B
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Head/DwarfHead/DwfBeard
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Head/DwarfHead/PonyTail
+          A
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Head/Head
+          - Ref
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Chest
+          Ref
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Dwf Body
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Griffon Body
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Chest Mount Left Ref
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Chest Mount Right Ref
+        weight: 1
+      - path: m3bone_root/Box01
+        weight: 1
+      - path: m3bone_root/Box02
+        weight: 1
+      - path: m3bone_root/Box03
+        weight: 1
+      - path: m3bone_root/Box04
+        weight: 1
+      - path: m3bone_root/Box05
+        weight: 1
+      - path: m3bone_root/Box06
+        weight: 1
+      - path: m3bone_root/Box07
+        weight: 1
+      - path: m3bone_root/Dummy01
+        weight: 1
+      - path: m3bone_root/Dummy01/Plane05
+        weight: 1
+      - path: m3bone_root/Dummy01/Plane06
+        weight: 1
+      - path: m3bone_root/Dummy01/Plane07
+        weight: 1
+      - path: m3bone_root/Dummy01/Plane08
+        weight: 1
+      - path: m3bone_root/Dummy01/Plane08/GryphonRider9
+        weight: 1
+      - path: m3bone_root/Dummy02
+        weight: 1
+      - path: m3bone_root/Dummy02/Plane07 Death
+        weight: 1
+      - path: m3bone_root/Dummy02/Plane07 Death/GryphonRider10
+        weight: 1
+      - path: m3bone_root/Dummy02/Plane08 Death
+        weight: 1
+      - path: m3bone_root/Dummy02/Plane09 Death
+        weight: 1
+      - path: m3bone_root/Dummy02/Plane10
+        weight: 1
+      - path: m3bone_root/Dummy02/Plane11
+        weight: 1
+      - path: 'm3bone_root/Origin Ref '
+        weight: 1
+      - path: 'm3bone_root/OverHead Ref '
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Death01
+      takeName: Take 001
+      firstFrame: 563
+      lastFrame: 615
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: _M3_Anim_Data
+        weight: 1
+      - path: GryphonRider1
+        weight: 1
+      - path: GryphonRider2
+        weight: 1
+      - path: GryphonRider5
+        weight: 1
+      - path: GryphonRider11
+        weight: 1
+      - path: GryphonRider12
+        weight: 1
+      - path: m3bone_root
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Butt
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Butt/Bone
+          Griff Back L Thigh
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Butt/Bone
+          Griff Back L Thigh/Bone Griff Back L Leg
+        weight: 1
+      - path: 'm3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Butt/Bone
+          Griff Back L Thigh/Bone Griff Back L Leg/Bone Griff Back L Foot '
+        weight: 1
+      - path: 'm3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Butt/Bone
+          Griff Back L Thigh/Bone Griff Back L Leg/Bone Griff Back L Foot /bone Griff
+          B Left Ankle '
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Butt/Bone
+          Griff Back L Thigh/Bone Griff Back L Leg/Bone Griff Back L Foot /bone Griff
+          B Left Ankle /Foot Left Rear Ref
+        weight: 1
+      - path: 'm3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Butt/Bone
+          Griff Back L Thigh/Bone Griff Back L Leg/Bone Griff Back L Foot /bone Griff
+          B Left Ankle /Griff B Left Ankle '
+        weight: 1
+      - path: 'm3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Butt/Bone
+          Griff Back L Thigh/Bone Griff Back L Leg/Bone Griff Back L Foot /Griff Back
+          L Foot '
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Butt/Bone
+          Griff Back L Thigh/Bone Griff Back L Leg/Griff Back L Leg
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Butt/Bone
+          Griff Back L Thigh/Griff Back L Thigh
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Butt/Bone
+          Griff Back R Thigh
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Butt/Bone
+          Griff Back R Thigh/Bone Griff Back R Leg
+        weight: 1
+      - path: 'm3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Butt/Bone
+          Griff Back R Thigh/Bone Griff Back R Leg/Bone Griff Back R Foot '
+        weight: 1
+      - path: 'm3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Butt/Bone
+          Griff Back R Thigh/Bone Griff Back R Leg/Bone Griff Back R Foot /bone Griff
+          B R Ankle '
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Butt/Bone
+          Griff Back R Thigh/Bone Griff Back R Leg/Bone Griff Back R Foot /bone Griff
+          B R Ankle /Foot Right Rear Ref
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Butt/Bone
+          Griff Back R Thigh/Bone Griff Back R Leg/Bone Griff Back R Foot /bone Griff
+          B R Ankle /Paw R Back
+        weight: 1
+      - path: 'm3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Butt/Bone
+          Griff Back R Thigh/Bone Griff Back R Leg/Bone Griff Back R Foot /Griff Back
+          R Foot '
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Butt/Bone
+          Griff Back R Thigh/Bone Griff Back R Leg/Griff Back R Leg
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Butt/Bone
+          Griff Back R Thigh/Griff Back R Thigh
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Butt/Chest
+          Mount Rear Ref
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Butt/Griff
+          Butt
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Butt/GriffTailA
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Butt/GriffTailA/GriffTailB
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Butt/GriffTailA/GriffTailB/GriffTailC
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griff Front L Thigh
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griff Front L Thigh/Bone Griff Front Left Leg
+        weight: 1
+      - path: 'm3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griff Front L Thigh/Bone Griff Front Left Leg/Bone Griff Front Left Foot '
+        weight: 1
+      - path: 'm3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griff Front L Thigh/Bone Griff Front Left Leg/Bone Griff Front Left Foot
+          /bone Griff Front Left Ankle '
+        weight: 1
+      - path: 'm3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griff Front L Thigh/Bone Griff Front Left Leg/Bone Griff Front Left Foot
+          /bone Griff Front Left Ankle /Foot Left Ref '
+        weight: 1
+      - path: 'm3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griff Front L Thigh/Bone Griff Front Left Leg/Bone Griff Front Left Foot
+          /bone Griff Front Left Ankle /Griff Front Left Ankle '
+        weight: 1
+      - path: 'm3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griff Front L Thigh/Bone Griff Front Left Leg/Bone Griff Front Left Foot
+          /Griff Front Left Foot '
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griff Front L Thigh/Bone Griff Front Left Leg/Griff Front Left Leg
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griff Front L Thigh/Griff Front L Thigh
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griff R F Thigh
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griff R F Thigh/Bone Griff Front R Leg
+        weight: 1
+      - path: 'm3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griff R F Thigh/Bone Griff Front R Leg/Bone Griff Front R Foot '
+        weight: 1
+      - path: 'm3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griff R F Thigh/Bone Griff Front R Leg/Bone Griff Front R Foot /bone Griff
+          Front R Ankle '
+        weight: 1
+      - path: 'm3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griff R F Thigh/Bone Griff Front R Leg/Bone Griff Front R Foot /bone Griff
+          Front R Ankle /Foot Right Ref '
+        weight: 1
+      - path: 'm3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griff R F Thigh/Bone Griff Front R Leg/Bone Griff Front R Foot /bone Griff
+          Front R Ankle /Griff Front R Ankle '
+        weight: 1
+      - path: 'm3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griff R F Thigh/Bone Griff Front R Leg/Bone Griff Front R Foot /Griff Front
+          R Foot '
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griff R F Thigh/Bone Griff Front R Leg/Griff Front R Leg
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griff R F Thigh/Griff Front R Thigh
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griffon Neck
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griffon Neck/Bone Griffon Head
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griffon Neck/Bone Griffon Head/Griff Beak
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griffon Neck/Bone Griffon Head/Griff Beak/Griff Head Piece A
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griffon Neck/Bone Griffon Head/Griff Beak/Griff Head Piece B
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griffon Neck/Bone Griffon Head/Griff Beak/Griff Head Piece C
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griffon Neck/Bone Griffon Head/Griff Beak/Griff Head Piece D
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griffon Neck/Bone Griffon Head/Griffon Head
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griffon Neck/Bone Griffon Head/Griffon Jaw
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griffon Neck/Bone Griffon Head/Head Mount Ref
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griffon Neck/Feathers A2
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Bone
+          Griffon Neck/GriffNeck
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Chest
+          Mount Ref
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Feathers
+          B1
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Feathers
+          B1/Feathers B2
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone Griffon Front/Griffon
+          Chest
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone18
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone18/Bone19
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone18/Bone19/Bone20
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone18/Bone19/Bone20/Wing
+          L C
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone18/Bone19/Wing
+          L B
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone18/Wing L A
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone21
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone21/Bone22
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone21/Bone22/Bone23
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone21/Bone22/Bone23/Wing
+          R C
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone21/Bone22/Wing
+          R B
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone21/Wing R A
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Arm1_L
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Arm1_L/Bone_Arm2_L
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Arm1_L/Bone_Arm2_L/Bone_Hand_L
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Arm1_L/Bone_Arm2_L/Bone_Hand_L/Dwf
+          Hand L
+        weight: 1
+      - path: 'm3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Arm1_L/Bone_Arm2_L/Bone_Hand_L/Hand
+          Left Ref '
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Arm1_L/Bone_Arm2_L/Dwf
+          4Arm L
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Arm1_L/Dwf
+          Arm L
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Arm1_R
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Arm1_R/Bone_Arm2_R
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Arm1_R/Bone_Arm2_R/Bone_Hand_R
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Arm1_R/Bone_Arm2_R/Bone_Hand_R/Dwf
+          Hand R
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Arm1_R/Bone_Arm2_R/Bone_Hand_R/FadeHammer
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Arm1_R/Bone_Arm2_R/Bone_Hand_R/FadeHammer/FadePonyTail
+          C
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Arm1_R/Bone_Arm2_R/Bone_Hand_R/FadeHammer/FadePonyTail
+          C/GryphonRider4
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Arm1_R/Bone_Arm2_R/Bone_Hand_R/FadeHammer/GryphonRider3
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Arm1_R/Bone_Arm2_R/Bone_Hand_R/Hammer
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Arm1_R/Bone_Arm2_R/Bone_Hand_R/Hammer/Plane01
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Arm1_R/Bone_Arm2_R/Bone_Hand_R/Hammer/PonyTail
+          C
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Arm1_R/Bone_Arm2_R/Bone_Hand_R/Hand
+          Right Ref
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Arm1_R/Bone_Arm2_R/Bone_Hand_R/Plane09
+        weight: 1
+      - path: 'm3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Arm1_R/Bone_Arm2_R/Bone_Hand_R/Weapon
+          Ref '
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Arm1_R/Bone_Arm2_R/Dwf
+          4Arm R
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Arm1_R/Dwf
+          Arm R
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Head
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Head/DwarfHead
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Head/DwarfHead/Dwf
+          Hair
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Head/DwarfHead/Dwf
+          Hair/PonyTail B
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Head/DwarfHead/DwfBeard
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Head/DwarfHead/PonyTail
+          A
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Bone_Head/Head
+          - Ref
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Chest
+          Ref
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Bone_Chest/Dwf Body
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Bone Griffon Body/Griffon Body
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Chest Mount Left Ref
+        weight: 1
+      - path: m3bone_root/Bone HeroGriffonRider/Chest Mount Right Ref
+        weight: 1
+      - path: m3bone_root/Box01
+        weight: 1
+      - path: m3bone_root/Box02
+        weight: 1
+      - path: m3bone_root/Box03
+        weight: 1
+      - path: m3bone_root/Box04
+        weight: 1
+      - path: m3bone_root/Box05
+        weight: 1
+      - path: m3bone_root/Box06
+        weight: 1
+      - path: m3bone_root/Box07
+        weight: 1
+      - path: m3bone_root/Dummy01
+        weight: 1
+      - path: m3bone_root/Dummy01/Plane05
+        weight: 1
+      - path: m3bone_root/Dummy01/Plane06
+        weight: 1
+      - path: m3bone_root/Dummy01/Plane07
+        weight: 1
+      - path: m3bone_root/Dummy01/Plane08
+        weight: 1
+      - path: m3bone_root/Dummy01/Plane08/GryphonRider9
+        weight: 1
+      - path: m3bone_root/Dummy02
+        weight: 1
+      - path: m3bone_root/Dummy02/Plane07 Death
+        weight: 1
+      - path: m3bone_root/Dummy02/Plane07 Death/GryphonRider10
+        weight: 1
+      - path: m3bone_root/Dummy02/Plane08 Death
+        weight: 1
+      - path: m3bone_root/Dummy02/Plane09 Death
+        weight: 1
+      - path: m3bone_root/Dummy02/Plane10
+        weight: 1
+      - path: m3bone_root/Dummy02/Plane11
+        weight: 1
+      - path: 'm3bone_root/Origin Ref '
+        weight: 1
+      - path: 'm3bone_root/OverHead Ref '
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

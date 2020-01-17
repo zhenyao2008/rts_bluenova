@@ -1,0 +1,35 @@
+uiRoot = UnityEngine.Transform
+userInfo = UserInfo
+
+cityPanelRoot = UnityEngine.Transform
+cityBuildingDetailPanelRoot = UnityEngine.Transform
+cityResourcePanelRoot = UnityEngine.Transform
+cityResourceBuildingPanelRoot = UnityEngine.Transform
+cityResourceBuildingDetailPanelRoot = UnityEngine.Transform
+cityWarBuildingPanelRoot = UnityEngine.Transform
+cityShopPanelRoot = UnityEngine.Transform
+settingPanelRoot = UnityEngine.Transform
+
+shopButton = UnityEngine.UI.Button
+battleButton = UnityEngine.UI.Button
+userName = UnityEngine.UI.Text
+userLevel = UnityEngine.UI.Text 
+userExp = UnityEngine.UI.Text
+workNum = UnityEngine.UI.Text
+protectTime = UnityEngine.UI.Text
+cornSlider = UnityEngine.UI.Slider
+currentCorn = UnityEngine.UI.Text
+maxCorn = UnityEngine.UI.Text
+woodSlider = UnityEngine.UI.Slider
+currentWood = UnityEngine.UI.Text
+maxWood = UnityEngine.UI.Text
+currentStone = UnityEngine.UI.Text
+maxStone = UnityEngine.UI.Text
+stoneSlider = UnityEngine.UI.Slider
+currentStone = UnityEngine.UI.Text
+maxStone = UnityEngine.UI.Text
+stoneSlider = UnityEngine.UI.Slider
+
+function Init()
+	
+end

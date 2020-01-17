@@ -1,0 +1,66 @@
+﻿using System.Collections.Generic;
+///
+/// @file  SkillTargetFilterUtility.cs
+/// @author Ying YuGang
+/// @date   
+/// @brief 
+/// Copyright 2019 Grounding Inc. All Rights Reserved.
+///
+namespace GStar.SkillScriptUtils
+{
+    public static class SkillTargetFilterUtility 
+    {
+        //移動しなくても攻撃できるターゲット
+        public static List<UnitModel> GetSkillTargets(UnitModel caster, BattleModel battleModel, UnitSkillModel unitSkillModel)
+        {
+            List<UnitModel> unitModels = new List<UnitModel>();
+
+            int rangeNodeCount = unitSkillModel.TargetRangeFar + caster.AI.ScanDistance;
+
+            UnitModel targetUnitModel = null;
+
+            for (int i = 0; i < battleModel.TurnOrderedUnitList.Count; i++)
+            {
+                targetUnitModel = battleModel.TurnOrderedUnitList[i];
+
+                if (targetUnitModel.IsNeutral)
+                {
+                    continue;
+                }
+
+                if (IsTargetAvailable(caster, targetUnitModel, unitSkillModel))
+                {
+                    if(battleModel.IsMyUnit(caster))
+                    {
+                        unitModels.Add(targetUnitModel);
+                    }
+                    else if (NodeObtainUtils.IsInRange(caster, targetUnitModel,0,rangeNodeCount))
+                    {
+                        unitModels.Add(targetUnitModel);
+                    }
+                }
+            }
+            return unitModels;
+        }
+
+        public static bool IsTargetAvailable(UnitModel caster ,UnitModel target, UnitSkillModel skill)
+        {
+            if(!BattleUtils.IsAvailableTarget(caster, skill.SelectableTargetFlags, target))
+            {
+                return false;
+            }
+            float percent = (float)target.BattleStatus.HP / target.BattleStatus.HPMax;
+            //TODO_AI それぞれの条件があるはず。
+            if (skill.SkillType.IsHealSkill())
+            {
+                if(percent <= 0.8f)
+                    return true;
+            }
+            else
+            {
+                return true;
+            }
+            return false;
+        }
+    }
+}

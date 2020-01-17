@@ -1,0 +1,287 @@
+fileFormatVersion: 2
+guid: 72ea86e3c08490a42965f3694dd92028
+timeCreated: 1440902986
+licenseType: Pro
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: 1axe-hide
+    100002: 1Box03
+    100004: 1Box05
+    100006: 1Box06
+    100008: 1Box07
+    100010: 1Box08
+    100012: 1Box09
+    100014: 1Cylinder03
+    100016: 1Cylinder04
+    100018: 1throw
+    100020: _M3_Anim_Data
+    100022: Bone_Arm1_L
+    100024: Bone_Arm1_R
+    100026: Bone_Arm2_L
+    100028: Bone_Arm2_R
+    100030: Bone_Chest
+    100032: Bone_Foot_L
+    100034: Bone_Foot_R
+    100036: Bone_Hand_L
+    100038: Bone_Hand_R
+    100040: Bone_Head
+    100042: Bone_Leg1_L
+    100044: Bone_Leg1_R
+    100046: Bone_Leg2_L
+    100048: Bone_Leg2_R
+    100050: Bone_Pelvis
+    100052: Bone_Root
+    100054: boneObject07
+    100056: boneObject08
+    100058: boneObject09
+    100060: Chest Ref
+    100062: DM_Mustache05_R06
+    100064: 'Foot Left Ref '
+    100066: 'Foot Right Ref '
+    100068: 'Hand Left Ref '
+    100070: 'Hand Right Ref '
+    100072: Head - Ref
+    100074: hero2
+    100076: hero3
+    100078: HeroMountainKing1
+    100080: HeroMountainKing2
+    100082: HeroMountainKing3
+    100084: HeroMountainKing4
+    100086: HeroMountainKing5
+    100088: HeroMountainKing6
+    100090: HeroMountainKing7
+    100092: HeroMountainKing8
+    100094: m3bone_root
+    100096: Mesh06
+    100098: //RootNode
+    100100: 'Origin Ref '
+    100102: 'OverHead Ref '
+    100104: Plane01
+    100106: Plane02
+    100108: Plane03
+    100110: Plane04
+    100112: Plane08
+    100114: Plane09
+    100116: Plane10
+    100118: Plane12
+    100120: Plane13
+    100122: Plane14
+    100124: Plane15
+    100126: Plane16
+    100128: Plane17
+    100130: Plane18
+    100132: Plane19
+    100134: Plane20
+    100136: Plane21
+    100138: Plane22
+    100140: Plane23
+    100142: Plane24
+    100144: Plane25
+    100146: Plane26
+    100148: Plane27
+    100150: Plane28
+    100152: Plane29
+    100154: Plane30
+    100156: Plane31
+    100158: Plane32
+    100160: Plane33
+    100162: Plane34
+    100164: Plane35
+    100166: Plane36
+    100168: Plane37
+    100170: Plane38
+    100172: Plane39
+    100174: Plane40
+    100176: Plane41
+    100178: Plane42
+    100180: Plane43
+    100182: Plane44
+    100184: Plane45
+    100186: Plane46
+    100188: skirttop
+    100190: Sphere02
+    100192: Sphere04
+    100194: Weapon Left Ref
+    100196: Weapon Right Ref
+    400000: 1axe-hide
+    400002: 1Box03
+    400004: 1Box05
+    400006: 1Box06
+    400008: 1Box07
+    400010: 1Box08
+    400012: 1Box09
+    400014: 1Cylinder03
+    400016: 1Cylinder04
+    400018: 1throw
+    400020: _M3_Anim_Data
+    400022: Bone_Arm1_L
+    400024: Bone_Arm1_R
+    400026: Bone_Arm2_L
+    400028: Bone_Arm2_R
+    400030: Bone_Chest
+    400032: Bone_Foot_L
+    400034: Bone_Foot_R
+    400036: Bone_Hand_L
+    400038: Bone_Hand_R
+    400040: Bone_Head
+    400042: Bone_Leg1_L
+    400044: Bone_Leg1_R
+    400046: Bone_Leg2_L
+    400048: Bone_Leg2_R
+    400050: Bone_Pelvis
+    400052: Bone_Root
+    400054: boneObject07
+    400056: boneObject08
+    400058: boneObject09
+    400060: Chest Ref
+    400062: DM_Mustache05_R06
+    400064: 'Foot Left Ref '
+    400066: 'Foot Right Ref '
+    400068: 'Hand Left Ref '
+    400070: 'Hand Right Ref '
+    400072: Head - Ref
+    400074: hero2
+    400076: hero3
+    400078: HeroMountainKing1
+    400080: HeroMountainKing2
+    400082: HeroMountainKing3
+    400084: HeroMountainKing4
+    400086: HeroMountainKing5
+    400088: HeroMountainKing6
+    400090: HeroMountainKing7
+    400092: HeroMountainKing8
+    400094: m3bone_root
+    400096: Mesh06
+    400098: //RootNode
+    400100: 'Origin Ref '
+    400102: 'OverHead Ref '
+    400104: Plane01
+    400106: Plane02
+    400108: Plane03
+    400110: Plane04
+    400112: Plane08
+    400114: Plane09
+    400116: Plane10
+    400118: Plane12
+    400120: Plane13
+    400122: Plane14
+    400124: Plane15
+    400126: Plane16
+    400128: Plane17
+    400130: Plane18
+    400132: Plane19
+    400134: Plane20
+    400136: Plane21
+    400138: Plane22
+    400140: Plane23
+    400142: Plane24
+    400144: Plane25
+    400146: Plane26
+    400148: Plane27
+    400150: Plane28
+    400152: Plane29
+    400154: Plane30
+    400156: Plane31
+    400158: Plane32
+    400160: Plane33
+    400162: Plane34
+    400164: Plane35
+    400166: Plane36
+    400168: Plane37
+    400170: Plane38
+    400172: Plane39
+    400174: Plane40
+    400176: Plane41
+    400178: Plane42
+    400180: Plane43
+    400182: Plane44
+    400184: Plane45
+    400186: Plane46
+    400188: skirttop
+    400190: Sphere02
+    400192: Sphere04
+    400194: Weapon Left Ref
+    400196: Weapon Right Ref
+    2300000: HeroMountainKing5
+    3300000: HeroMountainKing5
+    4300000: HeroMountainKing1
+    4300002: HeroMountainKing2
+    4300004: HeroMountainKing3
+    4300006: HeroMountainKing4
+    4300008: HeroMountainKing6
+    4300010: HeroMountainKing7
+    4300012: HeroMountainKing8
+    4300014: HeroMountainKing5
+    7400000: Take 001
+    9500000: //RootNode
+    11100000: //RootNode
+    13700000: HeroMountainKing1
+    13700002: HeroMountainKing2
+    13700004: HeroMountainKing3
+    13700006: HeroMountainKing4
+    13700008: HeroMountainKing6
+    13700010: HeroMountainKing7
+    13700012: HeroMountainKing8
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

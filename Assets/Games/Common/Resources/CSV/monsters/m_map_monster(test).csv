@@ -1,0 +1,5 @@
+id,name,unit_id,action,pos_x,pos_y,alignment,angle_y
+1,warrior,14,1,1043,1308,1,45
+4,hippo,12,1,1064,1313,2,45
+5,hippo,12,1,1068,1301,2,135
+10,anchor,15,1,1038,1303,1,90

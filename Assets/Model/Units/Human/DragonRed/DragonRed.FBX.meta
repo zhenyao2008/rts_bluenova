@@ -1,0 +1,1299 @@
+fileFormatVersion: 2
+guid: 940e52461e491e949a803f20594c0bf3
+timeCreated: 1441673200
+licenseType: Pro
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: _M3_Anim_Data
+    100002: Bone Frostwyrm
+    100004: Bone18
+    100006: Bone19
+    100008: Bone20
+    100010: Bone21
+    100012: Bone22
+    100014: Bone23
+    100016: Bone_Body
+    100018: Bone_Butt
+    100020: 'Bone_ck L Foot '
+    100022: Bone_ck L Leg
+    100024: Bone_ck L Thigh
+    100026: 'Bone_ck R Foot '
+    100028: Bone_ck R Leg
+    100030: Bone_ck R Thigh
+    100032: Bone_F Thigh
+    100034: Bone_Front
+    100036: Bone_Head
+    100038: Bone_Neck
+    100040: Bone_ont L Thigh
+    100042: 'Bone_ont Left Foot '
+    100044: Bone_ont Left Leg
+    100046: 'Bone_ont R Foot '
+    100048: Bone_ont R Leg
+    100050: Bone_Tail01
+    100052: Bone_Tail02
+    100054: Bone_Tail03
+    100056: Bone_Tail04
+    100058: Butt
+    100060: Chest Ref
+    100062: //RootNode
+    100064: 'Foot Left Ref '
+    100066: 'Foot Right Ref '
+    100068: FootFrontL
+    100070: FootFrontR
+    100072: FootL
+    100074: FootR
+    100076: 'Hand Left Ref '
+    100078: 'Hand Right Ref '
+    100080: Head
+    100082: Head - Ref
+    100084: JawLow
+    100086: Leg1L
+    100088: Leg1TCR
+    100090: Leg2L
+    100092: Leg2R
+    100094: m3bone_root
+    100096: Neck
+    100098: Object05
+    100100: 'Origin Ref '
+    100102: 'OverHead Ref '
+    100104: Plane07
+    100106: Plane08
+    100108: Plane09
+    100110: Plane10
+    100112: Plane11
+    100114: Portrait_Dragon_05
+    100116: Portrait_Dragon_12
+    100118: RedDragon1
+    100120: RedDragon2
+    100122: RedDragon3
+    100124: RedDragon4
+    100126: RedDragon5
+    100128: ShinL
+    100130: ShinR
+    100132: Tail1
+    100134: Tail2
+    100136: Tail3
+    100138: Tail4
+    100140: ThighTCL
+    100142: ThighTCR
+    100144: Weapon Ref
+    100146: WingL_03
+    100148: WingL_04
+    100150: WingL_06
+    100152: WingL_09
+    100154: WingR_02
+    100156: WingR_03
+    100158: WingR_05
+    100160: WingR_07
+    400000: _M3_Anim_Data
+    400002: Bone Frostwyrm
+    400004: Bone18
+    400006: Bone19
+    400008: Bone20
+    400010: Bone21
+    400012: Bone22
+    400014: Bone23
+    400016: Bone_Body
+    400018: Bone_Butt
+    400020: 'Bone_ck L Foot '
+    400022: Bone_ck L Leg
+    400024: Bone_ck L Thigh
+    400026: 'Bone_ck R Foot '
+    400028: Bone_ck R Leg
+    400030: Bone_ck R Thigh
+    400032: Bone_F Thigh
+    400034: Bone_Front
+    400036: Bone_Head
+    400038: Bone_Neck
+    400040: Bone_ont L Thigh
+    400042: 'Bone_ont Left Foot '
+    400044: Bone_ont Left Leg
+    400046: 'Bone_ont R Foot '
+    400048: Bone_ont R Leg
+    400050: Bone_Tail01
+    400052: Bone_Tail02
+    400054: Bone_Tail03
+    400056: Bone_Tail04
+    400058: Butt
+    400060: Chest Ref
+    400062: //RootNode
+    400064: 'Foot Left Ref '
+    400066: 'Foot Right Ref '
+    400068: FootFrontL
+    400070: FootFrontR
+    400072: FootL
+    400074: FootR
+    400076: 'Hand Left Ref '
+    400078: 'Hand Right Ref '
+    400080: Head
+    400082: Head - Ref
+    400084: JawLow
+    400086: Leg1L
+    400088: Leg1TCR
+    400090: Leg2L
+    400092: Leg2R
+    400094: m3bone_root
+    400096: Neck
+    400098: Object05
+    400100: 'Origin Ref '
+    400102: 'OverHead Ref '
+    400104: Plane07
+    400106: Plane08
+    400108: Plane09
+    400110: Plane10
+    400112: Plane11
+    400114: Portrait_Dragon_05
+    400116: Portrait_Dragon_12
+    400118: RedDragon1
+    400120: RedDragon2
+    400122: RedDragon3
+    400124: RedDragon4
+    400126: RedDragon5
+    400128: ShinL
+    400130: ShinR
+    400132: Tail1
+    400134: Tail2
+    400136: Tail3
+    400138: Tail4
+    400140: ThighTCL
+    400142: ThighTCR
+    400144: Weapon Ref
+    400146: WingL_03
+    400148: WingL_04
+    400150: WingL_06
+    400152: WingL_09
+    400154: WingR_02
+    400156: WingR_03
+    400158: WingR_05
+    400160: WingR_07
+    2300000: RedDragon4
+    3300000: RedDragon4
+    4300000: RedDragon1
+    4300002: RedDragon2
+    4300004: RedDragon3
+    4300006: RedDragon5
+    4300008: RedDragon4
+    7400000: Idle01
+    7400002: Idle02
+    7400004: Skill01
+    7400006: Attack01
+    7400008: Death01
+    9500000: //RootNode
+    11100000: //RootNode
+    13700000: RedDragon1
+    13700002: RedDragon2
+    13700004: RedDragon3
+    13700006: RedDragon5
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Idle01
+      takeName: Take 001
+      firstFrame: 20
+      lastFrame: 45
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: _M3_Anim_Data
+        weight: 1
+      - path: m3bone_root
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone18
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone18/Bone19
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone18/Bone19/Bone20
+        weight: 1
+      - path: 'm3bone_root/Bone Frostwyrm/Bone_Body/Bone18/Bone19/Bone20/Hand Left
+          Ref '
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone18/Bone19/Bone20/WingR_05
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone18/Bone19/Bone20/WingR_07
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone18/Bone19/WingR_03
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone18/WingR_02
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone21
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone21/Bone22
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone21/Bone22/Bone23
+        weight: 1
+      - path: 'm3bone_root/Bone Frostwyrm/Bone_Body/Bone21/Bone22/Bone23/Hand Right
+          Ref '
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone21/Bone22/Bone23/WingL_06
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone21/Bone22/Bone23/WingL_09
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone21/Bone22/WingL_04
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone21/WingL_03
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Butt
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Butt/Bone_ck L Thigh
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Butt/Bone_ck L Thigh/Bone_ck
+          L Leg
+        weight: 1
+      - path: 'm3bone_root/Bone Frostwyrm/Bone_Body/Bone_Butt/Bone_ck L Thigh/Bone_ck
+          L Leg/Bone_ck L Foot '
+        weight: 1
+      - path: 'm3bone_root/Bone Frostwyrm/Bone_Body/Bone_Butt/Bone_ck L Thigh/Bone_ck
+          L Leg/Bone_ck L Foot /Foot Left Ref '
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Butt/Bone_ck L Thigh/Bone_ck
+          L Leg/Bone_ck L Foot /FootR
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Butt/Bone_ck L Thigh/Bone_ck
+          L Leg/ShinR
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Butt/Bone_ck L Thigh/ThighTCR
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Butt/Bone_ck R Thigh
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Butt/Bone_ck R Thigh/Bone_ck
+          R Leg
+        weight: 1
+      - path: 'm3bone_root/Bone Frostwyrm/Bone_Body/Bone_Butt/Bone_ck R Thigh/Bone_ck
+          R Leg/Bone_ck R Foot '
+        weight: 1
+      - path: 'm3bone_root/Bone Frostwyrm/Bone_Body/Bone_Butt/Bone_ck R Thigh/Bone_ck
+          R Leg/Bone_ck R Foot /Foot Right Ref '
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Butt/Bone_ck R Thigh/Bone_ck
+          R Leg/Bone_ck R Foot /FootL
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Butt/Bone_ck R Thigh/Bone_ck
+          R Leg/ShinL
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Butt/Bone_ck R Thigh/ThighTCL
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Butt/Bone_Tail01
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Butt/Bone_Tail01/Bone_Tail02
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Butt/Bone_Tail01/Bone_Tail02/Bone_Tail03
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Butt/Bone_Tail01/Bone_Tail02/Bone_Tail03/Bone_Tail04
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Butt/Bone_Tail01/Bone_Tail02/Bone_Tail03/Bone_Tail04/Tail4
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Butt/Bone_Tail01/Bone_Tail02/Bone_Tail03/Tail3
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Butt/Bone_Tail01/Bone_Tail02/Tail2
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Butt/Bone_Tail01/Tail1
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Butt/Butt
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Front
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Front/Bone_F Thigh
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Front/Bone_F Thigh/Bone_ont
+          R Leg
+        weight: 1
+      - path: 'm3bone_root/Bone Frostwyrm/Bone_Body/Bone_Front/Bone_F Thigh/Bone_ont
+          R Leg/Bone_ont R Foot '
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Front/Bone_F Thigh/Bone_ont
+          R Leg/Bone_ont R Foot /FootFrontL
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Front/Bone_F Thigh/Bone_ont
+          R Leg/Leg2L
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Front/Bone_F Thigh/Leg1L
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Front/Bone_Neck
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Front/Bone_Neck/Bone_Head
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Front/Bone_Neck/Bone_Head/Head
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Front/Bone_Neck/Bone_Head/Head/JawLow
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Front/Bone_Neck/Bone_Head/Head
+          - Ref
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Front/Bone_Neck/Bone_Head/Portrait_Dragon_05
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Front/Bone_Neck/Bone_Head/Portrait_Dragon_12
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Front/Bone_Neck/Bone_Head/Weapon
+          Ref
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Front/Bone_Neck/Neck
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Front/Bone_ont L Thigh
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Front/Bone_ont L Thigh/Bone_ont
+          Left Leg
+        weight: 1
+      - path: 'm3bone_root/Bone Frostwyrm/Bone_Body/Bone_Front/Bone_ont L Thigh/Bone_ont
+          Left Leg/Bone_ont Left Foot '
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Front/Bone_ont L Thigh/Bone_ont
+          Left Leg/Bone_ont Left Foot /FootFrontR
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Front/Bone_ont L Thigh/Bone_ont
+          Left Leg/Leg2R
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Front/Bone_ont L Thigh/Leg1TCR
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Object05
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Chest Ref
+        weight: 1
+      - path: 'm3bone_root/Origin Ref '
+        weight: 1
+      - path: 'm3bone_root/OverHead Ref '
+        weight: 1
+      - path: m3bone_root/Plane07
+        weight: 1
+      - path: m3bone_root/Plane07/RedDragon4
+        weight: 1
+      - path: m3bone_root/Plane08
+        weight: 1
+      - path: m3bone_root/Plane09
+        weight: 1
+      - path: m3bone_root/Plane10
+        weight: 1
+      - path: m3bone_root/Plane11
+        weight: 1
+      - path: RedDragon1
+        weight: 1
+      - path: RedDragon2
+        weight: 1
+      - path: RedDragon3
+        weight: 1
+      - path: RedDragon5
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Idle02
+      takeName: Take 001
+      firstFrame: 130
+      lastFrame: 230
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: _M3_Anim_Data
+        weight: 1
+      - path: m3bone_root
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone18
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone18/Bone19
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone18/Bone19/Bone20
+        weight: 1
+      - path: 'm3bone_root/Bone Frostwyrm/Bone_Body/Bone18/Bone19/Bone20/Hand Left
+          Ref '
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone18/Bone19/Bone20/WingR_05
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone18/Bone19/Bone20/WingR_07
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone18/Bone19/WingR_03
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone18/WingR_02
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone21
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone21/Bone22
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone21/Bone22/Bone23
+        weight: 1
+      - path: 'm3bone_root/Bone Frostwyrm/Bone_Body/Bone21/Bone22/Bone23/Hand Right
+          Ref '
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone21/Bone22/Bone23/WingL_06
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone21/Bone22/Bone23/WingL_09
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone21/Bone22/WingL_04
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone21/WingL_03
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Butt
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Butt/Bone_ck L Thigh
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Butt/Bone_ck L Thigh/Bone_ck
+          L Leg
+        weight: 1
+      - path: 'm3bone_root/Bone Frostwyrm/Bone_Body/Bone_Butt/Bone_ck L Thigh/Bone_ck
+          L Leg/Bone_ck L Foot '
+        weight: 1
+      - path: 'm3bone_root/Bone Frostwyrm/Bone_Body/Bone_Butt/Bone_ck L Thigh/Bone_ck
+          L Leg/Bone_ck L Foot /Foot Left Ref '
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Butt/Bone_ck L Thigh/Bone_ck
+          L Leg/Bone_ck L Foot /FootR
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Butt/Bone_ck L Thigh/Bone_ck
+          L Leg/ShinR
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Butt/Bone_ck L Thigh/ThighTCR
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Butt/Bone_ck R Thigh
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Butt/Bone_ck R Thigh/Bone_ck
+          R Leg
+        weight: 1
+      - path: 'm3bone_root/Bone Frostwyrm/Bone_Body/Bone_Butt/Bone_ck R Thigh/Bone_ck
+          R Leg/Bone_ck R Foot '
+        weight: 1
+      - path: 'm3bone_root/Bone Frostwyrm/Bone_Body/Bone_Butt/Bone_ck R Thigh/Bone_ck
+          R Leg/Bone_ck R Foot /Foot Right Ref '
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Butt/Bone_ck R Thigh/Bone_ck
+          R Leg/Bone_ck R Foot /FootL
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Butt/Bone_ck R Thigh/Bone_ck
+          R Leg/ShinL
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Butt/Bone_ck R Thigh/ThighTCL
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Butt/Bone_Tail01
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Butt/Bone_Tail01/Bone_Tail02
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Butt/Bone_Tail01/Bone_Tail02/Bone_Tail03
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Butt/Bone_Tail01/Bone_Tail02/Bone_Tail03/Bone_Tail04
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Butt/Bone_Tail01/Bone_Tail02/Bone_Tail03/Bone_Tail04/Tail4
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Butt/Bone_Tail01/Bone_Tail02/Bone_Tail03/Tail3
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Butt/Bone_Tail01/Bone_Tail02/Tail2
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Butt/Bone_Tail01/Tail1
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Butt/Butt
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Front
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Front/Bone_F Thigh
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Front/Bone_F Thigh/Bone_ont
+          R Leg
+        weight: 1
+      - path: 'm3bone_root/Bone Frostwyrm/Bone_Body/Bone_Front/Bone_F Thigh/Bone_ont
+          R Leg/Bone_ont R Foot '
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Front/Bone_F Thigh/Bone_ont
+          R Leg/Bone_ont R Foot /FootFrontL
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Front/Bone_F Thigh/Bone_ont
+          R Leg/Leg2L
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Front/Bone_F Thigh/Leg1L
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Front/Bone_Neck
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Front/Bone_Neck/Bone_Head
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Front/Bone_Neck/Bone_Head/Head
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Front/Bone_Neck/Bone_Head/Head/JawLow
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Front/Bone_Neck/Bone_Head/Head
+          - Ref
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Front/Bone_Neck/Bone_Head/Portrait_Dragon_05
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Front/Bone_Neck/Bone_Head/Portrait_Dragon_12
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Front/Bone_Neck/Bone_Head/Weapon
+          Ref
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Front/Bone_Neck/Neck
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Front/Bone_ont L Thigh
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Front/Bone_ont L Thigh/Bone_ont
+          Left Leg
+        weight: 1
+      - path: 'm3bone_root/Bone Frostwyrm/Bone_Body/Bone_Front/Bone_ont L Thigh/Bone_ont
+          Left Leg/Bone_ont Left Foot '
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Front/Bone_ont L Thigh/Bone_ont
+          Left Leg/Bone_ont Left Foot /FootFrontR
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Front/Bone_ont L Thigh/Bone_ont
+          Left Leg/Leg2R
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Front/Bone_ont L Thigh/Leg1TCR
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Object05
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Chest Ref
+        weight: 1
+      - path: 'm3bone_root/Origin Ref '
+        weight: 1
+      - path: 'm3bone_root/OverHead Ref '
+        weight: 1
+      - path: m3bone_root/Plane07
+        weight: 1
+      - path: m3bone_root/Plane07/RedDragon4
+        weight: 1
+      - path: m3bone_root/Plane08
+        weight: 1
+      - path: m3bone_root/Plane09
+        weight: 1
+      - path: m3bone_root/Plane10
+        weight: 1
+      - path: m3bone_root/Plane11
+        weight: 1
+      - path: RedDragon1
+        weight: 1
+      - path: RedDragon2
+        weight: 1
+      - path: RedDragon3
+        weight: 1
+      - path: RedDragon5
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Skill01
+      takeName: Take 001
+      firstFrame: 700
+      lastFrame: 745
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: _M3_Anim_Data
+        weight: 1
+      - path: m3bone_root
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone18
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone18/Bone19
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone18/Bone19/Bone20
+        weight: 1
+      - path: 'm3bone_root/Bone Frostwyrm/Bone_Body/Bone18/Bone19/Bone20/Hand Left
+          Ref '
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone18/Bone19/Bone20/WingR_05
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone18/Bone19/Bone20/WingR_07
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone18/Bone19/WingR_03
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone18/WingR_02
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone21
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone21/Bone22
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone21/Bone22/Bone23
+        weight: 1
+      - path: 'm3bone_root/Bone Frostwyrm/Bone_Body/Bone21/Bone22/Bone23/Hand Right
+          Ref '
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone21/Bone22/Bone23/WingL_06
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone21/Bone22/Bone23/WingL_09
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone21/Bone22/WingL_04
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone21/WingL_03
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Butt
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Butt/Bone_ck L Thigh
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Butt/Bone_ck L Thigh/Bone_ck
+          L Leg
+        weight: 1
+      - path: 'm3bone_root/Bone Frostwyrm/Bone_Body/Bone_Butt/Bone_ck L Thigh/Bone_ck
+          L Leg/Bone_ck L Foot '
+        weight: 1
+      - path: 'm3bone_root/Bone Frostwyrm/Bone_Body/Bone_Butt/Bone_ck L Thigh/Bone_ck
+          L Leg/Bone_ck L Foot /Foot Left Ref '
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Butt/Bone_ck L Thigh/Bone_ck
+          L Leg/Bone_ck L Foot /FootR
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Butt/Bone_ck L Thigh/Bone_ck
+          L Leg/ShinR
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Butt/Bone_ck L Thigh/ThighTCR
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Butt/Bone_ck R Thigh
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Butt/Bone_ck R Thigh/Bone_ck
+          R Leg
+        weight: 1
+      - path: 'm3bone_root/Bone Frostwyrm/Bone_Body/Bone_Butt/Bone_ck R Thigh/Bone_ck
+          R Leg/Bone_ck R Foot '
+        weight: 1
+      - path: 'm3bone_root/Bone Frostwyrm/Bone_Body/Bone_Butt/Bone_ck R Thigh/Bone_ck
+          R Leg/Bone_ck R Foot /Foot Right Ref '
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Butt/Bone_ck R Thigh/Bone_ck
+          R Leg/Bone_ck R Foot /FootL
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Butt/Bone_ck R Thigh/Bone_ck
+          R Leg/ShinL
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Butt/Bone_ck R Thigh/ThighTCL
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Butt/Bone_Tail01
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Butt/Bone_Tail01/Bone_Tail02
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Butt/Bone_Tail01/Bone_Tail02/Bone_Tail03
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Butt/Bone_Tail01/Bone_Tail02/Bone_Tail03/Bone_Tail04
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Butt/Bone_Tail01/Bone_Tail02/Bone_Tail03/Bone_Tail04/Tail4
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Butt/Bone_Tail01/Bone_Tail02/Bone_Tail03/Tail3
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Butt/Bone_Tail01/Bone_Tail02/Tail2
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Butt/Bone_Tail01/Tail1
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Butt/Butt
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Front
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Front/Bone_F Thigh
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Front/Bone_F Thigh/Bone_ont
+          R Leg
+        weight: 1
+      - path: 'm3bone_root/Bone Frostwyrm/Bone_Body/Bone_Front/Bone_F Thigh/Bone_ont
+          R Leg/Bone_ont R Foot '
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Front/Bone_F Thigh/Bone_ont
+          R Leg/Bone_ont R Foot /FootFrontL
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Front/Bone_F Thigh/Bone_ont
+          R Leg/Leg2L
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Front/Bone_F Thigh/Leg1L
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Front/Bone_Neck
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Front/Bone_Neck/Bone_Head
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Front/Bone_Neck/Bone_Head/Head
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Front/Bone_Neck/Bone_Head/Head/JawLow
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Front/Bone_Neck/Bone_Head/Head
+          - Ref
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Front/Bone_Neck/Bone_Head/Portrait_Dragon_05
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Front/Bone_Neck/Bone_Head/Portrait_Dragon_12
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Front/Bone_Neck/Bone_Head/Weapon
+          Ref
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Front/Bone_Neck/Neck
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Front/Bone_ont L Thigh
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Front/Bone_ont L Thigh/Bone_ont
+          Left Leg
+        weight: 1
+      - path: 'm3bone_root/Bone Frostwyrm/Bone_Body/Bone_Front/Bone_ont L Thigh/Bone_ont
+          Left Leg/Bone_ont Left Foot '
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Front/Bone_ont L Thigh/Bone_ont
+          Left Leg/Bone_ont Left Foot /FootFrontR
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Front/Bone_ont L Thigh/Bone_ont
+          Left Leg/Leg2R
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Front/Bone_ont L Thigh/Leg1TCR
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Object05
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Chest Ref
+        weight: 1
+      - path: 'm3bone_root/Origin Ref '
+        weight: 1
+      - path: 'm3bone_root/OverHead Ref '
+        weight: 1
+      - path: m3bone_root/Plane07
+        weight: 1
+      - path: m3bone_root/Plane07/RedDragon4
+        weight: 1
+      - path: m3bone_root/Plane08
+        weight: 1
+      - path: m3bone_root/Plane09
+        weight: 1
+      - path: m3bone_root/Plane10
+        weight: 1
+      - path: m3bone_root/Plane11
+        weight: 1
+      - path: RedDragon1
+        weight: 1
+      - path: RedDragon2
+        weight: 1
+      - path: RedDragon3
+        weight: 1
+      - path: RedDragon5
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Attack01
+      takeName: Take 001
+      firstFrame: 70
+      lastFrame: 115
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: _M3_Anim_Data
+        weight: 1
+      - path: m3bone_root
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone18
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone18/Bone19
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone18/Bone19/Bone20
+        weight: 1
+      - path: 'm3bone_root/Bone Frostwyrm/Bone_Body/Bone18/Bone19/Bone20/Hand Left
+          Ref '
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone18/Bone19/Bone20/WingR_05
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone18/Bone19/Bone20/WingR_07
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone18/Bone19/WingR_03
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone18/WingR_02
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone21
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone21/Bone22
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone21/Bone22/Bone23
+        weight: 1
+      - path: 'm3bone_root/Bone Frostwyrm/Bone_Body/Bone21/Bone22/Bone23/Hand Right
+          Ref '
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone21/Bone22/Bone23/WingL_06
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone21/Bone22/Bone23/WingL_09
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone21/Bone22/WingL_04
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone21/WingL_03
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Butt
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Butt/Bone_ck L Thigh
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Butt/Bone_ck L Thigh/Bone_ck
+          L Leg
+        weight: 1
+      - path: 'm3bone_root/Bone Frostwyrm/Bone_Body/Bone_Butt/Bone_ck L Thigh/Bone_ck
+          L Leg/Bone_ck L Foot '
+        weight: 1
+      - path: 'm3bone_root/Bone Frostwyrm/Bone_Body/Bone_Butt/Bone_ck L Thigh/Bone_ck
+          L Leg/Bone_ck L Foot /Foot Left Ref '
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Butt/Bone_ck L Thigh/Bone_ck
+          L Leg/Bone_ck L Foot /FootR
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Butt/Bone_ck L Thigh/Bone_ck
+          L Leg/ShinR
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Butt/Bone_ck L Thigh/ThighTCR
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Butt/Bone_ck R Thigh
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Butt/Bone_ck R Thigh/Bone_ck
+          R Leg
+        weight: 1
+      - path: 'm3bone_root/Bone Frostwyrm/Bone_Body/Bone_Butt/Bone_ck R Thigh/Bone_ck
+          R Leg/Bone_ck R Foot '
+        weight: 1
+      - path: 'm3bone_root/Bone Frostwyrm/Bone_Body/Bone_Butt/Bone_ck R Thigh/Bone_ck
+          R Leg/Bone_ck R Foot /Foot Right Ref '
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Butt/Bone_ck R Thigh/Bone_ck
+          R Leg/Bone_ck R Foot /FootL
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Butt/Bone_ck R Thigh/Bone_ck
+          R Leg/ShinL
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Butt/Bone_ck R Thigh/ThighTCL
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Butt/Bone_Tail01
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Butt/Bone_Tail01/Bone_Tail02
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Butt/Bone_Tail01/Bone_Tail02/Bone_Tail03
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Butt/Bone_Tail01/Bone_Tail02/Bone_Tail03/Bone_Tail04
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Butt/Bone_Tail01/Bone_Tail02/Bone_Tail03/Bone_Tail04/Tail4
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Butt/Bone_Tail01/Bone_Tail02/Bone_Tail03/Tail3
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Butt/Bone_Tail01/Bone_Tail02/Tail2
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Butt/Bone_Tail01/Tail1
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Butt/Butt
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Front
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Front/Bone_F Thigh
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Front/Bone_F Thigh/Bone_ont
+          R Leg
+        weight: 1
+      - path: 'm3bone_root/Bone Frostwyrm/Bone_Body/Bone_Front/Bone_F Thigh/Bone_ont
+          R Leg/Bone_ont R Foot '
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Front/Bone_F Thigh/Bone_ont
+          R Leg/Bone_ont R Foot /FootFrontL
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Front/Bone_F Thigh/Bone_ont
+          R Leg/Leg2L
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Front/Bone_F Thigh/Leg1L
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Front/Bone_Neck
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Front/Bone_Neck/Bone_Head
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Front/Bone_Neck/Bone_Head/Head
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Front/Bone_Neck/Bone_Head/Head/JawLow
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Front/Bone_Neck/Bone_Head/Head
+          - Ref
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Front/Bone_Neck/Bone_Head/Portrait_Dragon_05
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Front/Bone_Neck/Bone_Head/Portrait_Dragon_12
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Front/Bone_Neck/Bone_Head/Weapon
+          Ref
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Front/Bone_Neck/Neck
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Front/Bone_ont L Thigh
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Front/Bone_ont L Thigh/Bone_ont
+          Left Leg
+        weight: 1
+      - path: 'm3bone_root/Bone Frostwyrm/Bone_Body/Bone_Front/Bone_ont L Thigh/Bone_ont
+          Left Leg/Bone_ont Left Foot '
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Front/Bone_ont L Thigh/Bone_ont
+          Left Leg/Bone_ont Left Foot /FootFrontR
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Front/Bone_ont L Thigh/Bone_ont
+          Left Leg/Leg2R
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Front/Bone_ont L Thigh/Leg1TCR
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Object05
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Chest Ref
+        weight: 1
+      - path: 'm3bone_root/Origin Ref '
+        weight: 1
+      - path: 'm3bone_root/OverHead Ref '
+        weight: 1
+      - path: m3bone_root/Plane07
+        weight: 1
+      - path: m3bone_root/Plane07/RedDragon4
+        weight: 1
+      - path: m3bone_root/Plane08
+        weight: 1
+      - path: m3bone_root/Plane09
+        weight: 1
+      - path: m3bone_root/Plane10
+        weight: 1
+      - path: m3bone_root/Plane11
+        weight: 1
+      - path: RedDragon1
+        weight: 1
+      - path: RedDragon2
+        weight: 1
+      - path: RedDragon3
+        weight: 1
+      - path: RedDragon5
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Death01
+      takeName: Take 001
+      firstFrame: 540
+      lastFrame: 570
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: _M3_Anim_Data
+        weight: 1
+      - path: m3bone_root
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone18
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone18/Bone19
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone18/Bone19/Bone20
+        weight: 1
+      - path: 'm3bone_root/Bone Frostwyrm/Bone_Body/Bone18/Bone19/Bone20/Hand Left
+          Ref '
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone18/Bone19/Bone20/WingR_05
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone18/Bone19/Bone20/WingR_07
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone18/Bone19/WingR_03
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone18/WingR_02
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone21
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone21/Bone22
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone21/Bone22/Bone23
+        weight: 1
+      - path: 'm3bone_root/Bone Frostwyrm/Bone_Body/Bone21/Bone22/Bone23/Hand Right
+          Ref '
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone21/Bone22/Bone23/WingL_06
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone21/Bone22/Bone23/WingL_09
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone21/Bone22/WingL_04
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone21/WingL_03
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Butt
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Butt/Bone_ck L Thigh
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Butt/Bone_ck L Thigh/Bone_ck
+          L Leg
+        weight: 1
+      - path: 'm3bone_root/Bone Frostwyrm/Bone_Body/Bone_Butt/Bone_ck L Thigh/Bone_ck
+          L Leg/Bone_ck L Foot '
+        weight: 1
+      - path: 'm3bone_root/Bone Frostwyrm/Bone_Body/Bone_Butt/Bone_ck L Thigh/Bone_ck
+          L Leg/Bone_ck L Foot /Foot Left Ref '
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Butt/Bone_ck L Thigh/Bone_ck
+          L Leg/Bone_ck L Foot /FootR
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Butt/Bone_ck L Thigh/Bone_ck
+          L Leg/ShinR
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Butt/Bone_ck L Thigh/ThighTCR
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Butt/Bone_ck R Thigh
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Butt/Bone_ck R Thigh/Bone_ck
+          R Leg
+        weight: 1
+      - path: 'm3bone_root/Bone Frostwyrm/Bone_Body/Bone_Butt/Bone_ck R Thigh/Bone_ck
+          R Leg/Bone_ck R Foot '
+        weight: 1
+      - path: 'm3bone_root/Bone Frostwyrm/Bone_Body/Bone_Butt/Bone_ck R Thigh/Bone_ck
+          R Leg/Bone_ck R Foot /Foot Right Ref '
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Butt/Bone_ck R Thigh/Bone_ck
+          R Leg/Bone_ck R Foot /FootL
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Butt/Bone_ck R Thigh/Bone_ck
+          R Leg/ShinL
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Butt/Bone_ck R Thigh/ThighTCL
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Butt/Bone_Tail01
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Butt/Bone_Tail01/Bone_Tail02
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Butt/Bone_Tail01/Bone_Tail02/Bone_Tail03
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Butt/Bone_Tail01/Bone_Tail02/Bone_Tail03/Bone_Tail04
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Butt/Bone_Tail01/Bone_Tail02/Bone_Tail03/Bone_Tail04/Tail4
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Butt/Bone_Tail01/Bone_Tail02/Bone_Tail03/Tail3
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Butt/Bone_Tail01/Bone_Tail02/Tail2
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Butt/Bone_Tail01/Tail1
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Butt/Butt
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Front
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Front/Bone_F Thigh
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Front/Bone_F Thigh/Bone_ont
+          R Leg
+        weight: 1
+      - path: 'm3bone_root/Bone Frostwyrm/Bone_Body/Bone_Front/Bone_F Thigh/Bone_ont
+          R Leg/Bone_ont R Foot '
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Front/Bone_F Thigh/Bone_ont
+          R Leg/Bone_ont R Foot /FootFrontL
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Front/Bone_F Thigh/Bone_ont
+          R Leg/Leg2L
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Front/Bone_F Thigh/Leg1L
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Front/Bone_Neck
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Front/Bone_Neck/Bone_Head
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Front/Bone_Neck/Bone_Head/Head
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Front/Bone_Neck/Bone_Head/Head/JawLow
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Front/Bone_Neck/Bone_Head/Head
+          - Ref
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Front/Bone_Neck/Bone_Head/Portrait_Dragon_05
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Front/Bone_Neck/Bone_Head/Portrait_Dragon_12
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Front/Bone_Neck/Bone_Head/Weapon
+          Ref
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Front/Bone_Neck/Neck
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Front/Bone_ont L Thigh
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Front/Bone_ont L Thigh/Bone_ont
+          Left Leg
+        weight: 1
+      - path: 'm3bone_root/Bone Frostwyrm/Bone_Body/Bone_Front/Bone_ont L Thigh/Bone_ont
+          Left Leg/Bone_ont Left Foot '
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Front/Bone_ont L Thigh/Bone_ont
+          Left Leg/Bone_ont Left Foot /FootFrontR
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Front/Bone_ont L Thigh/Bone_ont
+          Left Leg/Leg2R
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Bone_Front/Bone_ont L Thigh/Leg1TCR
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Bone_Body/Object05
+        weight: 1
+      - path: m3bone_root/Bone Frostwyrm/Chest Ref
+        weight: 1
+      - path: 'm3bone_root/Origin Ref '
+        weight: 1
+      - path: 'm3bone_root/OverHead Ref '
+        weight: 1
+      - path: m3bone_root/Plane07
+        weight: 1
+      - path: m3bone_root/Plane07/RedDragon4
+        weight: 1
+      - path: m3bone_root/Plane08
+        weight: 1
+      - path: m3bone_root/Plane09
+        weight: 1
+      - path: m3bone_root/Plane10
+        weight: 1
+      - path: m3bone_root/Plane11
+        weight: 1
+      - path: RedDragon1
+        weight: 1
+      - path: RedDragon2
+        weight: 1
+      - path: RedDragon3
+        weight: 1
+      - path: RedDragon5
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

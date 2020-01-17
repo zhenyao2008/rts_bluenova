@@ -1,0 +1,3 @@
+function InitCityPanels()
+    cityShopPanelRoot = uiRoot:Find("CityPanel");
+end
