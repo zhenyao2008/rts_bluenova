@@ -34,7 +34,7 @@ namespace BlueNoah.RPG.SceneControl
 
             mStageService = new StageService();
 
-            //mStageService.onSpawnActor = SpawnStageActor;
+            mStageService.onSpawnActor = SpawnStageActor;
         }
         public void OnAwake()
         {
