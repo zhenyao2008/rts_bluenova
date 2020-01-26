@@ -2,8 +2,8 @@
   "defaultMoveSpeed": 5,
   "removeIp": "127.0.0.1",
   "rips": null,
-  "battleSpawnInterval":"10",
+  "battleSpawnInterval":"15",
   "battleTownHealth":"50000",
-  "defaultCorn":20000,
-  "turnCorn":1000
+  "defaultCorn":1000,
+  "turnCorn":500
 }
