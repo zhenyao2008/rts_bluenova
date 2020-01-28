@@ -17,6 +17,11 @@ namespace BlueNoah.AI.Spawn.View
         {
             mCachedActor = new Dictionary<int, GameObject>();
         }
+
+        protected GameObject GetPrefab(string path)
+        {
+            return Resources.Load<GameObject>(path);
+        }
     }
 }
 

@@ -43,11 +43,6 @@ namespace BlueNoah.AI.Spawn.View
             mCachedActor = new Dictionary<int, GameObject>();
         }
 
-        GameObject GetPrefab(string path)
-        {
-            return Resources.Load<GameObject>(path);
-        }
-
         public GameObject SpawnActor(ActorCore actorCore)
         {
             if (!mCachedActor.ContainsKey(actorCore.actorAttribute.playerId))
