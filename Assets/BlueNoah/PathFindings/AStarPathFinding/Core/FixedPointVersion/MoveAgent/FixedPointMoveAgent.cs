@@ -201,6 +201,7 @@ namespace BlueNoah.PathFinding.FixedPoint
             {
                 mTargetNode = mPath[mCurrentIndex];
                 transform.forward = (mTargetNode.pos - transform.position).normalized;
+                transform.eulerAngles = FixedPointQuaternion.LookRotation(transform.forward).eulerAngles;
                 mCurrentBookNode = mTargetNode;
                 mCurrentBookNode.unitCount++;
                 mCurrentBookNode.moveAgent = this;
