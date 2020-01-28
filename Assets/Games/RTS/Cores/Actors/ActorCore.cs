@@ -78,7 +78,7 @@ namespace BlueNoah.AI.RTS
 
         public ActorCore(MapMonster mapMonster)
         {
-            FixedPointVector3 position = new FixedPointVector3(mapMonster.pos_x, 0, mapMonster.pos_y);
+            FixedPointVector3 position = new FixedPointVector3(mapMonster.pos_x / 1000f, 0, mapMonster.pos_y / 1000f);
 
             FixedPointVector3 eulerAngles = new FixedPointVector3(0, mapMonster.angle_y, 0);
 
@@ -101,6 +101,8 @@ namespace BlueNoah.AI.RTS
             transform.position = position;
 
             transform.eulerAngles = eulerAngles;
+
+            transform.forward = FixedPointQuaternion.Euler(eulerAngles) * FixedPointVector3.forward;
 
             transform.layerMask = 0;
 

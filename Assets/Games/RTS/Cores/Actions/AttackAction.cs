@@ -1,4 +1,5 @@
 ﻿using BlueNoah.AI.FSM;
+using BlueNoah.Math.FixedPoint;
 using UnityEngine;
 
 namespace BlueNoah.AI.RTS
@@ -21,6 +22,10 @@ namespace BlueNoah.AI.RTS
             mActorCore.ActorMove.FixedPointMoveAgent.Stop();
             mActorCore.DoAction(ActionMotionConstant.STANDBY);
             mNextAttackFrame = Time.frameCount + mActorCore.attackInterval;
+            if (mActorCore.targetActor != null)
+            {
+                mActorCore.transform.forward = (mActorCore.targetActor.transform.position - mActorCore.transform.position).normalized;
+            }
         }
 
         public override void OnUpdate()
