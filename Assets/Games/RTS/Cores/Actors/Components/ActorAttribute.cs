@@ -68,6 +68,11 @@ namespace BlueNoah.AI.RTS
         {
             get{ return currentHealth <= 0; }
         }
+        //dead or effected.
+        public bool IsActive
+        {
+            get { return !IsDead; }
+        }
 
         public void OnDamage(FixedPoint64 damage)
         {

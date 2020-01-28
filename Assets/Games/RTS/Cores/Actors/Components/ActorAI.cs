@@ -32,18 +32,21 @@ namespace BlueNoah.AI.RTS
         //Control from outside
         public void MoveTo(ActorCore targetActor, FixedPointVector3 targetPos, bool isForceMove, bool isScanMove)
         {
-            mActorCore.targetActor = targetActor;
-            mActorCore.targetPos = targetPos;
-            mActorCore.isForceMove = isForceMove;
-            mActorCore.isScanMove = isScanMove;
-            mFiniteStateMachine.SetCondition(FiniteConditionConstant.Run, true);
-            if (isForceMove)
+            if(mActorCore.actorAttribute.IsActive)
             {
-                mActorCore.ActorMove.MoveTo(mActorCore.targetPos, () => {
-                    Debug.Log("ActionMotionConstant Done");
-                    this.mFiniteStateMachine.SetCondition(FiniteConditionConstant.Run, false);
-                    mActorCore.isForceMove = false;
-                });
+                mActorCore.targetActor = targetActor;
+                mActorCore.targetPos = targetPos;
+                mActorCore.isForceMove = isForceMove;
+                mActorCore.isScanMove = isScanMove;
+                mFiniteStateMachine.SetCondition(FiniteConditionConstant.Run, true);
+                if (isForceMove)
+                {
+                    mActorCore.ActorMove.MoveTo(mActorCore.targetPos, () => {
+                        Debug.Log("ActionMotionConstant Done");
+                        this.mFiniteStateMachine.SetCondition(FiniteConditionConstant.Run, false);
+                        mActorCore.isForceMove = false;
+                    });
+                }
             }
         }
 
