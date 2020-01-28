@@ -35,6 +35,8 @@ namespace RTS
 
             EasyInput.Instance.AddListener(BlueNoah.Event.TouchType.Click, 0, OnClick);
 
+            EasyInput.Instance.AddListener(BlueNoah.Event.TouchType.Click, 1, OnRightClick);
+
             BlueNoah.CameraControl.CameraController.Instance.MoveSpeed = TD.Config.InGameConfig.Single.cameraDragSpeed;
         }
 
@@ -74,36 +76,40 @@ namespace RTS
             }
         }
 
-        public void OnUpdate()
+        void OnRightClick(EventData eventData)
         {
-            if (Input.GetMouseButtonDown(1))
+            Debug.Log("OnRightClick");
+            if (mSelectedActors.Count > 0)
             {
-                if (mSelectedActors.Count > 0)
+                RaycastHit raycastHit;
+                if (BlueNoah.CameraControl.CameraController.Instance.GetWorldPositionByMousePosition(out raycastHit, LayerConstant.LAYER_GROUND))
                 {
-                    RaycastHit raycastHit;
-                    if (BlueNoah.CameraControl.CameraController.Instance.GetWorldPositionByMousePosition(out raycastHit, LayerConstant.LAYER_GROUND))
+                    //FixedPointNode fixedPointNode = PathFindingMananger.Single.Grid.GetNode(raycastHit.point.ToFixedPointVector3());
+                    List<FixedPointVector3> fixedPointVectors = GetNearPositions(raycastHit.point.ToFixedPointVector3(), mSelectedActors.Count);
+                    int index = 0;
+                    foreach (ActorViewer actorViewer in mSelectedActors.Values)
                     {
-                        //FixedPointNode fixedPointNode = PathFindingMananger.Single.Grid.GetNode(raycastHit.point.ToFixedPointVector3());
-                        List<FixedPointVector3> fixedPointVectors = GetNearPositions(raycastHit.point.ToFixedPointVector3(), mSelectedActors.Count);
-                        int index = 0;
-                        foreach (ActorViewer actorViewer in mSelectedActors.Values)
+                        if (actorViewer != null)
                         {
-                            if (actorViewer != null)
+                            if (Input.GetKey(KeyCode.A))
                             {
-                                if (Input.GetKey(KeyCode.A))
-                                {
-                                    actorViewer.actorCore.ActorAI.MoveTo(null, fixedPointVectors[index], true, true);
-                                }
-                                else
-                                {
-                                    actorViewer.actorCore.ActorAI.MoveTo(null, fixedPointVectors[index], true, false);
-                                }
+                                //TODO let action system to do this,can not 操る　actorCore by Player directly.
+                                actorViewer.actorCore.ActorAI.MoveTo(null, fixedPointVectors[index], true, true);
                             }
-                            index++;
+                            else
+                            {
+                                //TODO let action system to do this,can not 操る　actorCore by Player directly.
+                                actorViewer.actorCore.ActorAI.MoveTo(null, fixedPointVectors[index], true, false);
+                            }
                         }
+                        index++;
                     }
                 }
             }
+        }
+
+        public void OnUpdate()
+        {
         }
 
         void UnSelectActors()
