@@ -41,6 +41,8 @@ namespace BlueNoah.AI.View.RTS
             this.actorCore = actorCore;
             //actorCore.ActorMove.FixedPointMoveAgent.onMove = actorAnimation.Run;
             //actorCore.ActorMove.FixedPointMoveAgent.onStop = actorAnimation.Idle;
+
+            /*
             actorCore.ActorMove.FixedPointMoveAgent.onPositionChange = (FixedPointTransform pointTransform) =>
             {
                 transform.position = pointTransform.position.ToVector3();
@@ -50,12 +52,14 @@ namespace BlueNoah.AI.View.RTS
                 transform.position = pointTransform.position.ToVector3();
                 transform.forward = pointTransform.forward.ToVector3();
             };
+            */
+
             actorCore.onFSMAction = DoFSMAction;
             UpdateTransform();
         }
         void Update()
         {
-            //UpdateTransform();
+            UpdateTransform();
         }
 
         public void UpdateTransform()

@@ -1,4 +1,5 @@
 ﻿using BlueNoah.AI.FSM;
+using BlueNoah.Math.FixedPoint;
 using UnityEngine;
 
 namespace BlueNoah.AI.RTS
@@ -21,6 +22,13 @@ namespace BlueNoah.AI.RTS
             mActorCore.ActorMove.FixedPointMoveAgent.Stop();
             mActorCore.DoAction(ActionMotionConstant.STANDBY);
             mNextAttackFrame = Time.frameCount + mActorCore.attackInterval;
+            if (mActorCore.targetActor != null)
+            {
+                mActorCore.transform.forward = (mActorCore.transform.position - mActorCore.targetActor.transform.position).normalized;
+                Debug.Log(mActorCore.transform.forward);
+                mActorCore.transform.eulerAngles = FixedPointQuaternion.LookRotation(mActorCore.transform.forward).eulerAngles;
+                Debug.Log(mActorCore.transform.eulerAngles);
+            }
         }
 
         public override void OnUpdate()
