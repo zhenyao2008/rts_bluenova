@@ -11,11 +11,11 @@ namespace BlueNoah.AI.Spawn.View
 {
     public abstract class ActorViewBaseSpawnService
     {
-        protected Dictionary<int, GameObject> mCachedActor;
+        protected Dictionary<string, GameObject> mCachedActor;
 
         public void Init()
         {
-            mCachedActor = new Dictionary<int, GameObject>();
+            mCachedActor = new Dictionary<string, GameObject>();
         }
 
         protected GameObject GetPrefab(string path)

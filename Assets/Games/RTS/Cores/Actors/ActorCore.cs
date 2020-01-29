@@ -17,6 +17,9 @@ namespace BlueNoah.AI.RTS
 
     //main class for actor logic.
     //controlled by FSM.
+    //Building and Unit.
+    //Building can't move and will block the node.Some building can attack like unit.
+    //Unit can move and will not block the node.
     public class ActorCore
     {
         public ActorAttribute actorAttribute;
@@ -95,6 +98,12 @@ namespace BlueNoah.AI.RTS
             actorAttribute.actorTypeId = actorTypeId;
 
             actorAttribute.runSpeed = mapMonster.move_speed;
+
+            actorAttribute.isBuilding = mapMonster.is_building;
+
+            actorAttribute.sizeX = mapMonster.size_x;
+
+            actorAttribute.sizeZ = mapMonster.size_y;
 
             transform = new FixedPointTransform();
 

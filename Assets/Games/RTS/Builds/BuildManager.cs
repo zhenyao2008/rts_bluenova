@@ -23,8 +23,8 @@ namespace BlueNoah.Build
         public FixedPoint64 diagonalPlus = 1f;
         public FixedPointVector3 startPos = FixedPointVector3.zero;
         public float padding = 0.04f;
-        public int xCount = 60;
-        public int zCount = 30;
+        public int xCount = 100;
+        public int zCount = 100;
         public int gridViewLayer;
 
         GameObject mSelectBuilding;
@@ -219,6 +219,23 @@ namespace BlueNoah.Build
             {
                 mIsControllable = value;
             }
+        }
+
+        public void UpdateNodes(FixedPointNode node)
+        {
+            if (node.IsBlock)
+            {
+                mGridViewGroup.SetNodeColor(node.x, node.z, Color.red);
+            }
+            else
+            {
+                mGridViewGroup.SetNodeColor(node.x, node.z, Color.green);
+            }
+        }
+
+        public void ApplyColors()
+        {
+            mGridViewGroup.ApplyColors();
         }
 
         private void OnDrawGizmos()

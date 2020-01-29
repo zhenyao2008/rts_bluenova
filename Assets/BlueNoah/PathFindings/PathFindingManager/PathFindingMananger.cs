@@ -92,8 +92,8 @@ namespace BlueNoah.PathFinding
             gridSetting.nodeWidth = 1f;
             gridSetting.diagonalPlus = 1.4f;
             gridSetting.startPos = new FixedPointVector3(0, 0, 0);
-            gridSetting.xCount = 75;
-            gridSetting.zCount = 40;
+            gridSetting.xCount = 100;
+            gridSetting.zCount = 100;
             mGrid.Init(gridSetting);
             mPathAgent = new FixedPointPathAgent(mGrid);
 

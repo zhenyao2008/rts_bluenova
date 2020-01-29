@@ -9,14 +9,16 @@ namespace BlueNoah.AI.Stage
     public class StageService
     {
         List<MapMonster> mMonsterDataList;
+        List<MapMonster> mMapBuildingDataList;
         int mStageId;
         public UnityAction<MapMonster> onSpawnActor;
+        public UnityAction<MapMonster> onSpawnBuildingActor;
 
         public void LoadStage(int stageId)
         {
             mStageId = stageId;
 
-            mMonsterDataList = CSVManager.Instance.LoadMonsterCSV(stageId);
+            mMonsterDataList = CSVManager.Instance.LoadMapMonsterCSV(stageId);
 
             Debug.Log("mMonsterDataList:" + mMonsterDataList.Count);
 
@@ -27,6 +29,17 @@ namespace BlueNoah.AI.Stage
                     onSpawnActor(mMonsterDataList[i]);
                 }
             }
+
+            mMapBuildingDataList = CSVManager.Instance.LoadMapBuildingCSV(stageId);
+
+            for (int i = 0; i < mMapBuildingDataList.Count; i++)
+            {
+                if (onSpawnBuildingActor != null)
+                {
+                    onSpawnBuildingActor(mMapBuildingDataList[i]);
+                }
+            }
+
         }
     }
 }

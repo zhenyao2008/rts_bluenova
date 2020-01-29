@@ -40,23 +40,42 @@ namespace BlueNoah.AI.Spawn.View
 
         public ActorViewSpawnService()
         {
-            mCachedActor = new Dictionary<int, GameObject>();
+            mCachedActor = new Dictionary<string, GameObject>();
         }
 
         public GameObject SpawnActor(ActorCore actorCore)
         {
-            if (!mCachedActor.ContainsKey(actorCore.actorAttribute.playerId))
+            string path = "";
+
+            if (actorCore.actorAttribute.playerId == 1)
             {
-                if (actorCore.actorAttribute.playerId == 1)
+                if (actorCore.actorAttribute.actorTypeId == 14)
                 {
-                    mCachedActor.Add(actorCore.actorAttribute.playerId, GetPrefab("Prefabs/Actors/Footman/Soldier_Militia"));
+                    path = "Prefabs/Actors/Footman/Soldier_Militia";
                 }
-                else
+                else if (actorCore.actorAttribute.actorTypeId == 100)
                 {
-                    mCachedActor.Add(actorCore.actorAttribute.playerId, GetPrefab("Prefabs/Actors/Footman/Soldier_Militia_Red"));
+                    path = "Prefabs/Buildings/Barrack/Building_Barrack";
                 }
             }
-            GameObject go = GameObject.Instantiate(this.mCachedActor[actorCore.actorAttribute.playerId]);
+            else
+            {
+                if (actorCore.actorAttribute.actorTypeId == 14)
+                {
+                    path = "Prefabs/Actors/Footman/Soldier_Militia_Red";
+                }
+                else if (actorCore.actorAttribute.actorTypeId == 100)
+                {
+                    path = "Prefabs/Buildings/Barrack/Building_Barrack_Red";
+                }
+            }
+            if (!mCachedActor.ContainsKey(path))
+            {
+                mCachedActor.Add(path,GetPrefab(path));
+            }
+            Debug.Log(actorCore.actorAttribute.actorTypeId);
+            Debug.Log(path);
+            GameObject go = GameObject.Instantiate(mCachedActor[path]);
             ActorViewer actorViewer = go.GetOrAddComponent<ActorViewer>();
             actorViewer.Init(actorCore);
             AddActor(actorViewer);

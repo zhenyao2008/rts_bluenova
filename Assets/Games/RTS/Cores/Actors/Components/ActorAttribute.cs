@@ -14,6 +14,9 @@ namespace BlueNoah.AI.RTS
         public int playerId;
         public int actorTypeId;
         public long actorId;
+        public int isBuilding;
+        public int sizeX;
+        public int sizeZ;
         public FixedPoint64 currentHealth = 200;
         public FixedPoint64 maxHealth = 200;
         public FixedPoint64 currentAttack = 10;

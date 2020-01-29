@@ -9,6 +9,7 @@ namespace BlueNoah.CSV
     public class CSVManager : SingleMonoBehaviour<CSVManager>
     {
         const string CSV_MAP_MONSTER_ROOT = "monsters/";
+        const string CSV_MAP_BUILDING_ROOT = "buildings/";
         const string CSV_UNIT = "m_unit_1";
         const string CSV_BUILDING = "m_building";
         const string CSV_LANGUAGE = "m_localization";
@@ -17,6 +18,11 @@ namespace BlueNoah.CSV
         public List<TextAsset> monsterTextAssetList;
         public List<MapMonster> monsterList;
         public Dictionary<int, MapMonster> monsterDic;
+
+        public List<TextAsset> mapBuildingTextAssetList;
+        public List<MapMonster> mapBuildingList;
+        public Dictionary<int, MapMonster> mapBuildingDic;
+
         public List<KeyValueCSVStructure> languageList;
         public Dictionary<string, string> languageDic;
         public List<BuildingCSVStructure> buildingList;
@@ -43,6 +49,7 @@ namespace BlueNoah.CSV
         {
             mCsvContext = new CsvContext();
             LoadAllMonsterConfigs();
+            LoadAllBuildingConfigs();
             LoadLanguage();
             LoadUnit();
             //LoadBuilding();
@@ -85,7 +92,18 @@ namespace BlueNoah.CSV
             }
         }
 
-        public List<MapMonster> LoadMonsterCSV(int index)
+        void LoadAllBuildingConfigs()
+        {
+            mapBuildingTextAssetList = new List<TextAsset>();
+            TextAsset[] textAssets = Resources.LoadAll<TextAsset>("CSV/" + CSV_MAP_BUILDING_ROOT);
+            Debug.Log("<color=yellow>Load stages from:" + "CSV/" + CSV_MAP_BUILDING_ROOT + "</color>");
+            for (int i = 0; i < textAssets.Length; i++)
+            {
+                mapBuildingTextAssetList.Add(textAssets[i]);
+            }
+        }
+
+        public List<MapMonster> LoadMapMonsterCSV(int index)
         {
             if (monsterTextAssetList == null || monsterTextAssetList.Count == 0)
             {
@@ -95,6 +113,18 @@ namespace BlueNoah.CSV
             monsterList = CreateCSVList<MapMonster>(monsterTextAssetList[index].bytes);
             monsterDic = GetDictionary<MapMonster>(monsterList);
             return monsterList;
+        }
+
+        public List<MapMonster> LoadMapBuildingCSV(int index)
+        {
+            if (mapBuildingTextAssetList == null || mapBuildingTextAssetList.Count == 0)
+            {
+                LoadAllBuildingConfigs();
+            }
+            index = Mathf.Clamp(index, 0, mapBuildingTextAssetList.Count);
+            mapBuildingList = CreateCSVList<MapMonster>(mapBuildingTextAssetList[index].bytes);
+            mapBuildingDic = GetDictionary<MapMonster>(mapBuildingList);
+            return mapBuildingList;
         }
 
         public List<T> CreateCSVList<T>(byte[] bytes) where T : BaseCSVStructure, new()
