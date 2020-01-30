@@ -5,6 +5,8 @@ Shader "Custom/UnlitTransparent" {
 	{
 		_MainTex ("Base (RGB), Alpha (A)", 2D) = "black" {}
 		_Color("Base Color",Color) = (1.0,1.0,1.0,1.0)
+        _XTile("_XTile",Float) = 1
+        _YTile("_YTile",Float) = 1
 	}
 	
 	SubShader
@@ -50,12 +52,14 @@ Shader "Custom/UnlitTransparent" {
 			sampler2D _MainTex;
 			float4 _Color;
 			float4 _MainTex_ST;
-				
+            float _XTile;
+			float _YTile;
+            
 			v2f vert (appdata_t v)
 			{
 				v2f o;
 				o.vertex = UnityObjectToClipPos(v.vertex);
-				o.texcoord = v.texcoord;
+				o.texcoord = float2(v.texcoord.x * _XTile,v.texcoord.y * _YTile);
 				o.color = v.color;
 				return o;
 			}
