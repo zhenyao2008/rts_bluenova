@@ -96,6 +96,10 @@ namespace BlueNoah.PathFinding.FixedPoint
                         {
                             continue;
                         }
+                        if (FixedPointMath.Abs( neighbor.pos.y - node.pos.y) >= 1)
+                        {
+                            continue;
+                        }
                         FixedPoint64 G = node.G + node.consumes[i] + node.neighbors[i].consumeRoadSizePlus;
                         FixedPoint64 H = GetH(node.neighbors[i], targetNode);
                         FixedPoint64 F = G + H;

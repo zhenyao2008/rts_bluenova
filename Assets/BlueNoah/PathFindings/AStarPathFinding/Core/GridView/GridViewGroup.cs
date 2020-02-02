@@ -73,6 +73,14 @@ namespace BlueNoah.PathFinding
             }
         }
 
+        public void ApplyVertexs()
+        {
+            for (int i = 0; i < GridViews.Count; i++)
+            {
+                GridViews[i].ApplyVertex();
+            }
+        }
+
         public void SetNodeColor(int x,int z, Color color)
         {
             GetCurrentGridView(x,z).SetNodeColor(x,z, color);
@@ -82,6 +90,11 @@ namespace BlueNoah.PathFinding
         {
             int index = (x < mXCount / 2 ? 0 : 1) + (z < mZCount / 2 ? 0 : 2);
             return GridViewDic[index];
+        }
+
+        public void SetNodeHeight(int x, int z,float height)
+        {
+            GetCurrentGridView(x, z).SetNodeHeight(x, z, height);
         }
     }
 }

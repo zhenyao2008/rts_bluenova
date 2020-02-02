@@ -4,7 +4,6 @@
 */
 
 using BlueNoah.AI.RTS;
-using BlueNoah.PathFinding.FixedPoint;
 using UnityEngine;
 
 namespace BlueNoah.AI.View.RTS
@@ -68,6 +67,7 @@ namespace BlueNoah.AI.View.RTS
             {
                 transform.position = actorCore.transform.position.ToVector3();
                 transform.forward = actorCore.transform.forward.ToVector3();
+                transform.forward = new Vector3(transform.forward.x,0, transform.forward.z).normalized;
             }
         }
         //Selection condition.

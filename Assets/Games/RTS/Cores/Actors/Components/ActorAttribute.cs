@@ -15,6 +15,9 @@ namespace BlueNoah.AI.RTS
         public int actorTypeId;
         public long actorId;
         public int isBuilding;
+        public int isWall;
+        public int wallHeight;
+        public int isStair;
         public int sizeX;
         public int sizeZ;
         public FixedPoint64 currentHealth = 200;

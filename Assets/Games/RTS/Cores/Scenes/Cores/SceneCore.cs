@@ -82,6 +82,7 @@ namespace BlueNoah.SceneControl
             mapMonster.pos_y = (int)(targetPosition.z * 1000);
             mapMonster.size_x = 1;
             mapMonster.size_y = 1;
+            mapMonster.resource_path = "Prefabs/Actors/Footman/Soldier_Militia";
             mActorCoreSpawnService.SpawnActor(mapMonster);
         }
 

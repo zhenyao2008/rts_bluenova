@@ -45,35 +45,11 @@ namespace BlueNoah.AI.Spawn.View
 
         public GameObject SpawnActor(ActorCore actorCore)
         {
-            string path = "";
-
-            if (actorCore.actorAttribute.playerId == 1)
-            {
-                if (actorCore.actorAttribute.actorTypeId == 14)
-                {
-                    path = "Prefabs/Actors/Footman/Soldier_Militia";
-                }
-                else if (actorCore.actorAttribute.actorTypeId == 100)
-                {
-                    path = "Prefabs/Buildings/Barrack/Building_Barrack";
-                }
-            }
-            else
-            {
-                if (actorCore.actorAttribute.actorTypeId == 14)
-                {
-                    path = "Prefabs/Actors/Footman/Soldier_Militia_Red";
-                }
-                else if (actorCore.actorAttribute.actorTypeId == 100)
-                {
-                    path = "Prefabs/Buildings/Barrack/Building_Barrack_Red";
-                }
-            }
+            string path = actorCore.MapMonster.resource_path;
             if (!mCachedActor.ContainsKey(path))
             {
                 mCachedActor.Add(path,GetPrefab(path));
             }
-            Debug.Log(actorCore.actorAttribute.actorTypeId);
             Debug.Log(path);
             GameObject go = GameObject.Instantiate(mCachedActor[path]);
             ActorViewer actorViewer = go.GetOrAddComponent<ActorViewer>();

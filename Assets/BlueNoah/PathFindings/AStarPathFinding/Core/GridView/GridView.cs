@@ -21,6 +21,8 @@ namespace BlueNoah.PathFinding
         public GameObject gridGameObject;
 
         Color[] mColors;
+        //各頂点
+        Vector3[] Vertex;
 
         Mesh mMesh;
 
@@ -57,6 +59,7 @@ namespace BlueNoah.PathFinding
             GameObject go = MeshUtility.DrawGridGameObject(mMaterial, Color.white, mNodeSize, mXCount, mYCount, mPadding * mNodeSize, mRectInt);
             mMesh = go.GetComponent<MeshFilter>().mesh;
             mColors = mMesh.colors;
+            Vertex = mMesh.vertices;
             go.transform.SetParent(mTrans);
             go.transform.localPosition = new Vector3(-mNodeSize * mXCount / 2f, 0, -mNodeSize * mYCount / 2f);
             go.name = "Grid";
@@ -114,5 +117,26 @@ namespace BlueNoah.PathFinding
         {
             mMesh.colors = mColors;
         }
+
+        public void SetNodeHeight(int x, int z, float height)
+        {
+            int number = 0;
+            if (GetNodeStartIndex(x, z, out number))
+            {
+                if (GetNodeStartIndex(x, z, out number))
+                {
+                    Vertex[number * 4] = new Vector3(Vertex[number * 4].x, height, Vertex[number * 4].z);
+                    Vertex[number * 4 + 1] = new Vector3(Vertex[number * 4 + 1].x, height, Vertex[number * 4 + 1].z);
+                    Vertex[number * 4 + 2] = new Vector3(Vertex[number * 4 + 2].x, height, Vertex[number * 4 + 2].z);
+                    Vertex[number * 4 + 3] = new Vector3(Vertex[number * 4 + 3].x, height, Vertex[number * 4 + 3].z);
+                }
+            }
+        }
+
+        public void ApplyVertex()
+        {
+            mMesh.vertices = Vertex;
+        }
+
     }
 }

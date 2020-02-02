@@ -54,6 +54,16 @@ namespace BlueNoah.AI.RTS
 
         int mFSMId;
 
+        MapMonster mMapMonster;
+
+        public MapMonster MapMonster
+        {
+            get
+            {
+                return mMapMonster;
+            }
+        }
+
 
         public int FSMId
         {
@@ -81,6 +91,8 @@ namespace BlueNoah.AI.RTS
 
         public ActorCore(MapMonster mapMonster)
         {
+            mMapMonster = mapMonster;
+
             FixedPointVector3 position = new FixedPointVector3(mapMonster.pos_x / 1000f, 0, mapMonster.pos_y / 1000f);
 
             FixedPointVector3 eulerAngles = new FixedPointVector3(0, mapMonster.angle_y, 0);
@@ -101,9 +113,15 @@ namespace BlueNoah.AI.RTS
 
             actorAttribute.isBuilding = mapMonster.is_building;
 
+            actorAttribute.isWall = mapMonster.is_wall;
+
             actorAttribute.sizeX = mapMonster.size_x;
 
             actorAttribute.sizeZ = mapMonster.size_y;
+
+            actorAttribute.wallHeight = mapMonster.wall_height;
+
+            actorAttribute.isStair = mapMonster.is_stair;
 
             transform = new FixedPointTransform();
 

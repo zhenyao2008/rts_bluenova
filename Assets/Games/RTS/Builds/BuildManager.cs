@@ -221,7 +221,7 @@ namespace BlueNoah.Build
             }
         }
 
-        public void UpdateNodes(FixedPointNode node)
+        public void UpdateNodesColor(FixedPointNode node)
         {
             if (node.IsBlock)
             {
@@ -233,9 +233,19 @@ namespace BlueNoah.Build
             }
         }
 
+        public void UpdateNodesVertexs(FixedPointNode node)
+        {
+             mGridViewGroup.SetNodeHeight(node.x, node.z, node.pos.y.AsFloat());
+        }
+
         public void ApplyColors()
         {
             mGridViewGroup.ApplyColors();
+        }
+
+        public void ApplyVertexs()
+        {
+            mGridViewGroup.ApplyVertexs();
         }
 
         private void OnDrawGizmos()
