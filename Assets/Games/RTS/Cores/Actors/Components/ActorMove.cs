@@ -35,7 +35,7 @@ namespace BlueNoah.AI.RTS
                 }
                 else
                 {
-                    SetNodeHeight(actorCore.actorAttribute.wallHeight, actorCore.actorAttribute.isStair, 6);
+                    SetNodeHeight(actorCore.actorAttribute.wallHeight, actorCore.actorAttribute.isStair, 6, actorCore.actorAttribute.stairDirect);
                 }
             }
             mFixedPointMoveAgent = PathFindingMananger.Single.CreateMoveAgent(mActorCore.transform, actorCore.actorAttribute.runSpeed / 100);
@@ -48,7 +48,7 @@ namespace BlueNoah.AI.RTS
                 mFixedPointMoveAgent.SetDestination(fixedPointVector3, onComplete);
         }
 
-        public void SetNodeHeight(int height,int isStair,int step )
+        public void SetNodeHeight(int height,int isStair,int step ,int stepType)
         {
             FixedPointGrid grid = PathFindingMananger.Single.Grid;
             FixedPointNode node = grid.GetNode(mActorCore.transform.position);
@@ -60,7 +60,21 @@ namespace BlueNoah.AI.RTS
                     FixedPointNode node1 = grid.GetNode(node.x + i, node.z + j);
                     if (isStair != 0)
                     {
-                        node1.pos.y = new FixedPoint64(height) / step * (j + new FixedPoint64(1) / 2);
+                        switch (stepType)
+                        {
+                            case 0:
+                                node1.pos.y = new FixedPoint64(height) / step * (j + new FixedPoint64(1) / 2);
+                                break;
+                            case 1:
+                                node1.pos.y = new FixedPoint64(height) / step * (mActorCore.actorAttribute.sizeZ - j - new FixedPoint64(1) / 2);
+                                break;
+                            case 2:
+                                node1.pos.y = new FixedPoint64(height) / step * (i + new FixedPoint64(1) / 2);
+                                break;
+                            case 3:
+                                node1.pos.y = new FixedPoint64(height) / step * (mActorCore.actorAttribute.sizeX - i - new FixedPoint64(1) / 2);
+                                break;
+                        }
                     }
                     else
                     {

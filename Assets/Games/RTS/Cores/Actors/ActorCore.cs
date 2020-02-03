@@ -123,6 +123,8 @@ namespace BlueNoah.AI.RTS
 
             actorAttribute.isStair = mapMonster.is_stair;
 
+            actorAttribute.stairDirect = mapMonster.stair_direct;
+
             transform = new FixedPointTransform();
 
             transform.position = position;

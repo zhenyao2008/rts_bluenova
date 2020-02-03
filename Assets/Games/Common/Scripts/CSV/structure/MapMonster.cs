@@ -37,6 +37,8 @@ namespace BlueNoah.CSV
         public int wall_height;
         [CsvColumn()]
         public int is_stair;
+        [CsvColumn()]
+        public int stair_direct;
 
 
         public int[] LayerInt {

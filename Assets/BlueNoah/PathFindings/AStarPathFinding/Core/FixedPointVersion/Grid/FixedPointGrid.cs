@@ -319,6 +319,7 @@ namespace BlueNoah.PathFinding.FixedPoint
 
         public void OnDrawGizmos()
         {
+            return;
             if (mFixedPointGridDebuger!=null)
             {
                 mFixedPointGridDebuger.DrawNodeInfos();
