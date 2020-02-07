@@ -92,9 +92,9 @@ namespace BlueNoah.PathFinding
             return GridViewDic[index];
         }
 
-        public void SetNodeHeight(int x, int z,float height)
+        public void SetNodeHeight(int x, int z,Vector3 position,Vector3 normal)
         {
-            GetCurrentGridView(x, z).SetNodeHeight(x, z, height);
+            GetCurrentGridView(x, z).SetNodeHeight(x, z, position, normal);
         }
     }
 }

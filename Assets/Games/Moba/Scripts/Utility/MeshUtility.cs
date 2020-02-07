@@ -487,4 +487,20 @@ public static class MeshUtility {
         go.GetComponent<MeshFilter>().mesh = mesh;
         return go;
     }
+
+    public static Vector3 RotateByNormal(Vector3 normal, Vector3 center, Vector3 pos)
+    {
+        float dot = Vector3.Dot((pos - center).normalized, normal);
+        float angle = Mathf.Acos(dot);
+        Vector3 cross = Vector3.Cross(normal, (pos - center).normalized);
+        return Rotate(pos, center, cross, (Mathf.PI / 2f - angle) / Mathf.PI * 180);
+    }
+
+    public static Vector3 Rotate(Vector3 pos, Vector3 center, Vector3 axis, float angle)
+    {
+        Quaternion rot = Quaternion.AngleAxis(angle, axis);
+        Vector3 dir = pos - center;
+        dir = rot * dir;
+        return center + dir;
+    }
 }

@@ -118,17 +118,22 @@ namespace BlueNoah.PathFinding
             mMesh.colors = mColors;
         }
 
-        public void SetNodeHeight(int x, int z, float height)
+        public void SetNodeHeight(int x, int z, Vector3 pos,Vector3 normal)
         {
             int number = 0;
             if (GetNodeStartIndex(x, z, out number))
             {
                 if (GetNodeStartIndex(x, z, out number))
                 {
-                    Vertex[number * 4] = new Vector3(Vertex[number * 4].x, height, Vertex[number * 4].z);
-                    Vertex[number * 4 + 1] = new Vector3(Vertex[number * 4 + 1].x, height, Vertex[number * 4 + 1].z);
-                    Vertex[number * 4 + 2] = new Vector3(Vertex[number * 4 + 2].x, height, Vertex[number * 4 + 2].z);
-                    Vertex[number * 4 + 3] = new Vector3(Vertex[number * 4 + 3].x, height, Vertex[number * 4 + 3].z);
+                   
+                    Vertex[number * 4] = new Vector3(Vertex[number * 4].x, pos.y, Vertex[number * 4].z);
+                    Vertex[number * 4] = MeshUtility.RotateByNormal(normal, pos - gridGameObject.transform.position, Vertex[number * 4]);
+                    Vertex[number * 4 + 1] = new Vector3(Vertex[number * 4 + 1].x, pos.y, Vertex[number * 4 + 1].z);
+                    Vertex[number * 4 + 1] = MeshUtility.RotateByNormal(normal, pos - gridGameObject.transform.position, Vertex[number * 4 + 1]);
+                    Vertex[number * 4 + 2] = new Vector3(Vertex[number * 4 + 2].x, pos.y, Vertex[number * 4 + 2].z);
+                    Vertex[number * 4 + 2] = MeshUtility.RotateByNormal(normal, pos - gridGameObject.transform.position, Vertex[number * 4 + 2]);
+                    Vertex[number * 4 + 3] = new Vector3(Vertex[number * 4 + 3].x, pos.y, Vertex[number * 4 + 3].z);
+                    Vertex[number * 4 + 3] = MeshUtility.RotateByNormal(normal, pos - gridGameObject.transform.position, Vertex[number * 4 + 3]);
                 }
             }
         }

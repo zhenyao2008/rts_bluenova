@@ -56,6 +56,10 @@ namespace BlueNoah.PathFinding.FixedPoint
         //当前不能通过，但是路径检查不受影响。
         public bool isTempBlock;
 
+        public bool isStair;
+
+        public bool isWall;
+
         public FixedPointMoveAgent tempBlockMoveAgent;
 
         public FixedPointBridge bridge;

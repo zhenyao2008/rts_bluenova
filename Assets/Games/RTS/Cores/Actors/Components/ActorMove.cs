@@ -58,32 +58,42 @@ namespace BlueNoah.AI.RTS
                 for (int j = 0; j < mActorCore.actorAttribute.sizeZ; j++)
                 {
                     FixedPointNode node1 = grid.GetNode(node.x + i, node.z + j);
+                    Vector3 normal = Vector3.up;
                     if (isStair != 0)
                     {
                         switch (stepType)
                         {
                             case 0:
                                 node1.pos.y = new FixedPoint64(height) / step * (j + new FixedPoint64(1) / 2);
+                                normal = Vector3.Cross(new Vector3(0, (float)height / step,grid.NodeSize.AsFloat()).normalized,Vector3.right);
                                 break;
                             case 1:
                                 node1.pos.y = new FixedPoint64(height) / step * (mActorCore.actorAttribute.sizeZ - j - new FixedPoint64(1) / 2);
+                                normal = Vector3.Cross(new Vector3(0, -(float)height / step, grid.NodeSize.AsFloat()).normalized, Vector3.right);
                                 break;
                             case 2:
                                 node1.pos.y = new FixedPoint64(height) / step * (i + new FixedPoint64(1) / 2);
+                                normal = Vector3.Cross(new Vector3(grid.NodeSize.AsFloat(), (float)height / step, 0).normalized, Vector3.forward);
                                 break;
                             case 3:
                                 node1.pos.y = new FixedPoint64(height) / step * (mActorCore.actorAttribute.sizeX - i - new FixedPoint64(1) / 2);
+                                normal = Vector3.Cross(new Vector3(grid.NodeSize.AsFloat(), -(float)height / step, 0).normalized, Vector3.forward);
                                 break;
                         }
+                        Debug.Log(normal);
+                        node1.isStair = true;
                     }
                     else
                     {
                         node1.pos.y = height;
+                        node1.isWall = true;
                     }
-                    BuildManager.Instance.UpdateNodesVertexs(node1);
+                    BuildManager.Instance.UpdateNodesColor(node1);
+                    BuildManager.Instance.UpdateNodesVertexs(node1, normal);
                 }
             }
             BuildManager.Instance.ApplyVertexs();
+            BuildManager.Instance.ApplyColors();
         }
 
         public void BlockNodes()
@@ -114,7 +124,7 @@ namespace BlueNoah.AI.RTS
                 {
                     FixedPointNode node1 = grid.GetNode(node.x + i, node.z + j);
                     node1.IsBlock = false;
-                    BuildManager.Instance.UpdateNodesVertexs(node1);
+                    BuildManager.Instance.UpdateNodesVertexs(node1,Vector3.up);
                 }
             }
             BuildManager.Instance.ApplyColors();

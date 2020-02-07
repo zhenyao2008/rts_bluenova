@@ -227,15 +227,23 @@ namespace BlueNoah.Build
             {
                 mGridViewGroup.SetNodeColor(node.x, node.z, Color.red);
             }
+            else if (node.isWall)
+            {
+                mGridViewGroup.SetNodeColor(node.x, node.z, Color.yellow);
+            }
+            else if (node.isStair)
+            {
+                mGridViewGroup.SetNodeColor(node.x, node.z, new Color(1,0.7f,0.1f,1));
+            }
             else
             {
                 mGridViewGroup.SetNodeColor(node.x, node.z, Color.green);
             }
         }
 
-        public void UpdateNodesVertexs(FixedPointNode node)
+        public void UpdateNodesVertexs(FixedPointNode node,Vector3 normal)
         {
-             mGridViewGroup.SetNodeHeight(node.x, node.z, node.pos.y.AsFloat());
+             mGridViewGroup.SetNodeHeight(node.x, node.z, node.pos.ToVector3(), normal);
         }
 
         public void ApplyColors()
