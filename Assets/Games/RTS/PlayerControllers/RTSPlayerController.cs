@@ -12,6 +12,7 @@ using BlueNoah.PathFinding.FixedPoint;
 using BlueNoah.SceneControl;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.EventSystems;
 
 namespace RTS
 {
@@ -47,13 +48,17 @@ namespace RTS
 
         void OnClick(EventData eventData)
         {
-            UnSelectActors();
-            RaycastHit raycastHit;
-            if (BlueNoah.CameraControl.CameraController.Instance.GetWorldPositionByMousePosition(out raycastHit, LayerConstant.LAYER_GROUND))
+            if (!eventData.currentTouch.isPointerOnGameObject && !UICamera.isOverUI && (EventSystem.current == null || !EventSystem.current.IsPointerOverGameObject()))
             {
-                if (onCreateActor != null)
+                UnSelectActors();
+                RaycastHit raycastHit;
+                if (BlueNoah.CameraControl.CameraController.Instance.GetWorldPositionByMousePosition(out raycastHit, LayerConstant.LAYER_GROUND))
                 {
-                    onCreateActor(playerId, 1, raycastHit.point, Vector3.zero);
+                    if (onCreateActor != null)
+                    {
+                        Debug.Log("1234");
+                        onCreateActor(playerId, 1, raycastHit.point, Vector3.zero);
+                    }
                 }
             }
         }
@@ -78,31 +83,33 @@ namespace RTS
 
         void OnRightClick(EventData eventData)
         {
-            Debug.Log("OnRightClick");
-            if (mSelectedActors.Count > 0)
+            if (!eventData.currentTouch.isPointerOnGameObject && !UICamera.isOverUI && (EventSystem.current == null || !EventSystem.current.IsPointerOverGameObject()))
             {
-                RaycastHit raycastHit;
-                if (BlueNoah.CameraControl.CameraController.Instance.GetWorldPositionByMousePosition(out raycastHit, LayerConstant.LAYER_GROUND))
+                if (mSelectedActors.Count > 0)
                 {
-                    //FixedPointNode fixedPointNode = PathFindingMananger.Single.Grid.GetNode(raycastHit.point.ToFixedPointVector3());
-                    List<FixedPointVector3> fixedPointVectors = GetNearPositions(raycastHit.point.ToFixedPointVector3(), mSelectedActors.Count);
-                    int index = 0;
-                    foreach (ActorViewer actorViewer in mSelectedActors.Values)
+                    RaycastHit raycastHit;
+                    if (BlueNoah.CameraControl.CameraController.Instance.GetWorldPositionByMousePosition(out raycastHit, LayerConstant.LAYER_GROUND))
                     {
-                        if (actorViewer != null)
+                        //FixedPointNode fixedPointNode = PathFindingMananger.Single.Grid.GetNode(raycastHit.point.ToFixedPointVector3());
+                        List<FixedPointVector3> fixedPointVectors = GetNearPositions(raycastHit.point.ToFixedPointVector3(), mSelectedActors.Count);
+                        int index = 0;
+                        foreach (ActorViewer actorViewer in mSelectedActors.Values)
                         {
-                            if (Input.GetKey(KeyCode.A))
+                            if (actorViewer != null)
                             {
-                                //TODO let action system to do this,can not 操る　actorCore by Player directly.
-                                actorViewer.actorCore.ActorAI.MoveTo(null, fixedPointVectors[index], true, true);
+                                if (Input.GetKey(KeyCode.A))
+                                {
+                                    //TODO let action system to do this,can not 操る　actorCore by Player directly.
+                                    actorViewer.actorCore.ActorAI.MoveTo(null, fixedPointVectors[index], true, true);
+                                }
+                                else
+                                {
+                                    //TODO let action system to do this,can not 操る　actorCore by Player directly.
+                                    actorViewer.actorCore.ActorAI.MoveTo(null, fixedPointVectors[index], true, false);
+                                }
                             }
-                            else
-                            {
-                                //TODO let action system to do this,can not 操る　actorCore by Player directly.
-                                actorViewer.actorCore.ActorAI.MoveTo(null, fixedPointVectors[index], true, false);
-                            }
+                            index++;
                         }
-                        index++;
                     }
                 }
             }

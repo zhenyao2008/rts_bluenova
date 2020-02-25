@@ -8,10 +8,12 @@ namespace BlueNoah.CSV
 {
     public class CSVManager : SingleMonoBehaviour<CSVManager>
     {
+        //Original Data
+        const string CSV_UNIT = "m_unit_1";
+        //Original Data
+        const string CSV_BUILDING = "m_building";
         const string CSV_MAP_MONSTER_ROOT = "monsters/";
         const string CSV_MAP_BUILDING_ROOT = "buildings/";
-        const string CSV_UNIT = "m_unit_1";
-        const string CSV_BUILDING = "m_building";
         const string CSV_LANGUAGE = "m_localization";
         private bool mLoaded = false;
         private CsvContext mCsvContext;
@@ -52,7 +54,7 @@ namespace BlueNoah.CSV
             LoadAllBuildingConfigs();
             LoadLanguage();
             LoadUnit();
-            //LoadBuilding();
+            LoadBuilding();
             mLoaded = true;
         }
 
@@ -156,13 +158,12 @@ namespace BlueNoah.CSV
             return dic;
         }
 
-        public BuildingCSVStructure GetBuildingById(int id)
+        public BuildingCSVStructure GetBuildingData(int id)
         {
-            BuildingCSVStructure building = new BuildingCSVStructure();
-            building.id = id;
-            building.building_name = "building_name:" + id;
-            building.building_cost = id * 100;
-            return building;
+            if (buildingDic.ContainsKey(id))
+                return this.buildingDic[id];
+            else
+                return null;
         }
     }
 }
