@@ -9,6 +9,8 @@ using BlueNoah.SceneControl.View;
 using UnityEngine;
 using System.Collections.Generic;
 using BlueNoah.AI.View.RTS;
+using BlueNoah.RTS.UI;
+using BlueNoah.Build;
 
 namespace BlueNoah.SceneControl
 {
@@ -16,6 +18,10 @@ namespace BlueNoah.SceneControl
     {
 
         RTSPlayerController mRTSPlayerController;
+
+        UIManager mUIManager;
+
+        BuildManager mBuildManager;
 
         SceneCore mSceneCore;
 
@@ -35,6 +41,13 @@ namespace BlueNoah.SceneControl
             mSceneCore.SetActorOnRemove(mSceneViewer.RemoveActorView);
             mSceneCore.OnAwake();
             InitInput();
+
+            mUIManager = GameObject.FindObjectOfType<UIManager>();
+            mBuildManager = GameObject.FindObjectOfType<BuildManager>();
+
+            mUIManager.onSelectBuildingItem = mBuildManager.Create;
+            mBuildManager.onSpawnActorGO = mSceneViewer.SpawnActorViewGO;
+
         }
 
         void Start()

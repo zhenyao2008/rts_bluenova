@@ -13,6 +13,8 @@ using BlueNoah.SceneControl;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
+using BlueNoah.RTS.UI;
+using BlueNoah.Build;
 
 namespace RTS
 {
@@ -48,7 +50,7 @@ namespace RTS
 
         void OnClick(EventData eventData)
         {
-            if (!eventData.currentTouch.isPointerOnGameObject && !UICamera.isOverUI && (EventSystem.current == null || !EventSystem.current.IsPointerOverGameObject()))
+            if (!eventData.currentTouch.isPointerOnGameObject && (EventSystem.current == null || !EventSystem.current.IsPointerOverGameObject()))
             {
                 UnSelectActors();
                 RaycastHit raycastHit;

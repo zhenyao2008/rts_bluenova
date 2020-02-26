@@ -27,8 +27,13 @@ namespace BlueNoah.SceneControl.View
         public void SpawnActorView(ActorCore actorCore)
         {
             GameObject go = mActorViewSpawnService.SpawnActor(actorCore);
-            ActorViewer actorViewer = go.GetOrAddComponent<ActorViewer>();
+            ActorViewer actorViewer = go.GetComponent<ActorViewer>();
             actorViewer.UpdateTransform();
+        }
+
+        public GameObject SpawnActorViewGO(string path)
+        {
+            return mActorViewSpawnService.SpawnActorGO(path);
         }
 
         public void RemoveActorView(ActorCore actorCore)

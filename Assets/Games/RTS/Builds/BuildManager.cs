@@ -1,13 +1,16 @@
 ﻿using System.Collections.Generic;
 using BlueNoah.AI.View;
+using BlueNoah.CSV;
 using BlueNoah.Event;
 using BlueNoah.Math.FixedPoint;
 using BlueNoah.PathFinding;
 using BlueNoah.PathFinding.FixedPoint;
 using UnityEngine;
+using UnityEngine.EventSystems;
 //パート、1.Grid;2.GridView.
 namespace BlueNoah.Build
 {
+    public delegate GameObject SpawnActorGO(string path);
     //1.Click 选中。
     //2.再次TouchDown,如果目标是选中物体，开始拖动。
     //3.TouchUp，停止拖动。 期间对地点是否越界进行判断，只能在网格范围以内移动。对于不可放置的地点进行红色注明。
@@ -30,6 +33,8 @@ namespace BlueNoah.Build
         GameObject mSelectBuilding;
 
         Vector3 mSelectBuildingOffset;
+
+        public SpawnActorGO onSpawnActorGO;
 
         bool mIsDraging;
         bool mIsControllable;
@@ -93,24 +98,27 @@ namespace BlueNoah.Build
 
         void OnTouchDown(EventData eventData)
         {
-            if (mSelectBuilding != null)
+            if (!eventData.currentTouch.isPointerOnGameObject && (EventSystem.current == null || !EventSystem.current.IsPointerOverGameObject()))
             {
-                RaycastHit raycastHit;
-                if (CameraControl.CameraController.Instance.GetWorldPositionByMousePosition(out raycastHit, LayerConstant.LAYER_BUILDING))
+                if (mSelectBuilding != null)
                 {
-                    if (mSelectBuilding == raycastHit.collider.transform.gameObject)
+                    RaycastHit raycastHit;
+                    if (CameraControl.CameraController.Instance.GetWorldPositionByMousePosition(out raycastHit, LayerConstant.LAYER_BUILDING))
                     {
-                        if (CameraControl.CameraController.Instance.GetWorldPositionByMousePosition(out raycastHit, LayerConstant.LAYER_GROUND))
+                        if (mSelectBuilding == raycastHit.collider.transform.gameObject)
                         {
-                            CameraControl.CameraController.Instance.IsControllable = false;
-                            mSelectBuildingOffset = raycastHit.point - mSelectBuilding.transform.position;
-                            mIsDraging = true;
+                            if (CameraControl.CameraController.Instance.GetWorldPositionByMousePosition(out raycastHit, LayerConstant.LAYER_GROUND))
+                            {
+                                CameraControl.CameraController.Instance.IsControllable = false;
+                                mSelectBuildingOffset = raycastHit.point - mSelectBuilding.transform.position;
+                                mIsDraging = true;
+                            }
                         }
                     }
-                }
-                else
-                {
-                    CameraControl.CameraController.Instance.IsControllable = true;
+                    else
+                    {
+                        CameraControl.CameraController.Instance.IsControllable = true;
+                    }
                 }
             }
         }
@@ -165,25 +173,27 @@ namespace BlueNoah.Build
 
         void OnClick(EventData eventData)
         {
-            if (mSelectBuilding != null)
-            {
-                //UnSelect.
-                mSelectBuilding.gameObject.GetOrAddComponent<ActorHighlighter>().HideHighlighter();
-
-                mSelectBuilding = null;
-            }
-            else
-            {
-                //Select.
-                RaycastHit raycastHit;
-                if (CameraControl.CameraController.Instance.GetWorldPositionByMousePosition(out raycastHit, LayerConstant.LAYER_BUILDING))
+            if (!eventData.currentTouch.isPointerOnGameObject && (EventSystem.current == null || !EventSystem.current.IsPointerOverGameObject())) {
+                if (mSelectBuilding != null)
                 {
+                    //UnSelect.
+                    mSelectBuilding.gameObject.GetOrAddComponent<ActorHighlighter>().HideHighlighter();
 
-                    mSelectBuilding = raycastHit.collider.transform.gameObject;
+                    mSelectBuilding = null;
+                }
+                else
+                {
+                    //Select.
+                    RaycastHit raycastHit;
+                    if (CameraControl.CameraController.Instance.GetWorldPositionByMousePosition(out raycastHit, LayerConstant.LAYER_BUILDING))
+                    {
 
-                    mSelectBuilding.GetComponent<ActorBuilding>().OnSpring();
+                        mSelectBuilding = raycastHit.collider.transform.gameObject;
 
-                    mSelectBuilding.gameObject.GetOrAddComponent<ActorHighlighter>().ShowHighlighter();
+                        mSelectBuilding.GetComponent<ActorBuilding>().OnSpring();
+
+                        mSelectBuilding.gameObject.GetOrAddComponent<ActorHighlighter>().ShowHighlighter();
+                    }
                 }
             }
         }
@@ -193,10 +203,13 @@ namespace BlueNoah.Build
             mIsDraging = false;
         }
 
-
-        public void Create()
+        public void Create(BuildingCSVStructure buildingCSVStructure)
         {
-
+            if (this.onSpawnActorGO!=null)
+            {
+                mSelectBuilding = onSpawnActorGO(buildingCSVStructure.resource_path);
+                mSelectBuilding.transform.position = CameraControl.CameraController.Instance.GetCameraForwardPosition();
+            }
         }
 
         public void Place()

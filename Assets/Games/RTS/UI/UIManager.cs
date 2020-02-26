@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using BlueNoah.CSV;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 namespace BlueNoah.RTS.UI
@@ -14,6 +15,8 @@ namespace BlueNoah.RTS.UI
         public GameObject containerBuildingList;
 
         public GameObject btnBuidlingItem;
+
+        public UnityAction<BuildingCSVStructure> onSelectBuildingItem;
 
         protected override void Awake()
         {
@@ -43,14 +46,13 @@ namespace BlueNoah.RTS.UI
             }
         }
 
-        void SelectBuildingItem(int id)
+        void SelectBuildingItem(BuildingCSVStructure item)
         {
             try
             {
-                BuildingCSVStructure buildingCSVStructure = CSVManager.Instance.GetBuildingData(id);
-                if (buildingCSVStructure!=null)
+                if (onSelectBuildingItem!=null)
                 {
-                    Debug.Log(buildingCSVStructure.id);
+                    onSelectBuildingItem(item);
                 }
             }
             catch (Exception ex)

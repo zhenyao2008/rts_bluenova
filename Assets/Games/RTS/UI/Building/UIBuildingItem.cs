@@ -13,17 +13,17 @@ namespace BlueNoah.RTS.UI
 
         public BuildingCSVStructure buildingCSVStructure;
 
-        public UnityAction<int> onClick;
+        public UnityAction<BuildingCSVStructure> onClick;
 
         private void Awake()
         {
             btnBuilding.onClick.AddListener(() => {
                 if(onClick!=null && buildingCSVStructure!=null)
-                    onClick(buildingCSVStructure.id);
+                    onClick(buildingCSVStructure);
             });
         }
 
-        public void SetData(BuildingCSVStructure buildingCSVStructure,UnityAction<int> onClick)
+        public void SetData(BuildingCSVStructure buildingCSVStructure,UnityAction<BuildingCSVStructure> onClick)
         {
             this.buildingCSVStructure = buildingCSVStructure;
             this.onClick = onClick;

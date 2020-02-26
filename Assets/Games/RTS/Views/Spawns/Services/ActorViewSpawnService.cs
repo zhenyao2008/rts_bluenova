@@ -45,17 +45,20 @@ namespace BlueNoah.AI.Spawn.View
 
         public GameObject SpawnActor(ActorCore actorCore)
         {
-            string path = actorCore.MapMonster.resource_path;
-            if (!mCachedActor.ContainsKey(path))
-            {
-                mCachedActor.Add(path,GetPrefab(path));
-            }
-            Debug.Log(path);
-            GameObject go = GameObject.Instantiate(mCachedActor[path]);
+            GameObject go = SpawnActorGO(actorCore.MapMonster.resource_path);
             ActorViewer actorViewer = go.GetOrAddComponent<ActorViewer>();
             actorViewer.Init(actorCore);
             AddActor(actorViewer);
             return go;
+        }
+        //Spawn the actor GO without any actor logic.
+        public GameObject SpawnActorGO(string path)
+        {
+            if (!mCachedActor.ContainsKey(path))
+            {
+                mCachedActor.Add(path, GetPrefab(path));
+            }
+            return GameObject.Instantiate(mCachedActor[path]);
         }
 
         public void RemoveActor(ActorCore actorCore)
