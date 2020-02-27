@@ -1,7 +1,0 @@
-id,name,action,size_x,size_y,layers,is_wall,wall_height,is_stair,stair_direct,resource_path
-1,wall,0,3,3,4,1,3,0,0,Prefabs/Buildings/Wall/Building_Wall_3_3
-2,stair,0,3,6,4,1,3,1,0,Prefabs/Buildings/Wall/Building_Wall_Stair_3_6
-3,stair,0,3,6,4,1,3,1,1,Prefabs/Buildings/Wall/Building_Wall_Stair_3_6_1
-4,stair,0,6,3,4,1,3,1,2,Prefabs/Buildings/Wall/Building_Wall_Stair_3_6_2
-5,stair,0,6,3,4,1,3,1,3,Prefabs/Buildings/Wall/Building_Wall_Stair_3_6_3
-6,barrack,0,5,5,4,0,0,0,0,Prefabs/Buildings/Barrack/Building_Barrack

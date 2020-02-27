@@ -16,7 +16,7 @@ namespace BlueNoah.RTS.UI
 
         public GameObject btnBuidlingItem;
 
-        public UnityAction<BuildingCSVStructure> onSelectBuildingItem;
+        public UnityAction<ActorCSVStructure> onSelectBuildingItem;
 
         protected override void Awake()
         {
@@ -36,17 +36,20 @@ namespace BlueNoah.RTS.UI
 
         void InitBuildingList()
         {
-            List<BuildingCSVStructure> buildings = CSVManager.Instance.buildingList;
+            List<ActorCSVStructure> buildings = CSVManager.Instance.actorList;
             for (int i=0;i<buildings.Count;i++)
             {
                 GameObject item = GameObject.Instantiate<GameObject>(btnBuidlingItem);
-                item.GetComponent<UIBuildingItem>().SetData(buildings[i],SelectBuildingItem);
-                item.transform.SetParent(btnBuidlingItem.transform.parent);
-                item.SetActive(true);
+                if (buildings[i].is_building == 1)
+                {
+                    item.GetComponent<UIBuildingItem>().SetData(buildings[i], SelectBuildingItem);
+                    item.transform.SetParent(btnBuidlingItem.transform.parent);
+                    item.SetActive(true);
+                }
             }
         }
 
-        void SelectBuildingItem(BuildingCSVStructure item)
+        void SelectBuildingItem(ActorCSVStructure item)
         {
             try
             {

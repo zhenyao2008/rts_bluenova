@@ -11,7 +11,7 @@ namespace BlueNoah.CSV
         //Original Data
         const string CSV_UNIT = "m_unit_1";
         //Original Data
-        const string CSV_BUILDING = "m_building";
+        const string CSV_ACTOR = "actors/m_actor";
         const string CSV_MAP_MONSTER_ROOT = "monsters/";
         const string CSV_MAP_BUILDING_ROOT = "buildings/";
         const string CSV_LANGUAGE = "m_localization";
@@ -27,10 +27,10 @@ namespace BlueNoah.CSV
 
         public List<KeyValueCSVStructure> languageList;
         public Dictionary<string, string> languageDic;
-        public List<BuildingCSVStructure> buildingList;
-        public Dictionary<int, BuildingCSVStructure> buildingDic;
-        public List<UnitCSVStructure> unitList;
-        public Dictionary<int, UnitCSVStructure> unitDic;
+        public List<ActorCSVStructure> actorList;
+        public Dictionary<int, ActorCSVStructure> actorDic;
+        //public List<UnitCSVStructure> unitList;
+        //public Dictionary<int, UnitCSVStructure> unitDic;
         public List<GeneralCSVStructure> ConventionList { get; private set; }
         public Dictionary<int, GeneralCSVStructure> ConventionDic { get; private set; }
         public List<GeneralCSVStructure> NgList { get; private set; }
@@ -53,21 +53,21 @@ namespace BlueNoah.CSV
             LoadAllMonsterConfigs();
             LoadAllBuildingConfigs();
             LoadLanguage();
-            LoadUnit();
-            LoadBuilding();
+            //LoadUnit();
+            LoadActor();
             mLoaded = true;
         }
 
-        void LoadUnit()
-        {
-            unitList = CreateCSVList<UnitCSVStructure>(CSV_UNIT);
-            unitDic = GetDictionary<UnitCSVStructure>(unitList);
-        }
+        //void LoadUnit()
+        //{
+        //    unitList = CreateCSVList<UnitCSVStructure>(CSV_UNIT);
+        //    unitDic = GetDictionary<UnitCSVStructure>(unitList);
+        //}
 
-        void LoadBuilding()
+        void LoadActor()
         {
-            buildingList = CreateCSVList<BuildingCSVStructure>(CSV_BUILDING);
-            buildingDic = GetDictionary<BuildingCSVStructure>(buildingList);
+            actorList = CreateCSVList<ActorCSVStructure>(CSV_ACTOR);
+            actorDic = GetDictionary<ActorCSVStructure>(actorList);
         }
 
         void LoadLanguage()
@@ -158,10 +158,10 @@ namespace BlueNoah.CSV
             return dic;
         }
 
-        public BuildingCSVStructure GetBuildingData(int id)
+        public ActorCSVStructure GetBuildingData(int id)
         {
-            if (buildingDic.ContainsKey(id))
-                return this.buildingDic[id];
+            if (actorDic.ContainsKey(id))
+                return this.actorDic[id];
             else
                 return null;
         }

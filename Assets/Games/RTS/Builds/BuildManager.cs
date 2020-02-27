@@ -5,6 +5,7 @@ using BlueNoah.Event;
 using BlueNoah.Math.FixedPoint;
 using BlueNoah.PathFinding;
 using BlueNoah.PathFinding.FixedPoint;
+using BlueNoah.SceneControl;
 using UnityEngine;
 using UnityEngine.EventSystems;
 //パート、1.Grid;2.GridView.
@@ -31,6 +32,8 @@ namespace BlueNoah.Build
         public int gridViewLayer;
 
         GameObject mSelectBuilding;
+
+        ActorCSVStructure mBuildingCSVStructure;
 
         Vector3 mSelectBuildingOffset;
 
@@ -141,19 +144,22 @@ namespace BlueNoah.Build
                 {
                     //得到目标位置，根据这个位置取到对应node的位置。
                     Vector3 targetPos = raycastHit.point - mSelectBuildingOffset; //- new FixedPointVector3(this.nodeWidth / 2, 0, this.nodeWidth / 2).ToVector3();
-                    ActorBuilding building = mSelectBuilding.GetComponent<ActorBuilding>();
-                    Vector3 gridOffset = new Vector3((building.xSize / 2f - 0.5f) * this.nodeWidth.AsFloat(), 0, (building.ySize / 2f - 0.5f) * this.nodeWidth.AsFloat());
-                    List<FixedPointNode> nodes = mFixedPointGrid.GetNearestNodes((targetPos - gridOffset).ToFixedPointVector3(), building.xSize, building.ySize);
+                    //ActorBuilding building = mSelectBuilding.GetOrAddComponent<ActorBuilding>();
+                    //building.xSize = 3;
+                    //building.ySize = 3;
+                    //Vector3 gridOffset = new Vector3((building.xSize / 2f - 0.5f) * this.nodeWidth.AsFloat(), 0, (building.ySize / 2f - 0.5f) * this.nodeWidth.AsFloat());
+                    List<FixedPointNode> nodes = mFixedPointGrid.GetNearestNodes((targetPos).ToFixedPointVector3(), mBuildingCSVStructure.size_x ,mBuildingCSVStructure.size_y);
                     if (nodes != null && nodes.Count > 0)
                     {
                         //collider的起始点其实是node中心，因为要从原点开始，所以实际位置需要减0.5个node宽度
-                        building.transform.position = nodes[0].pos.ToVector3() + gridOffset;
+                        mSelectBuilding.transform.position = nodes[0].pos.ToVector3();
+                        /*
                         if (building.currentNodes != null)
                         {
                             for (int i = 0; i < building.currentNodes.Count; i++)
                             {
-                                building.currentNodes[i].IsBlock = false;
-                                mGridViewGroup.SetNodeColor(building.currentNodes[i].x, building.currentNodes[i].z,Color.green);
+                                //building.currentNodes[i].IsBlock = false;
+                                //mGridViewGroup.SetNodeColor(building.currentNodes[i].x, building.currentNodes[i].z,Color.green);
                             }
                         }
                         building.currentNodes = nodes;
@@ -161,11 +167,12 @@ namespace BlueNoah.Build
                         {
                             for (int i = 0; i < building.currentNodes.Count; i++)
                             {
-                                building.currentNodes[i].IsBlock = true;
-                                mGridViewGroup.SetNodeColor(building.currentNodes[i].x, building.currentNodes[i].z, Color.red);
+                                //building.currentNodes[i].IsBlock = true;
+                                //mGridViewGroup.SetNodeColor(building.currentNodes[i].x, building.currentNodes[i].z, Color.red);
                             }
                         }
-                        mGridViewGroup.ApplyColors();
+                        */
+                        //mGridViewGroup.ApplyColors();
                     }
                 }
             }
@@ -190,9 +197,9 @@ namespace BlueNoah.Build
 
                         mSelectBuilding = raycastHit.collider.transform.gameObject;
 
-                        mSelectBuilding.GetComponent<ActorBuilding>().OnSpring();
+                        //mSelectBuilding.GetComponent<ActorBuilding>().OnSpring();
 
-                        mSelectBuilding.gameObject.GetOrAddComponent<ActorHighlighter>().ShowHighlighter();
+                        //mSelectBuilding.gameObject.GetOrAddComponent<ActorHighlighter>().ShowHighlighter();
                     }
                 }
             }
@@ -200,15 +207,25 @@ namespace BlueNoah.Build
 
         void OnTouchUp(EventData eventData)
         {
-            mIsDraging = false;
+            if (!eventData.currentTouch.isPointerOnGameObject && (EventSystem.current == null || !EventSystem.current.IsPointerOverGameObject()))
+            {
+                if (mIsDraging)
+                {
+                    RTSSceneController.Instance.SpawnBuilding(1, mBuildingCSVStructure.id, mSelectBuilding.transform.position, mSelectBuilding.transform.eulerAngles);
+                    GameObject.Destroy(mSelectBuilding);
+                }
+                CameraControl.CameraController.Instance.IsControllable = true;
+                mIsDraging = false;
+            }
         }
 
-        public void Create(BuildingCSVStructure buildingCSVStructure)
+        public void Create(ActorCSVStructure buildingCSVStructure)
         {
             if (this.onSpawnActorGO!=null)
             {
                 mSelectBuilding = onSpawnActorGO(buildingCSVStructure.resource_path);
                 mSelectBuilding.transform.position = CameraControl.CameraController.Instance.GetCameraForwardPosition();
+                mBuildingCSVStructure = buildingCSVStructure;
             }
         }
 
