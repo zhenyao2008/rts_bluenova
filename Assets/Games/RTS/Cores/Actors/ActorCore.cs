@@ -101,7 +101,7 @@ namespace BlueNoah.AI.RTS
 
             int actorTypeId = mapMonster.unit_id;
 
-            int[] layers = mapMonster.LayerInt;
+            int[] layers = mapMonster.ActorCSVStructure.LayerInt;
 
             actorAttribute = new ActorAttribute();
 
@@ -109,21 +109,21 @@ namespace BlueNoah.AI.RTS
 
             actorAttribute.actorTypeId = actorTypeId;
 
-            actorAttribute.runSpeed = mapMonster.move_speed;
+            actorAttribute.runSpeed = mapMonster.ActorCSVStructure.move_speed;
 
-            actorAttribute.isBuilding = mapMonster.is_building;
+            actorAttribute.isBuilding = mapMonster.ActorCSVStructure.is_building;
 
-            actorAttribute.isWall = mapMonster.is_wall;
+            actorAttribute.isWall = mapMonster.ActorCSVStructure.is_wall;
 
-            actorAttribute.sizeX = mapMonster.size_x;
+            actorAttribute.sizeX = mapMonster.ActorCSVStructure.size_x;
 
-            actorAttribute.sizeZ = mapMonster.size_y;
+            actorAttribute.sizeZ = mapMonster.ActorCSVStructure.size_y;
 
-            actorAttribute.wallHeight = mapMonster.wall_height;
+            actorAttribute.wallHeight = mapMonster.ActorCSVStructure.wall_height;
 
-            actorAttribute.isStair = mapMonster.is_stair;
+            actorAttribute.isStair = mapMonster.ActorCSVStructure.is_stair;
 
-            actorAttribute.stairDirect = mapMonster.stair_direct;
+            actorAttribute.stairDirect = mapMonster.ActorCSVStructure.stair_direct;
 
             transform = new FixedPointTransform();
 
@@ -140,7 +140,7 @@ namespace BlueNoah.AI.RTS
                 transform.layerMask.AddLayer((uint)layers[i]);
             }
 
-            mFSMId = mapMonster.action;
+            mFSMId = mapMonster.ActorCSVStructure.action;
 
             mActorAI = new ActorAI(this);
 

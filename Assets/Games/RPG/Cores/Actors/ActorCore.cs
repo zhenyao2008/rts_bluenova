@@ -99,7 +99,7 @@ namespace BlueNoah.RPG
 
             int actorTypeId = mapMonster.unit_id;
 
-            int[] layers = mapMonster.LayerInt;
+            int[] layers = mapMonster.ActorCSVStructure.LayerInt;
 
             actorAttribute = new ActorAttribute();
 
@@ -107,7 +107,7 @@ namespace BlueNoah.RPG
 
             actorAttribute.actorTypeId = actorTypeId;
 
-            actorAttribute.runSpeed = mapMonster.move_speed;
+            actorAttribute.runSpeed = mapMonster.ActorCSVStructure.move_speed;
 
             transform = new FixedPointTransform();
 
@@ -122,7 +122,7 @@ namespace BlueNoah.RPG
                 transform.layerMask.AddLayer((uint)layers[i]);
             }
 
-            mFSMId = mapMonster.action;
+            mFSMId = mapMonster.ActorCSVStructure.action;
 
             mActorAI = new ActorAI(this);
 

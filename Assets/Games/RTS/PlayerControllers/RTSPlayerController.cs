@@ -24,6 +24,8 @@ namespace RTS
 
         public UnityAction<int, int, Vector3, Vector3> onCreateActor;
 
+        public UnityAction<int, int, Vector3, Vector3> onCreateBuilding;
+
         public int playerId = 1;
 
         Dictionary<long, ActorViewer> mSelectedActors;
@@ -58,8 +60,7 @@ namespace RTS
                 {
                     if (onCreateActor != null)
                     {
-                        Debug.Log("1234");
-                        onCreateActor(playerId, 1, raycastHit.point, Vector3.zero);
+                        onCreateActor(playerId, 8, raycastHit.point, Vector3.zero);
                     }
                 }
             }

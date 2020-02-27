@@ -45,7 +45,7 @@ namespace BlueNoah.AI.Spawn.View
 
         public GameObject SpawnActor(ActorCore actorCore)
         {
-            GameObject go = SpawnActorGO(actorCore.MapMonster.resource_path);
+            GameObject go = SpawnActorGO(actorCore.MapMonster.ActorCSVStructure.resource_path);
             ActorViewer actorViewer = go.GetOrAddComponent<ActorViewer>();
             actorViewer.Init(actorCore);
             AddActor(actorViewer);

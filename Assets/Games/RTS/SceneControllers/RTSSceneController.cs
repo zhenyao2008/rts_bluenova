@@ -105,6 +105,7 @@ namespace BlueNoah.SceneControl
         {
             mRTSPlayerController = new RTSPlayerController();
             mRTSPlayerController.onCreateActor = SpawnActor;
+            mRTSPlayerController.onCreateBuilding = SpawnBuilding;
         }
 
         void InitSmallObjects()
@@ -130,6 +131,11 @@ namespace BlueNoah.SceneControl
         public void SpawnActor(int playerId, int actorId, Vector3 targetPosition, Vector3 eulerAngle)
         {
             mSceneCore.SpawnActor(playerId, actorId, targetPosition);
+        }
+
+        public void SpawnBuilding(int playerId, int actorId, Vector3 targetPosition, Vector3 eulerAngle)
+        {
+            mSceneCore.SpawnBuilding(playerId, actorId, targetPosition);
         }
 
         private void OnGUI()

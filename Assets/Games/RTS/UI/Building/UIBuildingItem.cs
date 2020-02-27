@@ -11,9 +11,9 @@ namespace BlueNoah.RTS.UI
 
         public Text txtBuilding;
 
-        public BuildingCSVStructure buildingCSVStructure;
+        public ActorCSVStructure buildingCSVStructure;
 
-        public UnityAction<BuildingCSVStructure> onClick;
+        public UnityAction<ActorCSVStructure> onClick;
 
         private void Awake()
         {
@@ -23,7 +23,7 @@ namespace BlueNoah.RTS.UI
             });
         }
 
-        public void SetData(BuildingCSVStructure buildingCSVStructure,UnityAction<BuildingCSVStructure> onClick)
+        public void SetData(ActorCSVStructure buildingCSVStructure,UnityAction<ActorCSVStructure> onClick)
         {
             this.buildingCSVStructure = buildingCSVStructure;
             this.onClick = onClick;

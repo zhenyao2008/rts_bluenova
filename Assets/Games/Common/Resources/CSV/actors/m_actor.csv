@@ -1,0 +1,14 @@
+id,name,action,size_x,size_y,layers,is_building,move_speed,is_wall,wall_height,is_stair,stair_direct,resource_path
+1,wall,1,3,3,4,1,0,1,3,0,0,Prefabs/Buildings/Wall/Building_Wall_3_3
+2,stair,1,3,6,4,1,0,1,3,1,0,Prefabs/Buildings/Wall/Building_Wall_Stair_3_6
+3,stair,1,3,6,4,1,0,1,3,1,1,Prefabs/Buildings/Wall/Building_Wall_Stair_3_6_1
+4,stair,1,6,3,4,1,0,1,3,1,2,Prefabs/Buildings/Wall/Building_Wall_Stair_3_6_2
+5,stair,1,6,3,4,1,0,1,3,1,3,Prefabs/Buildings/Wall/Building_Wall_Stair_3_6_3
+6,barrack,1,5,5,4,1,0,0,0,0,0,Prefabs/Buildings/Barrack/Building_Barrack
+7,barrack,1,5,5,4,1,0,0,0,0,0,Prefabs/Buildings/Barrack/Building_Barrack_Red
+8,warrior,1,1,1,1|2|3,0,1000,0,0,0,0,Prefabs/Actors/Footman/Soldier_Militia
+9,warrior,1,1,1,1|2|3,0,1000,0,0,0,0,Prefabs/Actors/Footman/Soldier_Militia_Red
+10,wall,1,2,2,4,1,0,1,3,0,0,Prefabs/Buildings/Wall/Building_Wall_2_2
+11,wall,1,4,4,4,1,0,1,3,0,0,Prefabs/Buildings/Wall/Building_Wall_4_4
+12,wall,1,5,5,4,1,0,1,3,0,0,Prefabs/Buildings/Wall/Building_Wall_5_5
+13,wall,1,6,6,4,1,0,1,3,0,0,Prefabs/Buildings/Wall/Building_Wall_6_6

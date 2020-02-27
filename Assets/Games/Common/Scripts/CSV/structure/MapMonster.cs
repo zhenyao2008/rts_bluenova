@@ -10,8 +10,6 @@ namespace BlueNoah.CSV
         [CsvColumn()]
         public int unit_id;
         [CsvColumn()]
-        public int action;
-        [CsvColumn()]
         public int pos_x;
         [CsvColumn()]
         public int pos_y;
@@ -19,43 +17,21 @@ namespace BlueNoah.CSV
         public int angle_y;
         [CsvColumn()]
         public int alignment;
-        [CsvColumn()]
-        public int size_x;
-        [CsvColumn()]
-        public int size_y;
-        [CsvColumn()]
-        public int is_building;
-        [CsvColumn()]
-        public int is_wall;
-        [CsvColumn()]
-        public string layers;
-        [CsvColumn()]
-        public int move_speed;
-        [CsvColumn()]
-        public string resource_path;
-        [CsvColumn()]
-        public int wall_height;
-        [CsvColumn()]
-        public int is_stair;
-        [CsvColumn()]
-        public int stair_direct;
 
+        ActorCSVStructure mActorCSVStructure;
 
-        public int[] LayerInt {
+        public ActorCSVStructure ActorCSVStructure
+        {
             get
             {
-                string[] subLayers = layers.Split('|');
-                int[] subLayerInts = new int[subLayers.Length];
-                for (int i=0;i<subLayers.Length;i++)
+                if (mActorCSVStructure==null)
                 {
-                    int layer;
-                    if (int.TryParse(subLayers[i],out layer))
-                    {
-                        subLayerInts[i] = layer;
-                    }
+                    mActorCSVStructure = CSVManager.Instance.actorDic[unit_id];
                 }
-                return subLayerInts;
+                return mActorCSVStructure;
             }
         }
+
+
     }
 }

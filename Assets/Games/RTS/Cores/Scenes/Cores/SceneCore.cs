@@ -72,17 +72,22 @@ namespace BlueNoah.SceneControl
         {
             MapMonster mapMonster = new MapMonster();
             mapMonster.alignment = playerId;
-            mapMonster.action = 1;
             mapMonster.angle_y = 0;
-            mapMonster.id = 1;
-            mapMonster.layers = "1|2|3";
-            mapMonster.move_speed = 1000;
+            mapMonster.unit_id = actorId;
             mapMonster.name = "a";
             mapMonster.pos_x = (int)(targetPosition.x * 1000);
             mapMonster.pos_y = (int)(targetPosition.z * 1000);
-            mapMonster.size_x = 1;
-            mapMonster.size_y = 1;
-            mapMonster.resource_path = "Prefabs/Actors/Footman/Soldier_Militia";
+            mActorCoreSpawnService.SpawnActor(mapMonster);
+        }
+
+        public void SpawnBuilding(int playerId, int actorId, Vector3 targetPosition)
+        {
+            MapMonster mapMonster = new MapMonster();
+            mapMonster.alignment = playerId;
+            mapMonster.angle_y = 0;
+            mapMonster.unit_id = actorId;
+            mapMonster.pos_x = (int)(targetPosition.x * 1000);
+            mapMonster.pos_y = (int)(targetPosition.z * 1000);
             mActorCoreSpawnService.SpawnActor(mapMonster);
         }
 
