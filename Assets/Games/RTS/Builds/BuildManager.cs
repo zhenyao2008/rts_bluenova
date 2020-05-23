@@ -140,6 +140,8 @@ namespace BlueNoah.Build
 
                 RaycastHit raycastHit;
 
+               
+
                 if (Physics.Raycast(Camera.main.transform.position, forward, out raycastHit, Mathf.Infinity, 1 << LayerConstant.LAYER_GROUND))
                 {
                     //得到目标位置，根据这个位置取到对应node的位置。
